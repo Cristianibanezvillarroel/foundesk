@@ -11,9 +11,7 @@ export const NavBar = () => {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand id="Navbar-Brand" as={Link} to='/' href="/">foundesk</Navbar.Brand>
-                    <img id="Navbar-img" href='/public/logo_fw.png' />
-
+                    <Navbar.Brand id="Navbar-Brand" as={Link} to='/' href="/">foundesk  <img id="Navbar-img" src='/public/logo_fw.png' alt='foundesk' /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
