@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import logo from '/public/logo_fw.png';
 
 
 export const NavBar = () => {
@@ -11,7 +12,7 @@ export const NavBar = () => {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand id="Navbar-Brand" as={Link} to='/' href="/">foundesk  <img id="Navbar-img" src='/public/logo_fw.png' alt='foundesk' /></Navbar.Brand>
+                    <Navbar.Brand id="Navbar-Brand" as={Link} to='/' href="/">foundesk  <img id="Navbar-img" src={logo} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
