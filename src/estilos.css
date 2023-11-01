@@ -8,3 +8,43 @@
     width: 20px;
     height: 20px;
 }
+
+.calling {
+    background-color: rgb(73, 62, 230);
+    padding: 3px;
+    
+}
+
+#call-left-llamado {
+    color: aliceblue;
+    font-size:xx-large;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#call-left-bajada {
+    color: aliceblue;
+    font-size:small;
+    margin-top: 20px;    
+}
+
+#call-left-button Button{
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size:small;
+}
+
+#call-img {
+    margin-top: 10px;
+    border-radius: 20%;
+    height: 300px;
+}
+
+#call-line {
+    color: aliceblue;
+    font-size:small;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
