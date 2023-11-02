@@ -27,8 +27,8 @@ export const NavBar = () => {
                                     Todos los cursos
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link as={Link} to='/herramientas' href="/herramientas">Herramientas</Nav.Link>
-                            <Nav.Link as={Link} to='/partners' href="/partners">Partners</Nav.Link>
+                            <Nav.Link as={Link} to='/dashboards' href="/dashboards">Dashboards</Nav.Link>
+                            <Nav.Link as={Link} to='/documentals' href="/documentals">Gestion Documental</Nav.Link>
                             <Nav.Link as={Link} to='/nosotros' href="/nosotros">Nosotros</Nav.Link>
                             <Nav.Link as={Link} to='/clientes' href="/clientes">Nuestros clientes</Nav.Link>
                         </Nav>
