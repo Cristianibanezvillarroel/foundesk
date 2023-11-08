@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import { RationalDetailImg } from './RationalDetailImg'
 import { RationalDetailContent } from './RationalDetailContent'
 
@@ -16,11 +16,19 @@ export const RationalDetail = () => {
         <Button variant='primary'>Cursos</Button>{''}
         <Button variant='light'>Dashboard</Button>{''}
         <Button variant='light'>Archivos</Button>{''}
-        </div>
+      </div>
       <div id='rationaldetail-content'>
-        <RationalDetailImg />
-        <RationalDetailContent />
-        </div>
+        <Container>
+          <Row>
+            <Col md={6} className='mb-4'>
+              <RationalDetailImg />
+            </Col>
+            <Col md={6} className='mb-4'>
+              <RationalDetailContent />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   )
 }

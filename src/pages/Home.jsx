@@ -40,7 +40,13 @@ export const Home = () => {
         </Container>
       </div>
       <div className='rationaldetail'>
-        <RationalDetail />
+        <Container>
+          <Row>
+            <Col md={12} className='mb-4'>
+              <RationalDetail />
+            </Col>
+          </Row>
+        </Container>
       </div>
       <Customer />
       <WhyFoundesk />
