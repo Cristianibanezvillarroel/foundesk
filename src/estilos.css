@@ -101,8 +101,6 @@
 }
 
 .rationaldetail {
-    display: flex;
-    flex-direction: column;
     background-color: rgb(252, 252, 253);
     padding: 3px;
     align-items: center;
