@@ -13,6 +13,7 @@
     background-color: rgb(73, 62, 230);
     padding: 3px;
     
+    
 }
 
 #call-left-llamado {
@@ -36,9 +37,10 @@
 
 #call-img {
     margin-top: 10px;
-    border-radius: 20%;
+    border-radius: 10%;
     height: 300px;
-    max-width: max-content;
+    width: 100%;
+    height: 100%;
 }
 
 #call-line {
@@ -77,10 +79,9 @@
 
 #rational-img {
     margin-top: 10px;
-    border-radius: 20%;
-    height: 300px;
-    align-content: space-between;
-    max-width: fit-content;
+    border-radius: 10%;
+    width: 100%;
+    height: 100%;
 }
 
 .rational-left-accordion {
@@ -102,53 +103,47 @@
     font-size: medium;
 }
 
-.rationaldetail {
+.detail {
     background-color: rgb(252, 252, 253);
     text-align: center;
 }
 
-#rationaldetail-up-llamado {
+#detail-up-llamado {
     color: rgb(15, 15, 15);
     font-size:xx-large;
     font-weight: bold;
-    text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;    
+    text-align: center;    
 }
 
-#rationaldetail-bajada {
+#detail-bajada {
     text-align: center !important;
 }
 
-#rationaldetail-button {
+#detail-button {
     align-self: center;
 }
 
-#rationaldetail-button Button {
+#detail-button Button {
     margin-right: 10px;
 }
 
-#rationaldetail-content {
+#detail-text {
     display: flex;
     flex-direction: row;
-    margin: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
-#rationaldetail-img {
+#detail-img {
     margin-top: 10px;
-    margin-right: 20px;
     border-radius: 10%;
-    height: 300px;
-    align-content: space-between;
+    width: 100%;
+    height: 100%;
 }
 
-#rationaldetail-content-right {
+#detail-text-right {
     max-width: 50px;
 }
 
-#rationaldetail-content-llamado {
+#detail-text-llamado {
     color: rgb(15, 15, 15);
     font-size:xx-large;
     margin-top: 20px;
@@ -156,7 +151,7 @@
     text-align: left;
 }
 
-#rationaldetail-content-bajada {
+#detail-text-bajada {
     text-align: left !important;
     max-width: 700px;
 }

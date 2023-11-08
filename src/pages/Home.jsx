@@ -1,7 +1,7 @@
 import React from 'react'
 import { Rational } from '../components/home/Rational'
 import { Calling } from '../components/home/Calling'
-import { RationalDetail } from '../components/home/RationalDetail'
+import { Detail } from '../components/home/Detail'
 import { Customer } from '../components/home/Customer'
 import { WhyFoundesk } from '../components/home/WhyFoundesk'
 import { Contents } from '../components/home/Contents'
@@ -39,11 +39,11 @@ export const Home = () => {
           </Row>
         </Container>
       </div>
-      <div className='rationaldetail'>
+      <div className='detail'>
         <Container>
           <Row>
-            <Col md={12} className='mb-4'>
-              <RationalDetail />
+            <Col>
+              <Detail />
             </Col>
           </Row>
         </Container>

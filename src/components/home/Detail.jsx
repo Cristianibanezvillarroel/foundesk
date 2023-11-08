@@ -1,30 +1,30 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-import { RationalDetailImg } from './RationalDetailImg'
-import { RationalDetailContent } from './RationalDetailContent'
+import { DetailImg } from './DetailImg'
+import { DetailText } from './DetailText'
 
-export const RationalDetail = () => {
+export const Detail = () => {
   return (
     <>
-      <div id='rationaldetail-up-llamado'>
+      <div id='detail-up-llamado'>
         <p>La plataforma que te permitirá desarrollar tus capacidades en un solo lugar.</p>
       </div>
-      <div id='rationaldetail-bajada'>
+      <div id='detail-bajada'>
         <p>Con Foundesk, eleva tu potencial al siguiente nivel de una forma fácil y sencilla.</p>
       </div>
-      <div id='rationaldetail-button'>
+      <div id='detail-button'>
         <Button variant='primary'>Cursos</Button>{''}
         <Button variant='light'>Dashboard</Button>{''}
         <Button variant='light'>Archivos</Button>{''}
       </div>
-      <div id='rationaldetail-content'>
+      <div id='detail-text'>
         <Container>
           <Row>
             <Col md={6} className='mb-4'>
-              <RationalDetailImg />
+              <DetailImg />
             </Col>
             <Col md={6} className='mb-4'>
-              <RationalDetailContent />
+              <DetailText />
             </Col>
           </Row>
         </Container>

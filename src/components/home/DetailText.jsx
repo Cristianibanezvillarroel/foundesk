@@ -1,18 +1,16 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-import { RationalAccordion } from './RationalAccordion'
 
-export const RationalDetailContent = () => {
+export const DetailText = () => {
   return (
     <>
       <div>
-        <div id='rationaldetail-content-right'>
+        <div id='detail-text-right'>
           Cursos
         </div>
-        <div id='rationaldetail-content-llamado'>
+        <div id='detail-text-llamado'>
           <p>Centraliza capacitación, aprendizaje y buenas prácticas.</p>
         </div>
-        <div id='rationaldetail-content-bajada'>
+        <div id='detail-text-bajada'>
           <p>Accede a conocimiento especializado con cursos exclusivamente diseñados para las necesidades de un emprendedor, y logra dominio de herramientas de control que aquí te proporcionamos para una mejor administración.</p>
         </div>
       </div>
