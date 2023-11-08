@@ -6,7 +6,7 @@ export const RationalAccordion = () => {
     <Accordion className='rational-left-accordion'>
       <Accordion.Item eventKey="0">
         <Accordion.Header>
-          <h6 className='h6-accordion-heading'>+ Mentorias especializadas de 30 min</h6>
+          <h6 className='h6-accordion-heading'>+ Cursos especializados de 30 min</h6>
         </Accordion.Header>
         <Accordion.Body>
           <h7>Accede a cursos especializados en las distintas áreas de tu negocio con contenido dirigido y orientado a la accion.</h7><br />
