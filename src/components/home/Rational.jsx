@@ -16,7 +16,7 @@ export const Rational = () => {
           <RationalAccordion />
         </div>
         <div id='rational-left-button'>
-          <Button variant='primary'>Gana control hoy</Button>
+          <Button variant='primary'>Comienza hoy</Button>
         </div>
       </div>
     </>

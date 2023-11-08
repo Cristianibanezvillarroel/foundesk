@@ -39,7 +39,9 @@ export const Home = () => {
           </Row>
         </Container>
       </div>
-      <RationalDetail />
+      <div className='rationaldetail'>
+        <RationalDetail />
+      </div>
       <Customer />
       <WhyFoundesk />
       <Contents />

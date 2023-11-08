@@ -100,3 +100,72 @@
     font-size: medium;
 }
 
+.rationaldetail {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(252, 252, 253);
+    padding: 3px;
+    align-items: center;
+    align-content: center;
+    
+}
+
+#rationaldetail-up-llamado {
+    color: rgb(15, 15, 15);
+    font-size: 50px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;    
+}
+
+#rationaldetail-bajada {
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#rationaldetail-button {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+#rationaldetail-button Button {
+    margin-left: 10px;
+}
+
+#rationaldetail-content {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#rationaldetail-img {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 10%;
+    height: 300px;
+    align-content: space-between;
+}
+
+#rationaldetail-content-right {
+    max-width: 50px;
+}
+
+#rationaldetail-content-llamado {
+    max-width: 500px;
+    color: rgb(15, 15, 15);
+    font-size:xx-large;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#rationaldetail-content-bajada {
+    max-width: 700px;
+}
+
