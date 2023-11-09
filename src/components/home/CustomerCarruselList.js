@@ -6,7 +6,7 @@ export const ListCustomerCarrusel = [
             {
                 'idItem': 0,
                 'nombre': 'algo',
-                'imagen': "/public/rationalimg.png"
+                'imagen': "/public/carrusel_img1.webp"
             }
         ]
     }
