@@ -6,7 +6,7 @@ export const ListCustomerCarrusel = [
             {
                 'idItem': 0,
                 'nombre': 'algo',
-                'imagen': "/public/carrusel_img1.png"
+                'imagen': "/public/carrusel_img2.png"
             }
         ]
     }
