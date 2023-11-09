@@ -173,3 +173,49 @@
     max-width: 100%;
     height: auto;
 }
+
+.whyfoundesk {
+    background-color: rgb(73, 62, 230);
+    padding: 3px;
+    text-align: center;
+}
+
+#whyfoundesk-line1 {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+#whyfoundesk-line2 {
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+#whyfoundesk-line3 {
+    font-size: small;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+.whyfoundesk-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.whyfoundesk-data h5 {
+    font-size: small;
+    font-weight: lighter;
+}
+
+#whyfoundesk-button {
+    margin-bottom: 10px;
+}
