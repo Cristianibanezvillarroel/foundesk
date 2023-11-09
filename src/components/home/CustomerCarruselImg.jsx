@@ -5,7 +5,7 @@ import { ListCustomerCarrusel } from './CustomerCarruselList'
 export const CustomerCarruselImg = () => {
 
   const ListFiltrada = ListCustomerCarrusel.filter(List => {
-    return List.categoria === 1
+    return List.categoria == 1;
   })
   return (
     <>
