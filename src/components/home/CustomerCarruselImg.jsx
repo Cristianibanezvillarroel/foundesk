@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { ListCustomerCarrusel } from '../CustomerCarruselList'
+import {ListCustomerCarrusel} from '../CustomerCarruselList'
 
 export const CustomerCarruselImg = () => {
 
