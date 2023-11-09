@@ -156,3 +156,20 @@
     max-width: 700px;
 }
 
+.customer {
+    background-color: rgba(196, 224, 231, 0.473);
+}
+
+#customer-llamado {
+    color: rgb(15, 15, 15);
+    font-size:xx-large;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;    
+}
+
+#customercarrusel-img {
+    max-width: 100%;
+    height: auto;
+}

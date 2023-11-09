@@ -6,10 +6,10 @@ export const Calling = () => {
     <>
       <div id='call-left' >
         <div id='call-left-llamado'>
-          <p>Escala tus capacidades para un crecimiento sostenible</p>
+          <p>Escala tu potencial para un crecimiento sostenible</p>
         </div>
         <div id='call-left-bajada'>
-          <p>Somos el software que integra cursos, dashboards y gestion documental para el emprendedor todo en un mismo lugar, y eleva la productividad en la administracion de tu negocio.</p>
+          <p>Somos el software que integra cursos, dashboards y gestion de archivos para el emprendedor todo en un mismo lugar, y eleva la productividad en la administracion de tu negocio.</p>
         </div>
         <div id='call-left-button'>
           <Button variant='primary'>Solicita una demo</Button>

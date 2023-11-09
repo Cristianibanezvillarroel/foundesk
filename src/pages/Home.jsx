@@ -48,7 +48,15 @@ export const Home = () => {
           </Row>
         </Container>
       </div>
-      <Customer />
+      <div className='customer'>
+        <Container>
+          <Row>
+            <Col>
+              <Customer />
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <WhyFoundesk />
       <Contents />
       <Start />
