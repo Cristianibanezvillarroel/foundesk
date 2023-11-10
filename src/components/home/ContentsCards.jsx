@@ -9,11 +9,11 @@ export const ContentsCards = () => {
   })
   return (
     <>
-      <div className='row g-3'>
+      <div className='row'>
         {ListFiltrada.map(content => content.items.map(
           item =>
             <div className='col xs-12 col-md-6 col-lg-4'>
-              <Card style={{ width: '18rem' }}>
+              <Card>
                 <Card.Img variant="top" src={item.imagen} />
                 <Card.Body>
                   <Badge bg="secondary">{item.tipo}</Badge>
