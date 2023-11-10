@@ -1,5 +1,5 @@
 import React from 'react'
-import Startgif from '/public/_3-Productos-Adaptacion-Gif.gif'
+import Startgif from '/public/startanimation.gif'
 
 export const StartImg = () => {
   return (
