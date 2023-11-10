@@ -219,3 +219,61 @@
 #whyfoundesk-button {
     margin-bottom: 10px;
 }
+
+.contents {
+    background-color: rgb(250, 250, 252);
+    padding: 3px;
+    text-align: left;
+}
+
+#contents-llamado {
+    color: rgb(15, 15, 15);
+    font-size:xx-large;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 15px;    
+}
+
+#contents-bajada {
+    color: rgb(15, 15, 15);
+    font-size:medium;
+    margin-top: 10px;
+    font-weight: lighter;
+    text-align: left;
+    margin-bottom: 15px;   
+}
+
+#contents-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+#contents-link {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    color: blue;
+    text-decoration: underline;
+}
+
+.start {
+    background-color: rgba(230, 245, 255, 1);
+    padding: 3px;
+    text-align: left;    
+}
+
+#start-llamado {
+    color: rgb(15, 15, 15);
+    font-size:xx-large;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 15px;    
+}
+
+#start-img {
+    max-width: 100%;
+    height: auto;
+}

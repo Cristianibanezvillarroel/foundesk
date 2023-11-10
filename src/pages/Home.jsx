@@ -10,6 +10,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { CallingImg } from '../components/home/CallingImg'
 import { CallingLine } from '../components/home/CallingLine'
 import { RationalImg } from '../components/home/RationalImg'
+import { StartImg } from '../components/home/StartImg'
 
 export const Home = () => {
   return (
@@ -66,8 +67,27 @@ export const Home = () => {
           </Row>
         </Container>
       </div>
-      <Contents />
-      <Start />
+      <div className='contents'>
+        <Container>
+          <Row>
+            <Col>
+              <Contents />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <div className='start'>
+        <Container>
+          <Row>
+            <Col md={6} className='mb-4'>
+              <Start />
+            </Col>
+            <Col md={6} className='mb-4'>
+              <StartImg />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   )
 }
