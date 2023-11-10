@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container, Row } from 'react-bootstrap'
 import {ListCustomerCarrusel} from '../CustomerCarruselList'
 
 export const CustomerCarruselImg = () => {
@@ -9,7 +9,8 @@ export const CustomerCarruselImg = () => {
   })
   return (
     <>
-      <div className='row py-5 mx-5'>
+    <Container>
+      <Row>
       {ListFiltrada.map(content => content.items.map(
             item =>
         <div className='col xs-6 col-md-6 d-flex flex-column justify-content-between'>
@@ -23,10 +24,11 @@ export const CustomerCarruselImg = () => {
           <div style={{ fontWeight: 'bold' }}>Andres Villarroel</div>
           <div style={{ fontSize: 'small' }}>CEO Deppa</div>
           <div>
-            <Button class="btn btn-primary btn-sm" variant='primary'>Conoce mas aqui</Button>
+            <Button className="btn btn-primary btn-sm mb-5" variant='primary'>Conoce mas aqui</Button>
           </div>
         </div>
-      </div>
+      </Row>
+      </Container>
     </>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { ListContentsCards } from '../ContentsCardsList'
+import { Col, Row } from 'react-bootstrap';
 
 export const ContentsCards = () => {
   const ListFiltrada = ListContentsCards.filter(List => {
@@ -9,10 +10,10 @@ export const ContentsCards = () => {
   })
   return (
     <>
-      <div className='row'>
+      <Row>
         {ListFiltrada.map(content => content.items.map(
           item =>
-            <div className='col xs-12 col-md-6 col-lg-4'>
+            <Col md={6} lg={4} className='mb-4'>
               <Card>
                 <Card.Img variant="top" src={item.imagen} />
                 <Card.Body>
@@ -23,9 +24,9 @@ export const ContentsCards = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </div>
+            </Col>
         ))}
-      </div>
+      </Row>
     </>
   )
 }
