@@ -15,10 +15,10 @@ export const RationalAccordion = () => {
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header>
-          <h6 className='h6-accordion-heading'>+ Riesgos de Base</h6>
+          <h6 className='h6-accordion-heading'>+ Riesgos Financieros</h6>
         </Accordion.Header>
         <Accordion.Body>
-         <h7>A través de nuestra plataforma podrás revisar en tiempo real los riesgos financieros asociados a tus obligaciones tributarias, laborales y administrativas.</h7><br />
+         <h7>A través de nuestra plataforma podrás revisar en tiempo real los riesgos financieros asociados a tus obligaciones tributarias, laborales, comerciales y financieras.</h7><br />
          <h8 className='h8-accordion-heading'>Conoce mas</h8>
         </Accordion.Body>
       </Accordion.Item>

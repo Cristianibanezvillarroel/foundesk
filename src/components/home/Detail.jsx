@@ -1,9 +1,11 @@
-import React from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { DetailImg } from './DetailImg'
 import { DetailText } from './DetailText'
 
 export const Detail = () => {
+
+  const [detailSelect, setDetailSelect] = useState('curses');
   return (
     <>
       <div id='detail-up-llamado'>
@@ -13,18 +15,18 @@ export const Detail = () => {
         <p>Con Foundesk, eleva tu potencial al siguiente nivel de una forma fácil y sencilla.</p>
       </div>
       <div id='detail-button'>
-        <Button variant='primary'>Cursos</Button>{''}
-        <Button variant='light'>Dashboard</Button>{''}
-        <Button variant='light'>Archivos</Button>{''}
+        <Button onClick={() => setDetailSelect('curses')} variant={detailSelect == 'curses' ? 'primary': 'light'}>Cursos</Button>{''}
+        <Button onClick={() => setDetailSelect('dashboard')} variant={detailSelect == 'dashboard' ? 'primary': 'light'}>Dashboard</Button>{''}
+        <Button onClick={() => setDetailSelect('files')} variant={detailSelect == 'files' ? 'primary': 'light'}>Templates</Button>{''}
       </div>
       <div id='detail-text'>
         <Container>
           <Row>
             <Col md={6} className='mb-4'>
-              <DetailImg />
+              <DetailImg detailSelect={detailSelect} />
             </Col>
             <Col md={6} className='mb-4'>
-              <DetailText />
+              <DetailText detailSelect={detailSelect} />
             </Col>
           </Row>
         </Container>

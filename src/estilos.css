@@ -140,7 +140,23 @@
 }
 
 #detail-text-right {
+    margin-top: 5px;
     max-width: 50px;
+    font-size: medium;
+    color: blue;
+    font-weight: bold;
+
+}
+
+#detail-text-right a {
+    text-decoration: none;
+}
+
+#detail-text-right Span {
+    color: blue;
+    margin-left: 5px;
+    font-weight: bold;
+    text-align: center;
 }
 
 #detail-text-llamado {

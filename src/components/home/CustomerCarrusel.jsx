@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { CustomerCarruselImg } from './CustomerCarruselImg';
+import { ListCustomerCarrusel } from '../CustomerCarruselList';
 
 export const CustomerCarrusel = () => {
+
+  const ListFiltrada = ListCustomerCarrusel.filter(List => {
+    return List.categoria == 1;
+  })
+
+
   return (
     <>
       <Carousel>
-        <Carousel.Item>
-          <CustomerCarruselImg />
-        </Carousel.Item>
-        <Carousel.Item>
-          <CustomerCarruselImg />
-        </Carousel.Item>
-        <Carousel.Item>
-          <CustomerCarruselImg />
-        </Carousel.Item>
+        {ListFiltrada.map(content => content.items.map(
+          item =>
+            
+            <Carousel.Item>
+              <CustomerCarruselImg imagen={item.imagen} description={item.descripcion} author={item.autor} job={item.cargo}/>
+            </Carousel.Item>
+        ))}
       </Carousel>
     </>
   )
