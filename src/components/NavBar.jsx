@@ -18,12 +18,8 @@ export const NavBar = () => {
                         <Nav className="me-auto">
                             <NavDropdown title="Cursos" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Categorias</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Relatores
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Metodologia</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
+                                <NavDropdown.Item as={Link} to='/courses' href="/courses">
                                     Todos los cursos
                                 </NavDropdown.Item>
                             </NavDropdown>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import { ListContentsCards } from '../ContentsCardsList'
+import { ListContentsCards } from '../ListContentsCards'
 import { Col, Row } from 'react-bootstrap';
 
 export const ContentsCards = () => {

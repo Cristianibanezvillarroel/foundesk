@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
-import {ListCustomerCarrusel} from '../CustomerCarruselList'
+import { ListContentsCarrusel } from '../ListContentsCarrusel'
 
 export const CustomerCarruselImg = ({imagen, description, author, job}) => {
 
-  const ListFiltrada = ListCustomerCarrusel.filter(List => {
+  const ListFiltrada = ListContentsCarrusel.filter(List => {
     return List.categoria == 1;
   })
   return (
