@@ -53,6 +53,36 @@ export const ListContentsCourses = [
                 'imagen': "/foundesk/marketingdigital_mk.webp"
             }
         ]
+    },
+    {
+        'id':4,
+        'categoria': 'Contabilidad',
+        'items': [
+            {
+                'idItem': 3,
+                'tipo': 'SEO',
+                'title': 'Aprende sobre como gestionar tu presupuesto en Ad-Words',
+                'author': 'Macarena Pizarro',
+                'price': 'CL$12,000',
+                'description': 'En este video de 30 minutos aprenderás como invertir en las herramientas de adwords y medir su desempeño.',
+                'imagen': "/foundesk/marketingdigital_mk.webp"
+            }
+        ]
+    },
+    {
+        'id':5,
+        'categoria': 'Equipos',
+        'items': [
+            {
+                'idItem': 3,
+                'tipo': 'SEO',
+                'title': 'Aprende sobre como gestionar tu presupuesto en Ad-Words',
+                'author': 'Macarena Pizarro',
+                'price': 'CL$12,000',
+                'description': 'En este video de 30 minutos aprenderás como invertir en las herramientas de adwords y medir su desempeño.',
+                'imagen': "/foundesk/marketingdigital_mk.webp"
+            }
+        ]
     }
 
 ]

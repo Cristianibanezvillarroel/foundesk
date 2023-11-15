@@ -8,6 +8,7 @@ import { About } from './pages/About'
 import { Testimonials } from './pages/Testimonials'
 import { Footer } from './components/Footer'
 import { Courses } from './pages/Courses'
+import { CoursesCategories } from './pages/CoursesCategories'
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/courses' element={<Courses />}/>
+        <Route path='/coursescategories' element={<CoursesCategories />}/>
         <Route path='/dashboards' element={<Dashboards />}/>
         <Route path='/templates' element={<Templates />}/>
         <Route path='/nosotros' element={<About />}/>

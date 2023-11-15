@@ -17,7 +17,7 @@ export const NavBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <NavDropdown title="Cursos" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Categorias</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to='/coursescategories' href="/coursescategories">Categorias</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item as={Link} to='/courses' href="/courses">
                                     Todos los cursos

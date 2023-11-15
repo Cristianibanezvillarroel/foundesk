@@ -1,47 +1,93 @@
-import React, { useState } from 'react'
-import { Container } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Button, Container } from 'react-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { ListContentsCourses } from '../components/ListContentsCourses.js'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
+import { PaginationControl } from 'react-bootstrap-pagination-control'
 
 export const Courses = () => {
 
     const [coursesSelect, setCoursesSelect] = useState('Todos')
     const [size, setSize] = useState(0)
     const ListSize = (inputValue) => {
-        setSize(inputValue + 1 )
+        setSize(inputValue)
     };
+
+
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    const [page, setPage] = useState(1)
+    const [limit, setLimit] = useState(2)
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        setTimeout(() => {
+            getData(coursesSelect)
+        }, 1000);
+    }, [])
+
+    const getData = async (coursesSelect) => {
+
+        const ListFiltrada = await ListContentsCourses.filter(List => {
+            return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
+        })
+        setData({ListFiltrada})
+    }
+
+
+    console.log(data);
     return (
         <Container>
-            <div>Cursos online </div>
-            <div>{coursesSelect}</div>
-            <div>
-                <div>
+            <div id='courses-head'>Cursos online </div>
+            <div id='courses-selected'>{coursesSelect}</div>
+            <div className='courses-line-count'>
+                <div id='courses-line-count-left'>
                     {size} Resultados</div>
-                <div>
-                    <div>ORDENAR POR</div>
-                    <div>
+                <div id='courses-line-count-right'>
+                    <div id='courses-line-count-right-order'>ORDENAR POR</div>
+                    <div >
                         <Dropdown>
-                            <Dropdown.Toggle variant="" id="dropdown-basic">
+                            <Dropdown.Toggle variant="" id="courses-line-count-right-dropdown">
                                 {coursesSelect}
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {ListContentsCourses.map(courses =>
-                                    <Dropdown.Item onClick={() => setCoursesSelect(courses.categoria)}>{courses.categoria}</Dropdown.Item>
+                                {ListContentsCourses.map(content =>
+                                    <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getData(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />
-                                <Dropdown.Item onClick={() => setCoursesSelect('Todos')}>Todos</Dropdown.Item>
+                                <Dropdown.Item onClick={() => { setCoursesSelect('Todos'), setPage(1),getData('Todos') }}>Todos</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
                 </div>
             </div>
             <div>
-                <CoursesCards coursesSelect={coursesSelect} ListSize={ListSize}/>
+                <CoursesCards coursesSelect={coursesSelect} ListSize={ListSize} page={page} limit={limit} data={data} />
             </div>
-            <div>Courses</div>
-            <div>Courses</div>
+            <div id='courses-backtoup'>
+                <Button variant='light' onClick={goToTop}>
+                    <span>&#8743;</span><span>&#160;&#160;</span>
+                    Volver arriba
+                </Button>
+            </div>
+            <div>
+                <PaginationControl
+                    page={page}
+                    between={4}
+                    total={size}
+                    limit={2}
+                    changePage={(page) => {
+                        setPage(page)
+                    }}
+                    ellipsis={1}
+                />
+            </div>
         </Container>
     )
 }
