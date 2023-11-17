@@ -4,10 +4,12 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { ListContentsCourses } from '../components/ListContentsCourses.js'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
+import { useParams } from 'react-router-dom'
 
 export const Courses = () => {
 
-    const [coursesSelect, setCoursesSelect] = useState('Todos')
+    const {category} = useParams()
+    const [coursesSelect, setCoursesSelect] = useState(category ? category : 'Todos')
     const [size, setSize] = useState(0)
     const ListSize = (inputValue) => {
         setSize(inputValue)

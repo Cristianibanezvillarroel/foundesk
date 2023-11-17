@@ -18,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/courses' element={<Courses />}/>
+        <Route path='/courses/:category' element={<Courses />}/>
         <Route path='/coursescategories' element={<CoursesCategories />}/>
         <Route path='/dashboards' element={<Dashboards />}/>
         <Route path='/templates' element={<Templates />}/>

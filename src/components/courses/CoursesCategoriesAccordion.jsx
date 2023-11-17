@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion'
 import Reproduccionesimg from '/public/reproducciones.png'
 import Calificacionesimg from '/public/calificaciones.png'
+import { Link } from 'react-router-dom';
 
 export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
 
@@ -18,8 +19,8 @@ export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
             <Accordion.Item eventKey="0">
                 <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={imagenicono} />{category}</Accordion.Header>
                 <Accordion.Body>
-                    <div className='curses-categories-body'>
-                        <div id='curses-categories-seccion'>
+                    <div className='courses-categories-body'>
+                        <div id='courses-categories-seccion'>
                             <div className='col-md-6 col xs-12'>
                                 {scoreCurses.map(item => 
                                     <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
@@ -36,7 +37,9 @@ export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
                                 {description}
                             </div>
                             <div className='col-md-6 col xs-12'>
+                                <Link to={`/courses/${category}`}>
                                 <Button variant='primary'>Ver los cursos</Button>
+                                </Link>
                             </div>
                         </div>
                         <div>

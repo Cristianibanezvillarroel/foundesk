@@ -387,12 +387,12 @@
     margin-bottom: 20px;
 }
 
-.curses-categories-body {
+.courses-categories-body {
     display: flex;
     flex-direction: row;
 }
 
-#curses-categories-seccion {
+#courses-categories-seccion {
     
 }
 
@@ -411,3 +411,19 @@
     width: 15px;
     height: auto; 
 }
+
+.dashboard-menu-grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.dashboard-data-grid {
+
+
+}
+
+.dashboard-data-grid img {
+    width: 100%;
+    height: auto;
+}
+
