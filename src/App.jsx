@@ -9,6 +9,7 @@ import { Testimonials } from './pages/Testimonials'
 import { Footer } from './components/Footer'
 import { Courses } from './pages/Courses'
 import { CoursesCategories } from './pages/CoursesCategories'
+import { Diary } from './pages/Diary'
 
 function App() {
   
@@ -22,8 +23,9 @@ function App() {
         <Route path='/coursescategories' element={<CoursesCategories />}/>
         <Route path='/dashboards' element={<Dashboards />}/>
         <Route path='/templates' element={<Templates />}/>
-        <Route path='/nosotros' element={<About />}/>
+        <Route path='/about' element={<About />}/>
         <Route path='/clientes' element={<Testimonials />}/>
+        <Route path='/diary' element={<Diary />}/>
       </Routes>
       <Footer />
     </>

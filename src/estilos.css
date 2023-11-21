@@ -525,3 +525,12 @@
     color: blue;
     font-weight: bold;
 }
+
+.calendar-css {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    align-items: center;
+    margin-top: 10%;
+    text-align: center;    
+}

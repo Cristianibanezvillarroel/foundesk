@@ -8,7 +8,7 @@ import logo from '/public/logo_ft.png';
 
 
 export const NavBar = () => {
-    const category = 'Todos'
+    
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -20,17 +20,17 @@ export const NavBar = () => {
                             <NavDropdown title="Cursos" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='/coursescategories' href="/coursescategories">Categorias</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to='/courses' href={`/courses/${category}`}>
+                                <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
                                     Cursos online
                                 </NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link as={Link} to='/dashboards' href="/dashboards">Dashboards</Nav.Link>
                             <Nav.Link as={Link} to='/templates' href="/templates">Templates</Nav.Link>
-                            <Nav.Link as={Link} to='/nosotros' href="/nosotros">Nosotros</Nav.Link>
+                            <Nav.Link as={Link} to='/about' href="/about">Nosotros</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <Button variant="light">Ingresar</Button>
-                    <Button variant="primary">Agenda una demo</Button>
+                    <Button as={Link} to='/diary' href="/diary" variant="primary">Agenda una demo</Button>
                 </Container>
             </Navbar>
 

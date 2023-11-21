@@ -1,12 +1,12 @@
 
 export const ListContentsCards = [
     {
-        'id':0,
+        'id':1,
         'categoria': 1,
         'items': [
             {
                 'idItem': 0,
-                'tipo': 'Podcast',
+                'tipo': 'Blog',
                 'title': 'Escucha los nuevos episodios de Amazing People Podcast',
                 'description': 'Un espacio de personas para personas, donde invitamos a líderes para que compartan aciertos..',
                 'imagen': "/foundesk/amazingpeople.webp"

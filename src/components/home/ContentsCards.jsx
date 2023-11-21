@@ -8,13 +8,29 @@ export const ContentsCards = () => {
   const ListFiltrada = ListContentsCards.filter(List => {
     return List.categoria == 1;
   })
+
+  let arrayItems = []
+
+  const ListFiltradaObject = ListFiltrada.forEach(function (item) {
+    console.log(item)
+    let itemsArray = item.items
+    console.log(itemsArray)
+
+    for (let i = 0; i < 2; i++) {
+      arrayItems.push(itemsArray[i])
+    }
+    console.log(arrayItems)
+
+  })
+
+
   return (
     <>
       <Row>
-        {ListFiltrada.map(content => content.items.map(
+        {arrayItems.map(
           item =>
             <Col md={6} lg={4} className='mb-4'>
-              <Card>
+              <Card key={item.idItem}>
                 <Card.Img variant="top" src={item.imagen} />
                 <Card.Body>
                   <Badge bg="secondary">{item.tipo}</Badge>
@@ -25,7 +41,7 @@ export const ContentsCards = () => {
                 </Card.Body>
               </Card>
             </Col>
-        ))}
+        )}
       </Row>
     </>
   )
