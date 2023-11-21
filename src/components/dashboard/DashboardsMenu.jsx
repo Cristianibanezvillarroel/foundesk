@@ -1,24 +1,25 @@
-import React from 'react'
-import ListGroup from 'react-bootstrap/ListGroup'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
 
-export const DashboardsMenu = () => {
-    const alertClicked = () => {
-        alert('You clicked the third ListGroupItem');
-      };
+export const DashboardsMenu = ({ onAddDashboardMenu }) => {
+
+  const [dashboardType, setDashboardType] = useState('kpi')
+  onAddDashboardMenu(dashboardType)
   return (
-    <ListGroup defaultActiveKey="#link1">
-    <ListGroup.Item action href="#link1">
-      General
-    </ListGroup.Item>
-    <ListGroup.Item action href="#link2" disabled>
-      Riesgos
-    </ListGroup.Item>
-    <ListGroup.Item action onClick={alertClicked}>
-      Comercial
-    </ListGroup.Item>
-    <ListGroup.Item action href="#link3">
-      Financieros
-    </ListGroup.Item>
-  </ListGroup>
+    <>
+      <div id='dashboard-menu'>
+        <Button onClick={() => { setDashboardType('kpi') }} variant={dashboardType == 'kpi' ? 'primary' : 'light'}>
+          KPI's</Button>
+        <Button onClick={() => { setDashboardType('risk') }} variant={dashboardType == 'risk' ? 'primary' : 'light'}>
+          Riesgos
+        </Button>
+      </div>
+    </>
   )
 }
+
+DashboardsMenu.protoTypes = {
+  onAddDashboardMenu: PropTypes.func.isRequired
+}
+

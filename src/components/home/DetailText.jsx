@@ -20,15 +20,15 @@ export const DetailText = ({detailSelect}) => {
       break;
     case 'templates':
       textRight = 'Templates';
-      textLlamado = 'Comparte archivos con tu equipo de gestion, contadores y abogados para plantillas de uso frecuente.';
-      textBajada = 'Compartes de manera rápida, simple e interactiva plantillas de uso frecuente en tu negocio, tales como plantillas de vacaciones, permisos, contratos, y un sinnúmero de plantillas utilizadas de manera frecuente en tu negocio.' ;   
+      textLlamado = 'Accede fácilmente a plantillas de uso frecuente para tu negocio.';
+      textBajada = 'Conoce y descarga plantillas de uso frecuente en tu negocio, tales como plantillas de vacaciones, permisos, contratos, y un sinnúmero de plantillas utilizadas de manera frecuente en tu negocio.' ;   
       textLink = '/foundesk/#/templates';
       break;
 
     default:
       textRight = 'Templates';
-      textLlamado = 'Comparte archivos con tu equipo de gestion, contadores y abogados para plantillas de uso frecuente.';
-      textBajada = 'Compartes de manera rápida, simple e interactiva plantillas de uso frecuente en tu negocio, tales como plantillas de vacaciones, permisos, contratos, y un sinnúmero de plantillas utilizadas de manera frecuente en tu negocio.';
+      textLlamado = 'Accede fácilmente a plantillas de uso frecuente para tu negocio.';
+      textBajada = 'Conoce y descarga plantillas de uso frecuente en tu negocio, tales como plantillas de vacaciones, permisos, contratos, y un sinnúmero de plantillas utilizadas de manera frecuente en tu negocio.';
       textLink = '/foundesk/#/templates';
       break;
   }

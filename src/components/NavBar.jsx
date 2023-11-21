@@ -27,7 +27,6 @@ export const NavBar = () => {
                             <Nav.Link as={Link} to='/dashboards' href="/dashboards">Dashboards</Nav.Link>
                             <Nav.Link as={Link} to='/templates' href="/templates">Templates</Nav.Link>
                             <Nav.Link as={Link} to='/nosotros' href="/nosotros">Nosotros</Nav.Link>
-                            <Nav.Link as={Link} to='/clientes' href="/clientes">Nuestros clientes</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <Button variant="light">Ingresar</Button>
