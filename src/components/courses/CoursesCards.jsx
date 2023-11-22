@@ -6,9 +6,8 @@ import { ListContentsCourses } from '../ListContentsCourses'
 import { PropTypes } from 'prop-types'
 import ShoppingCart from '/public/shoppingcart.png'
 
-export const CoursesCards = ({ coursesSelect, ListSize, page, limit, data }) => {
+export const CoursesCards = ({ ListSize, page, limit, data }) => {
     console.log(data)
-    console.log(coursesSelect)
 
     let arrayItems = []
 

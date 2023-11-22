@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { RationalAccordion } from './RationalAccordion'
+import { Link } from 'react-router-dom'
 
 export const Rational = () => {
   return (
@@ -16,7 +17,7 @@ export const Rational = () => {
           <RationalAccordion />
         </div>
         <div id='rational-left-button'>
-          <Button variant='primary'>Comienza hoy</Button>
+          <Button as={Link} to='/diary' variant='primary'>Comienza hoy</Button>
         </div>
       </div>
     </>

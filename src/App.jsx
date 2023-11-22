@@ -10,6 +10,8 @@ import { Footer } from './components/Footer'
 import { Courses } from './pages/Courses'
 import { CoursesCategories } from './pages/CoursesCategories'
 import { Diary } from './pages/Diary'
+import { Blog } from './pages/Blog'
+import { BlogDetail } from './pages/BlogDetail'
 
 function App() {
   
@@ -22,10 +24,13 @@ function App() {
         <Route path='/courses/:category' element={<Courses />}/>
         <Route path='/coursescategories' element={<CoursesCategories />}/>
         <Route path='/dashboards' element={<Dashboards />}/>
+        <Route path='/dashboards/:category' element={<Dashboards />}/>
         <Route path='/templates' element={<Templates />}/>
         <Route path='/about' element={<About />}/>
         <Route path='/clientes' element={<Testimonials />}/>
         <Route path='/diary' element={<Diary />}/>
+        <Route path='/blog' element={<Blog />}/>
+        <Route path='/blog/:id' element={<BlogDetail />}/>
       </Routes>
       <Footer />
     </>

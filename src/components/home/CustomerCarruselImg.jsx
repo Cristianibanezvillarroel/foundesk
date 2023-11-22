@@ -17,7 +17,7 @@ export const CustomerCarruselImg = ({imagen, description, author, job}) => {
           <div style={{ fontWeight: 'bold' }}>{author}</div>
           <div style={{ fontSize: 'small' }}>{job}</div>
           <div>
-            <Button className="btn btn-primary btn-sm mb-5" variant='primary'>Conoce mas aqui</Button>
+            <Button className="customer-carrusel-button" variant='primary'>Conoce mas aqui</Button>
           </div>
         </div>
       </Row>

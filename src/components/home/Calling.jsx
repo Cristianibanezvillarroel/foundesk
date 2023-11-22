@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export const Calling = () => {
   return (
@@ -12,8 +13,8 @@ export const Calling = () => {
           <p>Somos el software que integra cursos, dashboards y gestion de archivos para el emprendedor todo en un mismo lugar, y eleva la productividad en la administracion de tu negocio.</p>
         </div>
         <div id='call-left-button'>
-          <Button variant='primary'>Solicita una demo</Button>
-          <Button variant='light'>foundesk en 1 minuto</Button>
+          <Button as={Link} to='/diary' variant='primary'>Solicita una demo</Button>
+          <Button as={Link} to='/blog/1' variant='light'>foundesk en 1 minuto</Button>
         </div>
       </div>
     </>

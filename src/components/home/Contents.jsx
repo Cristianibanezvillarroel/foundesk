@@ -1,5 +1,7 @@
 import React from 'react'
 import { ContentsCards } from './ContentsCards'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export const Contents = () => {
   return (
@@ -14,7 +16,7 @@ export const Contents = () => {
         <ContentsCards />
       </div>
       <div id='contents-link'>
-        Ver mas
+        <Button as={Link} to='/blog'>Ver mas</Button>
       </div>
     </>
   )

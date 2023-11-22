@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export const WhyFoundesk = () => {
   return (
@@ -46,7 +47,7 @@ export const WhyFoundesk = () => {
         </div>
       </div>
       <div id='whyfoundesk-button'>
-        <Button variant='light'>Agenda una demo</Button>{''}
+        <Button as={Link} to='/diary' variant='light'>Agenda una demo</Button>{''}
       </div>
     </>
   )

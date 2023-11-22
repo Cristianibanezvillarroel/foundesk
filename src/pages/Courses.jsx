@@ -70,7 +70,7 @@ export const Courses = () => {
                 </div>
             </div>
             <div>
-                <CoursesCards coursesSelect={coursesSelect} ListSize={ListSize} page={page} limit={limit} data={data} />
+                <CoursesCards ListSize={ListSize} page={page} limit={limit} data={data} />
             </div>
             <div id='courses-backtoup'>
                 <Button variant='light' onClick={goToTop}>

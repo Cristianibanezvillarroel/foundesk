@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
-export const DashboardsMenu = ({ onAddDashboardMenu }) => {
+export const DashboardsMenu = ({ onAddDashboardMenu, dashboardMenuValue }) => {
 
-  const [dashboardType, setDashboardType] = useState('kpi')
+  const [dashboardType, setDashboardType] = useState(dashboardMenuValue ? dashboardMenuValue : 'kpi')
   onAddDashboardMenu(dashboardType)
   return (
     <>
