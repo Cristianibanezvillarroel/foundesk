@@ -57,6 +57,7 @@ export const Courses = () => {
         setData({ListFiltrada})        
 
     }
+    console.log(ListContentsCourses)
     console.log(dataCoursesTotal);
     console.log(data);
     return (
