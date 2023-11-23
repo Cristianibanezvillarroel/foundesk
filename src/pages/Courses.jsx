@@ -47,7 +47,7 @@ export const Courses = () => {
             }
         })
         const responseData = await response.json()
-        setDataCoursesTotal({responseData})
+        setDataCoursesTotal(responseData)
 
         console.log(responseData)
 
@@ -76,7 +76,7 @@ export const Courses = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {ListContentsCourses.map(content =>
+                                {dataCoursesTotal.map(content =>
                                     <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getData(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />
