@@ -5,6 +5,7 @@ import { ListContentsCourses } from '../components/ListContentsCourses.js'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Courses = () => {
 
@@ -35,7 +36,13 @@ export const Courses = () => {
 
     const getData = async (coursesSelect) => {
 
-        const ListFiltrada = await ListContentsCourses.filter(List => {
+        const url = 'https://api-foundesk.onrender.com/db/courses';
+
+        const resp = await axios.get(url)
+
+        console.log(resp.data)
+
+        const ListFiltrada = resp.data.filter(List => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
         setData({ListFiltrada})
