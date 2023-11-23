@@ -42,7 +42,7 @@ export const Courses = () => {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : 'https://cristianibanezvillarroel.github.io/'
+                'Access-Control-Allow-Origin' : '*'
             }
         })
         const responseData = await response.json();
