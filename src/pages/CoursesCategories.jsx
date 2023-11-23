@@ -6,12 +6,16 @@ import { CoursesCategoriesAccordion } from '../components/courses/CoursesCategor
 
 export const CoursesCategories = () => {
 
+  useEffect(() => {
+    setTimeout(() => {
+      responseCategories()
+    }, 1000);
+  }, [])
+
   const url = 'https://api-foundesk.onrender.com/db/coursescategories';
 
-  responseCategories()
-
   const responseCategories = async () => {
-   const response = await fetch(url, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
