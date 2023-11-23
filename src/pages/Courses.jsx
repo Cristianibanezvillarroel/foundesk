@@ -38,11 +38,12 @@ export const Courses = () => {
 
         const url = 'https://api-foundesk.onrender.com/db/courses';
 
-        const resp = await axios.get(url)
+        const response = await fetch(url)
+        const responseData = await response.json();
 
-        console.log(resp.data)
+        console.log(responseData)
 
-        const ListFiltrada = resp.data.filter(List => {
+        const ListFiltrada = responseData.filter(List => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
         setData({ListFiltrada})
