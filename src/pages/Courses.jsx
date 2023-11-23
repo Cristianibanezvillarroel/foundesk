@@ -28,6 +28,8 @@ export const Courses = () => {
     const [limit, setLimit] = useState(2)
     const [data, setData] = useState([])
 
+    const [dataCoursesTotal, setDataCoursesTotal] = useState([])
+
     useEffect(() => {
         setTimeout(() => {
             getData(coursesSelect)
@@ -53,6 +55,11 @@ export const Courses = () => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
         setData({ListFiltrada})
+
+        const ListTotal = responseData.filter(List => {
+            return List.id >= 0
+        })
+        setDataCoursesTotal({ListTotal})
     }
 
 
@@ -73,7 +80,7 @@ export const Courses = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {ListContentsCourses.map(content =>
+                                {dataCoursesTotal.map(content =>
                                     <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getData(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />

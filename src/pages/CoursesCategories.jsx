@@ -29,7 +29,7 @@ export const CoursesCategories = () => {
     const ListFiltrada = responseData.filter(List => {
       return List.id >= 0
   })
-    setDataCategories(ListFiltrada)
+    setDataCategories({ListFiltrada})
   }
   console.log(responseData)
 
