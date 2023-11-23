@@ -26,7 +26,10 @@ export const CoursesCategories = () => {
       }
     })
     const responseData = await response.json();
-    setDataCategories(responseData)
+    const ListFiltrada = responseData.filter(List => {
+      return List.id >= 0
+  })
+    setDataCategories(ListFiltrada)
   }
   console.log(responseData)
 
