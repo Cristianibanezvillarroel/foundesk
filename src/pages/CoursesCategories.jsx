@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { ListContentsCoursesCategories } from '../components/ListContentsCoursesCategories.js'
 import { CoursesCategoriesAccordion } from '../components/courses/CoursesCategoriesAccordion.jsx'
@@ -6,6 +6,8 @@ import { CoursesCategoriesAccordion } from '../components/courses/CoursesCategor
 
 
 export const CoursesCategories = () => {
+
+  const [dataCategories, setDataCategories] = useState([])
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,12 +26,13 @@ export const CoursesCategories = () => {
       }
     })
     const responseData = await response.json();
+    setDataCategories(responseData)
   }
   console.log(responseData)
 
   return (
     <Container className='courses-categories'>
-      {responseData.map(content =>
+      {dataCategories.map(content =>
         <Row>
           <Col>
             <CoursesCategoriesAccordion category={content.category} detail={content.detail} id={content.id} />
