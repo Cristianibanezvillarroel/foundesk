@@ -57,7 +57,7 @@ export const Courses = () => {
         setData({ListFiltrada})        
 
     }
-
+    console.log(dataCoursesTotal);
     console.log(data);
     return (
         <Container>
@@ -75,7 +75,7 @@ export const Courses = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {dataCoursesTotal.map(content =>
+                                {ListContentsCourses.map(content =>
                                     <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getData(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />
