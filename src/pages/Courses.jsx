@@ -56,10 +56,6 @@ export const Courses = () => {
         })
         setData({ListFiltrada})
 
-        const ListTotal = responseData.filter(List => {
-            return List.id >= 0
-        })
-        setDataCoursesTotal({ListTotal})
     }
 
 
@@ -80,7 +76,7 @@ export const Courses = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                {dataCoursesTotal.map(content =>
+                                {responseData.map(content =>
                                     <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getData(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />
