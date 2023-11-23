@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import { ListContentsCards } from '../ListContentsCards'
+import { ListContentsBlogs } from '../ListContentsBlogs'
 import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const ContentsCards = () => {
-  const ListFiltrada = ListContentsCards.filter(List => {
+  const ListFiltrada = ListContentsBlogs.filter(List => {
     return List.id > 0;
   })
 

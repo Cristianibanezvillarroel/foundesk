@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { CustomerCarruselImg } from './CustomerCarruselImg';
-import { ListContentsCarrusel } from '../ListContentsCarrusel';
+import { ListContentsCustomerTestimonials } from '../ListContentsCustomerTestimonials';
 
 export const CustomerCarrusel = () => {
 
-  const ListFiltrada = ListContentsCarrusel.filter(List => {
+  const ListFiltrada = ListContentsCustomerTestimonials.filter(List => {
     return List.categoria == 1;
   })
 

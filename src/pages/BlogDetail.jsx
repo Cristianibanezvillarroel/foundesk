@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { ListContentsCards } from '../components/ListContentsCards.js'
+import { ListContentsBlogs } from '../components/ListContentsBlogs'
 import { Container } from 'react-bootstrap'
 
 export const BlogDetail = () => {
@@ -9,7 +9,7 @@ export const BlogDetail = () => {
 
   let arrayItems = []
 
-  const ListFiltrada = ListContentsCards.filter(List => {
+  const ListFiltrada = ListContentsBlogs.filter(List => {
     return List.id >= 0
   })
 

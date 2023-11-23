@@ -1,5 +1,5 @@
 
-export const ListContentsCards = [
+export const ListContentsBlogs = [
     {
         'id':1,
         'categoria': 'Impuestos',

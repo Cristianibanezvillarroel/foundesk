@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { BlogCategories } from '../components/blog/BlogCategories'
 import { BlogCards } from '../components/blog/BlogCards'
-import { ListContentsCards } from '../components/ListContentsCards'
+import { ListContentsBlogs } from '../components/ListContentsBlogs'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 
 export const Blog = () => {
@@ -30,7 +30,7 @@ export const Blog = () => {
 
     const getData = (blogCategory) => {
 
-        const ListFiltrada = ListContentsCards.filter(List => {
+        const ListFiltrada = ListContentsBlogs.filter(List => {
             return blogCategory == 'Todos' ? List.id >= 0 : List.categoria == blogCategory
         })
         setData({ListFiltrada})

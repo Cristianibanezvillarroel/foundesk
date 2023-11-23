@@ -1,5 +1,5 @@
 
-export const ListContentsCarrusel = [
+export const ListContentsCostumerTestimonials = [
     {
         'id':0,
         'categoria': 1,
