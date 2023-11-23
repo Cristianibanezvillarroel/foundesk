@@ -1,5 +1,5 @@
 
-export const ListContentsCostumerTestimonials = [
+export const ListContentsCustumerTestimonials = [
     {
         'id':0,
         'categoria': 1,
