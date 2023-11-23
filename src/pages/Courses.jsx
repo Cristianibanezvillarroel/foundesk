@@ -39,7 +39,6 @@ export const Courses = () => {
     const getData = async (coursesSelect) => {
 
         const url = 'https://api-foundesk.onrender.com/db/courses';
-
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -47,18 +46,17 @@ export const Courses = () => {
                 'Access-Control-Allow-Origin' : '*'
             }
         })
-        const responseData = await response.json();
+        const responseData = await response.json()
+        setDataCoursesTotal({responseData})
 
         console.log(responseData)
 
         const ListFiltrada = responseData.filter(List => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
-        setData({ListFiltrada})
-        setDataCoursesTotal({responseData})
+        setData({ListFiltrada})        
 
     }
-
 
     console.log(data);
     return (
