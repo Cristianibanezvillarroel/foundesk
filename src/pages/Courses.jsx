@@ -38,7 +38,13 @@ export const Courses = () => {
 
         const url = 'https://api-foundesk.onrender.com/db/courses';
 
-        const response = await fetch(url)
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            }
+        })
         const responseData = await response.json();
 
         console.log(responseData)
