@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ListContentsCards } from '../ListContentsCards.js'
+import { ListContentsBlogs } from '../ListContentsBlogs'
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
@@ -11,7 +11,7 @@ const getCategory = (category) => {
     return (
         <>
         <div className='blog-categories'>
-            {ListContentsCards.map(
+            {ListContentsBlogs.map(
                 content =>
                     <Button onClick={() => {getCategory(content.categoria), setPage(1)} } variant='light' >{content.categoria}</Button>
             )}
