@@ -15,14 +15,14 @@ export const DetailText = ({detailSelect}) => {
     case 'dashboard':
       textRight = 'Dashboard';
       textLlamado = 'Controla riesgos e indicadores comerciales y financieros de tu emprendimiento.';
-      textBajada = 'Podrás controlar riesgos inherentes a obligaciones legales de tu empresa, tales como declaraciones de impuesto, cotizaciones previsionales, patentes, junto con un conjunto de indicadores de tus ventas y contabilidad.';
+      textBajada = 'Podrás controlar riesgos inherentes a la gestión comercial y financiera de tu empresa, tales como evolucion de cartera de clientes, ticket promedio de compra, evolución de ventas, facturación, como así también un conjunto de indicadores financieros todo en un mismo lugar.';
       textLink = '/foundesk/#/dashboards';
       break;
-    case 'templates':
-      textRight = 'Templates';
-      textLlamado = 'Accede fácilmente a plantillas de uso frecuente para tu negocio.';
-      textBajada = 'Conoce y descarga plantillas de uso frecuente en tu negocio, tales como plantillas de vacaciones, permisos, contratos, y un sinnúmero de plantillas utilizadas de manera frecuente en tu negocio.' ;   
-      textLink = '/foundesk/#/templates';
+    case 'controller':
+      textRight = 'Controller';
+      textLlamado = 'Accede fácilmente al control de riesgos tributarios y laborales.';
+      textBajada = 'Podrás controlar riesgos inherentes a la gestión de obligaciones tributarias y laborales de tu empresa, tales como declaraciones de impuesto, cotizaciones previsionales, patentes, entre otros.' ;   
+      textLink = '/foundesk/#/controller';
       break;
 
     default:

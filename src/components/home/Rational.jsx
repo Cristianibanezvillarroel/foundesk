@@ -8,10 +8,10 @@ export const Rational = () => {
     <>
       <div id='rational-left' >
         <div id='rational-left-llamado'>
-          <p>Impacta en tu performance durante todo el ciclo de vida emprendedor.</p>
+          <p>Impacta en tu performance durante todo el ciclo de vida de tu negocio.</p>
         </div>
         <div id='rational-left-bajada'>
-          <p>Accede a conocimiento especializado con cursos exclusivamente diseñados para las necesidades de un emprendedor, y logra dominio de herramientas de control que aquí te proporcionamos para una mejor administración.</p>
+          <p>Accede a cursos online exclusivamente diseñados para las necesidades de un emprendedor, y logra dominio de herramientas de control que aquí te proporcionamos para un mayor contro de tu negocio.</p>
         </div>
         <div>
           <RationalAccordion />

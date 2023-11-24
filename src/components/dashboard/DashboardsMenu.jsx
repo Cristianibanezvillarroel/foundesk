@@ -10,9 +10,9 @@ export const DashboardsMenu = ({ onAddDashboardMenu, dashboardMenuValue }) => {
     <>
       <div id='dashboard-menu'>
         <Button onClick={() => { setDashboardType('kpi') }} variant={dashboardType == 'kpi' ? 'primary' : 'light'}>
-          KPI's</Button>
-        <Button onClick={() => { setDashboardType('risk') }} variant={dashboardType == 'risk' ? 'primary' : 'light'}>
-          Riesgos
+          KPI's Comerciales</Button>
+        <Button onClick={() => { setDashboardType('finance') }} variant={dashboardType == 'finance' ? 'primary' : 'light'}>
+          KPI's Financieros
         </Button>
       </div>
     </>

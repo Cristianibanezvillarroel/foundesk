@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { TemplatesMenu } from '../components/templates/TemplatesMenu'
-import { TemplatesData } from '../components/templates/TemplatesData'
+import { TemplatesMenu } from '../components/controller/ControllerMenu'
+import { TemplatesData } from '../components/controller/ControllerData'
 
-export const Templates = () => {
+export const Controller = () => {
 
   const [templatesCategory, setTemplatesCategory] = useState('Comercial')
   const [data, setData] = useState([])

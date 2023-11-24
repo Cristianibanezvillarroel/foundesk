@@ -15,9 +15,9 @@ export const Detail = () => {
         <p>Con Foundesk, eleva tu potencial al siguiente nivel de una forma fácil y sencilla.</p>
       </div>
       <div id='detail-button'>
-        <Button onClick={() => setDetailSelect('curses')} variant={detailSelect == 'curses' ? 'primary': 'light'}>Cursos</Button>{''}
-        <Button onClick={() => setDetailSelect('dashboard')} variant={detailSelect == 'dashboard' ? 'primary': 'light'}>Dashboard</Button>{''}
-        <Button onClick={() => setDetailSelect('files')} variant={detailSelect == 'files' ? 'primary': 'light'}>Templates</Button>{''}
+        <Button onClick={() => setDetailSelect('curses')} variant={detailSelect == 'curses' ? 'primary': 'light'}>Desarrollo</Button>{''}
+        <Button onClick={() => setDetailSelect('dashboard')} variant={detailSelect == 'dashboard' ? 'primary': 'light'}>Desempeño</Button>{''}
+        <Button onClick={() => setDetailSelect('controller')} variant={detailSelect == 'controller' ? 'primary': 'light'}>Control</Button>{''}
       </div>
       <div id='detail-text'>
         <Container>

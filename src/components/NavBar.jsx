@@ -25,7 +25,7 @@ export const NavBar = () => {
                                 </NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link as={Link} to='/dashboards' href="/dashboards">Dashboards</Nav.Link>
-                            <Nav.Link as={Link} to='/templates' href="/templates">Templates</Nav.Link>
+                            <Nav.Link as={Link} to='/controller' href="/controller">Controller</Nav.Link>
                             <Nav.Link as={Link} to='/about' href="/about">Nosotros</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

@@ -1,20 +1,20 @@
 import React from 'react'
 import Dashboardimgkpi from '/public/dashboard.png'
-import Dashboardimgrisk from '/public/dashboard_risk.png'
+import DashboardimgkpiFinance from '/public/dashboard_finance.png'
 
 export const DashboardsData = ({dashboardMenuValue}) => {
     const dashboardtype = dashboardMenuValue
-    const textDashboardTypeRisk = 
-        `Con Foundesk accedes a información en tiempo real de observaciones en: 1.- El estado de tus declaraciones de impuestos mensuales F29, 2.- Estado de tus declaraciones de renta, 3.- Estado de Pago de tus impuestos, 4.- Estado de pago de tus cotizaciones previsionales, 5.- Estado de declaracion de tus libros de remuneraciones electronico, entre muchas otras cosas.`
+    const textDashboardTypeFinance = 
+        'Con Foundesk accedes a un completo set de indicadores financieros en linea con tu sistema contable o ERP permitiendote revisar de manera simple y rápida indicadores financieros globales como ciclo de pago, ratios de liquidez, rotacion de ventas, y flujo de caja.'
         
-    const textDashboardTypeKpi = 'Con Foundesk accedes a un completo set de indicadores comerciales y financieros que te ayudarán a revisar y controlar tu gestión comercial y evitar riesgos financieros.'
+    const textDashboardTypeKpi = 'Con Foundesk accedes a un completo set de indicadores comerciales y financieros que te ayudarán a revisar y controlar tu gestión comercial y liquidez de tu empresa.'
     const textDashboardTypeKpiMessage = 'Logra una visual rápida y completa de los indicadores comerciales fundamentales de tu negocio.'
-    const textDashboardTypeRiskMessage = 'Logra una visual rápida y completa de los indicadores de riesgo fundamentales de tu negocio.'
+    const textDashboardTypeKpiFinanceMessage = 'Logra una visual rápida y completa de los indicadores financieros fundamentales de tu negocio.'
     return (
         <div className='dashboard-data'>
-            <h2 style={{textAlign: 'center'}}>{dashboardtype == 'risk' ? textDashboardTypeRiskMessage : textDashboardTypeKpiMessage}</h2>
-            <img src={dashboardtype == 'risk' ? Dashboardimgrisk : Dashboardimgkpi} />
-            <p>{dashboardtype == 'risk' ? textDashboardTypeRisk : textDashboardTypeKpi}</p>
+            <h2 style={{textAlign: 'center'}}>{dashboardtype == 'finance' ? textDashboardTypeKpiFinanceMessage : textDashboardTypeKpiMessage}</h2>
+            <img src={dashboardtype == 'finance' ? DashboardimgkpiFinance : Dashboardimgkpi} />
+            <p>{dashboardtype == 'finance' ? textDashboardTypeFinance : textDashboardTypeKpi}</p>
         </div>
     )
 }

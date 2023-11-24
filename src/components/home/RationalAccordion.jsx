@@ -19,23 +19,10 @@ export const RationalAccordion = () => {
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header>
-          <h6 className='h6-accordion-heading'>+ Control Riesgos</h6>
+          <h6 className='h6-accordion-heading'>+ KPI Comerciales</h6>
         </Accordion.Header>
         <Accordion.Body>
           <h6>A través de nuestra plataforma podrás revisar en tiempo real los riesgos financieros asociados a tus obligaciones tributarias, laborales, comerciales y financieras.</h6><br />
-          <h6 className='h8-accordion-heading'>
-            <a href='/foundesk/#/dashboards/risk'>
-              Conoce mas
-            </a>
-          </h6>
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="2">
-        <Accordion.Header>
-          <h6 className='h6-accordion-heading'>+ KPI Claves</h6>
-        </Accordion.Header>
-        <Accordion.Body>
-          <h6>Podrás activar data que te permitirá revisar indicadores comerciales y contables para una comprensión global de tu crecimiento y liquidez.</h6><br />
           <h6 className='h8-accordion-heading'>
             <a href='/foundesk/#/dashboards/kpi'>
               Conoce mas
@@ -43,14 +30,27 @@ export const RationalAccordion = () => {
           </h6>
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="3">
+      <Accordion.Item eventKey="2">
         <Accordion.Header>
-          <h6 className='h6-accordion-heading'>+ Templates Administrativos</h6>
+          <h6 className='h6-accordion-heading'>+ KPI Financieros</h6>
         </Accordion.Header>
         <Accordion.Body>
-          <h6>La plataforma te permitirá descargar y conocer plantillas con comentarios y vínculos.</h6><br />
+          <h6>Podrás activar data que te permitirá revisar indicadores comerciales y financieros para una comprensión global de tu crecimiento y liquidez.</h6><br />
           <h6 className='h8-accordion-heading'>
-            <a href='/foundesk/#/templates'>
+            <a href='/foundesk/#/dashboards/finance'>
+              Conoce mas
+            </a>
+          </h6>
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header>
+          <h6 className='h6-accordion-heading'>+ Controller</h6>
+        </Accordion.Header>
+        <Accordion.Body>
+          <h6>Controla tu riesgo legal revisando el estado de tus obligaciones tributarias y laborales todo en un mismo lugar.</h6><br />
+          <h6 className='h8-accordion-heading'>
+            <a href='/foundesk/#/controller'>
               Conoce mas
             </a>
           </h6>

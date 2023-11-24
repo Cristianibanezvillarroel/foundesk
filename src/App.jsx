@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NavBar } from './components/Navbar'
 import { Dashboards } from './pages/Dashboards'
-import { Templates } from './pages/Templates'
 import { About } from './pages/About'
 import { Testimonials } from './pages/Testimonials'
 import { Footer } from './components/Footer'
@@ -12,6 +11,7 @@ import { CoursesCategories } from './pages/CoursesCategories'
 import { Diary } from './pages/Diary'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
+import { Controller } from './pages/Controller'
 
 function App() {
   
@@ -25,7 +25,8 @@ function App() {
         <Route path='/coursescategories' element={<CoursesCategories />}/>
         <Route path='/dashboards' element={<Dashboards />}/>
         <Route path='/dashboards/:category' element={<Dashboards />}/>
-        <Route path='/templates' element={<Templates />}/>
+        <Route path='/controller' element={<Controller />}/>
+        <Route path='/controller/:category' element={<Controller />}/>
         <Route path='/about' element={<About />}/>
         <Route path='/clientes' element={<Testimonials />}/>
         <Route path='/diary' element={<Diary />}/>
