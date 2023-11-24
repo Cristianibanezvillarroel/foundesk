@@ -9,13 +9,14 @@ export const TemplatesData = ({ templatesCategory, data }) => {
     console.log(data)
 
     let arrayItems = []
-    let category = ''
+    let category = []
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
 
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
+                    category.push(value2.categoria)
                     let items = value2.items
 
                     let itera3 = Object.entries(items)
@@ -26,10 +27,11 @@ export const TemplatesData = ({ templatesCategory, data }) => {
                         })
 
                 })
-                setDataItems(arrayItems)
+                
         });
         
-        console.log(dataItems)
+        console.log(arrayItems)
+        console.log(category)
     /*const [dataTemplates, setDataTemplates] = useState([])
 
     useEffect(() => {
@@ -64,7 +66,7 @@ export const TemplatesData = ({ templatesCategory, data }) => {
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
         <>
-            <div>hola parece nuevo</div>
+            <div>hola parece nuevo simply color</div>
         </>
     )
 }
