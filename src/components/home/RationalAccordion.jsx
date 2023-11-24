@@ -22,7 +22,7 @@ export const RationalAccordion = () => {
           <h6 className='h6-accordion-heading'>+ KPI Comerciales</h6>
         </Accordion.Header>
         <Accordion.Body>
-          <h6>A través de nuestra plataforma podrás revisar en tiempo real los riesgos financieros asociados a tus obligaciones tributarias, laborales, comerciales y financieras.</h6><br />
+          <h6>A través de nuestra plataforma podrás revisar en tiempo real indicadores comerciales claves asociados a gestion.</h6><br />
           <h6 className='h8-accordion-heading'>
             <a href='/foundesk/#/dashboards/kpi'>
               Conoce mas
@@ -35,7 +35,7 @@ export const RationalAccordion = () => {
           <h6 className='h6-accordion-heading'>+ KPI Financieros</h6>
         </Accordion.Header>
         <Accordion.Body>
-          <h6>Podrás activar data que te permitirá revisar indicadores comerciales y financieros para una comprensión global de tu crecimiento y liquidez.</h6><br />
+          <h6>A través de nuestra plataforma podrás revisar en tiempo real indicadores financieros asociados a tu liquidez y solvencia.</h6><br />
           <h6 className='h8-accordion-heading'>
             <a href='/foundesk/#/dashboards/finance'>
               Conoce mas
