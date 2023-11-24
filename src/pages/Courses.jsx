@@ -28,7 +28,7 @@ export const Courses = () => {
 
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
 
-    if(coursesSelect== 'Todos'){
+    if(coursesSelect == 'Todos'){
         getData(coursesSelect)
     }
     useEffect(() => {
