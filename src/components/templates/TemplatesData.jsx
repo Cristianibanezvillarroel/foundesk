@@ -4,7 +4,34 @@ import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 
 export const TemplatesData = ({ templatesCategory, data }) => {
 
+    const [dataItems, setDataItems] = useState([])
+    const [dataCategory, setDataCategory] = useState()
     console.log(data)
+
+    let arrayItems = []
+    let itera1 = Object.entries(data)
+        .forEach(([key, value]) => {
+
+            let itera2 = Object.entries(value)
+                .forEach(([key2, value2]) => {
+
+                    let category = value2.category
+                    setDataCategory(category)
+                    let items = value2.items
+
+                    let itera3 = Object.entries(items)
+                        .forEach(([key3, value3]) => {
+
+                            arrayItems.push(value3)
+
+                        })
+
+                })
+            setDataItems(arrayItems)
+            
+            console.log(dataItems)
+        });
+
     /*const [dataTemplates, setDataTemplates] = useState([])
 
     useEffect(() => {
@@ -39,7 +66,7 @@ export const TemplatesData = ({ templatesCategory, data }) => {
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
         <>
-            <div>hola</div>
+            <div>hola parece</div>
         </>
     )
 }
