@@ -26,8 +26,9 @@ export const TemplatesData = ({ templatesCategory, data }) => {
                         })
 
                 })
+                setDataItems(arrayItems)
         });
-        setDataItems(arrayItems)
+        
         console.log(dataItems)
     /*const [dataTemplates, setDataTemplates] = useState([])
 
