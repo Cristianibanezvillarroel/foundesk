@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { ListContentsBlogs } from '../ListContentsBlogs'
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
