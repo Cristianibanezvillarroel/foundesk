@@ -5,6 +5,12 @@ import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
 
     const [dataTemplatesArray, setDataTemplatesArray] = useState([])
+    const ListFiltradaArray = dataTemplates.filter(List => {
+        return List.id >= 0;
+    })
+    setDataTemplatesArray(ListFiltradaArray)
+
+    
     const [dataTemplatesNew, setDataTemplatesNew] = useState([])
 
     useEffect(() => {
@@ -30,11 +36,8 @@ export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
         })
         setDataTemplatesNew(ListFiltrada)
     }
-    const ListFiltrada = dataTemplates.filter(List => {
-        return List.id >= 0;
-    })
-    
-    setDataTemplatesArray(ListFiltrada)
+
+
     console.log(dataTemplatesArray)
     console.log(dataTemplatesNew)
     const templatetype = templatesMenuValue
