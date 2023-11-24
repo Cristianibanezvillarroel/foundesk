@@ -15,7 +15,7 @@ export const TemplatesData = ({ templatesCategory, data }) => {
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
-                    let category = value2.category
+                    let category = value2.categoria
                     setDataCategory(category)
                     let items = value2.items
 
@@ -29,9 +29,9 @@ export const TemplatesData = ({ templatesCategory, data }) => {
                 })
             setDataItems(arrayItems)
             
-            console.log(dataItems)
+            
         });
-
+        console.log(dataItems)
     /*const [dataTemplates, setDataTemplates] = useState([])
 
     useEffect(() => {
