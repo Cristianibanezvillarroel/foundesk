@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Col, Row } from 'react-bootstrap';
-import { ListContentsCourses } from '../ListContentsCourses'
 import { PropTypes } from 'prop-types'
 import ShoppingCart from '/public/shoppingcart.png'
 
