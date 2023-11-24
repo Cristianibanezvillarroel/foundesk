@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Carousel, Row } from 'react-bootstrap'
 import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 
-export const TemplatesData = ({ templatesMenuValue}) => {
+export const TemplatesData = ({ templatesCategory, data}) => {
 
-
+    console.log(data)
     
     const [dataTemplates, setDataTemplates] = useState([])
 
@@ -27,13 +27,13 @@ export const TemplatesData = ({ templatesMenuValue}) => {
         const responseData = await response.json()
 
         const ListFiltrada = responseData.filter(List => {
-            return List.categoria == templatesMenuValue;
+            return List.categoria == templatesCategory;
         })
         setDataTemplates(ListFiltrada)
     }
 
 
-    const templatetype = templatesMenuValue
+    const templatetype = templatesCategory
     const textTemplateTypeComercial =
         'Con Foundesk accedes a plantillas que te ayudaran a formalizar todos tus compromisos comerciales, y además conocer alcances y buenas prácticas en su utilización. Un conocimiento necesario para evitar situaciones que comprometan tus flujos de caja actuales y futuros.'
 
