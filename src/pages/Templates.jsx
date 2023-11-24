@@ -34,7 +34,7 @@ export const Templates = () => {
       const ListFiltrada = responseData.filter(List => {
           return List.categoria == templatesMenuValue;
       })
-      setDataTemplates(ListFiltrada)
+      setDataTemplates({ListFiltrada})
   }
   
   return (
