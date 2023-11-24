@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Carousel, Row } from 'react-bootstrap'
 import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 
-export const TemplatesData = ({ templatesCategory, data}) => {
+export const TemplatesData = ({ templatesCategory, data }) => {
 
     console.log(data)
-    
-    const [dataTemplates, setDataTemplates] = useState([])
+    /*const [dataTemplates, setDataTemplates] = useState([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -30,7 +29,7 @@ export const TemplatesData = ({ templatesCategory, data}) => {
             return List.categoria == templatesCategory;
         })
         setDataTemplates(ListFiltrada)
-    }
+    }*/
 
 
     const templatetype = templatesCategory
@@ -40,21 +39,7 @@ export const TemplatesData = ({ templatesCategory, data}) => {
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
         <>
-            {dataTemplates.map(content =>
-                <Row>
-                    <h3 style={{ textAlign: 'center' }}>{content.message}</h3>
-                    <Carousel>
-                        {content.items.map(
-                            item =>
-                                <Carousel.Item>
-                                    <TemplatesCarrusel imagen={item.imagen} description={item.description} tipo={item.tipo} tittle={item.tittle} />
-                                </Carousel.Item>
-                        )}
-                    </Carousel>
-                    <p id='templates-data-p'>{templatetype == 'Comercial' ? textTemplateTypeComercial : textTemplateTypeLaboral}</p>
-                </Row>
-            )}
-
+            <div>hola</div>
         </>
     )
 }
