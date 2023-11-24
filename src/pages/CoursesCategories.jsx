@@ -30,7 +30,7 @@ export const CoursesCategories = () => {
       return List.id >= 0
 
     })*/
-    setDataCategories({ responseData })
+    setDataCategories(responseData)
   }
 
   return (
