@@ -5,8 +5,9 @@ import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
 
     const [dataTemplatesArray, setDataTemplatesArray] = useState([])
+    const [dataTemplatesNew, setDataTemplatesNew] = useState([])
 
-    /*useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             getData()
         }, 100);
@@ -27,14 +28,15 @@ export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
         const ListFiltrada = responseData.filter(List => {
             return List.categoria == templatesMenuValue;
         })
-        setDataTemplates(ListFiltrada)
-    }*/
+        setDataTemplatesNew(ListFiltrada)
+    }
     const ListFiltrada = dataTemplates.filter(List => {
         return List.id >= 0;
     })
     
     setDataTemplatesArray(ListFiltrada)
     console.log(dataTemplatesArray)
+    console.log(dataTemplatesNew)
     const templatetype = templatesMenuValue
     const textTemplateTypeComercial =
         'Con Foundesk accedes a plantillas que te ayudaran a formalizar todos tus compromisos comerciales, y además conocer alcances y buenas prácticas en su utilización. Un conocimiento necesario para evitar situaciones que comprometan tus flujos de caja actuales y futuros.'
@@ -42,7 +44,7 @@ export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
         <>
-            {dataTemplatesArray.map(content =>
+            {dataTemplatesNew.map(content =>
                 <Row>
                     <h3 style={{ textAlign: 'center' }}>{content.message}</h3>
                     <Carousel>
