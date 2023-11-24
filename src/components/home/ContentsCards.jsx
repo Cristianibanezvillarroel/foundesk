@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { ListContentsBlogs } from '../ListContentsBlogs'
@@ -6,20 +6,43 @@ import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const ContentsCards = () => {
-  const ListFiltrada = ListContentsBlogs.filter(List => {
-    return List.id > 0;
-  })
 
-  let arrayItems = []
+  const [dataBlogs, setDataBlogs] = useState([])
 
-  const ListFiltradaObject = ListFiltrada.forEach(function (item) {
-    let itemsArray = item.items
-    for (let i = 0; i < itemsArray.length; i++) {
-      arrayItems.push(itemsArray[i])
-    }
-  })
+  useEffect(() => {
+    setTimeout(() => {
+      getData()
+    }, 10);
+  }, [])
 
-  const lastArrayItems = arrayItems.slice(-3);
+  const getData = async () => {
+
+    const url = 'https://api-foundesk.onrender.com/db/blogs';
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseData = await response.json()
+
+    const ListFiltrada = responseData.filter(List => {
+      return List.id > 0;
+    })
+
+    let arrayItems = []
+
+    const ListFiltradaObject = ListFiltrada.forEach(function (item) {
+      let itemsObject = item.items
+      for (let i = 0; i < itemsObject.length; i++) {
+        arrayItems.push(itemsObject[i])
+      }
+    })
+    setDataBlogs(arrayItems)
+  }
+
+  const lastArrayItems = dataBlogs.slice(-3);
 
   const DESCRIPTION_CHAR_LIMIT_TITLE = 55
   const DESCRIPTION_CHAR_LIMIT_DESCRIPTION = 80
