@@ -27,11 +27,11 @@ export const TemplatesData = ({ templatesCategory, data }) => {
                         })
 
                 })
-                
+
         });
-        
-        console.log(arrayItems)
-        console.log(category)
+
+    console.log(arrayItems)
+    console.log(category)
     /*const [dataTemplates, setDataTemplates] = useState([])
 
     useEffect(() => {
@@ -59,14 +59,28 @@ export const TemplatesData = ({ templatesCategory, data }) => {
     }*/
 
 
-    const templatetype = templatesCategory
+    const templatetype = category
     const textTemplateTypeComercial =
         'Con Foundesk accedes a plantillas que te ayudaran a formalizar todos tus compromisos comerciales, y además conocer alcances y buenas prácticas en su utilización. Un conocimiento necesario para evitar situaciones que comprometan tus flujos de caja actuales y futuros.'
 
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
         <>
-            <div>hola parece nuevo simply color</div>
+            {arrayItems.map(content =>
+                <Row>
+                    <h3 style={{ textAlign: 'center' }}>{content.message}</h3>
+                    <Carousel>
+                        {content.items.map(
+                            item =>
+                                <Carousel.Item>
+                                    <TemplatesCarrusel imagen={item.imagen} description={item.description} tipo={item.tipo} tittle={item.tittle} />
+                                </Carousel.Item>
+                        )}
+                    </Carousel>
+                    <p id='templates-data-p'>{templatetype == 'Comercial' ? textTemplateTypeComercial : textTemplateTypeLaboral}</p>
+                </Row>
+            )}
+
         </>
     )
 }
