@@ -12,7 +12,7 @@ export const CoursesCategories = () => {
   useEffect(() => {
     setTimeout(() => {
       responseCategories()
-    }, 1000);
+    }, 100);
   }, [])
 
   const url = 'https://api-foundesk.onrender.com/db/coursescategories';
@@ -26,10 +26,6 @@ export const CoursesCategories = () => {
       }
     })
     const responseData = await response.json();
-    /*const ListFiltrada = responseData.filter(List => {
-      return List.id >= 0
-
-    })*/
     setDataCategories(responseData)
   }
 

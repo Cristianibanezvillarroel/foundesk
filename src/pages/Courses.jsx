@@ -5,7 +5,6 @@ import { ListContentsCourses } from '../components/ListContentsCourses.js'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 
 export const Courses = () => {
 
@@ -15,7 +14,6 @@ export const Courses = () => {
     const ListSize = (inputValue) => {
         setSize(inputValue)
     };
-
 
     const goToTop = () => {
         window.scrollTo({
@@ -33,7 +31,7 @@ export const Courses = () => {
     useEffect(() => {
         setTimeout(() => {
             getData(coursesSelect)
-        }, 1000);
+        }, 100);
     }, [])
 
     const getData = async (coursesSelect) => {
@@ -49,17 +47,13 @@ export const Courses = () => {
         const responseData = await response.json()
         setDataCoursesTotal(responseData)
 
-        console.log(responseData)
-
         const ListFiltrada = responseData.filter(List => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
         setData({ListFiltrada})        
 
     }
-    console.log(ListContentsCourses)
-    console.log(dataCoursesTotal);
-    console.log(data);
+
     return (
         <Container>
             <div id='courses-head'>Cursos online </div>

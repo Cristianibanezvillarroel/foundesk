@@ -28,9 +28,19 @@ export const Blog = () => {
         }, 10);
     }, [])
 
-    const getData = (blogCategory) => {
+    const getData = async (blogCategory) => {
 
-        const ListFiltrada = ListContentsBlogs.filter(List => {
+        const url = 'https://api-foundesk.onrender.com/db/blogs';
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            }
+        })
+        const responseData = await response.json()
+
+        const ListFiltrada = responseData.filter(List => {
             return blogCategory == 'Todos' ? List.id >= 0 : List.categoria == blogCategory
         })
         setData({ListFiltrada})
