@@ -29,8 +29,11 @@ export const TemplatesData = ({ templatesMenuValue, dataTemplates }) => {
         })
         setDataTemplates(ListFiltrada)
     }*/
+    const ListFiltrada = dataTemplates.filter(List => {
+        return List.id >= 0;
+    })
     
-    setDataTemplatesArray(dataTemplates)
+    setDataTemplatesArray(ListFiltrada)
     console.log(dataTemplatesArray)
     const templatetype = templatesMenuValue
     const textTemplateTypeComercial =
