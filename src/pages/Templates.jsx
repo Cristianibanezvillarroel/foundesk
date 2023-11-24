@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { TemplatesMenu } from '../components/templates/TemplatesMenu'
 import { TemplatesData } from '../components/templates/TemplatesData'
