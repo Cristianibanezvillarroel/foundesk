@@ -6,6 +6,7 @@ export const BlogDetail = () => {
 
   const { id } = useParams()
   const [arrayItems, setArrayItems] = useState([])
+  let itemsArray = []
 
 
   useEffect(() => {
@@ -32,9 +33,10 @@ export const BlogDetail = () => {
     const ListFiltradaObject = ListFiltrada.forEach(function (item) {
       let itemsObject = item.items
       for (let i = 0; i < itemsObject.length; i++) {
-        let itemsArray = []
+        
         itemsArray.push(itemsObject[i])
       }
+      
     })
     setArrayItems(itemsArray)
   }
