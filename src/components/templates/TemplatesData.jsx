@@ -9,7 +9,7 @@ export const TemplatesData = ({ templatesMenuValue }) => {
     useEffect(() => {
         setTimeout(() => {
             getData()
-        }, 10);
+        }, 100);
     }, [])
 
     const getData = async () => {
@@ -29,10 +29,10 @@ export const TemplatesData = ({ templatesMenuValue }) => {
         })
         setDataTemplates(ListFiltrada)
     }
-
+    console.log(dataTemplates)
     const templatetype = templatesMenuValue
     const textTemplateTypeComercial =
-        `Con Foundesk accedes a plantillas que te ayudaran a formalizar todos tus compromisos comerciales, y además conocer alcances y buenas prácticas en su utilización. Un conocimiento necesario para evitar situaciones que comprometan tus flujos de caja actuales y futuros.`
+        'Con Foundesk accedes a plantillas que te ayudaran a formalizar todos tus compromisos comerciales, y además conocer alcances y buenas prácticas en su utilización. Un conocimiento necesario para evitar situaciones que comprometan tus flujos de caja actuales y futuros.'
 
     const textTemplateTypeLaboral = 'Con Foundesk accedes a plantillas de uso frecuente en la gestión de tus colaboradores, ayudándote a formalizar actividades de caracter rutinario tales como vacaciones, anexos de contrato, entre otros.'
     return (
