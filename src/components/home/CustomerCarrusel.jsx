@@ -5,15 +5,35 @@ import { ListContentsCustumerTestimonials } from '../ListContentsCustomerTestimo
 
 export const CustomerCarrusel = () => {
 
-  const ListFiltrada = ListContentsCustumerTestimonials.filter(List => {
-    return List.categoria == 1;
-  })
+  const [dataCustomerCarrusel, setDataCustomerCarrusel] = useState([])
 
+  useEffect(() => {
+    setTimeout(() => {
+        getData()
+    }, 10);
+}, [])
+
+const getData = async () => {
+
+    const url = 'https://api-foundesk.onrender.com/db/customertestimonials';
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Access-Control-Allow-Origin' : '*'
+        }
+    })
+    const responseData = await response.json()
+    const ListFiltrada = responseData.filter(List => {
+      return List.categoria == 1;
+    })
+    setDataCustomerCarrusel(ListFiltrada)
+}
 
   return (
     <>
       <Carousel>
-        {ListFiltrada.map(content => content.items.map(
+        {dataCustomerCarrusel.map(content => content.items.map(
           item =>
             
             <Carousel.Item>
