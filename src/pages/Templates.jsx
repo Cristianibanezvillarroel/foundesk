@@ -11,32 +11,7 @@ export const Templates = () => {
     setTemplatesMenuValue(templatesMenuValue)
   }
 
-  const [dataTemplates, setDataTemplates] = useState([])
-
-  useEffect(() => {
-      setTimeout(() => {
-          getData()
-      }, 100);
-  }, [])
-
-  const getData = async () => {
-
-      const url = 'https://api-foundesk.onrender.com/db/templates';
-      const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-          }
-      })
-      const responseData = await response.json()
-
-      const ListFiltrada = responseData.filter(List => {
-          return List.categoria == templatesMenuValue;
-      })
-      setDataTemplates({ListFiltrada})
-  }
-  
+    
   return (
     <Container>
      <Row>
@@ -44,7 +19,7 @@ export const Templates = () => {
         <TemplatesMenu onAddTemplatesMenu={onAddTemplatesMenu}/>        
       </Col>
       <Col className='dashboard-data-grid'>
-        <TemplatesData templatesMenuValue={templatesMenuValue} dataTemplates={dataTemplates}/>
+        <TemplatesData templatesMenuValue={templatesMenuValue}/>
       </Col>
       </Row>   
     </Container>
