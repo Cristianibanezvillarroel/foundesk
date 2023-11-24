@@ -54,10 +54,6 @@ export const Courses = () => {
         setData({ListFiltrada})
     }
 
-    if(coursesSelect == 'Todos'){
-        getData(coursesSelect)
-    }
-
     return (
         <Container>
             <div id='courses-head'>Cursos online </div>
