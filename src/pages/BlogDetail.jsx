@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ListContentsBlogs } from '../components/ListContentsBlogs'
 import { Container } from 'react-bootstrap'
 
 export const BlogDetail = () => {

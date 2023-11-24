@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import { ListContentsBlogs } from '../ListContentsBlogs'
 import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 

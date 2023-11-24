@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { BlogCategories } from '../components/blog/BlogCategories'
 import { BlogCards } from '../components/blog/BlogCards'
-import { ListContentsBlogs } from '../components/ListContentsBlogs'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 
 export const Blog = () => {

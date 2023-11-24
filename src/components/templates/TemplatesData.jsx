@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { ListContentsTemplates } from '../ListContentsTemplates.js'
 import { Carousel, Row } from 'react-bootstrap'
 import { TemplatesCarrusel } from './TemplatesCarrusel.jsx'
 

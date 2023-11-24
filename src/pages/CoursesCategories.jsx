@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { ListContentsCoursesCategories } from '../components/ListContentsCoursesCategories.js'
 import { CoursesCategoriesAccordion } from '../components/courses/CoursesCategoriesAccordion.jsx'
 
 

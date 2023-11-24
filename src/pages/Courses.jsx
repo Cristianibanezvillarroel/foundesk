@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { ListContentsCourses } from '../components/ListContentsCourses.js'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
