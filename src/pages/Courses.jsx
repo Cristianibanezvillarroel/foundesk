@@ -28,6 +28,9 @@ export const Courses = () => {
 
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
 
+    if(coursesSelect== 'Todos'){
+        getData(coursesSelect)
+    }
     useEffect(() => {
         setTimeout(() => {
             getData(coursesSelect)
@@ -50,8 +53,7 @@ export const Courses = () => {
         const ListFiltrada = responseData.filter(List => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
-        setData({ListFiltrada})        
-
+        setData({ListFiltrada})
     }
 
     return (

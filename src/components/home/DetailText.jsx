@@ -10,7 +10,7 @@ export const DetailText = ({detailSelect}) => {
       textRight = 'Cursos';
       textLlamado = 'Centraliza capacitación, aprendizaje y buenas prácticas.';
       textBajada = 'Accede a un completo set de cursos on-demand con un sinnúmero de temáticas creadas en función de las necesidades de un emprendimiento, junto con un completo set de documentación para tu refuerzo de aprendizaje.';
-      textLink = '/foundesk/#/courses';
+      textLink = '/foundesk/#/courses/Todos';
       break;
     case 'dashboard':
       textRight = 'Dashboard';

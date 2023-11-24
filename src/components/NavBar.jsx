@@ -20,7 +20,7 @@ export const NavBar = () => {
                             <NavDropdown title="Cursos" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='/coursescategories' href="/coursescategories">Categorias</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
+                                <NavDropdown.Item as={Link} to='/courses/Todos' href="/courses/Todos">
                                     Cursos online
                                 </NavDropdown.Item>
                             </NavDropdown>
