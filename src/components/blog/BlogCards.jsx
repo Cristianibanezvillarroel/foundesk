@@ -12,7 +12,10 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
 
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
-            arrayItems.push(value)
+            let itera2 = Object.entries(value)
+                .forEach(([key2, value2]) => {
+                    arrayItems.push(value2)
+                })
         })
     /*let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
