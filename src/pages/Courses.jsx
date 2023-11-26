@@ -30,11 +30,72 @@ export const Courses = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            getData(coursesSelect)
+            getCategoriesV1()
+            getDataV1(coursesSelect)
         }, 100);
     }, [])
 
-    const getData = async (coursesSelect) => {
+    const getCategoriesV1 = async () => {
+
+        const url = 'https://api-foundesk.onrender.com/db/coursescategories';
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            }
+        })
+        const responseData = await response.json()        
+
+        const ListFiltrada = responseData.map(List => List.items.map(
+            item => item
+        ))
+        let itemsArray = ListFiltrada[0]
+        setDataCoursesTotal(itemsArray)
+    }
+
+    const getDataV1 = async (coursesSelect) => {
+
+        const url = 'https://api-foundesk.onrender.com/v1/courses';
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        const responseData = await response.json()
+
+        const ListFiltrada = responseData.filter(List => {
+            return List.message == 'Courses';
+        })
+
+        let arrayItems = []
+        const ListFiltradaData = responseData.map(ListV1 => {
+            return coursesSelect == 'Todos' ?
+
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayItems.push(itemsObject[i])
+                    }
+                })
+
+                :
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items.filter(
+                        item => item.categoria == coursesSelect
+                    )
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayItems.push(itemsObject[i])
+                    }
+                })
+
+        })
+        console.log(arrayItems)
+        setData({ arrayItems })
+    }
+    /*const getData = async (coursesSelect) => {
 
         const url = 'https://api-foundesk.onrender.com/db/courses';
         const response = await fetch(url, {
@@ -51,7 +112,7 @@ export const Courses = () => {
             return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
         })
         setData({ListFiltrada})
-    }
+    }*/
 
     return (
         <Container>

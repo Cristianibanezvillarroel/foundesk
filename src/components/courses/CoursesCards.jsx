@@ -16,19 +16,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
-                    let itera3 = Object.entries(value2)
-                        .forEach(([key3, value3]) => {
+                    arrayItems.push(value2)
 
-                            let items = value3.items
-
-                            let itera4 = Object.entries(items)
-                                .forEach(([key4, value4]) => {
-
-                                    arrayItems.push(value4)
-
-                                })
-
-                        })
                 })
         });
     console.log(arrayItems)
@@ -52,7 +41,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                         <Card key={content.idItem}>
                             <Card.Img variant="top" src={content.imagen} />
                             <Card.Body>
-                                <Badge bg="secondary">{content.categoria}</Badge>
+                                <Badge bg="secondary">{content.tipo}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
                                 </Card.Title>
