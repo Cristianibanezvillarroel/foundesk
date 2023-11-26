@@ -54,7 +54,7 @@ export const CoursesCategories = () => {
       {dataCategories.map(content =>
         <Row>
           <Col>
-            <CoursesCategoriesAccordion categoria={content.categoria} idItem={content.idItem} />
+            <CoursesCategoriesAccordion content={content} />
           </Col>
         </Row>
       )}

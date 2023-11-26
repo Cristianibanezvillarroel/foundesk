@@ -5,38 +5,14 @@ import Reproduccionesimg from '/public/reproducciones.png'
 import Calificacionesimg from '/public/calificaciones.png'
 import { Link } from 'react-router-dom';
 
-export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
+export const CoursesCategoriesAccordion = ({ content }) => {
 
+
+    let { cantidad, categoria, resena, description, imagenicono , imagenpublicidad, calificacion, reproducciones } = content
     const [data, setData] = useState([])
     const [calificacion, setCalificacion] = useState()
 
-    useEffect(() => {
-        setTimeout(() => {
-          getDataV1()
-        }, 100);
-      }, [])
 
-    const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
-
-    const getDataV1 = async () => {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      const responseData = await response.json();
-  
-      const ListFiltrada = responseData.map(content => 
-        content.items.filter(
-            item => item.categoria == categoria)
-      )
-      let itemsArray = ListFiltrada[0]
-      setData(itemsArray)
-      setCalificacion(itemsArray.calificacion)
-      console.log(itemsArray)
-    }
 
     
     const scoreCurses = []
@@ -47,7 +23,7 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
         <Accordion>
 
             <Accordion.Item eventKey="0">
-                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={data.imagenicono} />{categoria}</Accordion.Header>
+                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={imagenicono} />{categoria}</Accordion.Header>
                 <Accordion.Body>
                     <div className='courses-categories-body'>
                         <div id='courses-categories-seccion'>
@@ -55,16 +31,16 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
                                 {scoreCurses.map(item => 
                                     <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
                                 )}
-                                    <img id='courses-categories-reproducciones-img' src={Reproduccionesimg}/>{data.reproducciones}
+                                    <img id='courses-categories-reproducciones-img' src={Reproduccionesimg}/>{reproducciones}
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <h6 style={{fontWeight:'bold'}}>Cursos en categoria: {data.cantidad}</h6> 
+                                <h6 style={{fontWeight:'bold'}}>Cursos en categoria: {cantidad}</h6> 
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <h7>Dirigido a: {data.resena}</h7>
+                                <h7>Dirigido a: {resena}</h7>
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                {data.description}
+                                {description}
                             </div>
                             <div className='col-md-6 col xs-12'>
                                 <Link to={`/courses/${categoria}`}>
@@ -74,7 +50,7 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
                         </div>
                         <div>
                             <div className='col-md-6 col xs-12'>
-                            <img id='courses-categories-accordion-imagenpublicidad' src={data.imagenpublicidad} />
+                            <img id='courses-categories-accordion-imagenpublicidad' src={imagenpublicidad} />
                             </div>
                         </div>
                     </div>
