@@ -48,9 +48,9 @@ export const Blog = () => {
             )
             
             :
-            ArrayItems.push(ListV1.items.filter(
-                item => item.categoria ==  blogCategory
-            ))
+            ListV1.items.filter(
+                item => ArrayItems.push(item.categoria ==  blogCategory)
+            )
 
         })
         console.log(ArrayItems)
