@@ -6,7 +6,6 @@ export const BlogDetail = () => {
 
   const { id } = useParams()
   const [arrayItems, setArrayItems] = useState([])
-  let itemsArray = []
 
 
   useEffect(() => {
@@ -33,7 +32,10 @@ export const BlogDetail = () => {
       )
     )
 
-    setArrayItems(ArrayItemsFilter[0][0])
+    let itemsArray = ArrayItemsFilter[0]
+    console.log(itemsArray)
+
+    setArrayItems(itemsArray)
   }
 
   /*const getData = async () => {
