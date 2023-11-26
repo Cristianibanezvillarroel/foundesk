@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion'
 import Reproduccionesimg from '/public/reproducciones.png'
@@ -9,6 +9,12 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
 
     const [data, setData] = useState([])
     const [calificacion, setCalificacion] = useState()
+
+    useEffect(() => {
+        setTimeout(() => {
+          getDataV1()
+        }, 100);
+      }, [])
 
     const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
 
