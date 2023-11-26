@@ -37,7 +37,7 @@ export const Courses = () => {
 
     const getCategoriesV1 = async () => {
 
-        const url = 'https://api-foundesk.onrender.com/db/coursescategories';
+        const url = 'https://api-foundesk.onrender.com/v1/coursescategories';
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -50,8 +50,8 @@ export const Courses = () => {
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
         ))
-        //let itemsArray = ListFiltrada[0]
-        setDataCoursesTotal(ListFiltrada)
+        let itemsArray = ListFiltrada[0]
+        setDataCoursesTotal(itemsArray)
     }
 
     const getDataV1 = async (coursesSelect) => {
