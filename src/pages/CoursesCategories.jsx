@@ -10,13 +10,32 @@ export const CoursesCategories = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      responseCategories()
+      getDataV1()
     }, 100);
   }, [])
 
-  const url = 'https://api-foundesk.onrender.com/db/coursescategories';
+  const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
 
-  const responseCategories = async () => {
+  const getDataV1 = async () => {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseData = await response.json();
+
+    const ListFiltrada = responseData.items.map(item => item)
+
+
+    setDataCategories(ListFiltrada)
+    console.log(ListFiltrada)
+  }
+
+  
+
+  /*const responseCategories = async () => {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -26,7 +45,7 @@ export const CoursesCategories = () => {
     })
     const responseData = await response.json();
     setDataCategories(responseData)
-  }
+  }*/
 
   return (
     <Container className='courses-categories'>
