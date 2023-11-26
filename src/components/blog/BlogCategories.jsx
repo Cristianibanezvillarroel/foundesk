@@ -48,6 +48,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
         const ListFiltrada = responseData.filter(List => {
             return List.id >= 0
         })
+        console.log(ListFiltrada)
         setDataBlogs(ListFiltrada)
     }
 
