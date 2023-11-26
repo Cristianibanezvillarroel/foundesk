@@ -50,8 +50,8 @@ export const Courses = () => {
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
         ))
-        let itemsArray = ListFiltrada[0]
-        setDataCoursesTotal(itemsArray)
+        //let itemsArray = ListFiltrada[0]
+        setDataCoursesTotal(ListFiltrada)
     }
 
     const getDataV1 = async (coursesSelect) => {
