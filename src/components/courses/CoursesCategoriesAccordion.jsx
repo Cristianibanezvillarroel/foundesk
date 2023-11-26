@@ -38,7 +38,7 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
         <Accordion>
 
             <Accordion.Item eventKey="0">
-                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={data.imagenicono} />{category}</Accordion.Header>
+                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={data.imagenicono} />{categoria}</Accordion.Header>
                 <Accordion.Body>
                     <div className='courses-categories-body'>
                         <div id='courses-categories-seccion'>
