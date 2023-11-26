@@ -24,9 +24,11 @@ export const ContentsCards = () => {
       }
     })
 
-    console.log(response)
+    const responseData = await response.json()
 
-    const ListFiltrada = response.filter(List => {
+    console.log(responseData)
+
+    const ListFiltrada = responseData.filter(List => {
       return List.message == 'Blog';
     })
 
