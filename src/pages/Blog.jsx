@@ -48,9 +48,9 @@ export const Blog = () => {
             )
             
             :
-            ListV1.items.map(
-                item => ArrayItems.push(item)
-            )
+            ArrayItems.push(ListV1.items.filter(
+                item => item.categoria ==  blogCategory
+            ))
 
         })
         console.log(ArrayItems)
