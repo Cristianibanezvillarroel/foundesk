@@ -16,19 +16,8 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
-                    let itera3 = Object.entries(value2)
-                        .forEach(([key3, value3]) => {
+                    arrayItems.push(value2)
 
-                            let items = value3.items
-
-                            let itera4 = Object.entries(items)
-                                .forEach(([key4, value4]) => {
-
-                                    arrayItems.push(value4)
-
-                                })
-
-                        })
                 })
         });
     console.log(arrayItems)

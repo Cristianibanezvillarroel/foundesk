@@ -33,28 +33,40 @@ export const Blog = () => {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             }
         })
         const responseData = await response.json()
 
-        let ArrayItems = []
-        const ListFiltrada = responseData.map(ListV1 => {
+        const ListFiltrada = responseData.filter(List => {
+            return List.message == 'Blog';
+        })
+
+        let arrayItems = []
+        const ListFiltradaData = responseData.map(ListV1 => {
             return blogCategory == 'Todos' ?
 
-            ArrayItems.push(ListV1.items.map(
-                item => item)
-            )
-            
-            :
-            ArrayItems.push(ListV1.items.filter(
-                item => item.categoria ==  blogCategory)
-            )
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayItems.push(itemsObject[i])
+                    }
+                })
+
+                :
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items.filter(
+                        item => item.categoria == blogCategory
+                    )
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayItems.push(itemsObject[i])
+                    }
+                })
 
         })
-        console.log(ArrayItems)
-        setData({ArrayItems})
+        console.log(arrayItems)
+        setData({ arrayItems })
     }
 
     /*const getData = async (blogCategory) => {
@@ -83,24 +95,24 @@ export const Blog = () => {
             <Container>
                 <Row>
                     <Col md={2} className='mb-4 mt-4'>
-                        <BlogCategories onAddBlogCategory={onAddBlogCategory} setPage={setPage}/>
+                        <BlogCategories onAddBlogCategory={onAddBlogCategory} setPage={setPage} />
                     </Col>
                     <Col className='mb-4 mt-4'>
-                        <BlogCards ListSize={ListSize} page={page} limit={limit} data={data}/>
+                        <BlogCards ListSize={ListSize} page={page} limit={limit} data={data} />
                     </Col>
                 </Row>
                 <div>
-                <PaginationControl
-                    page={page}
-                    between={4}
-                    total={size}
-                    limit={6}
-                    changePage={(page) => {
-                        setPage(page)
-                    }}
-                    ellipsis={1}
-                />
-            </div>
+                    <PaginationControl
+                        page={page}
+                        between={4}
+                        total={size}
+                        limit={6}
+                        changePage={(page) => {
+                            setPage(page)
+                        }}
+                        ellipsis={1}
+                    />
+                </div>
             </Container>
         </>
     )
