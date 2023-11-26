@@ -8,6 +8,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
 
     useEffect(() => {
         setTimeout(() => {
+            getData()
             getDataV1()
         }, 10);
     }, [])
@@ -15,25 +16,24 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
     const getDataV1 = async () => {
 
         const url = 'https://api-foundesk.onrender.com/v1/blogcategories';
-        const response = await fetch(url, {
+        const responseV1 = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
                 'Access-Control-Allow-Origin' : '*'
             }
         })
-        const responseData = await response.json()
-
-        const ListFiltrada = responseData.filter(List => {
-            return List.message == 'BlogCategories'
-        })
-        console.log(ListFiltrada)
-        setDataBlogs({ListFiltrada})
+        const responseDataV1 = await responseV1.json()
         
-        console.log(dataBlogs)
+
+        const ListFiltradaV1 = responseDataV1.filter(ListV1 => {
+            return ListV1.message == 'BlogCategories'
+        })
+        console.log(responseDataV1)
+        console.log(ListFiltradaV1)
     }
 
-    /*const getData = async () => {
+    const getData = async () => {
 
         const url = 'https://api-foundesk.onrender.com/db/blogs';
         const response = await fetch(url, {
@@ -49,7 +49,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
             return List.id >= 0
         })
         setDataBlogs(ListFiltrada)
-    }*/
+    }
 
     const getCategory = (category) => {
         onAddBlogCategory(category)
@@ -58,7 +58,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
     return (
         <>
             <div className='blog-categories'>
-                {dataBlogs.items.map(
+                {dataBlogs.map(
                     content =>
                         <Button onClick={() => { getCategory(content.categoria), setPage(1) }} variant='light' >{content.categoria}</Button>
                 )}
