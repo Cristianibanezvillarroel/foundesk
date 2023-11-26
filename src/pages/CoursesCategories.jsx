@@ -14,7 +14,7 @@ export const CoursesCategories = () => {
     }, 100);
   }, [])
 
-  const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
+  const url = 'https://api-foundesk.onrender.com/v1/coursescategories';
 
   const getDataV1 = async () => {
     const response = await fetch(url, {
@@ -52,7 +52,7 @@ export const CoursesCategories = () => {
       {dataCategories.map(content =>
         <Row>
           <Col>
-            <CoursesCategoriesAccordion category={content.category} detail={content.detail} id={content.id} />
+            <CoursesCategoriesAccordion categoria={content.categoria} idItem={content.idItem} />
           </Col>
         </Row>
       )}

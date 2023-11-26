@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion'
 import Reproduccionesimg from '/public/reproducciones.png'
 import Calificacionesimg from '/public/calificaciones.png'
 import { Link } from 'react-router-dom';
 
-export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
+export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
 
-    let { cantidad, resena, description, imagenicono, imagenpublicidad, calificacion, reproducciones } = detail;
+    const [data, setData] = useState([])
+    const [calificacion, setCalificacion] = useState()
+
+    const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
+
+    const getDataV1 = async () => {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      const responseData = await response.json();
+  
+      const ListFiltrada = responseData.items.filter(item => item.categoria == categoria)
+   
+      setData(ListFiltrada)
+      setCalificacion(ListFiltrada.calificacion)
+      console.log(ListFiltrada)
+    }
+
     
     const scoreCurses = []
     for (let i = 0; i < parseInt(calificacion); i++) {
@@ -17,7 +38,7 @@ export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
         <Accordion>
 
             <Accordion.Item eventKey="0">
-                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={imagenicono} />{category}</Accordion.Header>
+                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={data.imagenicono} />{category}</Accordion.Header>
                 <Accordion.Body>
                     <div className='courses-categories-body'>
                         <div id='courses-categories-seccion'>
@@ -25,26 +46,26 @@ export const CoursesCategoriesAccordion = ({ category, detail, id }) => {
                                 {scoreCurses.map(item => 
                                     <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
                                 )}
-                                    <img id='courses-categories-reproducciones-img' src={Reproduccionesimg}/>{reproducciones}
+                                    <img id='courses-categories-reproducciones-img' src={Reproduccionesimg}/>{data.reproducciones}
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <h6 style={{fontWeight:'bold'}}>Cursos en categoria: {cantidad}</h6> 
+                                <h6 style={{fontWeight:'bold'}}>Cursos en categoria: {data.cantidad}</h6> 
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <h7>Dirigido a: {resena}</h7>
+                                <h7>Dirigido a: {data.resena}</h7>
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                {description}
+                                {data.description}
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <Link to={`/courses/${category}`}>
+                                <Link to={`/courses/${categoria}`}>
                                 <Button variant='primary'>Ver los cursos</Button>
                                 </Link>
                             </div>
                         </div>
                         <div>
                             <div className='col-md-6 col xs-12'>
-                            <img id='courses-categories-accordion-imagenpublicidad' src={imagenpublicidad} />
+                            <img id='courses-categories-accordion-imagenpublicidad' src={data.imagenpublicidad} />
                             </div>
                         </div>
                     </div>
