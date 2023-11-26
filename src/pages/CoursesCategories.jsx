@@ -26,7 +26,9 @@ export const CoursesCategories = () => {
     })
     const responseData = await response.json();
 
-    const ListFiltrada = responseData.items.map(item => item)
+    const ListFiltrada = responseData.map(List => List.items.map(
+      item => item
+    ))
 
 
     setDataCategories(ListFiltrada)
