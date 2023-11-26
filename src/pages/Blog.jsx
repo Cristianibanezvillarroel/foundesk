@@ -17,7 +17,7 @@ export const Blog = () => {
 
 
     const onAddBlogCategory = (blogCategoryValue) => {
-        getData(blogCategoryValue)
+        getDataV1(blogCategoryValue)
         setBlogCategory(blogCategoryValue)
     }
 
