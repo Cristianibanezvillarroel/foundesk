@@ -14,7 +14,7 @@ export const CoursesCategories = () => {
     }, 100);
   }, [])
 
-  const url = 'https://api-foundesk.onrender.com/v1/coursescategories';
+  const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
 
   const getDataV1 = async () => {
     const response = await fetch(url, {
