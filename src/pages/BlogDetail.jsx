@@ -32,7 +32,8 @@ export const BlogDetail = () => {
         item => item.idItem == id
       )
     )
-    setArrayItems(ArrayItemsFilter)
+
+    setArrayItems(ArrayItemsFilter[0][0])
   }
 
   /*const getData = async () => {
