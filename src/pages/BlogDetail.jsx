@@ -67,7 +67,7 @@ export const BlogDetail = () => {
     return List.idItem == id
   })*/
 
-  console.log(ArrayItemsFilter)
+  console.log(arrayItems)
 
   return (
     <>
