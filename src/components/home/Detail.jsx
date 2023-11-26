@@ -9,7 +9,7 @@ export const Detail = () => {
   return (
     <>
       <div id='detail-up-llamado'>
-        <p>La plataforma para desarrollar tus capacidades en un solo lugar.</p>
+        <p>La plataforma para elevar tu productividad en un solo lugar.</p>
       </div>
       <div id='detail-bajada'>
         <p>Con Foundesk, eleva tu potencial al siguiente nivel de una forma fácil y sencilla.</p>

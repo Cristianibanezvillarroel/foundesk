@@ -39,7 +39,7 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
                         <Card key={item.idItem}>
                             <Card.Img variant="top" src={item.imagen} />
                             <Card.Body>
-                                <Badge bg="secondary">{item.tipo}</Badge>
+                                <Badge bg="secondary">{item.categoria}</Badge>
                                 <Card.Title>{item.title.length > DESCRIPTION_CHAR_LIMIT_TITLE ? item.title.substring(0, DESCRIPTION_CHAR_LIMIT_TITLE) + '...' : item.title}</Card.Title>
                                 <Card.Text>
                                     {item.description.length > DESCRIPTION_CHAR_LIMIT_DESCRIPTION ? item.description.substring(0, DESCRIPTION_CHAR_LIMIT_DESCRIPTION) + '...' : item.description}

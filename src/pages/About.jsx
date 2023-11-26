@@ -5,7 +5,7 @@ import { Button, Container, Row } from 'react-bootstrap'
 
 export const About = () => {
 
-  const aboutCall = 'Somos la plataforma de desarrollo de emprendedores más grande de Latinoamérica'
+  const aboutCall = 'Somos la plataforma creada para la productividad del emprendedor en Latinoamerica.'
   const aboutBajada = 'Foundesk es el software de aprendizaje que conecta las necesidades de crecimiento de los emprendedores con sus capacidades. La plataforma ofrece soluciones de aprendizaje, gestion y recursos en un solo lugar, ayudando a elevar la productividad de cada founders. Todo esto a través de soporte personalizado y con la mejor usabilidad.'
   const aboutHistory =
     'Fundé mi primera empresa en el año 2010. Aun cuando tengo formación de negocios, tropecé durante muchos años con problemas en ámbitos de conocimiento para los cuales no me había preparado. Así tuve que pagar multas por atrasos en el pago de impuestos, llenar formularios en papel para distintas instituciones previsionales porque no coordiné debidamente en una oportunidad con el contador el pago de las imposiciones'

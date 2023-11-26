@@ -11,12 +11,32 @@ export const BlogDetail = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      getData()
+      getDataV1()
     }, 10);
   }, [])
 
-  const getData = async () => {
+  const getDataV1 = async () => {
 
+    const url = 'https://api-foundesk.onrender.com/v1/blog';
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseData = await response.json()
+
+    const ArrayItemsFilter = responseData.map(
+      List => List.items.filter(
+        item => item.idItem == id
+      )
+    )
+    setArrayItems(ArrayItemsFilter)
+  }
+
+  /*const getData = async () => {
+  
     const url = 'https://api-foundesk.onrender.com/db/blogs';
     const response = await fetch(url, {
         method: 'GET',
@@ -29,7 +49,7 @@ export const BlogDetail = () => {
     const ListFiltrada = responseData.filter(List => {
       return List.id >= 0
     })
-
+  
     const ListFiltradaObject = ListFiltrada.forEach(function (item) {
       let itemsObject = item.items
       for (let i = 0; i < itemsObject.length; i++) {
@@ -40,12 +60,12 @@ export const BlogDetail = () => {
     })
     setArrayItems(itemsArray)
   }
-
-
+  
+  
   console.log(arrayItems)
   const ArrayItemsFilter = arrayItems.filter(List => {
     return List.idItem == id
-  })
+  })*/
 
   console.log(ArrayItemsFilter)
 
@@ -53,7 +73,7 @@ export const BlogDetail = () => {
     <>
       <Container>
         <div className='blog-detail-div'>
-          {ArrayItemsFilter.map(
+          {arrayItems.map(
             content =>
               <>
                 <div>
