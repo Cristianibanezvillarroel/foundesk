@@ -12,30 +12,26 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
 
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
-            let itera2 = Object.entries(value)
-                .forEach(([key2, value2]) => {
-                    arrayItems.push(value2)
-                })
-        })
-    /*let itera1 = Object.entries(data)
-        .forEach(([key, value]) => {
 
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
-                    let items = value2.items
-
-                    let itera3 = Object.entries(items)
+                    let itera3 = Object.entries(value2)
                         .forEach(([key3, value3]) => {
 
-                            arrayItems.push(value3)
+                            let items = value3.items
+
+                            let itera4 = Object.entries(items)
+                                .forEach(([key4, value4]) => {
+
+                                    arrayItems.push(value4)
+
+                                })
 
                         })
-
                 })
-            console.log(arrayItems)
-        });*/
-
+        });
+    console.log(arrayItems)
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
     const currentItems = arrayItems.slice(indexOfFirstItem, indexOfLastItem);
