@@ -23,7 +23,7 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
       const responseData = await response.json();
   
       const ListFiltrada = responseData.items.filter(item => item.categoria == categoria)
-   
+      
       setData(ListFiltrada)
       setCalificacion(ListFiltrada.calificacion)
       console.log(ListFiltrada)

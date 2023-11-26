@@ -30,9 +30,9 @@ export const CoursesCategories = () => {
       item => item
     ))
 
-
-    setDataCategories(ListFiltrada)
-    console.log(ListFiltrada)
+    let itemsArray = ListFiltrada[0]
+    setDataCategories(itemsArray)
+    console.log(itemsArray)
   }
 
   
