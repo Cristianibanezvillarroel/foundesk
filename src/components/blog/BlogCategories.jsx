@@ -8,8 +8,8 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
 
     useEffect(() => {
         setTimeout(() => {
-            getData()
             getDataV1()
+            
         }, 10);
     }, [])
 
@@ -25,15 +25,17 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
         })
         const responseDataV1 = await responseV1.json()
         
-
-        const ListFiltradaV1 = responseDataV1.filter(ListV1 => {
-            return ListV1.message == 'BlogCategories'
-        })
-        console.log(responseDataV1)
-        console.log(ListFiltradaV1)
+        let arrayBlogCategories = []
+        const ListFiltradaV1 = responseDataV1.map(ListV1 => ListV1.items.map(
+            item => 
+            arrayBlogCategories.push(item)
+        )) 
+        setDataBlogs(arrayBlogCategories)
+        console.log(arrayBlogCategories)
+        console.log(dataBlogs)
     }
 
-    const getData = async () => {
+    /*const getData = async () => {
 
         const url = 'https://api-foundesk.onrender.com/db/blogs';
         const response = await fetch(url, {
@@ -50,7 +52,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
         })
         console.log(ListFiltrada)
         setDataBlogs(ListFiltrada)
-    }
+    }*/
 
     const getCategory = (category) => {
         onAddBlogCategory(category)
