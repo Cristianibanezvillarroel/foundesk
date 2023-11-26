@@ -22,11 +22,14 @@ export const CoursesCategoriesAccordion = ({ categoria, idItem }) => {
       })
       const responseData = await response.json();
   
-      const ListFiltrada = responseData.items.filter(item => item.categoria == categoria)
-      
-      setData(ListFiltrada)
-      setCalificacion(ListFiltrada.calificacion)
-      console.log(ListFiltrada)
+      const ListFiltrada = responseData.map(content => 
+        content.items.filter(
+            item => item.categoria == categoria)
+      )
+      let itemsArray = ListFiltrada[0]
+      setData(itemsArray)
+      setCalificacion(itemsArray.calificacion)
+      console.log(itemsArray)
     }
 
     
