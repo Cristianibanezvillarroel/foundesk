@@ -6,15 +6,8 @@ import Calificacionesimg from '/public/calificaciones.png'
 import { Link } from 'react-router-dom';
 
 export const CoursesCategoriesAccordion = ({ content }) => {
-
-
-    let { cantidad, categoria, resena, description, imagenicono , imagenpublicidad, calificacion, reproducciones } = content
-    const [data, setData] = useState([])
-    const [calificacion, setCalificacion] = useState()
-
-
-
     
+    let { cantidad, categoria, resena, description, imagenicono , imagenpublicidad, calificacion, reproducciones } = content
     const scoreCurses = []
     for (let i = 0; i < parseInt(calificacion); i++) {
             scoreCurses.push(i)
