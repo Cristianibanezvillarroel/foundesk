@@ -12,26 +12,30 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
-            
+
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
-                    
-                    let items = value2.items
 
-                        let itera3 = Object.entries(items)
-                            .forEach(([key3, value3]) => {
-                                
-                                arrayItems.push(value3)
-                                
-                            })                   
+                    let itera3 = Object.entries(value2)
+                        .forEach(([key3, value3]) => {
 
+                            let items = value3.items
+
+                            let itera4 = Object.entries(items)
+                                .forEach(([key4, value4]) => {
+
+                                    arrayItems.push(value4)
+
+                                })
+
+                        })
                 })
-                console.log(arrayItems)
-    });
-    
+        });
+    console.log(arrayItems)
+
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
-    const currentItems = arrayItems.slice(indexOfFirstItem,indexOfLastItem);
+    const currentItems = arrayItems.slice(indexOfFirstItem, indexOfLastItem);
 
     const DESCRIPTION_CHAR_LIMIT = 40;
 
@@ -42,13 +46,13 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
         <>
             <Row>
-                {currentItems.map(content => 
+                {currentItems.map(content =>
 
                     <Col md={6} lg={3} className='mb-4'>
                         <Card key={content.idItem}>
                             <Card.Img variant="top" src={content.imagen} />
                             <Card.Body>
-                                <Badge bg="secondary">{content.tipo}</Badge>
+                                <Badge bg="secondary">{content.categoria}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
                                 </Card.Title>

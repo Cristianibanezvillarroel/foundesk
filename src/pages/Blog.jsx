@@ -43,13 +43,13 @@ export const Blog = () => {
         const ListFiltrada = responseData.map(ListV1 => {
             return blogCategory == 'Todos' ?
 
-            ListV1.items.map(
-                item => ArrayItems.push(item)
+            ArrayItems.push(ListV1.items.map(
+                item => item)
             )
             
             :
-            ListV1.items.filter(
-                item => ArrayItems.push(item.categoria ==  blogCategory)
+            ArrayItems.push(ListV1.items.filter(
+                item => item.categoria ==  blogCategory)
             )
 
         })
