@@ -23,6 +23,9 @@ export const ContentsCards = () => {
         'Access-Control-Allow-Origin': '*'
       }
     })
+
+    console.log(response.json())
+
     const responseDatav1 = await response.json()
 
     let arrayItems = []
