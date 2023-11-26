@@ -24,13 +24,15 @@ export const ContentsCards = () => {
       }
     })
 
-    console.log(response.json())
+    console.log(response)
 
-    const responseDatav1 = await response.json()
+    const ListFiltrada = response.filter(List => {
+      return List.message == 'Blog';
+    })
 
     let arrayItems = []
 
-    const ListFiltradaObject = responseDatav1.forEach(function (item) {
+    const ListFiltradaObject = ListFiltrada.forEach(function (item) {
       let itemsObject = item.items
       for (let i = 0; i < itemsObject.length; i++) {
         arrayItems.push(itemsObject[i])
