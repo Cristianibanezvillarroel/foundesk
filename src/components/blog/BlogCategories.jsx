@@ -27,7 +27,10 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
         const ListFiltrada = responseData.filter(List => {
             return List.message == 'BlogCategories'
         })
-        setDataBlogs(ListFiltrada)
+        console.log(ListFiltrada)
+        setDataBlogs({ListFiltrada})
+        
+        console.log(dataBlogs)
     }
 
     /*const getData = async () => {
