@@ -14,6 +14,19 @@ export const ContentsCards = () => {
     }, 10);
   }, [])
 
+  const getDataV1 = async () => {
+    const url = 'https://api-foundesk.onrender.com/v1/blog';
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseDatav1 = await response.json()
+    return console.log(responseDatav1)
+  }
+
   const getData = async () => {
 
     const url = 'https://api-foundesk.onrender.com/db/blogs';
