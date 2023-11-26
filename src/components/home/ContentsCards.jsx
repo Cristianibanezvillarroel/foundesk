@@ -10,7 +10,7 @@ export const ContentsCards = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      getData()
+      getDataV1()
     }, 10);
   }, [])
 
@@ -24,10 +24,19 @@ export const ContentsCards = () => {
       }
     })
     const responseDatav1 = await response.json()
-    return console.log(responseDatav1)
+
+    let arrayItems = []
+
+    const ListFiltradaObject = responseDatav1.forEach(function (item) {
+      let itemsObject = item.items
+      for (let i = 0; i < itemsObject.length; i++) {
+        arrayItems.push(itemsObject[i])
+      }
+    })
+    setDataBlogs(arrayItems)
   }
 
-  const getData = async () => {
+  /*const getData = async () => {
 
     const url = 'https://api-foundesk.onrender.com/db/blogs';
     const response = await fetch(url, {
@@ -52,7 +61,7 @@ export const ContentsCards = () => {
       }
     })
     setDataBlogs(arrayItems)
-  }
+  }*/
 
   const lastArrayItems = dataBlogs.slice(-3);
 
