@@ -23,11 +23,41 @@ export const Blog = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            getData(blogCategory)
+            getDataV1(blogCategory)
         }, 10);
     }, [])
 
-    const getData = async (blogCategory) => {
+    const getDataV1 = async (blogCategory) => {
+
+        const url = 'https://api-foundesk.onrender.com/v1/blog';
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            }
+        })
+        const responseData = await response.json()
+
+        let ArrayItems = []
+        const ListFiltrada = responseData.map(ListV1 => {
+            return blogCategory == 'Todos' ?
+
+            ListV1.items.map(
+                item => ArrayItems.push(item)
+            )
+            
+            :
+            ListV1.items.map(
+                item => ArrayItems.push(item)
+            )
+
+        })
+        console.log(ArrayItems)
+        setData({ArrayItems})
+    }
+
+    /*const getData = async (blogCategory) => {
 
         const url = 'https://api-foundesk.onrender.com/db/blogs';
         const response = await fetch(url, {
@@ -46,7 +76,7 @@ export const Blog = () => {
     }
     console.log(data)
 
-    console.log(blogCategory)
+    console.log(blogCategory)*/
 
     return (
         <>

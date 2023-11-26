@@ -12,6 +12,10 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
 
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
+            arrayItems.push(value)
+        })
+    /*let itera1 = Object.entries(data)
+        .forEach(([key, value]) => {
 
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
@@ -27,7 +31,7 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
 
                 })
             console.log(arrayItems)
-        });
+        });*/
 
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
