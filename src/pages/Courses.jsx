@@ -134,7 +134,7 @@ export const Courses = () => {
                                     <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getDataV1(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                 )}
                                 <Dropdown.Divider />
-                                <Dropdown.Item onClick={() => { setCoursesSelect('Todos'), setPage(1),getData('Todos') }}>Todos</Dropdown.Item>
+                                <Dropdown.Item onClick={() => { setCoursesSelect('Todos'), setPage(1),getDataV1('Todos') }}>Todos</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
