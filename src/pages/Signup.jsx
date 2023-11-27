@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ export const Signup = () => {
 
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
+  const [userCount, setUserCount] = useState()
 
   const [valueEmail, setValueEmail] = useState('')
   const handleChangeEmail = (e) => {
@@ -28,7 +29,33 @@ export const Signup = () => {
     setValuePasswordConfirm(e.target.value);
   }
 
-  const url = 'https://api-foundesk.onrender.com/v1/signup';
+  useEffect(() => {
+    setTimeout(() => {
+      fetchGetUser()
+    }, 100);
+  }, [])
+
+  const url = 'https://api-foundesk.onrender.com/v1/user';
+
+  const fetchGetUser = async () => {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseData = await response.json();
+
+    const ListFiltrada = responseData.map(List => List.items.map(
+      item => item
+    ))
+
+    setUserCount(ListFiltrada[0])
+    console.log(ListFiltrada[0])
+  }
+
+  const id = userCount.length + 1;
 
   const fetchSignup = async () => {
     const response = await fetch(url, {
@@ -36,7 +63,8 @@ export const Signup = () => {
       body: JSON.stringify({
         email: valueEmail,
         name: valueName,
-        password: valuePassword
+        password: valuePassword,
+        idItem: id
       }),
       headers: {
         'Content-Type': 'application/json',
