@@ -57,8 +57,9 @@ export const Signup = () => {
 
   const id = userCount.length + 1;
 
+  const urlSignup = 'https://api-foundesk.onrender.com/v1/user/signup';
   const fetchSignup = async () => {
-    const response = await fetch(url, {
+    const response = await fetch(urlSignup, {
       method: 'POST',
       body: JSON.stringify({
         email: valueEmail.trim(),
