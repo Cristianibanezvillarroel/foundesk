@@ -37,10 +37,15 @@ export const Login = () => {
       const responseData = await response.json()
       console.log(responseData)
       setMessage(responseData.message)
-      setShow(true);
+      if(message == 'OK'){
+        setShow(true);
+      } else {
+        setInvalid(true);
+      }
+      
     } catch (error) {
       console.log(error)
-      setInvalid(true)
+      
     }
 
   }
