@@ -1,9 +1,56 @@
-import React from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
 export const Login = () => {
+
+  const [show, setShow] = useState(false)
+  const [message, setMessage] = useState()
+
+  const [valueEmail, setValueEmail] = useState('')
+  const handleChangeEmail = (e) => {
+    setValueEmail(e.target.value);
+  }
+
+  const [valuePassword, setValuePassword] = useState('')
+  const handleChangePassword = (e) => {
+    setValuePassword(e.target.value);
+  }
+
+  const urlLogin = 'https://api-foundesk.onrender.com/v1/user/login';
+  const fetchLogin = async () => {
+    const response = await fetch(urlLogin, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: valueEmail.trim(),
+        password: valuePassword
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    const responseData = await response.json()
+    console.log(responseData)
+    setMessage(responseData.message)
+    setShow(true);
+  }
+
+  if (show) {
+    return (
+      <div className="App">
+        <Container className='p-4'>
+          <Alert variant="success" onClose={() => setShow(false)} dismissible >
+            <Alert.Heading>{message}</Alert.Heading>
+            <p>
+              Cierre esta ventana para volver al menu</p>
+          </Alert>
+        </Container>
+      </div>
+    );
+  }
+
   return (
     <>
     <Container className='login-grid'>
@@ -12,15 +59,15 @@ export const Login = () => {
                 Login
             </Col>
             <Col md={12} className='mb-4'>
-            <Form.Control type="text" placeholder="Email" />
+            <Form.Control onChange={handleChangeEmail} type="text" placeholder="Email" />
             </Col>
             <Col>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control onChange={handleChangePassword} type="password" placeholder="Password" />
             </Col>
             <Col md={12} className='login-text' id='login-forgot' >
             ¿Olvidó su password?
             </Col>
-            <Button md={2} id='button-login' className='mb-4' variant='primary'>
+            <Button onClick={fetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
                 Login
             </Button>
             <Col md={12} className='login-text'>
