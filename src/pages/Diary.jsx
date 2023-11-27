@@ -74,8 +74,70 @@ export const Diary = () => {
         setValueTelefono(e.target.value);
     }
 
-    const [reservasCuenta, setReservasCuenta] = useState([]);
+    const [diaryCuenta, setDiaryCuenta] = useState([]);
 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchGetDiary()
+        }, 100);
+    }, [])
+
+    const url = 'https://api-foundesk.onrender.com/v1/customerdiary';
+
+    const fetchGetDiary = async () => {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        const responseData = await response.json();
+
+        const ListFiltrada = responseData.map(List => List.items.map(
+            item => item
+        ))
+
+        setDiaryCuenta(ListFiltrada[0])
+        console.log(ListFiltrada[0])
+    }
+
+    const id = diaryCuenta.length + 1;
+    const formatDay = dayjs(selectedDate).format('YYYY-MM-DD')
+
+    const fetchPostDiary = async () => {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: valueEmail,
+                name: valueNombre,
+                phone: valueTelefono,
+                schedule: horario,
+                date: formatDay,
+                status: 0,
+                idItem: id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        setShow(true);
+    }
+
+    if (show) {
+        return (
+            <div className="App">
+                <Container className='p-4'>
+                    <Alert variant="success" onClose={() => setShow(false)} dismissible >
+                        <Alert.Heading>Su reserva ha sido enviada con éxito</Alert.Heading>
+                        <p>
+                            Cierre esta ventana para volver al menu</p>
+                    </Alert>
+                </Container>
+            </div>
+        );
+    }
 
     /*const fetchPostCuenta = async () => {
         const querySnapshot = await getDocs(collection(db, 'reservas'))
@@ -169,7 +231,7 @@ export const Diary = () => {
                 </DropdownButton>
             </div>
             <div className="d-grid gap-2">
-                <Button variant="primary" size="lg">
+                <Button onClick={fetchPostDiary} variant="primary" size="lg">
                     {selectedDate ? horario ? 'Agendar' : 'Debe seleccionar un horario para Agendar' : 'Debe seleccionar un dia para Agendar'}
                 </Button>
             </div>
