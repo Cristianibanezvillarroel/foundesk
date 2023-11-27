@@ -584,6 +584,15 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#login-text {
+.login-text {
     text-align: center;
+    text-decoration: none;
+    margin-bottom: 5%;
+}
+
+#button-login {
+    margin-top: 5%;
+}
+#login-forgot {
+    margin-top: 5%;
 }

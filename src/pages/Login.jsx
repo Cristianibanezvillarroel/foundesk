@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   return (
@@ -16,14 +17,15 @@ export const Login = () => {
             <Col>
             <Form.Control type="password" placeholder="Password" />
             </Col>
-            <Col md={12} id='login-text' className='mb-4'>
+            <Col md={12} className='login-text' id='login-forgot' >
             ¿Olvidó su password?
             </Col>
-            <Button md={2} className='mb-4' variant='primary'>
+            <Button md={2} id='button-login' className='mb-4' variant='primary'>
                 Login
             </Button>
-            <Col md={12} id='login-text' className='mb-4'>
-            ¿No tiene una cuenta registrada? Signup
+            <Col md={12} className='login-text'>
+            ¿No tiene una cuenta registrada?  
+            <Link className='login-text' to='/signup'>   Signup</Link> 
             </Col>
         </Row>
     </Container>
