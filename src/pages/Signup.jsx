@@ -61,7 +61,7 @@ export const Signup = () => {
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
-        email: valueEmail,
+        email: valueEmail.trim(),
         name: valueName,
         password: valuePassword,
         idItem: id
