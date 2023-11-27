@@ -7,7 +7,7 @@ export const Signup = () => {
 
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
-  const [userCount, setUserCount] = useState()
+  const [userCount, setUserCount] = useState([])
 
   const [valueEmail, setValueEmail] = useState('')
   const handleChangeEmail = (e) => {
