@@ -29,7 +29,7 @@ export const NavBar = () => {
                             <Nav.Link as={Link} to='/about' href="/about">Nosotros</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Button variant="light">Ingresar</Button>
+                    <Button as={Link} to='/login' href='/login' variant="light">Ingresar</Button>
                     <Button as={Link} to='/diary' href="/diary" variant="primary">Agenda una demo</Button>
                 </Container>
             </Navbar>

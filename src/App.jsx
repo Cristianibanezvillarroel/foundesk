@@ -12,6 +12,7 @@ import { Diary } from './pages/Diary'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
 import { Controller } from './pages/Controller'
+import { Login } from './pages/Login'
 
 function App() {
   
@@ -32,6 +33,7 @@ function App() {
         <Route path='/diary' element={<Diary />}/>
         <Route path='/blog' element={<Blog />}/>
         <Route path='/blog/:id' element={<BlogDetail />}/>
+        <Route path='/login' element={<Login />}/>
       </Routes>
       <Footer />
     </>
