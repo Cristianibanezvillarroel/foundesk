@@ -32,6 +32,7 @@ export const Diary = () => {
     const [calendarText, setCalendarText] = useState(`No ha seleccionado ningun dia`);
 
     const [show, setShow] = useState(false);
+    const [message, setMessage] = useState();
 
     const [date, setDate] = useState(new Date());
 
@@ -122,6 +123,7 @@ export const Diary = () => {
                 'Access-Control-Allow-Origin': '*'
             }
         })
+        setMessage(response.message)
         setShow(true);
     }
 
@@ -130,7 +132,7 @@ export const Diary = () => {
             <div className="App">
                 <Container className='p-4'>
                     <Alert variant="success" onClose={() => setShow(false)} dismissible >
-                        <Alert.Heading>Su reserva ha sido enviada con éxito</Alert.Heading>
+                        <Alert.Heading>{message}</Alert.Heading>
                         <p>
                             Cierre esta ventana para volver al menu</p>
                     </Alert>
