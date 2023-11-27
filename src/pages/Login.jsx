@@ -24,8 +24,10 @@ export const Login = () => {
   const prefetchLogin = () => {
     try {
       fetchLogin()
+      return true
     } catch (error) {
-      handleInvalid()      
+      handleInvalid()
+      return true      
     }
   }
 
