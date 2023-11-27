@@ -21,9 +21,9 @@ export const Login = () => {
 
   const urlLogin = 'https://api-foundesk.onrender.com/v1/user/login';
 
-  const prefetchLogin = () => {
+  const prefetchLogin = async () => {
     try {
-      return fetchLogin()
+      return await fetchLogin()
     } catch (error) {   
       return handleInvalid()      
     }
