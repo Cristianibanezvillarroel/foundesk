@@ -23,8 +23,11 @@ export const Login = () => {
 
   const prefetchLogin = async () => {
     try {
-      return await fetchLogin()
-    } catch (error) {   
+      console.log('try')
+      return await fetchLogin() 
+    } catch (error) {
+      console.log('catch')
+      console.log(error)   
       return handleInvalid()      
     }
   }
