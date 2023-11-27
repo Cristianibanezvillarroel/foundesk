@@ -7,6 +7,7 @@ export const Login = () => {
 
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
+  const [invalid, setInvalid] = useState(false)
 
   const [valueEmail, setValueEmail] = useState('')
   const handleChangeEmail = (e) => {
@@ -19,7 +20,21 @@ export const Login = () => {
   }
 
   const urlLogin = 'https://api-foundesk.onrender.com/v1/user/login';
+
+  const prefetchLogin = () => {
+    try {
+      fetchLogin()
+    } catch (error) {
+      handleInvalid()      
+    }
+  }
+
+  const handleInvalid = () => {
+    setInvalid(true)
+  }
+
   const fetchLogin = async () => {
+    
     const response = await fetch(urlLogin, {
       method: 'POST',
       body: JSON.stringify({
@@ -51,6 +66,20 @@ export const Login = () => {
     );
   }
 
+  if (invalid) {
+    return (
+      <div className="App">
+        <Container className='p-4'>
+          <Alert variant="success" onClose={() => setInvalid(false)} dismissible >
+            <Alert.Heading>Su nombre de usuario o contraseña son invalidos.</Alert.Heading>
+            <p>
+              Cierre esta ventana para volver al menu</p>
+          </Alert>
+        </Container>
+      </div>
+    );
+  }
+
   return (
     <>
     <Container className='login-grid'>
@@ -67,7 +96,7 @@ export const Login = () => {
             <Col md={12} className='login-text' id='login-forgot' >
             ¿Olvidó su password?
             </Col>
-            <Button onClick={fetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
+            <Button onClick={prefetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
                 Login
             </Button>
             <Col md={12} className='login-text'>
