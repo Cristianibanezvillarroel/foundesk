@@ -21,38 +21,28 @@ export const Login = () => {
 
   const urlLogin = 'https://api-foundesk.onrender.com/v1/user/login';
 
-  const prefetchLogin = async () => {
-    try {
-      console.log('try')
-      return await fetchLogin() 
-    } catch (error) {
-      console.log('catch')
-      console.log(error)   
-      return handleInvalid()      
-    }
-  }
-
-  const handleInvalid = () => {
-    setInvalid(true)
-  }
-
   const fetchLogin = async () => {
-    
-    const response = await fetch(urlLogin, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: valueEmail.trim(),
-        password: valuePassword
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json()
-    console.log(responseData)
-    setMessage(responseData.message)
-    setShow(true);
+    try {
+      const response = await fetch(urlLogin, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: valueEmail.trim(),
+          password: valuePassword
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      const responseData = await response.json()
+      console.log(responseData)
+      setMessage(responseData.message)
+      setShow(true);
+    } catch (error) {
+      console.log(error)
+      setInvalid(true)
+    }
+
   }
 
   if (show) {
@@ -85,29 +75,29 @@ export const Login = () => {
 
   return (
     <>
-    <Container className='login-grid'>
+      <Container className='login-grid'>
         <Row>
-            <Col md={12} id='login-title' className='mb-4'>
-                Login
-            </Col>
-            <Col md={12} className='mb-4'>
+          <Col md={12} id='login-title' className='mb-4'>
+            Login
+          </Col>
+          <Col md={12} className='mb-4'>
             <Form.Control onChange={handleChangeEmail} type="text" placeholder="Email" />
-            </Col>
-            <Col>
+          </Col>
+          <Col>
             <Form.Control onChange={handleChangePassword} type="password" placeholder="Password" />
-            </Col>
-            <Col md={12} className='login-text' id='login-forgot' >
+          </Col>
+          <Col md={12} className='login-text' id='login-forgot' >
             ¿Olvidó su password?
-            </Col>
-            <Button onClick={prefetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
-                Login
-            </Button>
-            <Col md={12} className='login-text'>
-            ¿No tiene una cuenta registrada?  
-            <Link className='login-text' to='/signup'>   Signup</Link> 
-            </Col>
+          </Col>
+          <Button onClick={fetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
+            Login
+          </Button>
+          <Col md={12} className='login-text'>
+            ¿No tiene una cuenta registrada?
+            <Link className='login-text' to='/signup'>   Signup</Link>
+          </Col>
         </Row>
-    </Container>
+      </Container>
     </>
   )
 }
