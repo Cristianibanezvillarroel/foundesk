@@ -123,8 +123,9 @@ export const Diary = () => {
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        console.log(response.json())
-        setMessage(response.json().message)
+        const responseData = await response.json()
+        console.log(responseData)
+        setMessage(responseData.message)
         setShow(true);
     }
 
