@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/courses`
 
 const dataGet = {
@@ -8,12 +10,14 @@ const dataGet = {
     }
   }
 
+const [data, setData] = useState()
+
 export const coursesService = async (dataService) => {
 
     if(dataService == 'GET'){
-        const data = dataGet
+        setData(dataGet)
     } else {
-        const data = dataService
+        setData(dataService)
     }
     const urlLogin = `${URL_ROOT}`
     const response = await fetch(urlLogin, data)
