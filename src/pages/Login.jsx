@@ -52,7 +52,7 @@ export const Login = () => {
       const responseData = await response.json()*/
       console.log(responseData)
       setMessage(responseData.message)
-      if (message == 'OK') {
+      if (responseData.message == 'OK') {
         setShow(true);
       } else {
         setInvalid(true);
