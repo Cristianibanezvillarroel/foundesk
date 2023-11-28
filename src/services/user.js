@@ -2,16 +2,15 @@ import { useState } from "react"
 
 const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/user`
 
-const dataGet = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    }
-}
-
 export const userService = async (dataService) => {
     const [data, setData] = useState()
+    const dataGet = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
@@ -25,6 +24,13 @@ export const userService = async (dataService) => {
 
 export const loginService = async (dataService) => {
     const [data, setData] = useState()
+    const dataGet = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
@@ -38,6 +44,13 @@ export const loginService = async (dataService) => {
 
 export const signupService = async (dataService) => {
     const [data, setData] = useState()
+    const dataGet = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }
     if (dataService == 'GET') {
         setData(dataGet)
     } else {

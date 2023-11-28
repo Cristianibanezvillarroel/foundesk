@@ -14,27 +14,11 @@ export const CustomerCarrusel = () => {
   }, [])
 
   const getDataV1 = async () => {
-
-    const url = 'https://api-foundesk.onrender.com/v1/customertestimonials';
     
-    const data = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }
+    const dataService = 'GET'
     
-    const responseData = await customerTestimonialsService(data)
+    const responseData = await customerTestimonialsService(dataService)
     
-    /*const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json()*/
 
     const ListFiltrada = responseData.filter(List => {
       return List.message == 'CustomerTestimonials';
@@ -42,22 +26,6 @@ export const CustomerCarrusel = () => {
     setDataCustomerCarrusel(ListFiltrada)
   }
 
-  /*const getData = async () => {
-
-    const url = 'https://api-foundesk.onrender.com/db/customertestimonials';
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json()
-    const ListFiltrada = responseData.filter(List => {
-      return List.categoria == 1;
-    })
-    setDataCustomerCarrusel(ListFiltrada)
-  }*/
 
   return (
     <>
