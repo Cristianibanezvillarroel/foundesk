@@ -8,6 +8,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 //import { db } from '../components/firebase';
 //import { collection, addDoc, getDocs } from "firebase/firestore";
 import dayjs from 'dayjs';
+import { customerDiaryService } from "../services/customerdiary";
 
 
 
@@ -85,15 +86,26 @@ export const Diary = () => {
 
     const url = 'https://api-foundesk.onrender.com/v1/customerdiary';
 
+    const data = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }
+
     const fetchGetDiary = async () => {
-        const response = await fetch(url, {
+
+        const responseData = await customerDiaryService(data)
+
+        /*const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        const responseData = await response.json();
+        const responseData = await response.json();*/
 
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
@@ -107,7 +119,26 @@ export const Diary = () => {
     const formatDay = dayjs(selectedDate).format('YYYY-MM-DD')
 
     const fetchPostDiary = async () => {
-        const response = await fetch(url, {
+
+        const data = {
+            method: 'POST',
+            body: JSON.stringify({
+                email: valueEmail,
+                name: valueNombre,
+                phone: valueTelefono,
+                schedule: horario,
+                date: formatDay,
+                status: 0,
+                idItem: id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+        const responseData = await customerDiaryService(data)
+        
+        /*const response = await fetch(url, {
             method: 'POST',
             body: JSON.stringify({
                 email: valueEmail,
@@ -123,7 +154,7 @@ export const Diary = () => {
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        const responseData = await response.json()
+        const responseData = await response.json()*/
         console.log(responseData)
         setMessage(responseData.message)
         setShow(true);

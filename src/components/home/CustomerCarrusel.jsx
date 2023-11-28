@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { CustomerCarruselImg } from './CustomerCarruselImg';
+import { customerTestimonialsService } from '../../services/customertestimonials';
 
 export const CustomerCarrusel = () => {
 
@@ -15,14 +16,26 @@ export const CustomerCarrusel = () => {
   const getDataV1 = async () => {
 
     const url = 'https://api-foundesk.onrender.com/v1/customertestimonials';
-    const response = await fetch(url, {
+    
+    const data = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    
+    const responseData = await customerTestimonialsService(data)
+    
+    /*const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
     })
-    const responseData = await response.json()
+    const responseData = await response.json()*/
+
     const ListFiltrada = responseData.filter(List => {
       return List.message == 'CustomerTestimonials';
     })
