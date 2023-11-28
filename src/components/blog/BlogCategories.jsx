@@ -1,58 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types'
+import { blogCategoriesService } from '../../services/blogCategories';
 
 export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
 
-    const [dataBlogs, setDataBlogs] = useState([]) 
+    const [dataBlogs, setDataBlogs] = useState([])
 
     useEffect(() => {
         setTimeout(() => {
             getDataV1()
-            
+
         }, 10);
     }, [])
 
     const getDataV1 = async () => {
 
-        const url = 'https://api-foundesk.onrender.com/v1/blogcategories';
-        const responseV1 = await fetch(url, {
+        const dataService = {
             method: 'GET',
             headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             }
-        })
-        const responseDataV1 = await responseV1.json()
-        
+        }
+
+        const responseData = await blogCategoriesService(dataService)
+
         let arrayBlogCategories = []
-        const ListFiltradaV1 = responseDataV1.map(ListV1 => ListV1.items.map(
-            item => 
-            arrayBlogCategories.push(item)
-        )) 
+        const ListFiltradaV1 = responseData.map(ListV1 => ListV1.items.map(
+            item =>
+                arrayBlogCategories.push(item)
+        ))
         setDataBlogs(arrayBlogCategories)
         console.log(arrayBlogCategories)
         console.log(dataBlogs)
     }
-
-    /*const getData = async () => {
-
-        const url = 'https://api-foundesk.onrender.com/db/blogs';
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
-            }
-        })
-        const responseData = await response.json()
-
-        const ListFiltrada = responseData.filter(List => {
-            return List.id >= 0
-        })
-        console.log(ListFiltrada)
-        setDataBlogs(ListFiltrada)
-    }*/
 
     const getCategory = (category) => {
         onAddBlogCategory(category)

@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { blogDetailService } from '../../services/blogDetail.js'
+import { blogDetailService } from '../../services/blogDetail';
 
 export const ContentsCards = () => {
 
