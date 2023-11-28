@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { blogDetailService } from '../../services/blogDetail.js'
 
 export const ContentsCards = () => {
 
@@ -15,16 +16,16 @@ export const ContentsCards = () => {
   }, [])
 
   const getDataV1 = async () => {
-    const url = 'https://api-foundesk.onrender.com/v1/blog';
-    const response = await fetch(url, {
+
+    const dataService = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
-    })
+    }
 
-    const responseData = await response.json()
+    const responseData = await blogDetailService(dataService)
 
     console.log(responseData)
 
@@ -43,32 +44,6 @@ export const ContentsCards = () => {
     setDataBlogs(arrayItems)
   }
 
-  /*const getData = async () => {
-
-    const url = 'https://api-foundesk.onrender.com/db/blogs';
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json()
-
-    const ListFiltrada = responseData.filter(List => {
-      return List.id > 0;
-    })
-
-    let arrayItems = []
-
-    const ListFiltradaObject = ListFiltrada.forEach(function (item) {
-      let itemsObject = item.items
-      for (let i = 0; i < itemsObject.length; i++) {
-        arrayItems.push(itemsObject[i])
-      }
-    })
-    setDataBlogs(arrayItems)
-  }*/
 
   const lastArrayItems = dataBlogs.slice(-3);
 
