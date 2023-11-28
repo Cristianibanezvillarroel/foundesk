@@ -15,7 +15,13 @@ export const CustomerCarrusel = () => {
 
   const getDataV1 = async () => {
     
-    const dataService = 'GET'
+    const dataService = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
     
     const responseData = await customerTestimonialsService(dataService)
     
