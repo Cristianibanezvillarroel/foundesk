@@ -11,9 +11,9 @@ const dataGet = {
 export const coursesService = async (dataService) => {
 
     if(dataService == 'GET'){
-        data = dataGet
+        const data = dataGet
     } else {
-        data = dataService
+        const data = dataService
     }
     const urlLogin = `${URL_ROOT}`
     const response = await fetch(urlLogin, data)

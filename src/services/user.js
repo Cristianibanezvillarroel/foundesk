@@ -11,9 +11,9 @@ const dataGet = {
 export const userService = async (dataService) => {
 
     if(dataService == 'GET'){
-        data = dataGet
+        const data = dataGet
     } else {
-        data = dataService
+        const data = dataService
     }
     const urlLogin = `${URL_ROOT}`
     const response = await fetch(urlLogin, data)
@@ -24,9 +24,9 @@ export const userService = async (dataService) => {
 export const loginService = async (dataService) => {
 
     if(dataService == 'GET'){
-        data = dataGet
+        const data = dataGet
     } else {
-        data = dataService
+        const data = dataService
     }
     const urlLogin = `${URL_ROOT}/login`
     const response = await fetch(urlLogin, data)
@@ -37,9 +37,9 @@ export const loginService = async (dataService) => {
 export const signupService = async (dataService) => {
 
     if(dataService == 'GET'){
-        data = dataGet
+        const data = dataGet
     } else {
-        data = dataService
+        const data = dataService
     }
     const urlLogin = `${URL_ROOT}/signup`
     const response = await fetch(urlLogin, data)
