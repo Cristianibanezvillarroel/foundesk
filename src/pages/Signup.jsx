@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { signupService, userService } from '../services/user';
 
 export const Signup = () => {
 
@@ -38,14 +39,23 @@ export const Signup = () => {
   const url = 'https://api-foundesk.onrender.com/v1/user';
 
   const fetchGetUser = async () => {
-    const response = await fetch(url, {
+
+    const data = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    const responseData = await userService(data)
+    /*const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
     })
-    const responseData = await response.json();
+    const responseData = await response.json();*/
 
     const ListFiltrada = responseData.map(List => List.items.map(
       item => item
@@ -59,7 +69,22 @@ export const Signup = () => {
 
   const urlSignup = 'https://api-foundesk.onrender.com/v1/user/signup';
   const fetchSignup = async () => {
-    const response = await fetch(urlSignup, {
+
+    const data = {
+      method: 'POST',
+      body: JSON.stringify({
+        email: valueEmail.trim(),
+        name: valueName,
+        password: valuePassword,
+        idItem: id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    const responseData = await signupService(data)
+    /*const response = await fetch(urlSignup, {
       method: 'POST',
       body: JSON.stringify({
         email: valueEmail.trim(),
@@ -72,7 +97,7 @@ export const Signup = () => {
         'Access-Control-Allow-Origin': '*'
       }
     })
-    const responseData = await response.json()
+    const responseData = await response.json()*/
     console.log(responseData)
     setMessage(responseData.message)
     setShow(true);
