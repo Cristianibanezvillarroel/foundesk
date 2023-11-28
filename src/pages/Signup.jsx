@@ -36,26 +36,10 @@ export const Signup = () => {
     }, 100);
   }, [])
 
-  const url = 'https://api-foundesk.onrender.com/v1/user';
-
   const fetchGetUser = async () => {
 
-    const data = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }
-    const responseData = await userService(data)
-    /*const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json();*/
+    const dataService = 'GET'
+    const responseData = await userService(dataService)
 
     const ListFiltrada = responseData.map(List => List.items.map(
       item => item
@@ -67,10 +51,9 @@ export const Signup = () => {
 
   const id = userCount.length + 1;
 
-  const urlSignup = 'https://api-foundesk.onrender.com/v1/user/signup';
   const fetchSignup = async () => {
 
-    const data = {
+    const dataService = {
       method: 'POST',
       body: JSON.stringify({
         email: valueEmail.trim(),
@@ -83,21 +66,8 @@ export const Signup = () => {
         'Access-Control-Allow-Origin': '*'
       }
     }
-    const responseData = await signupService(data)
-    /*const response = await fetch(urlSignup, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: valueEmail.trim(),
-        name: valueName,
-        password: valuePassword,
-        idItem: id
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json()*/
+    const responseData = await signupService(dataService)
+
     console.log(responseData)
     setMessage(responseData.message)
     setShow(true);

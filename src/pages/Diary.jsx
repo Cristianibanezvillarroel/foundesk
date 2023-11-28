@@ -58,8 +58,6 @@ export const Diary = () => {
         setHorario(e)
     };
 
-
-
     const [valueEmail, setValueEmail] = useState('');
     const [valueNombre, setValueNombre] = useState('');
     const [valueTelefono, setValueTelefono] = useState('');
@@ -84,28 +82,10 @@ export const Diary = () => {
         }, 100);
     }, [])
 
-    const url = 'https://api-foundesk.onrender.com/v1/customerdiary';
-
-    const data = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }
-    }
-
     const fetchGetDiary = async () => {
 
-        const responseData = await customerDiaryService(data)
-
-        /*const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-        const responseData = await response.json();*/
+        const dataService = 'GET'
+        const responseData = await customerDiaryService(dataService)
 
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
@@ -120,7 +100,7 @@ export const Diary = () => {
 
     const fetchPostDiary = async () => {
 
-        const data = {
+        const dataService = {
             method: 'POST',
             body: JSON.stringify({
                 email: valueEmail,
@@ -136,25 +116,8 @@ export const Diary = () => {
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        const responseData = await customerDiaryService(data)
+        const responseData = await customerDiaryService(dataService)
         
-        /*const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify({
-                email: valueEmail,
-                name: valueNombre,
-                phone: valueTelefono,
-                schedule: horario,
-                date: formatDay,
-                status: 0,
-                idItem: id
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-        const responseData = await response.json()*/
         console.log(responseData)
         setMessage(responseData.message)
         setShow(true);
@@ -173,50 +136,6 @@ export const Diary = () => {
             </div>
         );
     }
-
-    /*const fetchPostCuenta = async () => {
-        const querySnapshot = await getDocs(collection(db, 'reservas'))
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-            setReservasCuenta(reservasCuenta => [...reservasCuenta, doc.data()])            
-        });
-    }
-
-    useEffect(() => {
-        fetchPostCuenta()
-    }, []);
-
-    const id = reservasCuenta.length + 1;
-    const formatDay = dayjs(selectedDate).format('YYYY-MM-DD')
-    
-    const fetchAdd = async () => {
-        const docRef = await addDoc(collection(db, "reservas"), {
-            email: valueEmail,
-            nombre: valueNombre,
-            telefono: valueTelefono,
-            mesa: mesa,
-            horario: horario,
-            fecha: formatDay,
-            id: id          
-        });
-        setShow(true);
-    }
-
-
-    if (show) {
-        return (
-            <div className="App">
-                <Container className='p-4'>
-                    <Alert variant="success" onClose={() => setShow(false)} dismissible >
-                        <Alert.Heading>Su reserva ha sido enviada con éxito</Alert.Heading>
-                        <p>
-                            Cierre esta ventana para volver al menu</p>
-                    </Alert>
-                </Container>
-            </div>
-        );
-    }*/
-
 
     return (
         <div className="calendar-css">

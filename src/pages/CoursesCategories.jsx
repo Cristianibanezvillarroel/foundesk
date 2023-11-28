@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CoursesCategoriesAccordion } from '../components/courses/CoursesCategoriesAccordion.jsx'
-
+import { coursesCategoriesDetailService } from '../services/coursescategoriesdetail.js'
 
 
 export const CoursesCategories = () => {
@@ -14,17 +14,10 @@ export const CoursesCategories = () => {
     }, 100);
   }, [])
 
-  const url = 'https://api-foundesk.onrender.com/v1/coursescategoriesdetail';
-
   const getDataV1 = async () => {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json();
+
+    const dataService = 'GET'
+    const responseData = await coursesCategoriesDetailService(dataService)
 
     const ListFiltrada = responseData.map(List => List.items.map(
       item => item
@@ -34,20 +27,6 @@ export const CoursesCategories = () => {
     setDataCategories(itemsArray)
     console.log(itemsArray)
   }
-
-  
-
-  /*const responseCategories = async () => {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    const responseData = await response.json();
-    setDataCategories(responseData)
-  }*/
 
   return (
     <Container className='courses-categories'>

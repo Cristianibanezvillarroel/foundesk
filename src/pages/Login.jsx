@@ -20,12 +20,10 @@ export const Login = () => {
     setValuePassword(e.target.value);
   }
 
-  const urlLogin = 'https://api-foundesk.onrender.com/v1/user/login';
-
   const fetchLogin = async () => {
     try {
 
-      const data = {
+      const dataService = {
         method: 'POST',
         body: JSON.stringify({
           email: valueEmail.trim(),
@@ -37,19 +35,8 @@ export const Login = () => {
         }
       }
 
-      const responseData = await loginService(data)
-      /*const response = await fetch(urlLogin, {
-        method: 'POST',
-        body: JSON.stringify({
-          email: valueEmail.trim(),
-          password: valuePassword
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      const responseData = await response.json()*/
+      const responseData = await loginService(dataService)
+
       console.log(responseData)
       setMessage(responseData.message)
       if (responseData.message == 'OK') {

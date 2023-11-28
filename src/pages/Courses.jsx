@@ -39,25 +39,9 @@ export const Courses = () => {
 
     const getCategoriesV1 = async () => {
 
-        const url = 'https://api-foundesk.onrender.com/v1/coursescategories';
+        const dataService = 'GET'
 
-        const dataService = {
-            method: 'GET',
-            headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
-            }
-        }
-
-        const responseData = await coursesCategoriesService(dataService)
-        /*const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
-            }
-        })
-        const responseData = await response.json()*/        
+        const responseData = await coursesCategoriesService(dataService)       
 
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
@@ -68,26 +52,9 @@ export const Courses = () => {
 
     const getDataV1 = async (coursesSelect) => {
 
-        const url = 'https://api-foundesk.onrender.com/v1/courses';
-
-        const dataService = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        }
+        const dataService = 'GET'
 
         const responseData = await coursesService(dataService)
-
-        /*const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-        const responseData = await response.json()*/
 
         const ListFiltrada = responseData.filter(List => {
             return List.message == 'Courses';
@@ -118,24 +85,6 @@ export const Courses = () => {
         console.log(arrayItems)
         setData({ arrayItems })
     }
-    /*const getData = async (coursesSelect) => {
-
-        const url = 'https://api-foundesk.onrender.com/db/courses';
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
-            }
-        })
-        const responseData = await response.json()
-        setDataCoursesTotal(responseData)
-
-        const ListFiltrada = responseData.filter(List => {
-            return coursesSelect == 'Todos' ? List.id >= 0 : List.categoria == coursesSelect
-        })
-        setData({ListFiltrada})
-    }*/
 
     return (
         <Container>
