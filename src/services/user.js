@@ -9,9 +9,9 @@ const dataGet = {
         'Access-Control-Allow-Origin': '*'
     }
 }
-const [data, setData] = useState()
-export const userService = async (dataService) => {
 
+export const userService = async (dataService) => {
+    const [data, setData] = useState()
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
@@ -24,7 +24,7 @@ export const userService = async (dataService) => {
 }
 
 export const loginService = async (dataService) => {
-
+    const [data, setData] = useState()
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
@@ -37,7 +37,7 @@ export const loginService = async (dataService) => {
 }
 
 export const signupService = async (dataService) => {
-
+    const [data, setData] = useState()
     if (dataService == 'GET') {
         setData(dataGet)
     } else {

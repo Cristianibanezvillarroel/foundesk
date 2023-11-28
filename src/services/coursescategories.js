@@ -10,10 +10,10 @@ const dataGet = {
     }
 }
 
-const [data, setData] = useState()
+
 
 export const coursesCategoriesService = async (dataService) => {
-
+    const [data, setData] = useState()
     if (dataService == 'GET') {
         setData(dataGet)
     } else {

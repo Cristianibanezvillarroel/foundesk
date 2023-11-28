@@ -9,9 +9,9 @@ const dataGet = {
         'Access-Control-Allow-Origin': '*'
     }
 }
-const [data, setData] = useState()
-export const coursesCategoriesDetailService = async (dataService) => {
 
+export const coursesCategoriesDetailService = async (dataService) => {
+    const [data, setData] = useState()
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
