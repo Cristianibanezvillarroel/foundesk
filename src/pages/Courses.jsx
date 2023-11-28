@@ -4,6 +4,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
+import { coursesCategoriesService } from '../services/coursescategories.js'
+import { coursesService } from '../services/courses.js'
 
 export const Courses = () => {
 
@@ -38,14 +40,24 @@ export const Courses = () => {
     const getCategoriesV1 = async () => {
 
         const url = 'https://api-foundesk.onrender.com/v1/coursescategories';
-        const response = await fetch(url, {
+
+        const dataService = {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            }
+        }
+
+        const responseData = await coursesCategoriesService(dataService)
+        /*const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
                 'Access-Control-Allow-Origin' : '*'
             }
         })
-        const responseData = await response.json()        
+        const responseData = await response.json()*/        
 
         const ListFiltrada = responseData.map(List => List.items.map(
             item => item
@@ -57,14 +69,25 @@ export const Courses = () => {
     const getDataV1 = async (coursesSelect) => {
 
         const url = 'https://api-foundesk.onrender.com/v1/courses';
-        const response = await fetch(url, {
+
+        const dataService = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+
+        const responseData = await coursesService(dataService)
+
+        /*const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        const responseData = await response.json()
+        const responseData = await response.json()*/
 
         const ListFiltrada = responseData.filter(List => {
             return List.message == 'Courses';
