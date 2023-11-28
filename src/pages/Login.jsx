@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { loginService } from '../services/user';
 
 export const Login = () => {
 
@@ -23,7 +24,21 @@ export const Login = () => {
 
   const fetchLogin = async () => {
     try {
-      const response = await fetch(urlLogin, {
+
+      const data = {
+        method: 'POST',
+        body: JSON.stringify({
+          email: valueEmail.trim(),
+          password: valuePassword
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+
+      const responseData = await loginService(data)
+      /*const response = await fetch(urlLogin, {
         method: 'POST',
         body: JSON.stringify({
           email: valueEmail.trim(),
@@ -34,18 +49,18 @@ export const Login = () => {
           'Access-Control-Allow-Origin': '*'
         }
       })
-      const responseData = await response.json()
+      const responseData = await response.json()*/
       console.log(responseData)
       setMessage(responseData.message)
-      if(message == 'OK'){
+      if (message == 'OK') {
         setShow(true);
       } else {
         setInvalid(true);
       }
-      
+
     } catch (error) {
       console.log(error)
-      
+
     }
 
   }
