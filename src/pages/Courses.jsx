@@ -39,7 +39,13 @@ export const Courses = () => {
 
     const getCategoriesV1 = async () => {
 
-        const dataService = 'GET'
+        const dataService = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          }
 
         const responseData = await coursesCategoriesService(dataService)       
 
@@ -52,7 +58,13 @@ export const Courses = () => {
 
     const getDataV1 = async (coursesSelect) => {
 
-        const dataService = 'GET'
+        const dataService = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          }
 
         const responseData = await coursesService(dataService)
 

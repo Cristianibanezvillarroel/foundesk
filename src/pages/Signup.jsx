@@ -38,7 +38,13 @@ export const Signup = () => {
 
   const fetchGetUser = async () => {
 
-    const dataService = 'GET'
+    const dataService = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
     const responseData = await userService(dataService)
 
     const ListFiltrada = responseData.map(List => List.items.map(

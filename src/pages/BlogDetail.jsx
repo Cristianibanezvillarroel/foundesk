@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
+import { blogDetailService } from '../services/blogDetail'
 
 export const BlogDetail = () => {
 
@@ -16,15 +17,14 @@ export const BlogDetail = () => {
 
   const getDataV1 = async () => {
 
-    const url = 'https://api-foundesk.onrender.com/v1/blog';
-    const response = await fetch(url, {
+    const dataService = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
-    })
-    const responseData = await response.json()
+    }
+    const responseData = await blogDetailService(dataService)
 
     const ArrayItemsFilter = responseData.map(
       List => List.items.filter(
@@ -38,37 +38,6 @@ export const BlogDetail = () => {
     setArrayItems(itemsArray)
   }
 
-  /*const getData = async () => {
-  
-    const url = 'https://api-foundesk.onrender.com/db/blogs';
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type' : 'application/json',
-            'Access-Control-Allow-Origin' : '*'
-        }
-    })
-    const responseData = await response.json()
-    const ListFiltrada = responseData.filter(List => {
-      return List.id >= 0
-    })
-  
-    const ListFiltradaObject = ListFiltrada.forEach(function (item) {
-      let itemsObject = item.items
-      for (let i = 0; i < itemsObject.length; i++) {
-        
-        itemsArray.push(itemsObject[i])
-      }
-      
-    })
-    setArrayItems(itemsArray)
-  }
-  
-  
-  console.log(arrayItems)
-  const ArrayItemsFilter = arrayItems.filter(List => {
-    return List.idItem == id
-  })*/
 
   console.log(arrayItems)
 

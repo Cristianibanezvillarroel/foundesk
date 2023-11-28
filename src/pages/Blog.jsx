@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { BlogCategories } from '../components/blog/BlogCategories'
 import { BlogCards } from '../components/blog/BlogCards'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
+import { blogDetailService } from '../services/blogDetail'
 
 export const Blog = () => {
 
@@ -29,15 +30,15 @@ export const Blog = () => {
 
     const getDataV1 = async (blogCategory) => {
 
-        const url = 'https://api-foundesk.onrender.com/v1/blog';
-        const response = await fetch(url, {
+        const dataService = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             }
-        })
-        const responseData = await response.json()
+          }
+        
+        const responseData = await blogDetailService(dataService)
 
         const ListFiltrada = responseData.filter(List => {
             return List.message == 'Blog';
@@ -68,27 +69,6 @@ export const Blog = () => {
         console.log(arrayItems)
         setData({ arrayItems })
     }
-
-    /*const getData = async (blogCategory) => {
-
-        const url = 'https://api-foundesk.onrender.com/db/blogs';
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : '*'
-            }
-        })
-        const responseData = await response.json()
-
-        const ListFiltrada = responseData.filter(List => {
-            return blogCategory == 'Todos' ? List.id >= 0 : List.categoria == blogCategory
-        })
-        setData({ListFiltrada})
-    }
-    console.log(data)
-
-    console.log(blogCategory)*/
 
     return (
         <>

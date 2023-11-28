@@ -84,7 +84,13 @@ export const Diary = () => {
 
     const fetchGetDiary = async () => {
 
-        const dataService = 'GET'
+        const dataService = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          }
         const responseData = await customerDiaryService(dataService)
 
         const ListFiltrada = responseData.map(List => List.items.map(
