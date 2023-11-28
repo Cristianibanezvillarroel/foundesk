@@ -3,7 +3,7 @@ import { useState } from "react"
 const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/user`
 
 export const userService = async (dataService) => {
-    const [data, setData] = useState()
+    const [data, setData] = useState({})
     const dataGet = {
         method: 'GET',
         headers: {
@@ -23,7 +23,7 @@ export const userService = async (dataService) => {
 }
 
 export const loginService = async (dataService) => {
-    const [data, setData] = useState()
+    const [data, setData] = useState({})
     const dataGet = {
         method: 'GET',
         headers: {
@@ -43,7 +43,7 @@ export const loginService = async (dataService) => {
 }
 
 export const signupService = async (dataService) => {
-    const [data, setData] = useState()
+    const [data, setData] = useState({})
     const dataGet = {
         method: 'GET',
         headers: {

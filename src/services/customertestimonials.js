@@ -3,7 +3,7 @@ import { useState } from "react"
 const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/customertestimonials`
 
 export const customerTestimonialsService = async (dataService) => {
-    const [data, setData] = useState()
+    const [data, setData] = useState({})
     const dataGet = {
         method: 'GET',
         headers: {

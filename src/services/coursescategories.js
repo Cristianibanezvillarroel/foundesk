@@ -3,7 +3,6 @@ import { useState } from "react"
 const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/coursescategories`
 
 export const coursesCategoriesService = async (dataService) => {
-    const [data, setData] = useState()
     const dataGet = {
         method: 'GET',
         headers: {
@@ -11,6 +10,9 @@ export const coursesCategoriesService = async (dataService) => {
             'Access-Control-Allow-Origin': '*'
         }
     }
+    
+    const [data, setData] = useState(dataGet)
+    
     if (dataService == 'GET') {
         setData(dataGet)
     } else {
