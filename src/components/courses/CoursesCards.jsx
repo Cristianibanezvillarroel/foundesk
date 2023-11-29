@@ -46,8 +46,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
         console.log(storeLocalItemsGet)
-        if (storeLocalItemsGet != ''){
-            console.log('es distinto de vacio')
+        if (storeLocalItemsGet === 'undefined'){
+            console.log('es un no definido')
         } else {
             console.log('es vacio')
         }
