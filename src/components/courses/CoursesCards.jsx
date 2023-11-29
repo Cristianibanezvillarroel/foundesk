@@ -37,14 +37,14 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     ListSize(itemsLength);
     
     const addLocalStorage = (id) => {
-        if(localStorage.getItem('idItem') === null) {
+        if(localStorage.getItem('shoppingList') === null) {
             setShoppingCart('idItem',id)
         } else {
             setShoppingCart(shoppingCart => [...shoppingCart, {'idItem':id}])
         }
 
-        localStorage.setItem(shoppingCart)
-        console.log(JSON.parse.localStorage.getItem('idItem'))
+        localStorage.setItem('shoppingList',shoppingCart)
+        console.log(JSON.parse.localStorage.getItem('shoppingList'))
     }
 
     
