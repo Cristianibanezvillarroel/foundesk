@@ -36,7 +36,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
 
-    const [storeLocalItems, setStoreLocalItems] = useState([])
+    const [storeLocalItems, setStoreLocalItems] = useState(null)
 
     useEffect((shoppingCart) => {
         storageLocalGet()
@@ -45,8 +45,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
-        setStoreLocalItems(storeLocalItemsGet)        
-        setShoppingCart(storeLocalItemsGet)
+        if (typeof storeLocalItemsGet !== 'undefined'){
+            setStoreLocalItems(storeLocalItemsGet)
+        }                
+        setShoppingCart(storeLocalItems)
     }
 
     const storageLocalSet = async (shoppingCart) => {
@@ -55,8 +57,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const addLocalStorage = async (id) => {
         console.log(id)
-        await storageLocalGet()
-        if (storeLocalItems === null) {
+        //await storageLocalGet()
+        if (shoppingCart === null) {
             setShoppingCart([id])
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
