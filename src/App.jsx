@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { NavBar } from './components/Navbar'
+import { NavBar } from './components/NavBar'
 import { Dashboards } from './pages/Dashboards'
 import { About } from './pages/About'
 import { Testimonials } from './pages/Testimonials'
