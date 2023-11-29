@@ -61,7 +61,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
         } else {
-            setShoppingCart([...shoppingCart, id])
+            setShoppingCart([id])
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
         }
