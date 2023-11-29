@@ -3,10 +3,13 @@ import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { loginService } from '../services/user';
+import { UserContext } from '../context/UserContext';
 
 export const Login = () => {
 
   const { token, setToken } = useContext(UserContext)
+  console.log(token)
+
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
   const [invalid, setInvalid] = useState(false)
