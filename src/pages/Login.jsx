@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { loginService } from '../services/user';
 
 export const Login = () => {
 
+  const { token, setToken } = useContext(UserContext)
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
   const [invalid, setInvalid] = useState(false)

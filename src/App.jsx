@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NavBar } from './components/Navbar'
@@ -14,30 +14,41 @@ import { BlogDetail } from './pages/BlogDetail'
 import { Controller } from './pages/Controller'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
+import { Button } from 'react-bootstrap'
+import { UserContext } from './context/UserContext'
 
 function App() {
-  
+  const { token, setToken } = useContext(UserContext)
   return (
     <>
+    { token ? (
+      <>
+      <div>Hola Logueado</div>
+      <Button onClick={ () => { setToken(null)} }>SignOut</Button>
+      </>
+    ) : (
+      <>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/courses' element={<Courses />}/>
-        <Route path='/courses/:category' element={<Courses />}/>
-        <Route path='/coursescategories' element={<CoursesCategories />}/>
-        <Route path='/dashboards' element={<Dashboards />}/>
-        <Route path='/dashboards/:category' element={<Dashboards />}/>
-        <Route path='/controller' element={<Controller />}/>
-        <Route path='/controller/:category' element={<Controller />}/>
-        <Route path='/about' element={<About />}/>
-        <Route path='/clientes' element={<Testimonials />}/>
-        <Route path='/diary' element={<Diary />}/>
-        <Route path='/blog' element={<Blog />}/>
-        <Route path='/blog/:id' element={<BlogDetail />}/>
-        <Route path='/login' element={<Login />}/>
-        <Route path='/signup' element={<Signup />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/courses' element={<Courses />} />
+        <Route path='/courses/:category' element={<Courses />} />
+        <Route path='/coursescategories' element={<CoursesCategories />} />
+        <Route path='/dashboards' element={<Dashboards />} />
+        <Route path='/dashboards/:category' element={<Dashboards />} />
+        <Route path='/controller' element={<Controller />} />
+        <Route path='/controller/:category' element={<Controller />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/clientes' element={<Testimonials />} />
+        <Route path='/diary' element={<Diary />} />
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:id' element={<BlogDetail />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
       <Footer />
+      </>
+    )}
     </>
   )
 }
