@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
-import { ShoppingCart } from '/public/shoppingcart.png'
+import ShoppingCart from '/public/shoppingcart.png'
 
 export const CoursesDetail = () => {
 
