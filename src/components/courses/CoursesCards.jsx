@@ -74,7 +74,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         console.log(storeLocalItems)
 
         storageLocalGet()
-        setShoppingCart([...shoppingCart, id])
+        //setShoppingCart([...shoppingCart, id])
+        setShoppingCart(id)
         storageLocalSet(shoppingCart)
         /*if (shoppingCart === 'null') {
             setShoppingCart([id])
