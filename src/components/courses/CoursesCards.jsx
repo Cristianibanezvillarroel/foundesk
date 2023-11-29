@@ -47,18 +47,21 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
         console.log(storeLocalItemsGet)
         if (storeLocalItemsGet === null){
+            console.log('es vacio')
             await localStorage.setItem('shoppingList', null)
-            console.log('es nulo')
+            setStoreLocalItems(null)            
         } else if (storeLocalItemsGet == 'null') {
+            console.log('es nulo')
             await localStorage.setItem('shoppingList', null)
-            console.log('es undefined')
+            setStoreLocalItems(null)            
         } else {
             console.log('el shopping cart tiene registros')
+            setStoreLocalItems(storeLocalItemsGet)
         }
         /*if (typeof storeLocalItemsGet !== 'undefined'){
             setStoreLocalItems(storeLocalItemsGet)
-        }                
-        //setShoppingCart(storeLocalItems)*/
+        }*/                
+        setShoppingCart(storeLocalItems)
     }
 
     const storageLocalSet = async (shoppingCart) => {
