@@ -46,10 +46,12 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
         console.log(storeLocalItemsGet)
-        if (storeLocalItemsGet === "undefined"){
-            console.log('es un no definido')
+        if (storeLocalItemsGet === null){
+            console.log('es nulo')
+        } else if (storeLocalItemsGet === "undefined") {
+            console.log('es undefined')
         } else {
-            console.log('es vacio')
+            console.log('el shopping cart tiene registros')
         }
         /*if (typeof storeLocalItemsGet !== 'undefined'){
             setStoreLocalItems(storeLocalItemsGet)
