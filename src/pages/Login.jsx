@@ -42,6 +42,7 @@ export const Login = () => {
       const responseData = await loginService(dataService)
 
       console.log(responseData)
+      console.log(responseData.detail.token)
       setMessage(responseData.message)
       if (responseData.message == 'OK') {
         setShow(true);
