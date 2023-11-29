@@ -61,7 +61,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         /*if (typeof storeLocalItemsGet !== 'undefined'){
             setStoreLocalItems(storeLocalItemsGet)
         }*/                
-        setShoppingCart(storeLocalItemsGet)
+        setShoppingCart({storeLocalItemsGet})
     }
 
     const storageLocalSet = async (id) => {
