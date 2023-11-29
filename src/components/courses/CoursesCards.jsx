@@ -44,7 +44,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         }
 
         localStorage.setItem('shoppingList',shoppingCart)
-        console.log(JSON.parse.localStorage.getItem('shoppingList'))
+        const Store = localStorage.getItem('shoppingList')
+        const objectStore = JSON.parse(Store)
+        console.log(objectStore)
     }
 
     
