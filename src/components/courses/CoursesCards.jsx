@@ -46,7 +46,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
                                     <Link to={`/courses/${content.idItem}`}>
-                                        <p style={{color : 'blue'}}>ver mas</p>
+                                        <Button>Ver mas</Button>
                                     </Link>
                                 </Card.Title>
                                 <Card.Text>
