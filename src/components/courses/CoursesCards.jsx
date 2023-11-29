@@ -40,15 +40,17 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     useEffect((shoppingCart) => {
         storageLocalGet()
-        storageLocalSet(shoppingCart)
+        //storageLocalSet(shoppingCart)
       }, [])
 
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
         console.log(storeLocalItemsGet)
         if (storeLocalItemsGet === null){
+            await localStorage.setItem('shoppingList', null)
             console.log('es nulo')
         } else if (storeLocalItemsGet === "undefined") {
+            await localStorage.setItem('shoppingList', null)
             console.log('es undefined')
         } else {
             console.log('el shopping cart tiene registros')
