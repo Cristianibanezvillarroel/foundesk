@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
-import ShoppingCart from '/public/shoppingcart.png'
+import ShoppingCartImg from '/public/shoppingcart.png'
 import { Link } from 'react-router-dom';
 import { ShoppingContext } from '../../context/ShoppingContext';
 
@@ -96,7 +96,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button onClick={() => { addLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
+                                    <Button onClick={() => { addLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
