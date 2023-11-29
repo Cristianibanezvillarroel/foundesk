@@ -36,22 +36,31 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
 
-    const preAddLocalStorage = (id) => {
-        setTimeout(() => {
-            addLocalStorage(id)
-        }, 100);
+    const storageLocalGet = async () => {
+        const storeLocalItemsGet = await localStorage.getItem('shoppingList')
+        setShoppingCart(storeLocalItemsGet)
     }
-    const addLocalStorage = (id) => {
+
+    const storageLocalSet = async (shoppingCart) => {
+        const storeLocalItemsSet = await localStorage.setItem('shoppingList', shoppingCart)
+        storageLocalGet()
+    }
+
+    const addLocalStorage = async (id) => {
         console.log(id)
-        if (localStorage.getItem('shoppingList') === null) {
-            setShoppingCart(id)
+        await storageLocalGet()
+        if (shoppingCart === null) {
+            setShoppingCart([id])
+            console.log(shoppingCart)
+            storeLocalSet(shoppingCart)
+
         } else {
-            //setShoppingCart(shoppingCart => [...shoppingCart, {'idItem':id}])
-            setShoppingCart(id)
+            setShoppingCart([...shoppingCart, id])
+            storageLocalSet(shoppingCart)
+            console.log(shoppingCart)
         }
 
-        localStorage.setItem('shoppingList', shoppingCart)
-        const Store = localStorage.getItem('shoppingList')
+        
         //const objectStore = JSON.parse(Store)
         console.log(Store)
     }
@@ -81,7 +90,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button onClick={() => { preAddLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
+                                    <Button onClick={() => { addLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
