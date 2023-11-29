@@ -68,7 +68,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         const ObjectId = {
             'idItem': id
         }
-        setShoppingCart(ObjectId)
+        
         const jsonData = JSON.stringify(ObjectId)
         const storeLocalItemsSet = await localStorage.setItem('shoppingList', jsonData)
     }
@@ -78,6 +78,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         console.log(shoppingCart)
         console.log(storeLocalItems)
         await storageLocalSet(id)
+        await storageLocalGet()
 
         console.log('veamos que valor asigna al shopping cart')
         console.log(shoppingCart)
