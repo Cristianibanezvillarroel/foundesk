@@ -35,23 +35,28 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
-    
+
+    const preAddLocalStorage = (id) => {
+        setTimeout(() => {
+            addLocalStorage(id)
+        }, 100);
+    }
     const addLocalStorage = (id) => {
         console.log(id)
-        if(localStorage.getItem('shoppingList') === null) {
-            setShoppingCart(id)
+        if (localStorage.getItem('shoppingList') === null) {
+            setShoppingCart([id])
         } else {
             //setShoppingCart(shoppingCart => [...shoppingCart, {'idItem':id}])
-            setShoppingCart(id)
+            setShoppingCart([...shoppingCart, id])
         }
 
-        localStorage.setItem('shoppingList',shoppingCart)
+        localStorage.setItem('shoppingList', shoppingCart)
         const Store = localStorage.getItem('shoppingList')
         //const objectStore = JSON.parse(Store)
         console.log(Store.shoppingList)
     }
 
-    
+
     return (
 
         <>
@@ -76,7 +81,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button onClick={() => {addLocalStorage(content.idItem)}} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
+                                    <Button onClick={() => { preAddLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
