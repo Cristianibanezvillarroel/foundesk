@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
 import ShoppingCart from '/public/shoppingcart.png'
 import { Link } from 'react-router-dom';
+import { ShoppingContext } from '../../context/ShoppingContext';
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
+
+    const { shoppingCart, setShoppingCart } = useContext(ShoppingContext)
+
     console.log(data)
 
     let arrayItems = []
@@ -31,7 +35,19 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
+    
+    const addLocalStorage = (id) => {
+        if(localStorage.getItem('idItem') === null) {
+            setShoppingCart('idItem',id)
+        } else {
+            setShoppingCart(shoppingCart => [...shoppingCart, {'idItem':id}])
+        }
 
+        localStorage.setItem(shoppingCart)
+        console.log(JSON.parse.localStorage.getItem('idItem'))
+    }
+
+    
     return (
 
         <>
@@ -56,7 +72,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
+                                    <Button onClick={addLocalStorage(content.idItem)} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>

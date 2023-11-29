@@ -4,11 +4,14 @@ export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
     const [token, setToken] = useState(null)
+    const [shoppingList, setShoppingList] = useState(null)
 
     return (
         <UserContext.Provider value={{
             token,
-            setToken
+            setToken,
+            shoppingList,
+            setShoppingList
         }}>
             {children}
         </UserContext.Provider>
