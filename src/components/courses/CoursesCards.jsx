@@ -36,33 +36,30 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
 
+    const [storeLocalItems, setStoreLocalItems] = useState([])
+
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
+        setStoreLocalItems(storeLocalItemsGet)
         setShoppingCart(storeLocalItemsGet)
     }
 
     const storageLocalSet = async (shoppingCart) => {
         const storeLocalItemsSet = await localStorage.setItem('shoppingList', shoppingCart)
-        storageLocalGet()
     }
 
     const addLocalStorage = async (id) => {
         console.log(id)
         await storageLocalGet()
-        if (shoppingCart === null) {
+        if (storeLocalItems === null) {
             setShoppingCart([id])
+            storageLocalSet(shoppingCart)
             console.log(shoppingCart)
-            storeLocalSet(shoppingCart)
-
         } else {
             setShoppingCart([...shoppingCart, id])
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
         }
-
-        
-        //const objectStore = JSON.parse(Store)
-        console.log(Store)
     }
 
 
