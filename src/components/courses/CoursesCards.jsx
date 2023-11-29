@@ -45,7 +45,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                 <Badge bg="secondary">{content.tipo}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
-                                    <Link to={`/courses/${content.idItem}`}>
+                                    <Link to={`/courses/detail/${content.idItem}`}>
                                         <Button>Ver mas</Button>
                                     </Link>
                                 </Card.Title>
