@@ -38,9 +38,14 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const [storeLocalItems, setStoreLocalItems] = useState([])
 
+    useEffect((shoppingCart) => {
+        storageLocalGet()
+        storageLocalSet(shoppingCart)
+      }, [])
+
     const storageLocalGet = async () => {
         const storeLocalItemsGet = await localStorage.getItem('shoppingList')
-        setStoreLocalItems(storeLocalItemsGet)
+        setStoreLocalItems(storeLocalItemsGet)        
         setShoppingCart(storeLocalItemsGet)
     }
 
