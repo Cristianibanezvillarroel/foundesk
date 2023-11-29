@@ -40,7 +40,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     useEffect((shoppingCart) => {
         storageLocalGet()
-        storageLocalSet(3)
+        storageLocalSet(shoppingCart)
       }, [])
 
     const storageLocalGet = async () => {
@@ -60,7 +60,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     }
 
     const storageLocalSet = async (shoppingCart) => {
-        const storeLocalItemsSet = await localStorage.setItem('shoppingList', JSON.stringify(shoppingCart))
+        const storeLocalItemsSet = await localStorage.setItem('shoppingList', null)
     }
 
     const addLocalStorage = (id) => {
