@@ -40,7 +40,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     useEffect((shoppingCart) => {
         storageLocalGet()
-        storageLocalSet(shoppingCart)
+        storageLocalSet(3)
       }, [])
 
     const storageLocalGet = async () => {
