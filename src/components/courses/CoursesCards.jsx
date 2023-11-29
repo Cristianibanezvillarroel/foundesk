@@ -49,7 +49,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         if (storeLocalItemsGet === null){
             await localStorage.setItem('shoppingList', null)
             console.log('es nulo')
-        } else if (storeLocalItemsGet == null) {
+        } else if (storeLocalItemsGet == 'null') {
             await localStorage.setItem('shoppingList', null)
             console.log('es undefined')
         } else {
