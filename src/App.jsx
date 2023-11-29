@@ -16,6 +16,7 @@ import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { Button } from 'react-bootstrap'
 import { UserContext } from './context/UserContext'
+import { CoursesDetail } from './pages/CoursesDetail'
 
 function App() {
   const { token, setToken } = useContext(UserContext)
@@ -34,6 +35,7 @@ function App() {
         <Route path='/courses' element={<Courses />} />
         <Route path='/courses/:category' element={<Courses />} />
         <Route path='/coursescategories' element={<CoursesCategories />} />
+        <Route path='/courses/:id' element={<CoursesDetail />} />
         <Route path='/dashboards' element={<Dashboards />} />
         <Route path='/dashboards/:category' element={<Dashboards />} />
         <Route path='/controller' element={<Controller />} />
