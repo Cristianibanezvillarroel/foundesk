@@ -49,6 +49,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             setStoreLocalItems(storeLocalItemsGet)
         }                
         setShoppingCart(storeLocalItems)
+        return storeLocalItemsGet
     }
 
     const storageLocalSet = async (shoppingCart) => {
@@ -57,8 +58,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const addLocalStorage = (id) => {
         console.log(id)
-        //await storageLocalGet()
-        if (shoppingCart === 'null') {
+        console.log(shoppingCart)
+        console.log(storeLocalItems)
+
+        /*if (shoppingCart === 'null') {
             setShoppingCart([id])
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
@@ -66,7 +69,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             setShoppingCart([id])
             storageLocalSet(shoppingCart)
             console.log(shoppingCart)
-        }
+        }*/
     }
 
 
