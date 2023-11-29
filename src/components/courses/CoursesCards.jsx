@@ -61,23 +61,27 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         /*if (typeof storeLocalItemsGet !== 'undefined'){
             setStoreLocalItems(storeLocalItemsGet)
         }*/                
-        setShoppingCart([storeLocalItems])
+        setShoppingCart(storeLocalItemsGet)
     }
 
-    const storageLocalSet = async (shoppingCart) => {
-        const storeLocalItemsSet = await localStorage.setItem('shoppingList', shoppingCart)
+    const storageLocalSet = async (id) => {
+        const ObjectId = {
+            'idItem': id
+        }
+        setShoppingCart(ObjectId)
+        const jsonData = JSON.stringify(ObjectId)
+        const storeLocalItemsSet = await localStorage.setItem('shoppingList', jsonData)
     }
 
     const addLocalStorage = (id) => {
         console.log(id)
         console.log(shoppingCart)
         console.log(storeLocalItems)
+        storageLocalSet(id)
 
-        //setShoppingCart([...shoppingCart, id])
-        setShoppingCart([...shoppingCart, [id]])
         console.log('veamos que valor asigna al shopping cart')
         console.log(shoppingCart)
-        storageLocalSet(shoppingCart)
+        
         /*if (shoppingCart === 'null') {
             setShoppingCart([id])
             storageLocalSet(shoppingCart)
