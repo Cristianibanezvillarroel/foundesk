@@ -45,7 +45,8 @@ export const Login = () => {
       console.log(responseData.detail.token)
       setMessage(responseData.message)
       if (responseData.message == 'OK') {
-        setShow(true);
+        //setShow(true);
+        setToken(responseData.detail.token)
       } else {
         setInvalid(true);
       }
