@@ -74,7 +74,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button onClick={addLocalStorage(content.idItem)} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
+                                    <Button onClick={() => {addLocalStorage(content.idItem)}} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
