@@ -9,7 +9,7 @@ import { ShoppingContext } from '../../context/ShoppingContext';
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
-    const { shoppingCart, setShoppingCart } = useContext(ShoppingContext)
+    const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
 
     console.log(data)
 
@@ -36,62 +36,44 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
 
-    const [storeLocalItems, setStoreLocalItems] = useState(null)
+    const shoppingList = []
 
     useEffect(() => {
-        storageLocalGet()
-        //storageLocalSet(shoppingCart)
-      }, [])
+        ShoppingListStart()
+    }, [])
 
-    const storageLocalGet = async () => {
-        const storeLocalItemsGet = await localStorage.getItem('shoppingList')
-        console.log(storeLocalItemsGet)
-        if (storeLocalItemsGet === null){
-            console.log('es vacio')
-            await localStorage.setItem('shoppingList', null)
-            setStoreLocalItems(null)            
-        } else if (storeLocalItemsGet == 'null') {
-            console.log('es nulo')
-            await localStorage.setItem('shoppingList', null)
-            setStoreLocalItems(null)            
+    const ShoppingListStart = async () => {
+        const ShoppingListGet = await localStorage.getItem('shoppingList')
+        console.log(ShoppingListGet)
+        if (ShoppingListGet === null) {
+            console.log('storage vacio')
+            await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+            setShoppingCount(0)
+        } else if (ShoppingListGet == 'null') {
+            console.log('storage nulo')
+            await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+            setShoppingCount(0)
         } else {
-            console.log('el shopping cart tiene registros')
-            setStoreLocalItems(storeLocalItemsGet)
+            console.log('storage con registros')
+            const shoppingListSize = shoppingList.length
+            setShoppingCount(shoppingListSize)
+            shoppingList.push(ShoppingListGet)
         }
-        /*if (typeof storeLocalItemsGet !== 'undefined'){
-            setStoreLocalItems(storeLocalItemsGet)
-        }*/                
-        setShoppingCart({storeLocalItemsGet})
     }
 
-    const storageLocalSet = async (id) => {
-        const ObjectId = {
-            'idItem': id
-        }
-        
-        const jsonData = JSON.stringify(ObjectId)
-        const storeLocalItemsSet = await localStorage.setItem('shoppingList', jsonData)
+    const shoppingListSet = async (id) => {
+        const ObjectId = {'idItem': id}
+        shoppingList.push(ObjectId)
+        const shoppingListSize = shoppingList.length + 1
+        setShoppingCount(shoppingListSize)
+        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     }
 
     const addLocalStorage = async (id) => {
+        await shoppingListSet(id)
         console.log(id)
-        console.log(shoppingCart)
-        console.log(storeLocalItems)
-        await storageLocalSet(id)
-        await storageLocalGet()
-
-        console.log('veamos que valor asigna al shopping cart')
-        console.log(shoppingCart)
-        
-        /*if (shoppingCart === 'null') {
-            setShoppingCart([id])
-            storageLocalSet(shoppingCart)
-            console.log(shoppingCart)
-        } else {
-            setShoppingCart([id])
-            storageLocalSet(shoppingCart)
-            console.log(shoppingCart)
-        }*/
+        console.log(shoppingCount)
+        console.log(shoppingList)
     }
 
 

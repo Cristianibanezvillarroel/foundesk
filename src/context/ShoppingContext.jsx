@@ -3,12 +3,12 @@ import { createContext, useState } from "react";
 export const ShoppingContext = createContext()
 
 export const ShoppingProvider = ({ children }) => {
-    const [shoppingCart, setShoppingCart] = useState(null)
+    const [shoppingCount, setShoppingCount] = useState(null)
     
     return (
         <ShoppingContext.Provider value={{
-            shoppingCart,
-            setShoppingCart
+            shoppingCount,
+            setShoppingCount
         }}>
             {children}
         </ShoppingContext.Provider>
