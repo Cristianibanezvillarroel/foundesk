@@ -55,9 +55,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             setShoppingCount(0)
         } else {
             console.log('storage con registros')
-            const shoppingListSize = shoppingList.length + 1
-            setShoppingCount(shoppingListSize)
             shoppingList.push(ShoppingListGet)
+            const shoppingListSize = shoppingList.length
+            setShoppingCount(shoppingListSize)
+            
         }
     }
 
