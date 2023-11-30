@@ -54,15 +54,13 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
             console.log('storage vacio')
-
             setShoppingCount(0)
         } else if (ShoppingListGet == 'null') {
             console.log('storage nulo')
-
             setShoppingCount(0)
         } else {
             console.log('storage con registros')
-            shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+            shoppingList = JSON.parse(ShoppingListGet)
 
             let shoppingListSize = shoppingList.length
             setShoppingCount(shoppingListSize)
