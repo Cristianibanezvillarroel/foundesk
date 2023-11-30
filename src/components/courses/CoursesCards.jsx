@@ -94,7 +94,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-            const shoppingFilter = shoppingList.filter(item => {
+            let shoppingFilter = shoppingList.filter(item => {
                 return item.idItem == id
             })
             if(!shoppingFilter) {
