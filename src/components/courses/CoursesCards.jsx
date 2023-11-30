@@ -97,6 +97,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             let shoppingFilter = shoppingList.filter(item => {
                 return item.idItem == id })
             if(shoppingFilter) {
+                shoppingList.forEach((item, index) => {
+                    console.log(item.idItem)
+                });
                 return alert('Este curso ya se encuentra registrado en el carro de compra')
             } else {
                 await shoppingListSet(id)
