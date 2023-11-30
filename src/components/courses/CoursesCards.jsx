@@ -72,9 +72,13 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
         }
+
+        shoppingList.forEach((item, index) => {
+            if(item.idItem == idItem) return alert('este item ya se encuentra en el carro de compra')
+        })
+
         shoppingList.push(item)
         await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
-        //let ShoppingListGetPost = await localStorage.getItem('shoppingList')
         let shoppingListSize = shoppingList.length
         setShoppingCount(shoppingListSize)
     }
