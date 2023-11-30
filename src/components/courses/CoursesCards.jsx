@@ -66,10 +66,11 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const shoppingListSet = async (id) => {
         const shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
+        console.log(ShoppingListGet)
         shoppingList.push(ShoppingListGet)
         const ObjectId = {'idItem': id}
         shoppingList.push(ObjectId)        
-        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+        await localStorage.setItem('shoppingList', shoppingList)
         const shoppingListSize = shoppingList.length
         setShoppingCount(shoppingListSize)
     }
