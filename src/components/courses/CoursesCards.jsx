@@ -47,26 +47,26 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
             console.log('storage vacio')
-            await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+            
             setShoppingCount(0)
         } else if (ShoppingListGet == 'null') {
             console.log('storage nulo')
-            await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+            
             setShoppingCount(0)
         } else {
             console.log('storage con registros')
-            const shoppingListSize = shoppingList.length
+            const shoppingListSize = shoppingList.length + 1
             setShoppingCount(shoppingListSize)
             shoppingList.push(ShoppingListGet)
         }
     }
 
-    const shoppingListSet = async (id) => {
+    const shoppingListSet = (id) => {
         const ObjectId = {'idItem': id}
         shoppingList.push(ObjectId)
         const shoppingListSize = shoppingList.length + 1
         setShoppingCount(shoppingListSize)
-        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+        localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     }
 
     const addLocalStorage = async (id) => {
