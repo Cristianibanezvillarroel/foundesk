@@ -49,7 +49,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     }, [])
 
     const ShoppingListStart = async () => {
-        const shoppingList = []
+        let shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
         console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
