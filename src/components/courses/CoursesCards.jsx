@@ -9,6 +9,12 @@ import { ShoppingContext } from '../../context/ShoppingContext';
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
+    class Item {
+        constructor(idItem) {
+            this.idItem = idItem
+        }
+    }
+
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
 
     console.log(data)
@@ -57,35 +63,31 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         } else {
             console.log('storage con registros')
 
-            for (let i = 0; i < ShoppingListGet.length; i++) {
-                shoppingList.push(ShoppingListGet[i])
-            }
-
             const shoppingListSize = ShoppingListGet.length
             setShoppingCount(shoppingListSize)
 
         }
     }
 
-    const shoppingListSet = async (id) => {
-        let shoppingList = []
+    const shoppingListSet = async (idItem) => {
+        let shoppingList
+        let item = new Item(idItem)
+
         let ShoppingListGet = await localStorage.getItem('shoppingList')
-        console.log(ShoppingListGet)
+
         if (ShoppingListGet === null) {
+            shoppingList = []
         } else {
-            for (let i = 0; i < ShoppingListGet.length; i++) {
-                shoppingList.push(ShoppingListGet[i])
-            }
+            shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
         }
 
-        let item = id
         shoppingList.push(item)
 
-        await localStorage.setItem('shoppingList', shoppingList)        
-        let ShoppingListGetPost = await localStorage.getItem('shoppingList')
+        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+        /*let ShoppingListGetPost = await localStorage.getItem('shoppingList')
         let shoppingListSize = ShoppingListGetPost.length + 1
         setShoppingCount(shoppingListSize)
-        console.log(localStorage.getItem('shoppingList'))
+        console.log(localStorage.getItem('shoppingList'))*/
     }
 
     const addLocalStorage = async (id) => {
