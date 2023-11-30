@@ -74,7 +74,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         }
 
         shoppingList.forEach((item, index) => {
-            if(item.idItem == idItem) return alert('este item ya se encuentra en el carro de compra')
+            console.log(item)
+            console.log(index)
         })
 
         shoppingList.push(item)
@@ -85,19 +86,23 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const addLocalStorage = async (id) => {
         console.log(id)
-        await shoppingListSet(id)
+        let shoppingList 
         let ShoppingListGet = await localStorage.getItem('shoppingList')
-        let shoppingList        
-                
+        
         if (ShoppingListGet === null) {
+            await shoppingListSet(id)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+            const shoppingFilter = shoppingList.filter(item => {
+                return item.idItem == id
+            })
+            if(!shoppingFilter) {
+                await shoppingListSet(id)
+            } else {
+                return alert('Este curso ya se encuentra registrado en el carro de compra')
+            }
         }
-        shoppingList.forEach((item, index) => {
-            console.log(item)
-            console.log(index)
-        })
     }
 
     console.log(shoppingCount)
