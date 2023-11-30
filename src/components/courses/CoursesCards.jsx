@@ -78,7 +78,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             }
         }
 
-        let item = { 'idItem': id }
+        let item = id
         shoppingList.push(item)
 
         await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))        
