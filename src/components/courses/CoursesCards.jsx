@@ -55,9 +55,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         if (ShoppingListGet === null) {
             console.log('storage vacio')
             setShoppingCount(0)
-        } else if (ShoppingListGet == 'null') {
-            console.log('storage nulo')
-            setShoppingCount(0)
         } else {
             console.log('storage con registros')
             shoppingList = JSON.parse(ShoppingListGet)
@@ -67,6 +64,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
         }
     }
+    console.log(shoppingCount)
 
     const shoppingListSet = async (idItem) => {
         let shoppingList
