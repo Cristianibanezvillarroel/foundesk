@@ -36,13 +36,14 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
 
-    const shoppingList = []
+    
 
     useEffect(() => {
         ShoppingListStart()
     }, [])
 
     const ShoppingListStart = async () => {
+        const shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
         console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
@@ -62,19 +63,21 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         }
     }
 
-    const shoppingListSet = (id) => {
+    const shoppingListSet = async (id) => {
+        const shoppingList = []
+        const ShoppingListGet = await localStorage.getItem('shoppingList')
+        shoppingList.push(ShoppingListGet)
         const ObjectId = {'idItem': id}
-        shoppingList.push(ObjectId)
-        const shoppingListSize = shoppingList.length + 1
+        shoppingList.push(ObjectId)        
+        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+        const shoppingListSize = shoppingList.length
         setShoppingCount(shoppingListSize)
-        localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     }
 
     const addLocalStorage = async (id) => {
         await shoppingListSet(id)
         console.log(id)
         console.log(shoppingCount)
-        console.log(shoppingList)
     }
 
 
