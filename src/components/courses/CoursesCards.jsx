@@ -94,11 +94,13 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-            let shoppingFilter = shoppingList.filter(item => item.idItem == id)
-            if(!shoppingFilter) {
-                await shoppingListSet(id)
-            } else {
+            let shoppingFilter = shoppingList.filter(item => {
+                return item.idItem == id ? 1 : 0})
+            if(shoppingFilter == 1) {
                 return alert('Este curso ya se encuentra registrado en el carro de compra')
+            } else {
+                await shoppingListSet(id)
+                
             }
         }
     }
