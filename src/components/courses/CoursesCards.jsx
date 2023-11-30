@@ -86,24 +86,26 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const addLocalStorage = async (id) => {
         console.log(id)
-        let shoppingList 
+        let shoppingList
+        let idOk
         let ShoppingListGet = await localStorage.getItem('shoppingList')
-        
+
         if (ShoppingListGet === null) {
             await shoppingListSet(id)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-            let shoppingFilter = shoppingList.filter(item => {
-                return item.idItem == id })
-            if(shoppingFilter) {
-                shoppingList.forEach((item, index) => {
-                    console.log(item.idItem)
-                });
+
+            shoppingList.forEach((item, index) => {
+                if (item.idItem == id) {
+                    idOk = 1
+                }
+            })
+
+            if (idOk == 1) {
                 return alert('Este curso ya se encuentra registrado en el carro de compra')
             } else {
                 await shoppingListSet(id)
-                
             }
         }
     }
