@@ -56,8 +56,12 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             setShoppingCount(0)
         } else {
             console.log('storage con registros')
-            shoppingList.push(ShoppingListGet)
-            const shoppingListSize = shoppingList.length
+
+            for (let i = 0; i < ShoppingListGet.length; i++) {
+                shoppingList.push(ShoppingListGet[i])
+            }
+
+            const shoppingListSize = ShoppingListGet.length
             setShoppingCount(shoppingListSize)
 
         }
@@ -69,13 +73,14 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
         } else {
-
-            shoppingList.push(ShoppingListGet)
+            for (let i = 0; i < ShoppingListGet.length; i++) {
+                shoppingList.push(ShoppingListGet[i])
+            }
         }
 
-        let item = {'idItem': id}
-        shoppingList.push(item)                
-        
+        let item = { 'idItem': id }
+        shoppingList.push(item)
+
         await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
         const shoppingListSize = shoppingList.length + 1
         setShoppingCount(shoppingListSize)
