@@ -8,10 +8,12 @@ import logo from '/public/logo_ft.png';
 import ShoppingCartImg from '/public/shoppingcart.png'
 import { useContext } from 'react';
 import { ShoppingContext } from '../context/ShoppingContext';
+import { UserContext } from '../context/UserContext';
 
 
 export const BoundleNavBar = () => {
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
+    const { token, setToken } = useContext(UserContext)
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
