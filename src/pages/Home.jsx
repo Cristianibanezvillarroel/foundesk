@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Rational } from '../components/home/Rational'
 import { Calling } from '../components/home/Calling'
 import { Detail } from '../components/home/Detail'
@@ -12,11 +12,11 @@ import { CallingLine } from '../components/home/CallingLine'
 import { RationalImg } from '../components/home/RationalImg'
 import { StartImg } from '../components/home/StartImg'
 import { UserContext } from '../context/UserContext'
-
 export const Home = () => {
 
   const { token, setToken } = useContext(UserContext)
- console.log(token)
+  console.log(token)
+
   return (
     <>
       <div className='calling'>
