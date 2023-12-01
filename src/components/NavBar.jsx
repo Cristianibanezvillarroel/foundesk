@@ -1,14 +1,17 @@
-import { Button } from 'react-bootstrap';
+import { Badge, Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import logo from '/public/logo_ft.png';
+import ShoppingCartImg from '/public/shoppingcart.png'
+import { useContext } from 'react';
+import { ShoppingContext } from '../context/ShoppingContext';
 
 
 export const NavBar = () => {
-    
+    const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -29,6 +32,10 @@ export const NavBar = () => {
                             <Nav.Link as={Link} to='/about' href="/about">Nosotros</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+                    <Button id='courses-cards-button-shopping' variant='light'>
+                        <img src={ShoppingCartImg} />
+                        <Badge bg="secondary">{shoppingCount}</Badge>
+                    </Button>
                     <Button as={Link} to='/login' href='/login' variant="light">Ingresar</Button>
                     <Button as={Link} to='/diary' href="/diary" variant="primary">Agenda una demo</Button>
                 </Container>
