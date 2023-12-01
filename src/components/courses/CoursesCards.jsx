@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import { Alert, Button, Col, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Modal, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
 import ShoppingCartImg from '/public/shoppingcart.png'
 import { Link } from 'react-router-dom';
@@ -18,6 +18,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const [show, setShow] = useState(false)
     const [message, setMessage] = useState()
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     console.log(data)
 
@@ -89,6 +91,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
         if (ShoppingListGet === null) {
             await shoppingListSet(id)
+            setMessage('Este curso se ha agregado exitosamente al carro de compra')
+            setShow(true)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
@@ -111,21 +115,20 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     if (show) {
         return (
-            <Alert variant="success">
-                <Alert.Heading>Agregacion al carro de compras</Alert.Heading>
-                <p>{message}</p>
-                <hr />
-                <div className="d-flex justify-content-start">
-                    <Button onClick={() => setShow(false)} variant="outline-success">
+            <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Agregacion de curso</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{message}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
                         Continuar comprando
                     </Button>
-                </div>
-                <div className="d-flex justify-content-end">
-                    <Button onClick={() => setShow(false)} variant="outline-success">
-                        Ir al Carro de Compras
+                    <Button variant="primary" onClick={handleClose}>
+                        Carro de Compras
                     </Button>
-                </div>
-            </Alert>
+                </Modal.Footer>
+            </Modal>
         )
     }
 
