@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
 import ShoppingCartImg from '/public/shoppingcart.png'
 import { Link } from 'react-router-dom';
@@ -16,6 +16,8 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     }
 
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
+    const [show, setShow] = useState(false)
+    const [message, setMessage] = useState()
 
     console.log(data)
 
@@ -92,18 +94,40 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
             shoppingList.forEach((item, index) => {
                 if (item.idItem == id) {
+                    setMessage('Este curso ya se encuentra registrado en el carro de compra')
+                    setShow(true)
                     idOk = 1
                 }
             })
-            if (idOk == 1) {
-                return alert('Este curso ya se encuentra registrado en el carro de compra')
-            } else {
+            if (idOk == 0) {
                 await shoppingListSet(id)
+                setMessage('Este curso se ha agregado exitosamente al carro de compra')
+                setShow(true)
             }
         }
     }
 
     console.log(shoppingCount)
+
+    if (show) {
+        return (
+            <Alert variant="success">
+                <Alert.Heading>Agregacion al carro de compras</Alert.Heading>
+                <p>{message}</p>
+                <hr />
+                <div className="d-flex justify-content-start">
+                    <Button onClick={() => setShow(false)} variant="outline-success">
+                        Continuar comprando
+                    </Button>
+                </div>
+                <div className="d-flex justify-content-end">
+                    <Button onClick={() => setShow(false)} variant="outline-success">
+                        Ir al Carro de Compras
+                    </Button>
+                </div>
+            </Alert>
+        )
+    }
 
 
     return (
