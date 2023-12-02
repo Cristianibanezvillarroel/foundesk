@@ -4,6 +4,8 @@ import Badge from 'react-bootstrap/Badge';
 import { Alert, Button, Col, Modal, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
 import ShoppingCartImg from '/public/shoppingcart.png'
+import CheckNok from '/public/checknok.png'
+import CheckOk from '/public/checkok.png'
 import { Link } from 'react-router-dom';
 import { ShoppingContext } from '../../context/ShoppingContext';
 
@@ -18,6 +20,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const [show, setShow] = useState(false)
     const [message, setMessage] = useState()
+    const [check, setCheck] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -93,6 +96,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             await shoppingListSet(content)
             setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
             setShow(true)
+            setCheck(true)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
@@ -100,6 +104,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                 if (item.idItem == content.idItem) {
                     setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
                     setShow(true)
+                    setCheck(false)
                     idOk = 1
                 }
             })
@@ -107,6 +112,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                 await shoppingListSet(content)
                 setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
                 setShow(true)
+                setCheck(true)
             }
         }
     }
@@ -119,7 +125,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Detalle carro</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{message}</Modal.Body>
+                <Modal.Body>
+                    <div style={{alignSelf: 'center'}}>{check ? CheckOk : CheckNok}</div>
+                    <div>{message}</div>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Continuar comprando
