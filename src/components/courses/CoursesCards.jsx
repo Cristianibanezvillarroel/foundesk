@@ -126,7 +126,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                     <Modal.Title>Detalle carro</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div style={{alignSelf: 'center'}}><img src={check ? CheckOk : CheckNok}/></div>
+                    <div style={{alignSelf: 'center'}}><img style={{alignSelf: 'center'}} src={check ? CheckOk : CheckNok}/></div>
                     <div>{message}</div>
                 </Modal.Body>
                 <Modal.Footer>
