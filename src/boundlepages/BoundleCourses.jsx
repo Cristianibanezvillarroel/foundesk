@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Container, Modal, Tab, Tabs } from 'react-bootstrap'
 import { BoundleCoursesAll } from '../boundlecomponents/boundlecourses/BoundleCoursesAll'
 import { useNavigate } from 'react-router-dom'
@@ -6,9 +6,8 @@ import { useNavigate } from 'react-router-dom'
 export const BoundleCourses = () => {
     const [key, setKey] = useState("Todos")
     const { token, setToken } = useContext(UserContext)
-    const [show, setShow] = useState(true)
-    const [handleModal, setHandleModal] = useState(true)
-    const handleClose = () => setHandleModal(false);
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false);
 
     const navigate = useNavigate()
 
@@ -17,12 +16,12 @@ export const BoundleCourses = () => {
     }
 
     if (token) {
-        setShow(true)
-    } else {
         setShow(false)
+    } else {
+        setShow(true)
     }
 
-    if (show) {
+    if (token) {
         return (
             <>
                 <Container>
@@ -49,7 +48,7 @@ export const BoundleCourses = () => {
         )
     } else {
         return (
-            <Modal>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Acceso</Modal.Title>
                 </Modal.Header>
@@ -59,6 +58,9 @@ export const BoundleCourses = () => {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={navigateLogin}>
                         Iniciar Sesion
+                    </Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cerrar
                     </Button>
                 </Modal.Footer>
             </Modal>
