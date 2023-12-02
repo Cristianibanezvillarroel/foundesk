@@ -21,9 +21,9 @@ export const NavBar = () => {
         navigate('/login')
     }
     const navigateShoppingCart = () => {
-        if (token) {
+        //if (token) {
             navigate('/boundleshoppingcart')
-        } else {
+        /*} else {
             return (
                 <>
                     <Modal show={show} onHide={handleClose} animation={false}>
@@ -42,7 +42,7 @@ export const NavBar = () => {
                     </Modal>
                 </>
             )
-        }
+        }*/
 
     }
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
