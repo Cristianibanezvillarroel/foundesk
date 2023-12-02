@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loginService } from '../services/user';
 import { UserContext } from '../context/UserContext';
 
 export const Login = () => {
 
   const { token, setToken } = useContext(UserContext)
+  const history = use
   const navigate = useNavigate()
+  const location = useLocation()
   console.log(token)
 
   const [show, setShow] = useState(false)
@@ -55,8 +57,14 @@ export const Login = () => {
       console.log(error)
 
     }
+    console.log(location)
 
-    navigate('/boundlecourses')
+    if(location.pathname == '/') {
+      navigate('/boundlecourses')
+    } else {
+      navigate(-1)
+    }
+    
 
   }
 
