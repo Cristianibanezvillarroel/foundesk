@@ -34,7 +34,11 @@ export const NavBar = () => {
                     </Navbar.Collapse>
                     <Button id='courses-cards-button-shopping' variant='light'>
                         <img src={ShoppingCartImg} />
-                        <Badge bg="secondary">{shoppingCount}</Badge>
+                        {shoppingCount > 0 ?
+                        <Badge bg="secondary" position="top-end" shape="rounded-pill">{shoppingCount}</Badge>  
+                        : 
+                        <Badge style={{ display: "none" }}>{shoppingCount}</Badge>
+                        }                        
                     </Button>
                     <Button as={Link} to='/login' href='/login' variant="light">Ingresar</Button>
                     <Button as={Link} to='/diary' href="/diary" variant="primary">Agenda una demo</Button>
