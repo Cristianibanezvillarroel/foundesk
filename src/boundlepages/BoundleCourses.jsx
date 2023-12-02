@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 export const BoundleCourses = () => {
     const [key, setKey] = useState("Todos")
     const { token, setToken } = useContext(UserContext)
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(true)
     const [handleModal, setHandleModal] = useState(true)
     const handleClose = () => setHandleModal(false);
 
@@ -20,27 +20,6 @@ export const BoundleCourses = () => {
         setShow(true)
     } else {
         setShow(false)
-    }
-
-    if (!show) {
-        return (
-            <Modal onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Acceso</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    Usted debe iniciar sesion para revisar la lista de sus cursos.
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={navigateLogin}>
-                        Iniciar Sesion
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Cerrar
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        )
     }
 
     if (show) {
@@ -67,6 +46,22 @@ export const BoundleCourses = () => {
                     }
                 </Container>
             </>
+        )
+    } else {
+        return (
+            <Modal>
+                <Modal.Header closeButton>
+                    <Modal.Title>Acceso</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    Usted debe iniciar sesion para revisar la lista de sus cursos.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={navigateLogin}>
+                        Iniciar Sesion
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         )
     }
 }

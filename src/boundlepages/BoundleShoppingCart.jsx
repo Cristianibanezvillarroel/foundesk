@@ -21,27 +21,6 @@ export const BoundleShoppingCart = () => {
         setShow(false)
     }
 
-    if (!show) {
-        return (
-            <Modal show={handleModal} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Acceso</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    Usted debe iniciar sesion para ir al carro de compras.
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={navigateLogin}>
-                        Iniciar Sesion
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Cerrar
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        )
-    }
-
     if (show) {
         return (
             <>
@@ -56,6 +35,22 @@ export const BoundleShoppingCart = () => {
                     </Row>
                 </Container>
             </>
+        )
+    } else {
+        return (
+            <Modal>
+                <Modal.Header closeButton>
+                    <Modal.Title>Acceso</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    Usted debe iniciar sesion para ir al carro de compras.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={navigateLogin}>
+                        Iniciar Sesion
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         )
     }
 }

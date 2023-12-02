@@ -1,4 +1,4 @@
-import { Badge, Button } from 'react-bootstrap';
+import { Badge, Button, Modal } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,15 +6,42 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '/public/logo_ft.png';
 import ShoppingCartImg from '/public/shoppingcart.png'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ShoppingContext } from '../context/ShoppingContext';
+import { UserContext } from '../context/UserContext';
 
 
 export const NavBar = () => {
 
+    const { token, setToken } = useContext(UserContext)
+    const [show, setShow] = useState(false)
     const navigate = useNavigate()
+    const navigateLogin = () => {
+        navigate('/login')
+    }
     const navigateShoppingCart = () => {
-        navigate('boundleshoppingcart')
+        if (token) {
+            navigate('boundleshoppingcart')
+        } else {
+            return (
+                <>
+                    <Modal>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Acceso</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body style={{ textAlign: 'center' }}>
+                            Usted debe iniciar sesion para revisar la lista de sus cursos.
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={navigateLogin}>
+                                Iniciar Sesion
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </>
+            )
+        }
+
     }
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     return (
@@ -40,10 +67,10 @@ export const NavBar = () => {
                     <Button onClick={navigateShoppingCart} id='courses-cards-button-shopping' variant='light'>
                         <img src={ShoppingCartImg} />
                         {shoppingCount > 0 ?
-                        <Badge bg="secondary" position="top-end" shape="rounded-pill">{shoppingCount}</Badge>  
-                        : 
-                        <Badge style={{ display: "none" }}>{shoppingCount}</Badge>
-                        }                        
+                            <Badge bg="secondary" position="top-end" shape="rounded-pill">{shoppingCount}</Badge>
+                            :
+                            <Badge style={{ display: "none" }}>{shoppingCount}</Badge>
+                        }
                     </Button>
                     <Button as={Link} to='/login' href='/login' variant="light">Ingresar</Button>
                     <Button as={Link} to='/diary' href="/diary" variant="primary">Agenda una demo</Button>
