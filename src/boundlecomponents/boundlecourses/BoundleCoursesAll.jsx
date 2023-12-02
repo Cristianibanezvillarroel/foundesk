@@ -4,8 +4,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
-import { coursesCategoriesService } from '../services/coursescategories.js'
-import { coursesService } from '../services/courses.js'
+import { coursesCategoriesService } from '../../services/coursescategories.js'
+import { coursesService } from '../../services/courses.js'
 
 export const BoundleCoursesAll = () => {
 
