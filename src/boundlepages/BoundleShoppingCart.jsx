@@ -13,6 +13,9 @@ export const BoundleShoppingCart = () => {
     const navigateLogin = () => {
         navigate('/login')
     }
+    const navigateHome = () => {
+        navigate('/')
+    }
 
     if (token) {
         return (
@@ -32,7 +35,7 @@ export const BoundleShoppingCart = () => {
     } else {
         return (
             <Modal show={show} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
+                <Modal.Header>
                     <Modal.Title>Acceso</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ textAlign: 'center' }}>
@@ -41,6 +44,9 @@ export const BoundleShoppingCart = () => {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={navigateLogin}>
                         Iniciar Sesion
+                    </Button>
+                    <Button variant="secondary" onClick={navigateHome}>
+                        Cerrar
                     </Button>
                 </Modal.Footer>
             </Modal>
