@@ -20,8 +20,8 @@ import { CoursesDetail } from './pages/CoursesDetail'
 import { useEffect } from 'react'
 import { ShoppingContext } from './context/ShoppingContext'
 import { BoundleNavBar } from './boundlecomponents/BoundleNavBar'
-import { BoundleHome } from './boundlepages/BoundleHome'
 import { BoundleCourses } from './boundlepages/BoundleCourses'
+
 
 function App() {
   const { token, setToken } = useContext(UserContext)
@@ -52,10 +52,9 @@ function App() {
         <>
           <BoundleNavBar />
           <Routes>
-            <Route path='/' element={<BoundleHome />} />
+            <Route path='/' element={<BoundleCourses />} />
             <Route path='/boundlecourses' element={<BoundleCourses />} />
           </Routes>
-          <Button onClick={() => { setToken(null) }}>SignOut</Button>
         </>
       ) : (
         <>

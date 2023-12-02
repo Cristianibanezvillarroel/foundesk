@@ -67,9 +67,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         }
     }
 
-    const shoppingListSet = async (idItem) => {
+    const shoppingListSet = async (item) => {
         let shoppingList
-        let item = new Item(idItem)
+        //let item = new Item(idItem)
         let ShoppingListGet = await localStorage.getItem('shoppingList')
         if (ShoppingListGet === null) {
             shoppingList = []
@@ -97,7 +97,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
             shoppingList.forEach((item, index) => {
-                if (item.idItem == id) {
+                if (item.idItem == id.idItem) {
                     setMessage('Este curso ya se encuentra registrado en el carro de compra')
                     setShow(true)
                     idOk = 1
@@ -157,7 +157,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-price'>
                                         {content.price}
                                     </div>
-                                    <Button onClick={() => { addLocalStorage(content.idItem) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
+                                    <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
