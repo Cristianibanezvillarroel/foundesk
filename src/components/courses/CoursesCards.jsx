@@ -91,21 +91,21 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
         if (ShoppingListGet === null) {
             await shoppingListSet(content)
-            setMessage(`El curso ${<h3 style='color: skyblue;'>{content.title}</h3>} se ha agregado exitosamente al carro de compra`)
+            setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
             setShow(true)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
             shoppingList.forEach((item, index) => {
                 if (item.idItem == content.idItem) {
-                    setMessage(`El curso ${<h3 style='color: skyblue;'>{content.title}</h3>} ya se encuentra registrado en el carro de compra`)
+                    setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
                     setShow(true)
                     idOk = 1
                 }
             })
             if (idOk == 0) {
                 await shoppingListSet(content)
-                setMessage(`El curso ${<h3 style='color: skyblue;'>{content.title}</h3>} se ha agregado exitosamente al carro de compra`)
+                setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
                 setShow(true)
             }
         }
