@@ -67,7 +67,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         }
     }
 
-    const shoppingListSet = async (item) => {
+    const shoppingListSet = async (content) => {
         let shoppingList
         //let item = new Item(idItem)
         let ShoppingListGet = await localStorage.getItem('shoppingList')
@@ -77,35 +77,35 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
         }
 
-        shoppingList.push(item)
+        shoppingList.push(content)
         await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
         let shoppingListSize = shoppingList.length
         setShoppingCount(shoppingListSize)
     }
 
-    const addLocalStorage = async (id) => {
-        console.log(id)
+    const addLocalStorage = async (content) => {
+        console.log(content)
         let shoppingList
         let idOk = 0;
         let ShoppingListGet = await localStorage.getItem('shoppingList')
 
         if (ShoppingListGet === null) {
-            await shoppingListSet(id)
-            setMessage('Este curso se ha agregado exitosamente al carro de compra')
+            await shoppingListSet(content)
+            setMessage(`El curso <h3 style='color: skyblue;'>${content.title}</h3> se ha agregado exitosamente al carro de compra`)
             setShow(true)
             shoppingList = []
         } else {
             shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
             shoppingList.forEach((item, index) => {
-                if (item.idItem == id.idItem) {
-                    setMessage('Este curso ya se encuentra registrado en el carro de compra')
+                if (item.idItem == content.idItem) {
+                    setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
                     setShow(true)
                     idOk = 1
                 }
             })
             if (idOk == 0) {
                 await shoppingListSet(id)
-                setMessage('Este curso se ha agregado exitosamente al carro de compra')
+                setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
                 setShow(true)
             }
         }
@@ -117,7 +117,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         return (
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Agregacion de curso</Modal.Title>
+                    <Modal.Title>Detalle carro</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>{message}</Modal.Body>
                 <Modal.Footer>
@@ -125,7 +125,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                         Continuar comprando
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
-                        Carro de Compras
+                        Ir al carro
                     </Button>
                 </Modal.Footer>
             </Modal>

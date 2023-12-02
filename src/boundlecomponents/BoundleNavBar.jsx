@@ -14,6 +14,9 @@ import { UserContext } from '../context/UserContext';
 export const BoundleNavBar = () => {
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const { token, setToken } = useContext(UserContext)
+    const clearStorage = () => {
+        localStorage.removeItem('shoppingList')
+    }
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -39,7 +42,7 @@ export const BoundleNavBar = () => {
                         <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
                             Mi Perfil
                         </NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => { setToken(null) }} as={Link} to='/' href="/">
+                        <NavDropdown.Item onClick={() => { setToken(null), clearStorage() }} as={Link} to='/' href="/">
                             Cerrar Sesión
                         </NavDropdown.Item>
                     </NavDropdown>
