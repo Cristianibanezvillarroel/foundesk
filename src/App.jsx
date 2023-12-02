@@ -22,6 +22,8 @@ import { ShoppingContext } from './context/ShoppingContext'
 import { BoundleNavBar } from './boundlecomponents/BoundleNavBar'
 import { BoundleCourses } from './boundlepages/BoundleCourses'
 import { BoundleShoppingCart } from './boundlepages/BoundleShoppingCart'
+import { BoundleDashboards } from './boundlepages/BoundleDashboards'
+import { BoundleController } from './boundlepages/BoundleController'
 
 
 function App() {
@@ -56,6 +58,8 @@ function App() {
             <Route path='/' element={<BoundleCourses />} />
             <Route path='/boundlecourses' element={<BoundleCourses />} />
             <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
+            <Route path='/boundledashboards' element={<BoundleDashboards />} />
+            <Route path='/boundlecontroller' element={<BoundleController />} />
           </Routes>
         </>
       ) : (

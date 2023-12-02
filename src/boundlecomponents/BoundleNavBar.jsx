@@ -32,12 +32,12 @@ export const BoundleNavBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <NavDropdown title="Cursos" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
+                                <NavDropdown.Item as={Link} to='/boundlecourses' href="/boundlecourses/Todos">
                                     Cursos online
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link as={Link} to='/dashboards' href="/dashboards">Desempeño</Nav.Link>
-                            <Nav.Link as={Link} to='/controller' href="/controller">Controller</Nav.Link>
+                            <Nav.Link as={Link} to='/boundledashboards' href="/boundledashboards">Desempeño</Nav.Link>
+                            <Nav.Link as={Link} to='/boundlecontroller' href="/boundlecontroller">Controller</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     <Button onClick={navigateShoppingCart} id='courses-cards-button-shopping' variant='light'>
