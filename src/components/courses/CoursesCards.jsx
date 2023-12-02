@@ -125,9 +125,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Detalle carro</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <div style={{alignSelf: 'center'}}><img style={{alignSelf: 'center'}} src={check ? CheckOk : CheckNok}/></div>
-                    <div>{message}</div>
+                <Modal.Body style={{textAlign: 'center'}}>
+                    <div style={{textAlign: 'center'}}><img style={{textAlign: 'center'}} src={check ? CheckOk : CheckNok}/></div>
+                    <div style={{textAlign: 'left'}}>{message}</div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
