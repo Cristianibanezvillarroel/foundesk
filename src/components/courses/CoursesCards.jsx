@@ -11,11 +11,6 @@ import { ShoppingContext } from '../../context/ShoppingContext';
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
-    class Item {
-        constructor(idItem) {
-            this.idItem = idItem
-        }
-    }
 
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const [show, setShow] = useState(false)
@@ -72,7 +67,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     const shoppingListSet = async (content) => {
         let shoppingList
-        //let item = new Item(idItem)
         let ShoppingListGet = await localStorage.getItem('shoppingList')
         if (ShoppingListGet === null) {
             shoppingList = []

@@ -21,6 +21,7 @@ import { useEffect } from 'react'
 import { ShoppingContext } from './context/ShoppingContext'
 import { BoundleNavBar } from './boundlecomponents/BoundleNavBar'
 import { BoundleCourses } from './boundlepages/BoundleCourses'
+import { BoundleShoppingCart } from './boundlepages/BoundleShoppingCart'
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <Routes>
             <Route path='/' element={<BoundleCourses />} />
             <Route path='/boundlecourses' element={<BoundleCourses />} />
+            <Route path='/shoppingcart' element={<BoundleShoppingCart />} />
           </Routes>
         </>
       ) : (
@@ -76,6 +78,7 @@ function App() {
             <Route path='/blog/:id' element={<BlogDetail />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/shoppingcart' element={<BoundleShoppingCart />} />
           </Routes>
           <Footer />
         </>
