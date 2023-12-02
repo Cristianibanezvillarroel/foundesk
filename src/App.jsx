@@ -78,7 +78,7 @@ function App() {
             <Route path='/blog/:id' element={<BlogDetail />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/shoppingcart' element={<BoundleShoppingCart />} />
+            <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
           </Routes>
           <Footer />
         </>
