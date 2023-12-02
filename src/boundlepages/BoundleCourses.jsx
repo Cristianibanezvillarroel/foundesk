@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Tab, Tabs } from 'react-bootstrap'
-import { BoundleCoursesAll } from '../boundlecomponents/BoundleCoursesAll'
+import { BoundleCoursesAll } from '../boundlecomponents/boundlecourses/BoundleCoursesAll'
 
 export const BoundleCourses = () => {
     const [key, setKey] = useState("Todos")
