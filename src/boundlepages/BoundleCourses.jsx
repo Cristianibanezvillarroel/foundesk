@@ -12,7 +12,7 @@ export const BoundleCourses = () => {
 
     const navigate = useNavigate()
 
-    const goLogin = () => {
+    const navigateLogin = () => {
         navigate('/login')
     }
 
@@ -32,7 +32,7 @@ export const BoundleCourses = () => {
                     Usted debe iniciar sesion para revisar la lista de sus cursos.
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={goLogin}>
+                    <Button variant="secondary" onClick={navigateLogin}>
                         Iniciar Sesion
                     </Button>
                     <Button variant="primary" onClick={handleClose}>

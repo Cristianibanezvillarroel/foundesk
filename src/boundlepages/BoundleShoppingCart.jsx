@@ -11,7 +11,7 @@ export const BoundleShoppingCart = () => {
     const [handleModal, setHandleModal] = useState(true)
     const handleClose = () => setHandleModal(false)
     const navigate = useNavigate()
-    const goLogin = () => {
+    const navigateLogin = () => {
         navigate('/login')
     }
 
@@ -31,7 +31,7 @@ export const BoundleShoppingCart = () => {
                     Usted debe iniciar sesion para ir al carro de compras.
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={goLogin}>
+                    <Button variant="secondary" onClick={navigateLogin}>
                         Iniciar Sesion
                     </Button>
                     <Button variant="primary" onClick={handleClose}>

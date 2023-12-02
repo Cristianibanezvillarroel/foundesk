@@ -55,7 +55,7 @@ function App() {
           <Routes>
             <Route path='/' element={<BoundleCourses />} />
             <Route path='/boundlecourses' element={<BoundleCourses />} />
-            <Route path='/shoppingcart' element={<BoundleShoppingCart />} />
+            <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
           </Routes>
         </>
       ) : (

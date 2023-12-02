@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '/public/logo_ft.png';
 import ShoppingCartImg from '/public/shoppingcart.png'
 import { useContext } from 'react';
@@ -12,6 +12,12 @@ import { UserContext } from '../context/UserContext';
 
 
 export const BoundleNavBar = () => {
+
+    const navigate = useNavigate()
+    const navigateShoppingCart = () => {
+        navigate('/boundleshoppingcart')
+    }
+
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const { token, setToken } = useContext(UserContext)
     const clearStorage = () => {
@@ -34,7 +40,7 @@ export const BoundleNavBar = () => {
                             <Nav.Link as={Link} to='/controller' href="/controller">Controller</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Button id='courses-cards-button-shopping' variant='light'>
+                    <Button onClick={navigateShoppingCart} id='courses-cards-button-shopping' variant='light'>
                         <img src={ShoppingCartImg} />
                         <Badge bg="secondary">{shoppingCount}</Badge>
                     </Button>
