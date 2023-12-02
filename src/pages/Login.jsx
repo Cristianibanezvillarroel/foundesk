@@ -8,7 +8,6 @@ import { UserContext } from '../context/UserContext';
 export const Login = () => {
 
   const { token, setToken } = useContext(UserContext)
-  const history = use
   const navigate = useNavigate()
   const location = useLocation()
   console.log(token)
