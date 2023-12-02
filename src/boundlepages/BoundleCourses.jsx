@@ -16,12 +16,6 @@ export const BoundleCourses = () => {
     }
 
     if (token) {
-        setShow(false)
-    } else {
-        setShow(true)
-    }
-
-    if (token) {
         return (
             <>
                 <Container>
@@ -47,6 +41,7 @@ export const BoundleCourses = () => {
             </>
         )
     } else {
+        setShow(true)
         return (
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
