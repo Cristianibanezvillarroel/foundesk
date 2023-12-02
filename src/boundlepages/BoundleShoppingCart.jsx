@@ -23,7 +23,7 @@ export const BoundleShoppingCart = () => {
 
     if (!show) {
         return (
-            <Modal onHide={handleClose} animation={false}>
+            <Modal show={handleModal} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Acceso</Modal.Title>
                 </Modal.Header>
