@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { CoursesCards } from '../components/courses/CoursesCards.jsx'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import { useParams } from 'react-router-dom'
+import { CoursesCards } from '../../components/courses/CoursesCards.jsx'
 import { coursesCategoriesService } from '../../services/coursescategories.js'
 import { coursesService } from '../../services/courses.js'
 
