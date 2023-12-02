@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const BoundleShoppingCart = () => {
     const { token, setToken } = useContext(UserContext)
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(true)
     const handleClose = () => setShow(false)
     const navigate = useNavigate()
     const navigateLogin = () => {
@@ -30,7 +30,6 @@ export const BoundleShoppingCart = () => {
             </>
         )
     } else {
-        setShow(true)
         return (
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>

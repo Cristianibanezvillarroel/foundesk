@@ -14,7 +14,7 @@ import { UserContext } from '../context/UserContext';
 export const NavBar = () => {
 
     const { token, setToken } = useContext(UserContext)
-    const [ show, setShow ] = useState(false)
+    const [ show, setShow ] = useState(true)
     const handleClose = () => setShow(false)
     const navigate = useNavigate()
     const navigateLogin = () => {
@@ -24,7 +24,6 @@ export const NavBar = () => {
         if (token) {
             navigate('/boundleshoppingcart')
         } else {
-            setShow(true)
             return (
                 <>
                     <Modal show={show} onHide={handleClose} animation={false}>
