@@ -42,7 +42,7 @@ export const BoundleNavBar = () => {
                         <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
                             Mi Perfil
                         </NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => { setToken(null), clearStorage() }} as={Link} to='/' href="/">
+                        <NavDropdown.Item onClick={() => { setToken(null), clearStorage(), setShoppingCount(null) }} as={Link} to='/' href="/">
                             Cerrar Sesión
                         </NavDropdown.Item>
                     </NavDropdown>
