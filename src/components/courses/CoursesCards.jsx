@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types'
 import ShoppingCartImg from '/public/shoppingcart.png'
 import CheckNok from '/public/checknok.png'
 import CheckOk from '/public/checkok.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../context/ShoppingContext';
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
@@ -18,6 +18,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const [check, setCheck] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const navigate = useNavigate()
+    const navigateShoppingCart = () => {
+        navigate('/boundleshoppingcart')
+    }
 
     console.log(data)
 
@@ -117,7 +121,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
         return (
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Detalle carro</Modal.Title>
+                    <Modal.Title>Registro</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{textAlign: 'center'}}>
                     <div style={{textAlign: 'center'}}><img style={{textAlign: 'center'}} src={check ? CheckOk : CheckNok}/></div>
@@ -127,7 +131,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Continuar comprando
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={navigateShoppingCart}>
                         Ir al carro
                     </Button>
                 </Modal.Footer>

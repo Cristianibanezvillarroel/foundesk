@@ -42,7 +42,7 @@ export const BoundleShoppingCart = () => {
                     Usted debe iniciar sesion para ir al carro de compras.
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={navigateLogin}>
+                    <Button variant="primary" onClick={navigateLogin}>
                         Iniciar Sesion
                     </Button>
                     <Button variant="secondary" onClick={navigateHome}>
