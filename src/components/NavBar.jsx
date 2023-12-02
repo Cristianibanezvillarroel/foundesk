@@ -22,7 +22,7 @@ export const NavBar = () => {
     }
     const navigateShoppingCart = () => {
         if (token) {
-            navigate('boundleshoppingcart')
+            navigate('/boundleshoppingcart')
         } else {
             setShow(true)
             return (
