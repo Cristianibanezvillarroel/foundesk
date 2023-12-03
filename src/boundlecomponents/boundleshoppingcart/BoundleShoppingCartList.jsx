@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShoppingContext } from '../../context/ShoppingContext'
+import { Row } from 'react-bootstrap'
 
 export const BoundleShoppingCartList = () => {
   const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
