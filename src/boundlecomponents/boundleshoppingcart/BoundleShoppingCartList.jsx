@@ -55,7 +55,7 @@ export const BoundleShoppingCartList = () => {
                 </Toast.Header>
                 <Toast.Body>{content.title}</Toast.Body>
               </Toast>
-              <Button variant='light' onClick={deleteItem({index})}>{TrashShoppingCartImg}</Button>
+              <Button variant='light' onClick={() => {deleteItem({index})}}>{TrashShoppingCartImg}</Button>
             </ListGroup.Item>
           })}
         </ListGroup>
