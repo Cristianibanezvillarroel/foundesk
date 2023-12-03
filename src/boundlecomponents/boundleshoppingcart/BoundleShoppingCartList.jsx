@@ -25,7 +25,7 @@ export const BoundleShoppingCartList = () => {
       let i = 0
       let newArray = []
       shoppingList.forEach(item => {
-        newArray[i]=item
+        newArray[i] = item
         i++
       })
       let shoppingListSize = shoppingList.length
@@ -36,14 +36,20 @@ export const BoundleShoppingCartList = () => {
   }
 
   const deleteItem = async (index) => {
-    let shoppingList = []
+    /*let shoppingList = []
     const ShoppingListGet = await localStorage.getItem('shoppingList')
     if (ShoppingListGet === null) {
       shoppingList = [];
     } else {
       shoppingList = JSON.parse(ShoppingListGet);
     }
-    shoppingList.splice(index, 1)
+    let i = 0
+    let newArray = []
+    shoppingList.forEach(item => {
+      newArray[i] = item
+      i++
+    })*/
+    arrayStorage.splice(index, 1)
     await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     ShoppingListStart()
   }
@@ -51,7 +57,7 @@ export const BoundleShoppingCartList = () => {
     <>
       <Row>
         <ListGroup as="ol" numbered>
-          {arrayStorage.map((content, index) => 
+          {arrayStorage.map((content, index) =>
             <ListGroup.Item as="li">
               <div className='boundle-shoppingcart-list'>
                 <div>
@@ -65,7 +71,7 @@ export const BoundleShoppingCartList = () => {
                   </Toast>
                 </div>
                 <div>
-                  <Button variant='light' onClick={() => { deleteItem({ index }) }}><img src={TrashShoppingCartImg}/></Button>
+                  <Button variant='light' onClick={() => { deleteItem({ index }) }}><img src={TrashShoppingCartImg} /></Button>
                 </div>
               </div>
             </ListGroup.Item>
