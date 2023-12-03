@@ -45,7 +45,7 @@ export const BoundleShoppingCartList = () => {
     <>
       <Row>
         <ListGroup as="ol" numbered>
-          {arrayStorage.map((content, index) => {
+          {arrayStorage.map((content, index) => 
             <ListGroup.Item as="li">
               <div>
                 <div>
@@ -63,7 +63,7 @@ export const BoundleShoppingCartList = () => {
                 </div>
               </div>
             </ListGroup.Item>
-          })}
+          )}
         </ListGroup>
       </Row>
     </>
