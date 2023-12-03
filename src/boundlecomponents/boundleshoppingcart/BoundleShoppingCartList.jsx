@@ -10,9 +10,9 @@ export const BoundleShoppingCartList = () => {
     ShoppingListStart()
   }, [])
 
-  let shoppingList = []
+  
   const ShoppingListStart = async () => {
-    
+    let shoppingList = []
     const ShoppingListGet = await localStorage.getItem('shoppingList')
     console.log(ShoppingListGet)
     if (ShoppingListGet === null) {
@@ -20,7 +20,7 @@ export const BoundleShoppingCartList = () => {
       setShoppingCount(null)
     } else {
       console.log('storage con registros')
-      shoppingList.push(JSON.parse(ShoppingListGet)) 
+      shoppingList = JSON.parse(ShoppingListGet) 
       let shoppingListSize = shoppingList.length
       setShoppingCount(shoppingListSize)
       setArrayStorage(shoppingList)
@@ -31,7 +31,7 @@ export const BoundleShoppingCartList = () => {
   return (
     <>
     <Row>
-      {shoppingList.map(content => 
+      {arrayStorage.map(content => 
         <div>{content.title}</div>)}  
     </Row>
     </>    
