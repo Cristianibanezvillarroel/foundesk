@@ -34,6 +34,7 @@ export const BoundleShoppingCartList = () => {
 
     }
   }
+  console.log(arrayStorage)
 
   const deleteItem = async (index) => {
     let shoppingList = []
