@@ -3,7 +3,7 @@ import { ShoppingContext } from '../../context/ShoppingContext'
 
 export const BoundleShoppingCartList = () => {
   const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
-  const [ arrayStorage, setArrayStorage ] = useState()
+  const [ arrayStorage, setArrayStorage ] = useState([])
 
   useEffect(() => {
     ShoppingListStart()
@@ -23,6 +23,7 @@ export const BoundleShoppingCartList = () => {
       let shoppingListSize = shoppingList.length
       setShoppingCount(shoppingListSize)
       setArrayStorage(shoppingList)
+      console.log(shoppingListSize)
       console.log(typeof shoppingList)
     }
   }
