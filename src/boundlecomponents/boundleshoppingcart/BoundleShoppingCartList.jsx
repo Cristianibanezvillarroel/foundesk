@@ -34,8 +34,8 @@ export const BoundleShoppingCartList = () => {
           {arrayStorage.map(content =>
             <ListGroup.Item as="li">
               <Toast>
-                <Toast.Header>
-                  <img src={content.imagen} className="rounded me-2" alt="" />
+                <Toast.Header closeButton={false}>
+                  <img id='boundle-shopping-img' src={content.imagen} className="rounded me-2" alt="" />
                   <strong className="me-auto">{content.author}</strong>
                   <small>{content.price}</small>
                 </Toast.Header>
