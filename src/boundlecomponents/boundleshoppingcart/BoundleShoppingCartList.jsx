@@ -47,17 +47,21 @@ export const BoundleShoppingCartList = () => {
         <ListGroup as="ol" numbered>
           {arrayStorage.map((content, index) => {
             <ListGroup.Item as="li">
-              <>
-                <Toast>
-                  <Toast.Header closeButton={false}>
-                    <img id='boundle-shopping-img' src={content.imagen} className="rounded me-2" alt="" />
-                    <strong className="me-auto">{content.author}</strong>
-                    <small>{content.price}</small>
-                  </Toast.Header>
-                  <Toast.Body>{content.title}</Toast.Body>
-                </Toast>
-                <Button variant='light' onClick={() => { deleteItem({ index }) }}>{TrashShoppingCartImg}</Button>
-              </>
+              <div>
+                <div>
+                  <Toast>
+                    <Toast.Header closeButton={false}>
+                      <img id='boundle-shopping-img' src={content.imagen} className="rounded me-2" alt="" />
+                      <strong className="me-auto">{content.author}</strong>
+                      <small>{content.price}</small>
+                    </Toast.Header>
+                    <Toast.Body>{content.title}</Toast.Body>
+                  </Toast>
+                </div>
+                <div>
+                  <Button variant='light' onClick={() => { deleteItem({ index }) }}>{TrashShoppingCartImg}</Button>
+                </div>
+              </div>
             </ListGroup.Item>
           })}
         </ListGroup>
