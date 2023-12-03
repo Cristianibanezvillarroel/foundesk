@@ -47,7 +47,7 @@ export const BoundleShoppingCartList = () => {
         <ListGroup as="ol" numbered>
           {arrayStorage.map((content, index) => 
             <ListGroup.Item as="li">
-              <div>
+              <div className='boundle-shoppingcart-list'>
                 <div>
                   <Toast>
                     <Toast.Header closeButton={false}>
@@ -59,7 +59,7 @@ export const BoundleShoppingCartList = () => {
                   </Toast>
                 </div>
                 <div>
-                  <Button variant='light' onClick={() => { deleteItem({ index }) }}>{TrashShoppingCartImg}</Button>
+                  <Button variant='light' onClick={() => { deleteItem({ index }) }}><img src={TrashShoppingCartImg}/></Button>
                 </div>
               </div>
             </ListGroup.Item>

@@ -602,3 +602,9 @@
     max-width: 30%;
     max-height: 30%;
 }
+
+.boundle-shoppingcart-list {
+    display: flex;
+    flex-direction: row;
+    -ms-flex-align: center;
+}
