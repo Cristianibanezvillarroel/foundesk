@@ -36,8 +36,8 @@ export const BoundleShoppingCartList = () => {
   }
 
   const deleteItem = async (index) => {
-    /*let shoppingList = []
-    const ShoppingListGet = await localStorage.getItem('shoppingList')
+    let shoppingList = []
+    /*const ShoppingListGet = await localStorage.getItem('shoppingList')
     if (ShoppingListGet === null) {
       shoppingList = [];
     } else {
@@ -50,6 +50,10 @@ export const BoundleShoppingCartList = () => {
       i++
     })*/
     arrayStorage.splice(index, 1)
+    arrayStorage.forEach((item, index) => {
+      shoppingList.push(item)
+    })
+
     await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     ShoppingListStart()
   }
