@@ -22,6 +22,9 @@ export const BoundleShoppingCart = () => {
             <>
                 <Container>
                     <Row>
+                        Carro de Compra
+                    </Row>
+                    <Row>
                         <Col md={6} className='mb-4'>
                             <BoundleShoppingCartList />
                         </Col>
