@@ -30,8 +30,8 @@ export const BoundleShoppingCartList = () => {
   return (
     <>
       <Row>
-        {arrayStorage.map(content =>
-          <ListGroup as="ol" numbered>
+        <ListGroup as="ol" numbered>
+          {arrayStorage.map(content =>
             <ListGroup.Item as="li">
               <Toast>
                 <Toast.Header>
@@ -42,8 +42,8 @@ export const BoundleShoppingCartList = () => {
                 <Toast.Body>{content.title}</Toast.Body>
               </Toast>
             </ListGroup.Item>
-          </ListGroup>
-        )}
+          )}
+        </ListGroup>
       </Row>
     </>
   )
