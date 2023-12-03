@@ -22,9 +22,15 @@ export const BoundleShoppingCartList = () => {
     } else {
       console.log('storage con registros')
       shoppingList = JSON.parse(ShoppingListGet)
+      let i = 0
+      let newArray = []
+      shoppingList.forEach(item => {
+        newArray[i]=item
+        i++
+      })
       let shoppingListSize = shoppingList.length
       setShoppingCount(shoppingListSize)
-      setArrayStorage(shoppingList)
+      setArrayStorage(newArray)
 
     }
   }
