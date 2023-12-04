@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { ShoppingContext } from '../../context/ShoppingContext'
+import { NumericFormat } from 'react-number-format'
 
 export const BoundleShoppingCartSummary = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
@@ -17,12 +18,12 @@ export const BoundleShoppingCartSummary = () => {
         <hr />
         <div style={{textAlign: 'center'}}>
           <div id='shopping-cart-summary-box-count'>{shoppingCount} Productos </div>
-          <div> &nbsp; en el carro</div>
+          <div style={{textAlign: 'center'}}> &nbsp; en el carro</div>
         </div>
         <hr />
         <h4>
           <div>Total</div>
-          <div>{shoppingAmount}</div>
+          <NumericFormat value={shoppingAmount} thousandSeparator="." />
         </h4>
         <h5>incluye 1200 de iva</h5>
       </div>
