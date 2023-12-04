@@ -629,6 +629,13 @@
 .shopping-cart-summary-box {
     background-color: darkgrey;
     padding: 30%;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
+    max-height: 100px;
+    width: auto;
+
+
 }
 
 .shopping-cart-summary-box h3 {
