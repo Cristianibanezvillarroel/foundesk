@@ -643,7 +643,7 @@
     flex-direction: row;
 }
 
-.shopping-cart-summary-box div p {
+#shopping-cart-summary-box-count {
     margin: 10px;
     text-align: center;
     color: blue;

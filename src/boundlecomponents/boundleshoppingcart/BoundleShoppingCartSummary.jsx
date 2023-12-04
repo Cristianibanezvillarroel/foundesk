@@ -16,7 +16,7 @@ export const BoundleShoppingCartSummary = () => {
         <h3>Resumen</h3>
         <hr />
         <div>
-          <p>{shoppingCount} Productos </p>
+          <div id='shopping-cart-summary-box-count'>{shoppingCount} Productos </div>
           <div>en el carro</div>
         </div>
         <hr />
@@ -26,9 +26,12 @@ export const BoundleShoppingCartSummary = () => {
         </h4>
         <h5>incluye 1200 de iva</h5>
       </div>
-      <Button style={{textAlign: 'center'}} variant='success'>PAGAR</Button>
-      <Button variant='light' onClick={navigateCourses} className='shopping-summary-backstore'>Volver a la tienda</Button>
+      <div>
+        <Button style={{ textAlign: 'center' }} variant='success'>PAGAR</Button>
+      </div>
+      <div>
+        <Button variant='light' onClick={navigateCourses} className='shopping-summary-backstore'>Volver a la tienda</Button>
+      </div>
     </>
-
   )
 }
