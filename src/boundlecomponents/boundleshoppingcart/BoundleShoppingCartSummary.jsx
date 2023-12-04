@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { ShoppingContext } from '../../context/ShoppingContext'
-import { NumericFormat } from 'react-number-format'
 
 export const BoundleShoppingCartSummary = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
@@ -11,6 +10,12 @@ export const BoundleShoppingCartSummary = () => {
   const navigateCourses = () => {
     navigate('/boundlecourses')
   }
+  const options = {  maximumFractionDigits: 0   }   
+  const amountNumber = Intl.NumberFormat("en-US",options).format(shoppingAmount);
+  const amountNumberFormmated = amountNumber.replace(".", ",")
+
+  const ivaNumber = Intl.NumberFormat("en-US",options).format(shoppingIva);
+  const ivaNumberFormmated = ivaNumber.replace(".", ",")
 
   return (
     <>
@@ -23,13 +28,11 @@ export const BoundleShoppingCartSummary = () => {
         </div>
         <hr />
         <h4>
-          <div>Total </div>
-          <div>CLP$<NumericFormat value={shoppingAmount} thousandSeparator="." decimalSeparator="," /><NumericFormat value={shoppingAmount} thousandSeparator="." decimalSeparator="," /></div>
+          <div>Total</div>
+          <div>{`CLP$${amountNumberFormmated}`}</div>
         </h4>
-        <div id='shopping-cart-summary-iva'>
-          <h6>incluye&nbsp;</h6>
-          <NumericFormat value={shoppingIva} thousandSeparator="." decimalSeparator="," decimalScale={0} />
-          <h6>&nbsp;de iva</h6>
+        <div >
+          <h6 id='shopping-cart-summary-iva'>{`incluye $${ivaNumberFormmated} de IVA`}</h6>
         </div>
       </div>
       <div className='shopping-cart-summary-bottom'>
