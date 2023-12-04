@@ -25,7 +25,7 @@ export const BoundleShoppingCartList = () => {
       const shoppingReduceMount = shoppingList.reduce((acumulador, item) => {
         return acumulador + item.price
       })
-      console.log(shoppingReduceMount)
+      console.log({shoppingReduceMount})
       let shoppingListSize = shoppingList.length
       setShoppingCount(shoppingListSize)
       setArrayStorage(shoppingList)
