@@ -21,7 +21,7 @@ export const BoundleShoppingCart = () => {
         return (
             <>
                 <Container>
-                    <Row>
+                    <Row id='shopping-cart-pages-title'>
                         Carro de Compra
                     </Row>
                     <Row>
