@@ -611,8 +611,8 @@
 
 #shopping-cart-remove-img {
     border-radius: 10%;
-    max-width: 40%;
-    max-height: 40%;
+    max-width: 20%;
+    max-height: 20%;
 }
 
 #shopping-cart-pages-title {
@@ -623,4 +623,5 @@
     background-color: darkcyan;
     color: aliceblue;
     font-weight: bold;
+    padding-left: 10px;
 }
