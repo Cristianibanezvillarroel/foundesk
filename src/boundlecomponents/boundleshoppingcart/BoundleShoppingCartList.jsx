@@ -6,6 +6,7 @@ import TrashShoppingCartImg from '/public/trash.png'
 export const BoundleShoppingCartList = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
   const [arrayStorage, setArrayStorage] = useState([])
+  const options = {  maximumFractionDigits: 2   }
 
   
 
