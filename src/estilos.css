@@ -641,10 +641,10 @@
 .shopping-cart-summary-box div {
     display: flex;
     flex-direction: row;
+    text-align: center;
 }
 
 #shopping-cart-summary-box-count {
-    margin: 10px;
     text-align: center;
     color: blue;
     font-weight: bold;
@@ -659,11 +659,7 @@
 
 .shopping-cart-summary-box h5 {
     margin: 10px;
-}
-
-.shopping-summary-button {
-    background-color: darkcyan;
-    margin: 10px;
+    text-align: right;
 }
 
 .shopping-summary-backstore {
@@ -671,4 +667,11 @@
     margin: 10px;
     text-decoration: none;
     color: blue;
+}
+
+.shopping-cart-summary-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }

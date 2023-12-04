@@ -26,8 +26,8 @@ export const BoundleShoppingCartSummary = () => {
         </h4>
         <h5>incluye 1200 de iva</h5>
       </div>
-      <div>
-        <Button style={{ textAlign: 'center' }} variant='success'>PAGAR</Button>
+      <div className='shopping-cart-summary-bottom'>
+        <Button variant='success'>PAGAR</Button>
       </div>
       <div>
         <Button variant='light' onClick={navigateCourses} className='shopping-summary-backstore'>Volver a la tienda</Button>
