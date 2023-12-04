@@ -15,9 +15,9 @@ export const BoundleShoppingCartSummary = () => {
       <div className='shopping-cart-summary-box'>
         <h3>Resumen</h3>
         <hr />
-        <div>
+        <div style={{textAlign: 'center'}}>
           <div id='shopping-cart-summary-box-count'>{shoppingCount} Productos </div>
-          <div>en el carro</div>
+          <div> en el carro</div>
         </div>
         <hr />
         <h4>
@@ -29,7 +29,7 @@ export const BoundleShoppingCartSummary = () => {
       <div className='shopping-cart-summary-bottom'>
         <Button variant='success'>PAGAR</Button>
       </div>
-      <div>
+      <div className='shopping-cart-summary-bottom'>
         <Button variant='light' onClick={navigateCourses} className='shopping-summary-backstore'>Volver a la tienda</Button>
       </div>
     </>

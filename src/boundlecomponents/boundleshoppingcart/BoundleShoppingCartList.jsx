@@ -22,6 +22,10 @@ export const BoundleShoppingCartList = () => {
     } else {
       console.log('storage con registros')
       shoppingList = JSON.parse(ShoppingListGet)
+      const shoppingReduceMount = shoppingList.reduce((acumulador, item) => {
+        return acumulador + item.price
+      })
+      console.log(shoppingReduceMount)
       let shoppingListSize = shoppingList.length
       setShoppingCount(shoppingListSize)
       setArrayStorage(shoppingList)
