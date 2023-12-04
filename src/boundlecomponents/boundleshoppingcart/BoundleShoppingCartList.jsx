@@ -7,6 +7,8 @@ export const BoundleShoppingCartList = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
   const [arrayStorage, setArrayStorage] = useState([])
 
+  
+
   useEffect(() => {
     ShoppingListStart()
   }, [])
@@ -71,7 +73,7 @@ export const BoundleShoppingCartList = () => {
                     <Toast.Header closeButton={false}>
                       <img id='boundle-shopping-img' src={content.imagen} className="rounded me-2" alt="" />
                       <strong className="me-auto">{content.author}</strong>
-                      <small>{content.price}</small>
+                      <small>{Intl.NumberFormat("en-US",options).format(content.price).replace(",", ".")}</small>
                     </Toast.Header>
                     <Toast.Body className='boundle-shoppingcart-list'>
                       <div>{content.title}</div>

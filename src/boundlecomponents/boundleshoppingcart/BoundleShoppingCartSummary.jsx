@@ -12,19 +12,19 @@ export const BoundleShoppingCartSummary = () => {
   }
   const options = {  maximumFractionDigits: 0   }   
   const amountNumber = Intl.NumberFormat("en-US",options).format(shoppingAmount);
-  const amountNumberFormmated = amountNumber.replace(".", ",")
+  const amountNumberFormmated = amountNumber.replace(",", ".")
 
   const ivaNumber = Intl.NumberFormat("en-US",options).format(shoppingIva);
-  const ivaNumberFormmated = ivaNumber.replace(".", ",")
+  const ivaNumberFormmated = ivaNumber.replace(",", ".")
 
   return (
     <>
       <div className='shopping-cart-summary-box'>
         <h3>Resumen</h3>
         <hr />
-        <div style={{ textAlign: 'center' }}>
+        <div>
           <div id='shopping-cart-summary-box-count'>{shoppingCount} Productos</div>
-          <div style={{ textAlign: 'center' }}>&nbsp; en el carro</div>
+          <div id='shopping-cart-summary-box-count'>&nbsp; en el carro</div>
         </div>
         <hr />
         <h4>
