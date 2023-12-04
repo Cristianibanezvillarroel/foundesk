@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 
 export const BoundleShoppingCartSummary = () => {
   return (
     <>
-      <div className='shopping-cart-summary-box'>
+      <Container className='shopping-cart-summary-box'>
         <h3>Resumen</h3>
         <hr />
         <p>1 Producto en el carro</p>
@@ -14,7 +14,7 @@ export const BoundleShoppingCartSummary = () => {
           <div>CLP12000</div>
         </h4>
         <h5>incluye 1200 de iva</h5>
-      </div>
+      </Container>
       <div>he leido y aceptado los terminos y condiciones</div>
       <Button variant='primary'>PASAR POR LA CAJA</Button>
       <div>Volver a la tienda</div>
