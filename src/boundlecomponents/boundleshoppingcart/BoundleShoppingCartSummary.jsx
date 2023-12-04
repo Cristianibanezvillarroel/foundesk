@@ -1,7 +1,15 @@
 import React from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 export const BoundleShoppingCartSummary = () => {
+
+  const navigate = useNavigate()
+
+  const navigateCourses = () => {
+      navigate('/boundlecourses')
+  }
+
   return (
     <>
       <div className='shopping-cart-summary-box'>
@@ -15,9 +23,8 @@ export const BoundleShoppingCartSummary = () => {
         </h4>
         <h5>incluye 1200 de iva</h5>
       </div>
-      <div>he leido y aceptado los terminos y condiciones</div>
-      <Button variant='primary'>PASAR POR LA CAJA</Button>
-      <div>Volver a la tienda</div>
+      <Button className='shopping-summary-button'>PAGAR</Button>
+      <div onClick={navigateCourses} className='shopping-summary-backstore'>Volver a la tienda</div>
     </>
 
   )

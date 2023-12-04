@@ -653,3 +653,14 @@
     margin: 10px;
 }
 
+.shopping-summary-button {
+    background-color: darkcyan;
+    margin: 10px;
+}
+
+.shopping-summary-backstore {
+    text-align: center;
+    margin: 10px;
+    text-decoration: none;
+    color: blue;
+}
