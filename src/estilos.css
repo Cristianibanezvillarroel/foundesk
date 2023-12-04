@@ -611,8 +611,8 @@
 
 #shopping-cart-remove-img {
     border-radius: 10%;
-    max-width: 10px;
-    max-height: 20%;
+    max-width: auto;
+    max-height: 10px;
 }
 
 #shopping-cart-pages-title {
@@ -624,4 +624,30 @@
     color: aliceblue;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.shopping-cart-summary-box {
+    background-color: darkgrey;
+    padding: 30%;
+}
+
+.shopping-cart-summary-box h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.shopping-cart-summary-box p {
+
+}
+
+.shopping-cart-summary-box h5 {
+    margin-top: 10px;
+}
+
+.shopping-cart-summary-box h4 {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 10px;
 }
