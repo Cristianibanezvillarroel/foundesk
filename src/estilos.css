@@ -638,8 +638,11 @@
     text-align: center;
 }
 
-.shopping-cart-summary-box p {
+.shopping-cart-summary-box div p {
     margin: 10px;
+    text-align: center;
+    color: blue;
+    font-weight: bold;
 }
 
 .shopping-cart-summary-box h4 {

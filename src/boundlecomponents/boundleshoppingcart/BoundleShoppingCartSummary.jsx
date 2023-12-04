@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { ShoppingContext } from '../../context/ShoppingContext'
 
 export const BoundleShoppingCartSummary = () => {
-
+  const { shoppingCount, setshoppingCount } = useContext(ShoppingContext)
   const navigate = useNavigate()
-
   const navigateCourses = () => {
-      navigate('/boundlecourses')
+    navigate('/boundlecourses')
   }
 
   return (
@@ -15,7 +15,10 @@ export const BoundleShoppingCartSummary = () => {
       <div className='shopping-cart-summary-box'>
         <h3>Resumen</h3>
         <hr />
-        <p>1 Producto en el carro</p>
+        <div>
+          <p>{shoppingCount} Productos </p>
+          <div>en el carro</div>
+        </div>
         <hr />
         <h4>
           <div>Total</div>
