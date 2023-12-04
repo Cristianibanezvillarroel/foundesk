@@ -4,7 +4,7 @@ import { Button, ListGroup, Row, Toast } from 'react-bootstrap'
 import TrashShoppingCartImg from '/public/trash.png'
 
 export const BoundleShoppingCartList = () => {
-  const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
+  const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
   const [arrayStorage, setArrayStorage] = useState([])
 
   useEffect(() => {
@@ -25,8 +25,9 @@ export const BoundleShoppingCartList = () => {
       let shoppingReduceMount = shoppingList.reduce((acumulador, item) => {
         return acumulador + item.price
       }, 0)
-      console.log({shoppingReduceMount})
+      console.log(shoppingReduceMount)
       let shoppingListSize = shoppingList.length
+      setShoppingAmount(shoppingReduceMount)
       setShoppingCount(shoppingListSize)
       setArrayStorage(shoppingList)
 
