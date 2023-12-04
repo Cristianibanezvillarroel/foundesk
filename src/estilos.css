@@ -608,3 +608,9 @@
     flex-direction: row;
     -ms-flex-align: center;
 }
+
+#shopping-cart-remove-img {
+    border-radius: 10%;
+    max-width: 60%;
+    max-height: 60%;
+}
