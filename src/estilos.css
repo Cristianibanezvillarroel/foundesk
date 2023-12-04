@@ -675,3 +675,9 @@
     align-items: center;
     margin-top: 10px;
 }
+
+#shopping-cart-summary-iva {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+}
