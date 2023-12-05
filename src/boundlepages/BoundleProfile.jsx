@@ -22,6 +22,13 @@ export const BoundleProfile = () => {
         console.log(dataObject)
     }
 
+    const saveProfile = async (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const dataObject = Object.fromEntries(formData)
+        console.log(dataObject)
+    }
+
     if (token) {
         return (
             <>
@@ -31,27 +38,71 @@ export const BoundleProfile = () => {
                             Mi Perfil
                         </div>
                     </Row>
-                    <hr/>
+                    <hr />
                     <Row>
                         <Form onSubmit={onSubmit}>
                             <div class="form-group">
                                 <label for="pwd1">Contraseña Actual:</label>
-                                <Form.Control type="password" id="pwd1" name="pwd1" placeholder="Escriba su contraseña actual" />
+                                <Form.Control type="password" id="pwd1" name="pwd1" placeholder="" />
                             </div>
                             <div class="form-group">
                                 <label for="pwd2">Nueva Contraseña:</label>
-                                <Form.Control type="password" id="pwd2" name="pwd2" placeholder="Escriba su nueva contraseña" />
+                                <Form.Control type="password" id="pwd2" name="pwd2" placeholder="" />
                             </div>
                             <div class="form-group">
                                 <label for="pwd3">Confirmar Nueva Contraseña:</label>
-                                <Form.Control type="password" id="pwd3" name="pwd3" placeholder="Confirme su nueva contraseña" />
+                                <Form.Control type="password" id="pwd3" name="pwd3" placeholder="" />
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <Button variant='success' type="submit">Cambiar contraseña</Button>
                         </Form>
                     </Row>
                     <hr style={{ padding: '0 !important' }} />
                     <Row>
-                        Sector Datos Personales
+                        <Form onSubmit={saveProfile}>
+                            <Row>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="name">Nombre</label>
+                                        <Form.Control type="text" id="name" name="name" placeholder="Escriba aqui su nombre" />
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="lastname">Apellido</label>
+                                        <Form.Control type="text" id="lastname" name="lastname" placeholder="Escriba aqui su apellido" />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="address">Direccion</label>
+                                        <Form.Control type="text" id="address" name="address" placeholder="Escriba aqui su direccion" />
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="city">Ciudad</label>
+                                        <Form.Control type="text" id="city" name="city" placeholder="Escriba aqui su ciudad" />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="country">Pais</label>
+                                        <Form.Control type="text" id="country" name="country" placeholder="Escriba aqui su Pais" />
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div class="form-group">
+                                        <label for="phone">Telefono</label>
+                                        <Form.Control type="text" id="phone" name="phone" placeholder="Escriba aqui su Telefono" />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Button variant='success' type="submit">Guardar Datos</Button>
+                        </Form>
                     </Row>
                 </Container>
             </>
