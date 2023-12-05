@@ -644,10 +644,13 @@
     text-align: center;
 }
 
-#shopping-cart-summary-box-count {
-    text-align: center !important;
+#shopping-cart-summary-box-count-blue {
     color: blue;
     font-weight: bold;
+}
+
+#shopping-cart-summary-box-count-nonblue {
+    font-weight: lighter;
 }
 
 .shopping-cart-summary-box h4 {

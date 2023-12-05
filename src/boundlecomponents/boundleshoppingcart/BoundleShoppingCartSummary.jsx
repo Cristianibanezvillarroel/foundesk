@@ -23,8 +23,8 @@ export const BoundleShoppingCartSummary = () => {
         <h3>Resumen</h3>
         <hr />
         <h5>
-          <div id='shopping-cart-summary-box-count'>{shoppingCount} {shoppingCount > 1 ? 'Productos' : 'Producto' }</div>
-          <div>&nbsp; en el carro</div>
+          <div id='shopping-cart-summary-box-count-blue'>{shoppingCount} {shoppingCount > 1 ? 'Productos' : 'Producto' }</div>
+          <div id='shopping-cart-summary-box-count-nonblue'>&nbsp; en el carro</div>
         </h5>
         <hr />
         <h4>
