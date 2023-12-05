@@ -24,6 +24,7 @@ import { BoundleCourses } from './boundlepages/BoundleCourses'
 import { BoundleShoppingCart } from './boundlepages/BoundleShoppingCart'
 import { BoundleDashboards } from './boundlepages/BoundleDashboards'
 import { BoundleController } from './boundlepages/BoundleController'
+import { BoundleProfile } from './boundlepages/BoundleProfile'
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
             <Route path='/boundledashboards' element={<BoundleDashboards />} />
             <Route path='/boundlecontroller' element={<BoundleController />} />
+            <Route path='/profile' element={<BoundleProfile />} />
           </Routes>
         </>
       ) : (

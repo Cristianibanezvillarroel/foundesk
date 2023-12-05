@@ -45,7 +45,7 @@ export const BoundleNavBar = () => {
                         <Badge bg="secondary">{shoppingCount}</Badge>
                     </Button>
                     <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
-                        <NavDropdown.Item as={Link} to='/courses' href="/courses/Todos">
+                        <NavDropdown.Item as={Link} to='/profile' href="/profile">
                             Mi Perfil
                         </NavDropdown.Item>
                         <NavDropdown.Item onClick={() => { setToken(null), clearStorage(), setShoppingCount(null) }} as={Link} to='/' href="/">

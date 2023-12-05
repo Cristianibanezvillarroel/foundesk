@@ -15,6 +15,13 @@ export const BoundleProfile = () => {
         navigate('/')
     }
 
+    const onSubmit = async (e) => { 
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const dataObject = Object.fromEntries(formData)
+        console.log(dataObject)
+        }
+        
     if (token) {
         return (
             <>
@@ -22,11 +29,25 @@ export const BoundleProfile = () => {
                     <Row id='profile-pages-title'>
                         Mi Perfil
                     </Row>
-                    <hr />
+                    <hr style={{ padding: '0 !important' }} />
                     <Row>
-                        Sector Contraseña
+                        <form onSubmit={onSubmit}>
+                            <div class="form-group">
+                                <label for="pwd1">Contraseña Actual:</label>
+                                <input type="password" class="form-control" id="pwd1" name="pwd1"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd2">Nueva Contraseña:</label>
+                                <input type="password" class="form-control" id="pwd2" name="pwd2"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd3">Confirmar Nueva Contraseña:</label>
+                                <input type="password" class="form-control" id="pwd3" name="pwd3"/>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </Row>
-                    <hr />
+                    <hr style={{ padding: '0 !important' }} />
                     <Row>
                         Sector Datos Personales
                     </Row>

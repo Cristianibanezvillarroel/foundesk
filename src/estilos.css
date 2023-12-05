@@ -687,3 +687,14 @@
     align-items: center;
     margin-top: 10px;
 }
+
+#profile-pages-title {
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    font-size: xx-large;
+    background-color: darkcyan;
+    color: aliceblue;
+    font-weight: bold;
+    padding-left: 10px;
+}
