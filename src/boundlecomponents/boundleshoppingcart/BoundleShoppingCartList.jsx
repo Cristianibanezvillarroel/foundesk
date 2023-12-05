@@ -61,7 +61,7 @@ export const BoundleShoppingCartList = () => {
                     </Toast.Header>
                     <Toast.Body className='boundle-shoppingcart-list'>
                       <div>{content.title}</div>
-                      <div><Button variant='light' onClick={() => { deleteItem(content.idItem) }}><img id='' src={TrashShoppingCartImg} /></Button></div>
+                      <div><Button variant='light' onClick={() => { deleteItem(content.idItem) }}><img id='shopping-cart-remove-img' src={TrashShoppingCartImg} /></Button></div>
                       </Toast.Body>
                   </Toast>
             </ListGroup.Item>
