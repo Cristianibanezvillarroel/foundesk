@@ -41,24 +41,26 @@ export const BoundleProfile = () => {
                     <hr />
                     <Row>
                         <Form onSubmit={onSubmit}>
-                            <Col md={4}>
-                            <div class="form-group">
-                                <label for="pwd1">Contraseña Actual:</label>
-                                <Form.Control type="password" id="pwd1" name="pwd1" placeholder="" />
-                            </div>
-                            </Col>
-                            <Col md={4}>
-                            <div class="form-group">
-                                <label for="pwd2">Nueva Contraseña:</label>
-                                <Form.Control type="password" id="pwd2" name="pwd2" placeholder="" />
-                            </div>
-                            </Col>
-                            <Col md={4}>
-                            <div class="form-group">
-                                <label for="pwd3">Confirmar Nueva Contraseña:</label>
-                                <Form.Control type="password" id="pwd3" name="pwd3" placeholder="" />
-                            </div>
-                            </Col>
+                            <Row>
+                                <Col md={4}>
+                                    <div class="form-group">
+                                        <label for="pwd1">Contraseña Actual:</label>
+                                        <Form.Control type="password" id="pwd1" name="pwd1" placeholder="" />
+                                    </div>
+                                </Col>
+                                <Col md={4}>
+                                    <div class="form-group">
+                                        <label for="pwd2">Nueva Contraseña:</label>
+                                        <Form.Control type="password" id="pwd2" name="pwd2" placeholder="" />
+                                    </div>
+                                </Col>
+                                <Col md={4}>
+                                    <div class="form-group">
+                                        <label for="pwd3">Confirmar Nueva Contraseña:</label>
+                                        <Form.Control type="password" id="pwd3" name="pwd3" placeholder="" />
+                                    </div>
+                                </Col>
+                            </Row>
                             <Button variant='success' type="submit">Cambiar contraseña</Button>
                         </Form>
                     </Row>
