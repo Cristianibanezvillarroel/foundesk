@@ -39,23 +39,6 @@ export const BoundleShoppingCartList = () => {
   console.log(arrayStorage)
 
   const deleteItem = async (idItem) => {
-    /*let shoppingList = []
-    const ShoppingListGet = await localStorage.getItem('shoppingList')
-    if (ShoppingListGet === null) {
-      shoppingList = [];
-    } else {
-      shoppingList = JSON.parse(ShoppingListGet);
-    }
-    let i = 0
-    let newArray = []
-    shoppingList.forEach(item => {
-      newArray[i] = item
-      i++
-    })
-    arrayStorage.splice(index, 1)
-    arrayStorage.forEach((item, index) => {
-      shoppingList.push(item)
-    })*/
 
     const arrayWithoutIdItem = arrayStorage.filter(item => {
       return item.idItem !== idItem
@@ -74,7 +57,7 @@ export const BoundleShoppingCartList = () => {
                     <Toast.Header closeButton={false}>
                       <img id='boundle-shopping-img' src={content.imagen} className="rounded me-2" alt="" />
                       <strong className="me-auto">{content.author}</strong>
-                      <small>{Intl.NumberFormat("en-US",options).format(content.price).replace(",", ".")}</small>
+                      <small>{`CLP$${Intl.NumberFormat("en-US",options).format(content.price).replace(",", ".")}`}</small>
                     </Toast.Header>
                     <Toast.Body className='boundle-shoppingcart-list'>
                       <div>{content.title}</div>

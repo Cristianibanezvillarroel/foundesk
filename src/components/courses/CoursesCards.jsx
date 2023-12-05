@@ -22,6 +22,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const navigateShoppingCart = () => {
         navigate('/boundleshoppingcart')
     }
+    const options = {  maximumFractionDigits: 2   }
 
     console.log(data)
 
@@ -162,7 +163,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                         <p>Por {content.author}</p>
                                     </div>
                                     <div id='courses-cards-price'>
-                                        {content.price}
+                                    {`CLP$${Intl.NumberFormat("en-US",options).format(content.price).replace(",", ".")}`}
                                     </div>
                                     <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
                                     <Button variant='primary'>Comprar ahora</Button>
