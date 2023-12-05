@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap'
+import { Button, Col, Container, Form, Modal, Row } from 'react-bootstrap'
 
 export const BoundleProfile = () => {
     const { token, setToken } = useContext(UserContext)
@@ -15,37 +15,39 @@ export const BoundleProfile = () => {
         navigate('/')
     }
 
-    const onSubmit = async (e) => { 
+    const onSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const dataObject = Object.fromEntries(formData)
         console.log(dataObject)
-        }
-        
+    }
+
     if (token) {
         return (
             <>
                 <Container>
-                    <Row id='profile-pages-title'>
-                        Mi Perfil
+                    <Row >
+                        <div id='profile-pages-title'>
+                            Mi Perfil
+                        </div>
                     </Row>
-                    <hr style={{ padding: '0 !important' }} />
+                    <hr/>
                     <Row>
-                        <form onSubmit={onSubmit}>
+                        <Form onSubmit={onSubmit}>
                             <div class="form-group">
                                 <label for="pwd1">Contraseña Actual:</label>
-                                <input type="password" class="form-control" id="pwd1" name="pwd1"/>
+                                <Form.Control type="password" id="pwd1" name="pwd1" placeholder="Escriba su contraseña actual" />
                             </div>
                             <div class="form-group">
                                 <label for="pwd2">Nueva Contraseña:</label>
-                                <input type="password" class="form-control" id="pwd2" name="pwd2"/>
+                                <Form.Control type="password" id="pwd2" name="pwd2" placeholder="Escriba su nueva contraseña" />
                             </div>
                             <div class="form-group">
                                 <label for="pwd3">Confirmar Nueva Contraseña:</label>
-                                <input type="password" class="form-control" id="pwd3" name="pwd3"/>
+                                <Form.Control type="password" id="pwd3" name="pwd3" placeholder="Confirme su nueva contraseña" />
                             </div>
                             <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
+                        </Form>
                     </Row>
                     <hr style={{ padding: '0 !important' }} />
                     <Row>
