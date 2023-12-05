@@ -19,10 +19,12 @@ export const BoundleNavBar = () => {
     }
 
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
-    const { token, setToken } = useContext(UserContext)
+    const { token, setToken, user, setUser } = useContext(UserContext)
     const clearStorage = () => {
         localStorage.removeItem('shoppingList')
     }
+
+    let { name } = user
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -44,7 +46,7 @@ export const BoundleNavBar = () => {
                         <img src={ShoppingCartImg} />
                         <Badge bg="secondary">{shoppingCount}</Badge>
                     </Button>
-                    <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
+                    <NavDropdown title={name} id="basic-nav-dropdown">
                         <NavDropdown.Item as={Link} to='/profile' href="/profile">
                             Mi Perfil
                         </NavDropdown.Item>

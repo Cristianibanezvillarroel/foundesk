@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 
 export const BoundleShoppingCart = () => {
-    const { token, setToken } = useContext(UserContext)
+    const { token, setToken, user, setUser } = useContext(UserContext)
     const [show, setShow] = useState(true)
     const handleClose = () => setShow(false)
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ export const BoundleShoppingCart = () => {
     const navigateHome = () => {
         navigate('/')
     }
-
+    console.log(user)
     if (token) {
         return (
             <>

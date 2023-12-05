@@ -7,7 +7,7 @@ import { UserContext } from '../context/UserContext';
 
 export const Login = () => {
 
-  const { token, setToken } = useContext(UserContext)
+  const { token, setToken, user, setUser } = useContext(UserContext)
   const navigate = useNavigate()
   const location = useLocation()
   console.log(token)
@@ -47,6 +47,10 @@ export const Login = () => {
       console.log(responseData.detail.token)
       setMessage(responseData.message)
       if (responseData.message == 'OK') {
+        const dataUser = responseData.detail.user
+        delete dataUser.password
+        console.log(dataUser)
+        setUser(dataUser)
         setToken(responseData.detail.token)
       } else {
         setInvalid(true);

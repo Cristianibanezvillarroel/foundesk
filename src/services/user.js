@@ -23,3 +23,19 @@ export const signupService = async (dataService) => {
     const responseData = await response.json()
     return responseData
 }
+
+export const updateService = async (dataService) => {
+
+    const urlLogin = `${URL_ROOT}/update`
+    const response = await fetch(urlLogin, dataService)
+    const responseData = await response.json()
+    return responseData
+}
+
+export const updatePasswordService = async (dataService) => {
+
+    const urlLogin = `${URL_ROOT}/updatepassword`
+    const response = await fetch(urlLogin, dataService)
+    const responseData = await response.json()
+    return responseData
+}
