@@ -71,13 +71,13 @@ export const BoundleProfile = () => {
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        <Form.Control type="text" id="name" name="name" placeholder="Escriba aqui su nombre" />
+                                        <Form.Control type="text" id="name" name="name" placeholder="" />
                                     </div>
                                 </Col>
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="lastname">Apellido</label>
-                                        <Form.Control type="text" id="lastname" name="lastname" placeholder="Escriba aqui su apellido" />
+                                        <Form.Control type="text" id="lastname" name="lastname" placeholder="" />
                                     </div>
                                 </Col>
                             </Row>
@@ -85,13 +85,13 @@ export const BoundleProfile = () => {
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="address">Direccion</label>
-                                        <Form.Control type="text" id="address" name="address" placeholder="Escriba aqui su direccion" />
+                                        <Form.Control type="text" id="address" name="address" placeholder="" />
                                     </div>
                                 </Col>
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="city">Ciudad</label>
-                                        <Form.Control type="text" id="city" name="city" placeholder="Escriba aqui su ciudad" />
+                                        <Form.Control type="text" id="city" name="city" placeholder="" />
                                     </div>
                                 </Col>
                             </Row>
@@ -99,13 +99,13 @@ export const BoundleProfile = () => {
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="country">Pais</label>
-                                        <Form.Control type="text" id="country" name="country" placeholder="Escriba aqui su Pais" />
+                                        <Form.Control type="text" id="country" name="country" placeholder="" />
                                     </div>
                                 </Col>
                                 <Col md={6}>
                                     <div class="form-group">
                                         <label for="phone">Telefono</label>
-                                        <Form.Control type="text" id="phone" name="phone" placeholder="Escriba aqui su Telefono" />
+                                        <Form.Control type="text" id="phone" name="phone" placeholder="" />
                                     </div>
                                 </Col>
                             </Row>
