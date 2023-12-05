@@ -10,11 +10,11 @@ export const BoundleShoppingCartSummary = () => {
   const navigateCourses = () => {
     navigate('/boundlecourses')
   }
-  const options = {  maximumFractionDigits: 0   }   
-  const amountNumber = Intl.NumberFormat("en-US",options).format(shoppingAmount);
+  const options = { maximumFractionDigits: 0 }
+  const amountNumber = Intl.NumberFormat("en-US", options).format(shoppingAmount);
   const amountNumberFormmated = amountNumber.replace(",", ".")
 
-  const ivaNumber = Intl.NumberFormat("en-US",options).format(shoppingIva);
+  const ivaNumber = Intl.NumberFormat("en-US", options).format(shoppingIva);
   const ivaNumberFormmated = ivaNumber.replace(",", ".")
 
   return (
@@ -22,18 +22,16 @@ export const BoundleShoppingCartSummary = () => {
       <div className='shopping-cart-summary-box'>
         <h3>Resumen</h3>
         <hr />
-        <div>
+        <div style={{textAlign: 'center !important'}}>
           <div id='shopping-cart-summary-box-count'>{shoppingCount} Productos</div>
-          <div id='shopping-cart-summary-box-count'>&nbsp; en el carro</div>
+          &nbsp; en el carro
         </div>
         <hr />
         <h4>
           <div>Total</div>
           <div>{`CLP$${amountNumberFormmated}`}</div>
         </h4>
-        <div >
-          <h6 id='shopping-cart-summary-iva'>{`incluye $${ivaNumberFormmated} de IVA`}</h6>
-        </div>
+        <h6 id='shopping-cart-summary-iva'>{`(incluye $${ivaNumberFormmated} de IVA)`}</h6>
       </div>
       <div className='shopping-cart-summary-bottom'>
         <Button variant='success'>PAGAR</Button>
