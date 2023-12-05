@@ -10,21 +10,23 @@ A continuación se indican las URL directas tanto para el web (aplicativo) como 
 Cuenta con dos ambientes de navegacion:
 - Ambiente de presentación de servicios que no exige login
 - Ambiente de produccion que sí exige login
-El servicio permite agregar cursos al carro de compras, aún cuando el usuario no está logueado. Sin embargo, cuando el usuario desea acceder al carro de compras, sí se exige login.
-Se utilizó LocalStorage para la carga del carro de compras. Y el hooks useNavigate para redirigir al usuario al carro de compras una vez que llegó al login precedido de los cursos.
-Para la administración de la cantidad total de productos en el carro de compras, se utilizó useContext, como así también para el token de usuario logueado. Para cada uno de estos dos casos se crearon dos context:
+- El servicio permite agregar cursos al carro de compras, aún cuando el usuario no está logueado. Sin embargo, cuando el usuario desea acceder al carro de compras, sí se exige login.
+- Se utilizó LocalStorage para la carga del carro de compras. Y el hooks useNavigate para redirigir al usuario al carro de compras una vez que llegó al login precedido de los cursos.
+- Para la administración de la cantidad total de productos en el carro de compras, se utilizó useContext, como así también para el token de usuario logueado. Para cada uno de estos dos casos se crearon dos context:
 - UserContext
 - ShoppingContext
 Se utilizó también manejo de PropsTypes para la administración de variables en la página de cursos, específicamente para que el selector de categorías de cursos informara categoria y totales al componente padre.
 Se utilizó useState en gran parte del aplicativo.
-También es importante mencionar que se crearon dos esquemas de rutas diferenciadas en función de la existencia de token. De ese modo el NavBar en cada caso es distinto. Así por ejemplo, en el caso de estgar logueado y existir token, el NavBar incluye la sección Mi Cuenta.
-Se creo la carpeta de Services para agregar allí las rutas de cada solicitud a la API de render.
-Para la conexión a la API se utilizó .env y se registraron en render las variables de entorno necesarias.
-Utilice finalmente Fetch en vez de Axios para la conexión por un tema de CORS. Me resultó posible aprobar con política de CORS utilizando fetch, y con eso seguí adelante.
+- También es importante mencionar que se crearon dos esquemas de rutas diferenciadas en función de la existencia de token. De ese modo el NavBar en cada caso es distinto. Así por ejemplo, en el caso de estgar logueado y existir token, el NavBar incluye la sección Mi Cuenta.
+- Se creo la carpeta de Services para agregar allí las rutas de cada solicitud a la API de render.
+- Para la conexión a la API se utilizó .env y se registraron en render las variables de entorno necesarias.
+- Utilice finalmente Fetch en vez de Axios para la conexión por un tema de CORS. Me resultó posible aprobar con política de CORS utilizando fetch, y con eso seguí adelante.
 Procedí a utilizar .json para poder trabajar la data al interior del código.
-En la composición de los distintos arreglos utilizados dentro del código, es importante mencionar lo siguiente:
+- En la composición de los distintos arreglos utilizados dentro del código, es importante mencionar lo siguiente:
 - Se utilizó .map para la generación de arreglos con el detalle de todos los cursos.
-- Se utilizó .filter para la generación de arreglos con el detalle específico de cursos pertencientes a una determinada categoría.
+- Se utilizó .filter para la generación de arreglos con el detalle específico de cursos pertencientes a una determinada categoría y también en el proceso de remove del item en el localstorage.
+- Se utilizó .reduce para la sumarización del total del carro de compra, utilizando también contexto del shopping cart.
+- Se utilizó Intl.NumberFormat nativa de Javascript para el trabajo del formato con separador de miles.
 - Se utilizó la función Object.entries(data).forEach(([key, value])) con la finalidad de entrar al objeto en un sector preciso y desde allí construir un arreglo de datos.
 - Se utilió .slice para la paginación.
 - Se utilizó el recurso Modal y Badge de react para mejorar la experiencia visual del usuario.
