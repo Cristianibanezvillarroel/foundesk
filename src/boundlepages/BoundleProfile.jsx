@@ -41,18 +41,24 @@ export const BoundleProfile = () => {
                     <hr />
                     <Row>
                         <Form onSubmit={onSubmit}>
+                            <Col md={4}>
                             <div class="form-group">
                                 <label for="pwd1">Contraseña Actual:</label>
                                 <Form.Control type="password" id="pwd1" name="pwd1" placeholder="" />
                             </div>
+                            </Col>
+                            <Col md={4}>
                             <div class="form-group">
                                 <label for="pwd2">Nueva Contraseña:</label>
                                 <Form.Control type="password" id="pwd2" name="pwd2" placeholder="" />
                             </div>
+                            </Col>
+                            <Col md={4}>
                             <div class="form-group">
                                 <label for="pwd3">Confirmar Nueva Contraseña:</label>
                                 <Form.Control type="password" id="pwd3" name="pwd3" placeholder="" />
                             </div>
+                            </Col>
                             <Button variant='success' type="submit">Cambiar contraseña</Button>
                         </Form>
                     </Row>
@@ -60,13 +66,13 @@ export const BoundleProfile = () => {
                     <Row>
                         <Form onSubmit={saveProfile}>
                             <Row>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
                                         <Form.Control type="text" id="name" name="name" placeholder="Escriba aqui su nombre" />
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="lastname">Apellido</label>
                                         <Form.Control type="text" id="lastname" name="lastname" placeholder="Escriba aqui su apellido" />
@@ -74,13 +80,13 @@ export const BoundleProfile = () => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="address">Direccion</label>
                                         <Form.Control type="text" id="address" name="address" placeholder="Escriba aqui su direccion" />
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="city">Ciudad</label>
                                         <Form.Control type="text" id="city" name="city" placeholder="Escriba aqui su ciudad" />
@@ -88,13 +94,13 @@ export const BoundleProfile = () => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="country">Pais</label>
                                         <Form.Control type="text" id="country" name="country" placeholder="Escriba aqui su Pais" />
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col md={6}>
                                     <div class="form-group">
                                         <label for="phone">Telefono</label>
                                         <Form.Control type="text" id="phone" name="phone" placeholder="Escriba aqui su Telefono" />
