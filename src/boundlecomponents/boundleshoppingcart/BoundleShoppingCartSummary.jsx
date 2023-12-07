@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Button, Container, Row } from 'react-bootstrap'
+import { Button, Container, Row, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { ShoppingContext } from '../../context/ShoppingContext'
 import { mercadoPagoService } from '../../services/mercadopago'
@@ -15,17 +15,24 @@ export const BoundleShoppingCartSummary = () => {
   const shoppingIva = (shoppingAmount - shoppingAmount / 1.19)
   const PublicKey = "TEST-7ccc572b-aa1e-460a-822d-5458de07031a"
   let { name, email } = user
+  const [ showButton, setShowButton ] = useState(true)
+  const [isLoading, setIsLoading] = useState(false);
+  const closeButton = () => {
+    setShowButton(false)
+  }
 
   console.log(shoppingAmount)
   console.log(typeof shoppingAmount)
 
   const getCheckout = async () => {
+    setIsLoading(true);
 
     if (token) {
 
       const id = await getPreferenceCheckoutMP()
 
       preaddCheckout(id)
+      setIsLoading(false)
       /*const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://sdk.mercadopago.com/js/v2';
@@ -117,7 +124,8 @@ export const BoundleShoppingCartSummary = () => {
       </div>
       <div className='shopping-cart-summary-bottom'>
         <div>
-          <Button onClick={getCheckout} style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form">Confirmar</Button>
+          { isLoading && <Spinner animation="border" />}
+          { showButton && <Button onClick={() => {getCheckout(), closeButton()}} style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form" disabled={isLoading}>Confirmar</Button>}
         </div>
         <div style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form"></div>
       </div>
