@@ -18,11 +18,12 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const [check, setCheck] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [goShoppingNow, setGoShoppingNow] = useState(null)
     const navigate = useNavigate()
     const navigateShoppingCart = () => {
         navigate('/boundleshoppingcart')
     }
-    const options = {  maximumFractionDigits: 2   }
+    const options = { maximumFractionDigits: 2 }
 
     console.log(data)
 
@@ -124,17 +125,27 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Registro</Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{textAlign: 'center'}}>
-                    <div style={{textAlign: 'center'}}><img style={{textAlign: 'center'}} src={check ? CheckOk : CheckNok}/></div>
-                    <div style={{textAlign: 'left'}}>{message}</div>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center' }}><img style={{ textAlign: 'center' }} src={check ? CheckOk : CheckNok} /></div>
+                    <div style={{ textAlign: 'left' }}>{message}</div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Continuar comprando
-                    </Button>
-                    <Button variant="primary" onClick={navigateShoppingCart}>
-                        Ir al carro
-                    </Button>
+                    {
+                        goShoppingNow ?
+                            <Button variant="primary" onClick={navigateShoppingCart}>
+                                Ir al carro
+                            </Button>
+                            :
+                            <>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Continuar comprando
+                                </Button>
+                                <Button variant="primary" onClick={navigateShoppingCart}>
+                                    Ir al carro
+                                </Button>
+                            </>
+                    }
+
                 </Modal.Footer>
             </Modal>
         )
@@ -163,10 +174,10 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                         <p>Por {content.author}</p>
                                     </div>
                                     <div id='courses-cards-price'>
-                                    {`CLP$${Intl.NumberFormat("en-US",options).format(content.price).replace(",", ".")}`}
+                                        {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}
                                     </div>
                                     <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
-                                    <Button variant='primary'>Comprar ahora</Button>
+                                    <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

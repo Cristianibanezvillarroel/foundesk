@@ -1,13 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Button, Container } from 'react-bootstrap'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Button, Container, Modal } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
-import ShoppingCart from '/public/shoppingcart.png'
+import ShoppingCartImg from '/public/shoppingcart.png'
+import { ShoppingContext } from '../context/ShoppingContext'
+import CheckNok from '/public/checknok.png'
+import CheckOk from '/public/checkok.png'
 
 export const CoursesDetail = () => {
 
   const { id } = useParams()
   const [arrayItems, setArrayItems] = useState([])
+  const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
+  const [show, setShow] = useState(false)
+  const [message, setMessage] = useState()
+  const [check, setCheck] = useState(false)
+  const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [goShoppingNow, setGoShoppingNow] = useState(null)
+    const navigate = useNavigate()
+    const navigateShoppingCart = () => {
+        navigate('/boundleshoppingcart')
+    }
 
 
   useEffect(() => {
@@ -15,6 +29,52 @@ export const CoursesDetail = () => {
       getDataV1()
     }, 10);
   }, [])
+
+  const shoppingListSet = async (content) => {
+    let shoppingList
+    let ShoppingListGet = await localStorage.getItem('shoppingList')
+    if (ShoppingListGet === null) {
+        shoppingList = []
+    } else {
+        shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+    }
+
+    shoppingList.push(content)
+    await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+    let shoppingListSize = shoppingList.length
+    setShoppingCount(shoppingListSize)
+}
+
+const addLocalStorage = async (content) => {
+    console.log(content)
+    let shoppingList
+    let idOk = 0;
+    let ShoppingListGet = await localStorage.getItem('shoppingList')
+
+    if (ShoppingListGet === null) {
+        await shoppingListSet(content)
+        setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
+        setShow(true)
+        setCheck(true)
+        shoppingList = []
+    } else {
+        shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+        shoppingList.forEach((item, index) => {
+            if (item.idItem == content.idItem) {
+                setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
+                setShow(true)
+                setCheck(false)
+                idOk = 1
+            }
+        })
+        if (idOk == 0) {
+            await shoppingListSet(content)
+            setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
+            setShow(true)
+            setCheck(true)
+        }
+    }
+}
 
   const getDataV1 = async () => {
 
@@ -42,6 +102,38 @@ export const CoursesDetail = () => {
 
   console.log(arrayItems)
 
+  if (show) {
+    return (
+        <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal.Header closeButton>
+                <Modal.Title>Registro</Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center' }}><img style={{ textAlign: 'center' }} src={check ? CheckOk : CheckNok} /></div>
+                <div style={{ textAlign: 'left' }}>{message}</div>
+            </Modal.Body>
+            <Modal.Footer>
+                {
+                    goShoppingNow ?
+                        <Button variant="primary" onClick={navigateShoppingCart}>
+                            Ir al carro
+                        </Button>
+                        :
+                        <>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Continuar comprando
+                            </Button>
+                            <Button variant="primary" onClick={navigateShoppingCart}>
+                                Ir al carro
+                            </Button>
+                        </>
+                }
+
+            </Modal.Footer>
+        </Modal>
+    )
+}
+
   return (
     <>
       <Container>
@@ -59,8 +151,8 @@ export const CoursesDetail = () => {
                   <h5>{content.description}</h5>
                 </div>
                 <div>
-                <Button id='courses-cards-button-shopping' variant='light'><img src={ShoppingCart} /></Button>
-                <Button variant='primary'>Comprar ahora</Button>
+                <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg}  /></Button>
+                <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
                 </div>
               </>
           )}

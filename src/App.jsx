@@ -62,6 +62,8 @@ function App() {
             <Route path='/boundledashboards' element={<BoundleDashboards />} />
             <Route path='/boundlecontroller' element={<BoundleController />} />
             <Route path='/profile' element={<BoundleProfile />} />
+            <Route path='/coursescategories' element={<CoursesCategories />} />
+            <Route path='/courses/detail/:id' element={<CoursesDetail />} />
           </Routes>
         </>
       ) : (
