@@ -5,19 +5,19 @@ import { DetailText } from './DetailText'
 
 export const Detail = () => {
 
-  const [detailSelect, setDetailSelect] = useState('curses');
+  const [detailSelect, setDetailSelect] = useState('aprende');
   return (
     <>
       <div id='detail-up-llamado'>
-        <p>La plataforma para elevar tu productividad en un solo lugar.</p>
+        <p>La plataforma para tu productividad en un solo lugar.</p>
       </div>
       <div id='detail-bajada'>
-        <p>Con Foundesk, eleva tu potencial al siguiente nivel de una forma fácil y sencilla.</p>
+        <p>Con Foundesk, eleva tu productividad al siguiente nivel de una forma fácil y sencilla.</p>
       </div>
       <div id='detail-button'>
-        <Button onClick={() => setDetailSelect('curses')} variant={detailSelect == 'curses' ? 'primary': 'light'}>Desarrollo</Button>{''}
-        <Button onClick={() => setDetailSelect('dashboard')} variant={detailSelect == 'dashboard' ? 'primary': 'light'}>Desempeño</Button>{''}
-        <Button onClick={() => setDetailSelect('controller')} variant={detailSelect == 'controller' ? 'primary': 'light'}>Control</Button>{''}
+        <Button onClick={() => setDetailSelect('aprende')} variant={detailSelect == 'aprende' ? 'primary': 'light'}>Aprende</Button>{''}
+        <Button onClick={() => setDetailSelect('ensena')} variant={detailSelect == 'ensena' ? 'primary': 'light'}>Enseña</Button>{''}
+        <Button onClick={() => setDetailSelect('capacita')} variant={detailSelect == 'capacita' ? 'primary': 'light'}>Capacita</Button>{''}
       </div>
       <div id='detail-text'>
         <Container>

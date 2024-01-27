@@ -11,12 +11,31 @@ import { CallingImg } from '../components/home/CallingImg'
 import { CallingLine } from '../components/home/CallingLine'
 import { RationalImg } from '../components/home/RationalImg'
 import { StartImg } from '../components/home/StartImg'
-import { UserContext } from '../context/UserContext'
+import UserContext from '../context/User/UserContext'
+import { useNavigate } from 'react-router-dom'
+
 export const Home = () => {
 
-  const { token, setToken } = useContext(UserContext)
-  console.log(token)
+  const ctx = useContext(UserContext)
+  const { user } = ctx
+  const navigate = useNavigate()
+  const navigateHomeUser = () => {
+      navigate('/about')
+  }
 
+  useEffect(() => {
+
+    const navigateSession = () => {
+      if(user) {
+        navigateHomeUser()
+      }
+    }
+
+    navigateSession()
+
+  }, [])
+
+  
   return (
     <>
       <div className='calling'>

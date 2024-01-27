@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShoppingContext } from '../../context/ShoppingContext'
+import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 import { Button, ListGroup, Row, Toast } from 'react-bootstrap'
 import TrashShoppingCartImg from '/public/trash.png'
 
-export const BoundleShoppingCartList = () => {
+export const ShoppingCartList = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
   const [arrayStorage, setArrayStorage] = useState([])
   const options = {  maximumFractionDigits: 2   }

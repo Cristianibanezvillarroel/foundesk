@@ -1,5 +1,5 @@
 #Navbar-Brand {
-    font-size:larger;
+    font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
     color: blue;
 }
@@ -12,27 +12,27 @@
 .calling {
     background-color: rgb(73, 62, 230);
     padding: 3px;
-    
-    
+
+
 }
 
 #call-left-llamado {
     color: aliceblue;
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
 }
 
 #call-left-bajada {
     color: aliceblue;
-    font-size:small;
-    margin-top: 20px;    
+    font-size: small;
+    margin-top: 20px;
 }
 
-#call-left-button Button{
+#call-left-button Button {
     margin-top: 20px;
     margin-right: 10px;
-    font-size:small;
+    font-size: small;
 }
 
 #call-img {
@@ -45,7 +45,7 @@
 
 #call-line {
     color: aliceblue;
-    font-size:small;
+    font-size: small;
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
@@ -55,26 +55,26 @@
 .rational {
     background-color: rgb(229, 228, 235);
     padding: 3px;
-    
+
 }
 
 #rational-left-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
 }
 
 #rational-left-bajada {
     color: rgb(24, 25, 26);
-    font-size:small;
-    margin-top: 20px;    
+    font-size: small;
+    margin-top: 20px;
 }
 
-#rational-left-button Button{
+#rational-left-button Button {
     margin-top: 20px;
     margin-right: 10px;
-    font-size:small;
+    font-size: small;
 }
 
 #rational-img {
@@ -86,7 +86,7 @@
 
 .rational-left-accordion {
     --bs-accordion-bg: rgb(229, 228, 235) !important;
-    padding: 3px;    
+    padding: 3px;
 }
 
 .rational-left-accordion-header {
@@ -101,7 +101,7 @@
     font-weight: bold !important;
     color: blue;
     font-size: medium;
-    
+
 }
 
 .h8-accordion-heading a {
@@ -115,9 +115,9 @@
 
 #detail-up-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     font-weight: bold;
-    text-align: center;    
+    text-align: center;
 }
 
 #detail-bajada {
@@ -144,7 +144,7 @@
     max-height: 60%;
     border-radius: 5%;
     border-color: blue;
-    border-style:ridge;
+    border-style: ridge;
 }
 
 #detail-text-right {
@@ -169,7 +169,7 @@
 
 #detail-text-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
     text-align: left;
@@ -186,11 +186,11 @@
 
 #customer-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 
 #customercarrusel-img {
@@ -256,20 +256,20 @@
 
 #contents-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
     text-align: left;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 
 #contents-bajada {
     color: rgb(15, 15, 15);
-    font-size:medium;
+    font-size: medium;
     margin-top: 10px;
     font-weight: lighter;
     text-align: left;
-    margin-bottom: 15px;   
+    margin-bottom: 15px;
 }
 
 #contents-cards {
@@ -289,16 +289,16 @@
 .start {
     background-color: rgba(230, 245, 255, 1);
     padding: 3px;
-    text-align: left;    
+    text-align: left;
 }
 
 #start-llamado {
     color: rgb(15, 15, 15);
-    font-size:xx-large;
+    font-size: xx-large;
     margin-top: 20px;
     font-weight: bold;
     text-align: left;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 
 #start-img {
@@ -369,7 +369,7 @@
 #courses-cards-button-shopping {
     max-width: 100%;
     max-height: auto;
-    margin-right: 10px;   
+    margin-right: 10px;
 }
 
 #courses-backtoup {
@@ -404,9 +404,7 @@
     flex-direction: row;
 }
 
-#courses-categories-seccion {
-    
-}
+#courses-categories-seccion {}
 
 #courses-categories-reproducciones-img {
     margin-right: 10px;
@@ -414,14 +412,12 @@
     height: auto;
 }
 
-#courses-categories-lineup {
-
-}
+#courses-categories-lineup {}
 
 #courses-categories-calificaciones-img {
     margin-right: 10px;
     width: 15px;
-    height: auto; 
+    height: auto;
 }
 
 .dashboard-menu-grid {
@@ -443,10 +439,7 @@
     font-size: small;
 }
 
-.dashboard-data-grid {
-
-
-}
+.dashboard-data-grid {}
 
 .dashboard-data-grid img {
     width: 100%;
@@ -458,16 +451,17 @@
     flex-direction: column;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  filter: invert(108%);
-  font-weight: bold;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(108%);
+    font-weight: bold;
 }
 
 .carousel-inner {
     margin-top: 2%;
     background-color: rgba(194, 191, 191, 0.295) !important;
     border-radius: 5% !important;
-    }
+}
 
 #templatescarrusel-img {
     display: block;
@@ -477,7 +471,7 @@
     align-items: center;
     margin-top: 5%;
     margin-bottom: 5%;
-    
+
 }
 
 #templatescarrusel-text {
@@ -507,7 +501,7 @@
     height: auto;
     padding: 0%;
     align-content: center;
-    text-align: center;   
+    text-align: center;
 }
 
 .about-img-ceo {
@@ -515,7 +509,7 @@
     border-radius: 10%;
     max-width: auto;
     max-height: 200px;
-    align-content: center;  
+    align-content: center;
 }
 
 .about-ceo-data {
@@ -529,7 +523,7 @@
     padding: 10%;
     text-align: center;
     color: aliceblue;
-    line-height: 300%;    
+    line-height: 300%;
 }
 
 .about-bottomline Button {
@@ -544,7 +538,7 @@
     padding: 10%;
     align-items: center;
     margin-top: 10%;
-    text-align: center;    
+    text-align: center;
 }
 
 .blog-categories {
@@ -562,7 +556,7 @@
 }
 
 .blog-detail-div {
-    text-align: center;
+    text-align: left;
 }
 
 .blog-detail-div h5 {
@@ -593,6 +587,7 @@
 #button-login {
     margin-top: 5%;
 }
+
 #login-forgot {
     margin-top: 5%;
 }
@@ -656,7 +651,7 @@
 .shopping-cart-summary-box h4 {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 10px;
 }
 
@@ -697,4 +692,34 @@
     color: aliceblue;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+}
+
+.fixed {
+    position: fixed;
+    width: 300px;
+    
+}
+
+.courses-detail {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+#courses-detail-pricer {
+    font-weight: bold;
+}
+
+.courses-detail-toast {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.courses-detail-toast-div {
+    margin-top: 10px;
 }

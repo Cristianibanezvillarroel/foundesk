@@ -7,10 +7,10 @@ export const Calling = () => {
     <>
       <div id='call-left' >
         <div id='call-left-llamado'>
-          <p>Escala tu potencial para un crecimiento sostenible</p>
+          <h1>Escala tu potencial con nuevas habilidades.</h1>
         </div>
         <div id='call-left-bajada'>
-          <p>Somos el software que integra cursos, dashboards de gestión y herramientas de controller para la pyme y el emprendedor todo en un mismo lugar, y eleva la productividad en la administracion de tu negocio.</p>
+          <p>Somos la plataforma de cursos online para la empresa, que ayuda a mejorar la productividad y el desempeño.</p>
         </div>
         <div id='call-left-button'>
           <Button as={Link} to='/diary' variant='primary'>Solicita una demo</Button>

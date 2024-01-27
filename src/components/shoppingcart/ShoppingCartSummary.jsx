@@ -1,21 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Button, Container, Row, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { ShoppingContext } from '../../context/ShoppingContext'
+import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 import { mercadoPagoService } from '../../services/mercadopago'
-import { UserContext } from '../../context/UserContext'
+import UserContext from '../../context/User/UserContext'
 
-export const BoundleShoppingCartSummary = () => {
+export const ShoppingCartSummary = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
-  const { token, setToken, user, setUser } = useContext(UserContext)
+  const ctx = useContext(UserContext)
   const navigate = useNavigate()
   const navigateCourses = () => {
-    navigate('/boundlecourses')
+    navigate('/courses')
   }
   const shoppingIva = (shoppingAmount - shoppingAmount / 1.19)
   const PublicKey = "TEST-7ccc572b-aa1e-460a-822d-5458de07031a"
-  let { name, email } = user
-  const [ showButton, setShowButton ] = useState(true)
+  const { name, email } = ctx.user
+  const [showButton, setShowButton] = useState(true)
   const [isLoading, setIsLoading] = useState(false);
   const closeButton = () => {
     setShowButton(false)
@@ -27,17 +27,12 @@ export const BoundleShoppingCartSummary = () => {
   const getCheckout = async () => {
     setIsLoading(true);
 
-    if (token) {
+    if (name) {
 
       const id = await getPreferenceCheckoutMP()
 
       preaddCheckout(id)
       setIsLoading(false)
-      /*const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://sdk.mercadopago.com/js/v2';
-      script.addEventListener('load', () => { addCheckout(id) });
-      return document.body.appendChild(script);*/
     }
   }
 
@@ -124,8 +119,8 @@ export const BoundleShoppingCartSummary = () => {
       </div>
       <div className='shopping-cart-summary-bottom'>
         <div>
-          { isLoading && <Spinner animation="border" />}
-          { showButton && <Button onClick={() => {getCheckout(), closeButton()}} style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form" disabled={isLoading}>Confirmar</Button>}
+          {isLoading && <Spinner animation="border" />}
+          {showButton && <Button onClick={() => { getCheckout(), closeButton() }} style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form" disabled={isLoading}>Confirmar</Button>}
         </div>
         <div style={{ textAlign: 'center' }} classNameName="mt-10" id="payment-form"></div>
       </div>

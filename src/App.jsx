@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NavBar } from './components/NavBar'
-import { Dashboards } from './pages/Dashboards'
+import { Teach } from './pages/Teach'
 import { About } from './pages/About'
 import { Testimonials } from './pages/Testimonials'
 import { Footer } from './components/Footer'
@@ -11,86 +10,65 @@ import { CoursesCategories } from './pages/CoursesCategories'
 import { Diary } from './pages/Diary'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
-import { Controller } from './pages/Controller'
+import { Train } from './pages/Train'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
-import { Button } from 'react-bootstrap'
-import { UserContext } from './context/UserContext'
 import { CoursesDetail } from './pages/CoursesDetail'
-import { useEffect } from 'react'
-import { ShoppingContext } from './context/ShoppingContext'
-import { BoundleNavBar } from './boundlecomponents/BoundleNavBar'
-import { BoundleCourses } from './boundlepages/BoundleCourses'
-import { BoundleShoppingCart } from './boundlepages/BoundleShoppingCart'
-import { BoundleDashboards } from './boundlepages/BoundleDashboards'
-import { BoundleController } from './boundlepages/BoundleController'
-import { BoundleProfile } from './boundlepages/BoundleProfile'
-
+import { Profile } from './pages/Profile'
+import { ShoppingCart } from './pages/ShoppingCart'
+import UserState from './context/User/UserState'
+import PublicRoute from './components/routes/PublicRoute'
+import AuthRoute from './components/routes/AuthRoute'
+import PrivateRoute from './components/routes/PrivateRoute'
 
 function App() {
-  const { token, setToken } = useContext(UserContext)
-  const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
-
-  useEffect(() => {
-    ShoppingListStart()
-  }, [])
-
-  const ShoppingListStart = async () => {
-    let shoppingList = []
-    const ShoppingListGet = await localStorage.getItem('shoppingList')
-    console.log(ShoppingListGet)
-    if (ShoppingListGet === null) {
-      console.log('storage vacio')
-      setShoppingCount(0)
-    } else {
-      console.log('storage con registros')
-      shoppingList = JSON.parse(ShoppingListGet)
-      let shoppingListSize = shoppingList.length
-      setShoppingCount(shoppingListSize)
-    }
-  }
 
   return (
     <>
-      {token ? (
-        <>
-          <BoundleNavBar />
-          <Routes>
-            <Route path='/' element={<BoundleCourses />} />
-            <Route path='/boundlecourses' element={<BoundleCourses />} />
-            <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
-            <Route path='/boundledashboards' element={<BoundleDashboards />} />
-            <Route path='/boundlecontroller' element={<BoundleController />} />
-            <Route path='/profile' element={<BoundleProfile />} />
-            <Route path='/coursescategories' element={<CoursesCategories />} />
-            <Route path='/courses/detail/:id' element={<CoursesDetail />} />
-          </Routes>
-        </>
-      ) : (
-        <>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/courses' element={<Courses />} />
-            <Route path='/courses/:category' element={<Courses />} />
-            <Route path='/coursescategories' element={<CoursesCategories />} />
-            <Route path='/courses/detail/:id' element={<CoursesDetail />} />
-            <Route path='/dashboards' element={<Dashboards />} />
-            <Route path='/dashboards/:category' element={<Dashboards />} />
-            <Route path='/controller' element={<Controller />} />
-            <Route path='/controller/:category' element={<Controller />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/clientes' element={<Testimonials />} />
-            <Route path='/diary' element={<Diary />} />
-            <Route path='/blog' element={<Blog />} />
-            <Route path='/blog/:id' element={<BlogDetail />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/boundleshoppingcart' element={<BoundleShoppingCart />} />
-          </Routes>
-          <Footer />
-        </>
-      )}
+      <UserState>
+        <NavBar />
+        
+          {/* RUTA BASE */}          
+          <PublicRoute path='/' element={<Home />} />
+
+          {/* RUTAS ESTÁTICAS */}
+          <PublicRoute path='/teach' element={<Teach />} />
+          <PublicRoute path='/train' element={<Train />} />
+          <PublicRoute path='/coursescategories' element={<CoursesCategories />} />
+          <PublicRoute path='/blog' element={<Blog />} />
+          <PublicRoute path='/diary' element={<Diary />} />
+
+
+          {/* RUTAS DINÁMICAS */}
+          <PublicRoute path='/courses/detail/:id' element={<CoursesDetail />} />
+          <PublicRoute path='/blog/:id' element={<BlogDetail />} />
+          <PublicRoute path='/courses' element={<Courses />} />
+          <PublicRoute path='/courses/:category' element={<Courses />} />
+
+          {/* RUTAS DE AUTENTICACIÓN */}          
+          <AuthRoute path='/login' element={<Login />} />
+          <AuthRoute path='/signup' element={<Signup />} />
+
+          {/* RUTAS PRIVADAS */}
+          <PrivateRoute path='/profile' element={<Profile />} />
+          <PrivateRoute path='/shoppingcart' element={<ShoppingCart />} />
+          <PrivateRoute path='/about' element={<About />} />          
+
+          {
+          /*<Route path='/' element={<Home />} />
+          <Route path='/teach' element={<Teach />} />
+          <Route path='/teach/:category' element={<Teach />} />
+          <Route path='/train' element={<Train />} />
+          <Route path='/train/:category' element={<Train />} />
+          
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/shoppingcart' element={<ShoppingCart />} />
+          */}
+          
+        <Footer />
+      </UserState>
     </>
   )
 }

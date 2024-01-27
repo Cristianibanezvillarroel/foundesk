@@ -7,7 +7,7 @@ import ShoppingCartImg from '/public/shoppingcart.png'
 import CheckNok from '/public/checknok.png'
 import CheckOk from '/public/checkok.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingContext } from '../../context/ShoppingContext';
+import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
@@ -21,7 +21,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const [goShoppingNow, setGoShoppingNow] = useState(null)
     const navigate = useNavigate()
     const navigateShoppingCart = () => {
-        navigate('/boundleshoppingcart')
+        navigate('/shoppingcart')
     }
     const options = { maximumFractionDigits: 2 }
 

@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Modal, Row } from 'react-bootstrap'
-import { BoundleShoppingCartList } from '../boundlecomponents/boundleshoppingcart/BoundleShoppingCartList'
-import { BoundleShoppingCartSummary } from '../boundlecomponents/boundleshoppingcart/BoundleShoppingCartSummary'
-import { UserContext } from '../context/UserContext'
+import UserContext from '../context/User/UserContext'
 import { useNavigate } from 'react-router-dom'
+import { ShoppingCartList } from '../components/shoppingcart/ShoppingCartList'
+import { ShoppingCartSummary } from '../components/shoppingcart/ShoppingCartSummary'
 
-export const BoundleShoppingCart = () => {
-    const { token, setToken, user, setUser } = useContext(UserContext)
+export const ShoppingCart = () => {
+    const ctx = useContext(UserContext)
+    const { logoutUser } = ctx
     const [show, setShow] = useState(true)
     const handleClose = () => setShow(false)
     const navigate = useNavigate()
@@ -16,8 +17,7 @@ export const BoundleShoppingCart = () => {
     const navigateHome = () => {
         navigate('/')
     }
-    console.log(user)
-    if (token) {
+    if (ctx.user) {
         return (
             <>
                 <Container>
@@ -26,10 +26,10 @@ export const BoundleShoppingCart = () => {
                     </Row>
                     <Row>
                         <Col md={6} className='mb-4'>
-                            <BoundleShoppingCartList />
+                            <ShoppingCartList />
                         </Col>
                         <Col md={6} className='mb-4'>
-                            <BoundleShoppingCartSummary />
+                            <ShoppingCartSummary />
                         </Col>
                     </Row>
                 </Container>
@@ -45,7 +45,7 @@ export const BoundleShoppingCart = () => {
                     Usted debe iniciar sesion para ir al carro de compras.
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={navigateLogin}>
+                    <Button variant="primary" onClick={logoutUser}>
                         Iniciar Sesion
                     </Button>
                     <Button variant="secondary" onClick={navigateHome}>

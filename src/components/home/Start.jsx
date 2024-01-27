@@ -6,7 +6,7 @@ export const Start = () => {
   return (
     <>
     <div id='start-llamado'>
-      Logra optimizar la gestión de tu empresa con Foundesk
+      Comienza hoy a escalar tu productividad y habilidades con Foundesk
       </div>
     <Button as={Link} to='/diary' variant='primary'>Agenda una demo gratis</Button>  
     </>

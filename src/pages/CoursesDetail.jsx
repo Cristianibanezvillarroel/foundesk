@@ -3,9 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Button, Container, Modal } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
 import ShoppingCartImg from '/public/shoppingcart.png'
-import { ShoppingContext } from '../context/ShoppingContext'
+import { ShoppingContext } from '../context/Shopping/ShoppingContext'
 import CheckNok from '/public/checknok.png'
 import CheckOk from '/public/checkok.png'
+import { CoursesDetailSideBar } from '../components/coursesdetail/CoursesDetailSideBar'
+import { CoursesDetailHeader } from '../components/coursesdetail/CoursesDetailHeader'
+import { CoursesDetailLearn } from '../components/coursesdetail/CoursesDetailLearn'
+import { CoursesDetailContents } from '../components/coursesdetail/CoursesDetailContents'
+import { CoursesDetailTeachers } from '../components/coursesdetail/CoursesDetailTeachers'
+import { CoursesDetailTestimonials } from '../components/coursesdetail/CoursesDetailTestimonials'
+import { CoursesDetailMoreTeachersCourses } from '../components/coursesdetail/CoursesDetailMoreTeachersCourses'
 
 export const CoursesDetail = () => {
 
@@ -16,12 +23,12 @@ export const CoursesDetail = () => {
   const [message, setMessage] = useState()
   const [check, setCheck] = useState(false)
   const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [goShoppingNow, setGoShoppingNow] = useState(null)
-    const navigate = useNavigate()
-    const navigateShoppingCart = () => {
-        navigate('/boundleshoppingcart')
-    }
+  const handleShow = () => setShow(true);
+  const [goShoppingNow, setGoShoppingNow] = useState(null)
+  const navigate = useNavigate()
+  const navigateShoppingCart = () => {
+    navigate('/shoppingcart')
+  }
 
 
   useEffect(() => {
@@ -34,47 +41,47 @@ export const CoursesDetail = () => {
     let shoppingList
     let ShoppingListGet = await localStorage.getItem('shoppingList')
     if (ShoppingListGet === null) {
-        shoppingList = []
+      shoppingList = []
     } else {
-        shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+      shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
     }
 
     shoppingList.push(content)
     await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
     let shoppingListSize = shoppingList.length
     setShoppingCount(shoppingListSize)
-}
+  }
 
-const addLocalStorage = async (content) => {
+  const addLocalStorage = async (content) => {
     console.log(content)
     let shoppingList
     let idOk = 0;
     let ShoppingListGet = await localStorage.getItem('shoppingList')
 
     if (ShoppingListGet === null) {
+      await shoppingListSet(content)
+      setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
+      setShow(true)
+      setCheck(true)
+      shoppingList = []
+    } else {
+      shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
+      shoppingList.forEach((item, index) => {
+        if (item.idItem == content.idItem) {
+          setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
+          setShow(true)
+          setCheck(false)
+          idOk = 1
+        }
+      })
+      if (idOk == 0) {
         await shoppingListSet(content)
         setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
         setShow(true)
         setCheck(true)
-        shoppingList = []
-    } else {
-        shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-        shoppingList.forEach((item, index) => {
-            if (item.idItem == content.idItem) {
-                setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
-                setShow(true)
-                setCheck(false)
-                idOk = 1
-            }
-        })
-        if (idOk == 0) {
-            await shoppingListSet(content)
-            setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
-            setShow(true)
-            setCheck(true)
-        }
+      }
     }
-}
+  }
 
   const getDataV1 = async () => {
 
@@ -104,58 +111,56 @@ const addLocalStorage = async (content) => {
 
   if (show) {
     return (
-        <Modal show={show} onHide={handleClose} animation={false}>
-            <Modal.Header closeButton>
-                <Modal.Title>Registro</Modal.Title>
-            </Modal.Header>
-            <Modal.Body style={{ textAlign: 'center' }}>
-                <div style={{ textAlign: 'center' }}><img style={{ textAlign: 'center' }} src={check ? CheckOk : CheckNok} /></div>
-                <div style={{ textAlign: 'left' }}>{message}</div>
-            </Modal.Body>
-            <Modal.Footer>
-                {
-                    goShoppingNow ?
-                        <Button variant="primary" onClick={navigateShoppingCart}>
-                            Ir al carro
-                        </Button>
-                        :
-                        <>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Continuar comprando
-                            </Button>
-                            <Button variant="primary" onClick={navigateShoppingCart}>
-                                Ir al carro
-                            </Button>
-                        </>
-                }
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Registro</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center' }}><img style={{ textAlign: 'center' }} src={check ? CheckOk : CheckNok} /></div>
+          <div style={{ textAlign: 'left' }}>{message}</div>
+        </Modal.Body>
+        <Modal.Footer>
+          {
+            goShoppingNow ?
+              <Button variant="primary" onClick={navigateShoppingCart}>
+                Ir al carro
+              </Button>
+              :
+              <>
+                <Button variant="secondary" onClick={handleClose}>
+                  Continuar comprando
+                </Button>
+                <Button variant="primary" onClick={navigateShoppingCart}>
+                  Ir al carro
+                </Button>
+              </>
+          }
 
-            </Modal.Footer>
-        </Modal>
+        </Modal.Footer>
+      </Modal>
     )
-}
+  }
 
   return (
     <>
       <Container>
-        <div className='blog-detail-div'>
-          {arrayItems.map(
-            content =>
-              <>
-                <div>
-                  <img id='blog-detail-img' src={content.imagen} />
-                </div>
-                <div>
-                  <h3>{content.title}</h3>
-                </div>
-                <div>
-                  <h5>{content.description}</h5>
-                </div>
-                <div>
-                <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg}  /></Button>
-                <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
-                </div>
-              </>
-          )}
+        <div className="courses-detail">
+          <div className='blog-detail-div'>
+            {arrayItems.map(
+              content =>
+                <>
+                  <CoursesDetailHeader arrayItems={arrayItems} />
+                  <CoursesDetailLearn arrayItems={arrayItems} />
+                  <CoursesDetailContents arrayItems={arrayItems} />
+                  <CoursesDetailTeachers arrayItems={arrayItems} />
+                  <CoursesDetailTestimonials arrayItems={arrayItems} />
+                  <CoursesDetailMoreTeachersCourses arrayItems={arrayItems} />
+                </>
+            )}
+          </div>
+          <div className="sidebar">
+            <CoursesDetailSideBar arrayItems={arrayItems} className="fixed"/>
+          </div>
         </div>
       </Container>
     </>

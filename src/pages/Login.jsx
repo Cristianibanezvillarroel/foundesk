@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { loginService } from '../services/user';
-import { UserContext } from '../context/UserContext';
+import UserContext from '../context/User/UserContext';
 
 export const Login = () => {
 
-  const { token, setToken, user, setUser } = useContext(UserContext)
+  const userCtx = useContext(UserContext)
+  const { loginUser, token, msg, logoutUser } = userCtx
+
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(token)
 
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
@@ -29,7 +29,7 @@ export const Login = () => {
   const fetchLogin = async () => {
     try {
 
-      const dataService = {
+      /*const dataService = {
         method: 'POST',
         body: JSON.stringify({
           email: valueEmail.trim(),
@@ -39,11 +39,17 @@ export const Login = () => {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         }
+      }*/
+      const dataService = {
+        email: valueEmail.trim(),
+        password: valuePassword
       }
 
-      const responseData = await loginService(dataService)
+      const getLogin = loginUser(dataService)
 
-      console.log(responseData)
+      //const responseData = await loginUser(dataService)
+
+      /*console.log(responseData)
       console.log(responseData.detail.token)
       setMessage(responseData.message)
       if (responseData.message == 'OK') {
@@ -54,22 +60,24 @@ export const Login = () => {
         setToken(responseData.detail.token)
       } else {
         setInvalid(true);
-      }
+      }*/
 
     } catch (error) {
       console.log(error)
 
     }
-    console.log(location)
-
-    if(location.pathname == '/') {
-      navigate('/boundlecourses')
-    } else {
-      navigate(-1)
-    }
-    
+    console.log(`el location registrado por useLocation es:${location.pathname}`)
 
   }
+
+  useEffect(() => {
+
+    console.log('hola')
+
+  }, [msg])
+
+  console.log(msg)
+
 
   if (show) {
     return (
@@ -85,11 +93,11 @@ export const Login = () => {
     );
   }
 
-  if (invalid) {
+  if (msg) {
     return (
       <div className="App">
         <Container className='p-4'>
-          <Alert variant="success" onClose={() => setInvalid(false)} dismissible >
+          <Alert variant="success" onClose={logoutUser} dismissible >
             <Alert.Heading>Su nombre de usuario o contraseña son invalidos.</Alert.Heading>
             <p>
               Cierre esta ventana para volver al menu</p>
@@ -103,24 +111,27 @@ export const Login = () => {
     <>
       <Container className='login-grid'>
         <Row>
-          <Col md={12} id='login-title' className='mb-4'>
-            Login
-          </Col>
-          <Col md={12} className='mb-4'>
-            <Form.Control onChange={handleChangeEmail} type="text" placeholder="Email" />
-          </Col>
-          <Col>
-            <Form.Control onChange={handleChangePassword} type="password" placeholder="Password" />
-          </Col>
-          <Col md={12} className='login-text' id='login-forgot' >
-            ¿Olvidó su password?
-          </Col>
-          <Button onClick={fetchLogin} md={2} id='button-login' className='mb-4' variant='primary'>
-            Login
-          </Button>
+          <Form onSubmit={fetchLogin}>
+            <Col md={12} id='login-title' className='mb-4'>
+              Login
+            </Col>
+            <Col md={12} className='mb-4'>
+              <Form.Control onChange={handleChangeEmail} type="text" placeholder="Email" />
+            </Col>
+            <Col>
+              <Form.Control onChange={handleChangePassword} type="password" placeholder="Password" />
+            </Col>
+
+            <Button id='button-login' type="submit" className='mb-4' variant='primary'>
+              Login
+            </Button>
+          </Form>
           <Col md={12} className='login-text'>
             ¿No tiene una cuenta registrada?
             <Link className='login-text' to='/signup'>   Signup</Link>
+          </Col>
+          <Col md={12} className='login-text' id='login-forgot' >
+            ¿Olvidó su password?
           </Col>
         </Row>
       </Container>
