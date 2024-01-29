@@ -19,7 +19,7 @@ export const NavBar = () => {
     }
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const ctx = useContext(UserContext)
-    const { user, logoutUser } = ctx
+    const { logoutUser } = ctx
     const [show, setShow] = useState(true)
     const handleClose = () => setShow(false)
     const [dataUser, setDataUser] = useState({
@@ -58,7 +58,7 @@ export const NavBar = () => {
                     <Navbar.Brand id="Navbar-Brand" as={Link} to='/' href="/">foundesk  <img id="Navbar-img" src={logo} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-                    {user ? (
+                    {ctx.user?.name ? (
                         <>
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
@@ -82,7 +82,7 @@ export const NavBar = () => {
                                     <Badge style={{ display: "none" }}>{shoppingCount}</Badge>
                                 }
                             </Button>
-                            <NavDropdown title={user.name} id="basic-nav-dropdown">
+                            <NavDropdown title={ctx.user.name} id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='/profile' href="/profile">
                                     Mi Perfil
                                 </NavDropdown.Item>

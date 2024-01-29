@@ -17,100 +17,113 @@ import { useNavigate } from 'react-router-dom'
 export const Home = () => {
 
   const ctx = useContext(UserContext)
-  const { user } = ctx
   const navigate = useNavigate()
+  const navigateAboutUser = () => {
+    navigate('/about')
+  }
   const navigateHomeUser = () => {
-      navigate('/about')
+    navigate('/')
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
 
     const navigateSession = () => {
-      if(user) {
+      if ({ ctx.user.name }) {
+        navigateAboutUser()
+      } else {
         navigateHomeUser()
       }
     }
 
     navigateSession()
 
-  }, [])
+  }, [])*/
 
-  
+
   return (
     <>
-      <div className='calling'>
-        <Container>
-          <Row>
-            <Col md={6} className='mb-4'>
-              <Calling />
-            </Col>
-            <Col md={6} className='mb-4'>
-              <CallingImg />
-            </Col>
-            <CallingLine />
-          </Row>
-        </Container>
-      </div>
-      <div className='rational'>
-        <Container>
-          <Row>
-            <Col md={6} className='mb-4'>
-              <Rational />
-            </Col>
-            <Col md={6} className='mb-4'>
-              <RationalImg />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className='detail'>
-        <Container>
-          <Row>
-            <Col>
-              <Detail />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className='customer'>
-        <Container>
-          <Row>
-            <Col>
-              <Customer />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className='whyfoundesk'>
-        <Container>
-          <Row>
-            <Col>
-              <WhyFoundesk />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className='contents'>
-        <Container>
-          <Row>
-            <Col>
-              <Contents />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className='start'>
-        <Container>
-          <Row>
-            <Col md={6} className='mb-4'>
-              <Start />
-            </Col>
-            <Col md={6} className='mb-4'>
-              <StartImg />
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      {ctx.user?.name ? (
+        <>
+          <div>Hola Div</div>
+        </>
+      ) : (
+        <>
+          <div className='calling'>
+            <Container>
+              <Row>
+                <Col md={6} className='mb-4'>
+                  <Calling />
+                </Col>
+                <Col md={6} className='mb-4'>
+                  <CallingImg />
+                </Col>
+                <CallingLine />
+              </Row>
+            </Container>
+          </div>
+          <div className='rational'>
+            <Container>
+              <Row>
+                <Col md={6} className='mb-4'>
+                  <Rational />
+                </Col>
+                <Col md={6} className='mb-4'>
+                  <RationalImg />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className='detail'>
+            <Container>
+              <Row>
+                <Col>
+                  <Detail />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className='customer'>
+            <Container>
+              <Row>
+                <Col>
+                  <Customer />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className='whyfoundesk'>
+            <Container>
+              <Row>
+                <Col>
+                  <WhyFoundesk />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className='contents'>
+            <Container>
+              <Row>
+                <Col>
+                  <Contents />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className='start'>
+            <Container>
+              <Row>
+                <Col md={6} className='mb-4'>
+                  <Start />
+                </Col>
+                <Col md={6} className='mb-4'>
+                  <StartImg />
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </>
+      )
+      }
     </>
   )
 }
