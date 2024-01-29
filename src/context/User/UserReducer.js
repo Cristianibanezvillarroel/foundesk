@@ -8,6 +8,7 @@ const UserReducer = (globalState, action) => {
             return {
                 ...globalState,
                 authStatus: true,
+                user: action.payload.detail.user
 
             }
 
