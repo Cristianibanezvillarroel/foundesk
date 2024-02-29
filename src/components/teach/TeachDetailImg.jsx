@@ -9,7 +9,7 @@ export const TeachDetailImg = ({teachDetailSelect}) => {
   return (
     <>
       <div  >
-        <img id='detail-img' src={teachDetailSelect == 'create' ? teachdetailcreateimg : (teachDetailSelect == 'save' ? teachdetailsaveimg : teachdetailshowimg)} />
+        <img id='teach-detail-img' src={teachDetailSelect == 'create' ? teachdetailcreateimg : (teachDetailSelect == 'save' ? teachdetailsaveimg : teachdetailshowimg)} />
       </div>
     </>
   )

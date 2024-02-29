@@ -4,7 +4,7 @@ import teachimg from '/public/teachingimg.jpg'
 export const TeachingImg = () => {
   return (
     <>
-      <div  >
+      <div>
         <img id='teach-img' src={teachimg} />
       </div>
     </>

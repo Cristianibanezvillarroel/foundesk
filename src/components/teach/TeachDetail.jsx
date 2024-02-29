@@ -17,13 +17,13 @@ export const TeachDetail = () => {
       <div className='teach-detail-button'>
         <Nav fill variant='tabs' defaultActiveKey='link-1'>
             <Nav.Item>
-                <Nav.Link eventKey='link-1' onClick={() => setTeachDetailSelect('create')}>Crea tu contenido</Nav.Link>
+                <Nav.Link eventKey='link-1' onClick={() => setTeachDetailSelect('create')}>Crea</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-2' onClick={() => setTeachDetailSelect('save')}>Graba tu video</Nav.Link>
+                <Nav.Link eventKey='link-2' onClick={() => setTeachDetailSelect('save')}>Graba</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-3' onClick={() => setTeachDetailSelect('show')}>Publica tu curso</Nav.Link>
+                <Nav.Link eventKey='link-3' onClick={() => setTeachDetailSelect('show')}>Publica</Nav.Link>
             </Nav.Item>
         </Nav>
       </div>

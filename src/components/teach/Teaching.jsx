@@ -7,7 +7,7 @@ export const Teaching = () => {
     <>
       <div id='teach-left' >
         <div id='teach-left-llamado'>
-          <h1>Enseña y crea valor hoy mismo.</h1>
+          <h1>Enseña a los demás y agrega valor a tu vida profesional.</h1>
         </div>
         <div id='teach-left-bajada'>
           <p>Libera tu potencial instructor y ayuda a quienes administran sus propias empresas.</p>

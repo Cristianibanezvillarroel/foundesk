@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import TeachHelpYou from '/public/teachHelpYou.webp'
+import TeachHelpYou from '/public/teachHelpYou.png'
 import TeachHelpFollow from '/public/teachHelpFollow.webp'
 
 export const TeachHelp = () => {

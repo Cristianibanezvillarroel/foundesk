@@ -31,7 +31,7 @@ export const Teach = () => {
                 <Col md={6} className='mb-4'>
                   <Teaching />
                 </Col>
-                <Col md={6} className='mb-4'>
+                <Col style={{textAlign: 'center'}} md={6} className='mb-4'>
                   <TeachingImg />
                 </Col>
               </Row>

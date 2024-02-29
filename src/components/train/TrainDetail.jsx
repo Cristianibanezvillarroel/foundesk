@@ -9,7 +9,7 @@ export const TrainDetail = () => {
   return (
     <>
       <div id='teach-detail-up-llamado'>
-        <p>Como comenzar ahora.</p>
+        <p>Comienza ya.</p>
       </div>
       <div id='teach-detail-bajada'>
         <p>Con Foundesk, capacitar es rápido y eficaz.</p>
@@ -17,13 +17,13 @@ export const TrainDetail = () => {
       <div className='teach-detail-button'>
         <Nav fill variant='tabs' defaultActiveKey='link-1'>
             <Nav.Item>
-                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('create')}>Crea tu contenido</Nav.Link>
+                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('create')}>Crea</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('save')}>Graba tu video</Nav.Link>
+                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('save')}>Graba</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('show')}>Comparte tu link</Nav.Link>
+                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('show')}>Comparte</Nav.Link>
             </Nav.Item>
         </Nav>
       </div>

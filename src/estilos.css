@@ -178,6 +178,7 @@
 }
 
 #detail-text-bajada {
+    margin-top: 20px;
     text-align: left !important;
     max-width: 700px;
 }
@@ -908,4 +909,37 @@
     border-radius: 10%;
     height: 50%;
     width: 50%;
+}
+
+#teach-text-bajada {
+    margin-top: 20px;
+    max-width: 700px;
+    text-align: justify;
+}
+
+#teach-detail-img {
+    margin-top: 10px;
+    border-radius: 10%;
+    text-align: center;
+    height: 300px;
+}
+
+#train-img {
+    margin-top: 10px;
+    border-radius: 10%;
+    height: 50%;
+    width: 50%;
+}
+
+#train-text-bajada {
+    margin-top: 20px;
+    max-width: 700px;
+    text-align: justify;
+}
+
+#train-detail-img {
+    margin-top: 10px;
+    border-radius: 10%;
+    text-align: center;
+    height: 300px;
 }
