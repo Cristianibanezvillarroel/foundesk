@@ -27,7 +27,7 @@ export const Courses = () => {
     };
 
     const [page, setPage] = useState(1)
-    const [limit, setLimit] = useState(2)
+    const [limit, setLimit] = useState(4)
     const [data, setData] = useState([])
 
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
@@ -147,7 +147,7 @@ export const Courses = () => {
                             page={page}
                             between={4}
                             total={size}
-                            limit={2}
+                            limit={4}
                             changePage={(page) => {
                                 setPage(page)
                             }}

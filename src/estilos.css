@@ -724,6 +724,7 @@
 }
 
 .courses-detail-toast-div {
+    text-align: left;
     margin-top: 10px;
 }
 
@@ -942,4 +943,12 @@
     border-radius: 10%;
     text-align: center;
     height: 300px;
+}
+
+.courses-detail-toast-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    max-width: 100%;
 }

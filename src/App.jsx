@@ -37,6 +37,7 @@ function App() {
           <PublicRoute path='/coursescategories' element={<CoursesCategories />} />
           <PublicRoute path='/blog' element={<Blog />} />
           <PublicRoute path='/diary' element={<Diary />} />
+          <PublicRoute path='/about' element={<About />} />
 
 
           {/* RUTAS DINÁMICAS */}
@@ -52,7 +53,7 @@ function App() {
           {/* RUTAS PRIVADAS */}
           <PrivateRoute path='/profile' element={<Profile />} />
           <PrivateRoute path='/shoppingcart' element={<ShoppingCart />} />
-          <PrivateRoute path='/about' element={<About />} />          
+                  
 
           {
           /*<Route path='/' element={<Home />} />

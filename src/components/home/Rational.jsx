@@ -8,7 +8,7 @@ export const Rational = () => {
     <>
       <div id='rational-left' >
         <div id='rational-left-llamado'>
-          <p>Impacta en tu performance laboral y crece hoy.</p>
+          <p>Impacta en tu performance y aprende hoy.</p>
         </div>
         <div id='rational-left-bajada'>
           <p>Accede a cursos online exclusivamente diseñados para tus necesidades laborales, y logra dominio de nuevas habilidades que aquí te proporcionamos para una mayor productividad.</p>

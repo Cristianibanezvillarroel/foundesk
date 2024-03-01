@@ -45,7 +45,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const indexOfFirstItem = indexOfLastItem - limit;
     const currentItems = arrayItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    const DESCRIPTION_CHAR_LIMIT = 40;
+    const DESCRIPTION_CHAR_LIMIT = 50;
 
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);

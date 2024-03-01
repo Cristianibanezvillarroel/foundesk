@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Button, Modal, Toast } from 'react-bootstrap'
+import { Button, Col, Container, Modal, Row, Toast } from 'react-bootstrap'
 import horasCoursesImg from '/public/horascurso.png'
 import articulosCoursesImg from '/public/articuloscurso.png'
 import recursosCoursesImg from '/public/recursoscurso.png'
@@ -108,35 +108,46 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
                 content =>
                     <>
                         <Toast className='courses-detail-toast'>
-                            <div className='courses-detail-toast-div'>
-                                <h2 id='courses-detail-pricer'>{`${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")} CLP$`}</h2>
-                            </div>
-                            <div className='courses-detail-toast-div'>
-                                <Button className='w-100' onClick={() => { addLocalStorage(content) }}>Añadir al carro</Button>
-                            </div>
-                            <div className='courses-detail-toast-div'>
-                                <Button className='w-100' onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='light'>Comprar ahora</Button>
-                            </div>
-                            <div style={{textAlign: 'center'}} className='courses-detail-toast-div'>Garantía de reembolso de 30 días</div>
-                            <div className='courses-detail-toast-div'>Este curso incluye:</div>
-                            <div>
-                                <div><img src={horasCoursesImg}></img>{content.horas}</div>
-                            </div>
-                            <div>
-                                <div><img src={articulosCoursesImg}></img>{content.articulos}</div>
-                            </div>
-                            <div>
-                                <div><img src={recursosCoursesImg}></img>{content.recursos}</div>
-                            </div>
-                            <div>
-                                <div><img src={accesoCoursesImg}></img>{content.acceso}</div>
-                            </div>
-                            <div>
-                                <div><img src={timeCoursesImg}></img>{content.timeline}</div>
-                            </div>
-                            <div>
-                                <div><img src={certificateCoursesImg}></img>{content.certificado}</div>
-                            </div>
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <div className='courses-detail-toast-img'>
+                                            <img src={content.imagen}></img>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <div className='courses-detail-toast-div'>
+                                    <h2 id='courses-detail-pricer'>{`${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")} CLP$`}</h2>
+                                </div>
+                                <div className='courses-detail-toast-div'>
+                                    <Button className='w-100' onClick={() => { addLocalStorage(content) }}>Añadir al carro</Button>
+                                </div>
+                                <div className='courses-detail-toast-div'>
+                                    <Button className='w-100' onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='light'>Comprar ahora</Button>
+                                </div>
+                                <div style={{ textAlign: 'center' }} className='courses-detail-toast-div'>Garantía de reembolso de 30 días</div>
+                                <div className='courses-detail-toast-div'>Este curso incluye:</div>
+                                <div className='courses-detail-toast-div'>
+                                    <div>
+                                        <div><img src={horasCoursesImg}></img>{content.horas}</div>
+                                    </div>
+                                    <div>
+                                        <div><img src={articulosCoursesImg}></img>{content.articulos}</div>
+                                    </div>
+                                    <div>
+                                        <div><img src={recursosCoursesImg}></img>{content.recursos}</div>
+                                    </div>
+                                    <div>
+                                        <div><img src={accesoCoursesImg}></img>{content.acceso}</div>
+                                    </div>
+                                    <div>
+                                        <div><img src={timeCoursesImg}></img>{content.timeline}</div>
+                                    </div>
+                                    <div>
+                                        <div><img src={certificateCoursesImg}></img>{content.certificado}</div>
+                                    </div>
+                                </div>
+                            </Container>
                         </Toast>
                     </>
             )}

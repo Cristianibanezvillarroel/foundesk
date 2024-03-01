@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import TeachHelpYou from '/public/teachHelpYou.png'
-import TeachHelpFollow from '/public/teachHelpFollow.webp'
+import TeachHelpFollow from '/public/teachHelpFollow.png'
 
 export const TeachHelp = () => {
     return (

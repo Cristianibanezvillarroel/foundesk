@@ -24,13 +24,12 @@ export const Footer = () => {
                         <FooterLink href="/foundesk/#/courses">Cursos Online</FooterLink>
                     </Column>
                     <Column>
-                        <Heading>Dashboards</Heading>
-                        <FooterLink href="/foundesk/#/dashboards/kpi">KPI's</FooterLink>
-                        <FooterLink href="/foundesk/#/dashboards/risk">Control Riesgos</FooterLink>
+                        <Heading>Enseña</Heading>
+                        <FooterLink href="/foundesk/#/teach">Enseña en Foundesk</FooterLink>
                     </Column>
                     <Column>
-                        <Heading>Templates</Heading>
-                        <FooterLink href="/foundesk/#/templates">Plantillas Administrativas</FooterLink>
+                        <Heading>Capacita</Heading>
+                        <FooterLink href="/foundesk/#/train">Capacita con Foundesk</FooterLink>
                     </Column>
                 </Row>
             </Container>

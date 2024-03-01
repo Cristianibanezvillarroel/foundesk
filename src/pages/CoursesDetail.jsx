@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Button, Container, Modal } from 'react-bootstrap'
+import { Button, Col, Container, Modal, Row } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
 import ShoppingCartImg from '/public/shoppingcart.png'
 import { ShoppingContext } from '../context/Shopping/ShoppingContext'
@@ -144,12 +144,20 @@ export const CoursesDetail = () => {
   return (
     <>
       <Container>
+        <Row>
+          <Col style={{textAlign: 'center'}} md={6} className='mb-2'>
+            <CoursesDetailSideBar arrayItems={arrayItems} className="fixed" />
+          </Col>
+          <Col md={6} className='mb-2'>
+            <CoursesDetailHeader arrayItems={arrayItems} />
+          </Col>
+        </Row>
+        <Row></Row>
         <div className="courses-detail">
           <div className='blog-detail-div'>
             {arrayItems.map(
               content =>
                 <>
-                  <CoursesDetailHeader arrayItems={arrayItems} />
                   <CoursesDetailLearn arrayItems={arrayItems} />
                   <CoursesDetailContents arrayItems={arrayItems} />
                   <CoursesDetailTeachers arrayItems={arrayItems} />
@@ -158,10 +166,9 @@ export const CoursesDetail = () => {
                 </>
             )}
           </div>
-          <div className="sidebar">
-            <CoursesDetailSideBar arrayItems={arrayItems} className="fixed"/>
-          </div>
+
         </div>
+
       </Container>
     </>
   )
