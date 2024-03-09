@@ -415,8 +415,6 @@
     height: auto;
 }
 
-#courses-categories-lineup {}
-
 #courses-categories-calificaciones-img {
     margin-right: 10px;
     width: 15px;
@@ -704,7 +702,7 @@
 .fixed {
     position: fixed;
     width: 300px;
-    
+
 }
 
 .courses-detail {
@@ -712,7 +710,7 @@
     flex-direction: row;
     width: 80%;
     margin: 0 auto;
-  }
+}
 
 #courses-detail-pricer {
     font-weight: bold;
@@ -750,7 +748,7 @@
     color: rgb(28, 29, 29);
     font-size: small;
     padding: 10px;
-    
+
 }
 
 #teach-left-button Button {
@@ -798,9 +796,9 @@
 
 .teach-detail-button {
     font-size: xx-large;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    justify-content: center;    
+    justify-content: center;
 }
 
 #teach-detail-button-items {
@@ -854,14 +852,14 @@
 
 .teach-start-llamado {
     text-align: center;
-    font-size: 50px ;
+    font-size: 50px;
     font-weight: bold;
     margin-top: 50px;
 }
 
 .teach-start-bajada {
     text-align: center;
-    font-size:medium ;
+    font-size: medium;
     font-weight: bold;
 }
 
@@ -951,4 +949,173 @@
     justify-content: center;
     max-height: 100%;
     max-width: 100%;
+}
+
+.courses-detail-right {
+    color: white;
+}
+
+.courses-detail-right-href {
+    color: #eae4fa;
+    text-decoration: none;
+    font-size: bold;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.4rem;
+}
+
+.courses-detail-score {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.courses-detail-header-description {
+    text-align: justify;
+    margin-right: 30px;
+}
+
+.courses-detail-learn-title {
+    text-align: left;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.courses-detail-learn {
+    margin-top: 50px;
+    padding: 30px;
+    border: 1px solid rgb(2, 2, 2);
+}
+
+#courses-detail-learn-checked {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    line-height: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.courses-detail-content-title {
+    text-align: left;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+#courses-detail-content-items {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    line-height: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+#courses-detail-content-accordion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.courses-detail-teacher-title {
+    text-align: left;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+#courses-detail-teacher-name {
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+    color: blue;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#courses-detail-teacher-study {
+    text-align: left;
+    font-size: medium;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#courses-detail-teacher-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+#courses-detail-teacher-imagen {
+    margin-right: 10px;
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 50%;
+}
+
+#courses-detail-teacher-data {
+    margin: 20px;
+    justify-content: space-between;
+}
+
+#courses-detail-teacher-resena {
+    margin: 20px;
+    text-align: justify;
+    font-style: italic;
+}
+
+#courses-detail-testimonials-row {
+    margin: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#courses-detail-testimonials-calificacion {
+    margin-right: 10px;
+    width: 15px;
+    height: auto;
+}
+
+.courses-detail-testimonials-card {
+    margin: 20px;
+    border-top: 1px solid;
+    border-color: rgb(172, 169, 169);
+}
+
+#courses-detail-testimonials-card-header {
+    display: flex;
+    flex-direction: row;
+}
+
+#courses-detail-testimonials-card-header-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 10%;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+}
+
+#courses-detail-testimonials-card-header-data {
+    padding: 10%;
+    line-height: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#courses-detail-testimonials-card-header-icon {
+    margin-right: 10px;
 }

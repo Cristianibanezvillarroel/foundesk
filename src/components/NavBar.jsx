@@ -39,7 +39,7 @@ export const NavBar = () => {
     const ShoppingListStart = async () => {
         let shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
-        console.log(ShoppingListGet)
+        //console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
             console.log('storage vacio')
             setShoppingCount(0)

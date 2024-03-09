@@ -1,13 +1,18 @@
 import React from 'react'
 import Calificacionesimg from '/public/calificaciones.png'
+import Reproduccionesimg from '/public/reproducciones.png'
 
 export const CoursesDetailHeader = ({ arrayItems }) => {
 
-    let { cantidad, categoria, resena, description, imagenicono, imagenpublicidad, calificacion, reproducciones } = arrayItems
-    const scoreCurses = []
-    for (let i = 0; i < parseInt(calificacion); i++) {
-        scoreCurses.push(i)
-    }
+
+    let scoreCursesDetail = [];
+
+    arrayItems.forEach(item => {
+
+        for (let i = 0; i < parseInt(item.calificacion); i++) {
+            scoreCursesDetail.push(i)
+        }
+    });
 
     const textLinkRoot = '/foundesk/#/courses';
     return (
@@ -16,25 +21,34 @@ export const CoursesDetailHeader = ({ arrayItems }) => {
                 arrayItems.map(
                     content =>
                         <>
-                            <div id='detail-text-right' >
-                                <a href={`${textLinkRoot}/${content.categoria}`}>
-                                    {content.categoria}
-                                    <span>&#8594;</span>
-                                </a>
-                            </div>
-                            <div>
-                                <h3>{content.title}</h3>
-                            </div>
-                            <div>
-                                <h5>{content.description}</h5>
-                            </div>
-                            <div>
-                                {scoreCurses.map(item =>
-                                    <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
-                                )}
-                            </div>
-                            <div>
-                                <h5>{content.calificacion}</h5>
+                            <div className='courses-detail-right'>
+                                <div>
+                                    <a className='courses-detail-right-href' href={`${textLinkRoot}/${content.categoria}`}>
+                                        {content.categoria}
+                                        <span>&#8594;</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <h2>{content.title}</h2>
+                                </div>
+
+                                <div className='courses-detail-score'>
+                                    {scoreCursesDetail.map(item =>
+                                        <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
+                                    )}
+                                    <img id='courses-categories-reproducciones-img' src={Reproduccionesimg} />
+                                    <p>{content.estudiantes}</p>
+                                </div>
+                                <div className='courses-detail-header-description'>
+                                    <p>{content.description}</p>
+                                </div>
+                                <div>
+                                    <p style={{fontWeight: 'bold'}}>¿Porqué puede ser importante aprender esto?</p>
+                                </div>
+                                <div className='courses-detail-header-description'>
+                                    <p>{content.descriptionAdd}</p>
+                                </div>
+
                             </div>
                         </>
                 )

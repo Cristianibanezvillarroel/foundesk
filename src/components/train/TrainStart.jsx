@@ -7,7 +7,7 @@ export const TrainStart = () => {
             <Container>
                 <Row>
                     <Col md={12} className='mb-4'>
-                        <div className='teach-start-llamado'>Hazlo simple y comienza hoy mismo</div>
+                        <div className='teach-start-llamado'>Hazlo simple y capacita hoy mismo</div>
                     </Col>
                     <Col md={12} className='mb-4'>
                         <div className='teach-start-bajada'>Súmate a la capacitación digital y logra resultados inmediatos para tus colaboradores y clientes.</div>

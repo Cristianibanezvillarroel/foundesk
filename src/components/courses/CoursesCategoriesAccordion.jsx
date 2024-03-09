@@ -12,6 +12,8 @@ export const CoursesCategoriesAccordion = ({ content }) => {
     for (let i = 0; i < parseInt(calificacion); i++) {
             scoreCurses.push(i)
     }
+
+    console.log(content);
     return (
         <Accordion>
 

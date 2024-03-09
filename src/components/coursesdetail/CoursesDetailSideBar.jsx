@@ -40,7 +40,7 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
     }
 
     const addLocalStorage = async (content) => {
-        console.log(content)
+
         let shoppingList
         let idOk = 0;
         let ShoppingListGet = await localStorage.getItem('shoppingList')

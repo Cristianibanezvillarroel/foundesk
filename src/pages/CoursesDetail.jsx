@@ -53,7 +53,7 @@ export const CoursesDetail = () => {
   }
 
   const addLocalStorage = async (content) => {
-    console.log(content)
+    //console.log(content)
     let shoppingList
     let idOk = 0;
     let ShoppingListGet = await localStorage.getItem('shoppingList')
@@ -101,13 +101,13 @@ export const CoursesDetail = () => {
     )
 
     let itemsArray = ArrayItemsFilter[0]
-    console.log(itemsArray)
+    //console.log(itemsArray)
 
     setArrayItems(itemsArray)
   }
 
 
-  console.log(arrayItems)
+  //console.log(arrayItems)
 
   if (show) {
     return (
@@ -144,31 +144,32 @@ export const CoursesDetail = () => {
   return (
     <>
       <Container>
-        <Row>
-          <Col style={{textAlign: 'center'}} md={6} className='mb-2'>
-            <CoursesDetailSideBar arrayItems={arrayItems} className="fixed" />
+        <Row style={{ backgroundColor: 'blue' }}>
+          <Col style={{ textAlign: 'center' }} md={6}>
+            <CoursesDetailSideBar arrayItems={arrayItems} />
           </Col>
-          <Col md={6} className='mb-2'>
+          <Col md={6} >
             <CoursesDetailHeader arrayItems={arrayItems} />
           </Col>
         </Row>
-        <Row></Row>
-        <div className="courses-detail">
-          <div className='blog-detail-div'>
-            {arrayItems.map(
-              content =>
-                <>
-                  <CoursesDetailLearn arrayItems={arrayItems} />
-                  <CoursesDetailContents arrayItems={arrayItems} />
-                  <CoursesDetailTeachers arrayItems={arrayItems} />
-                  <CoursesDetailTestimonials arrayItems={arrayItems} />
-                  <CoursesDetailMoreTeachersCourses arrayItems={arrayItems} />
-                </>
-            )}
-          </div>
-
-        </div>
-
+        <Row>
+          <Col>
+            <div>
+              <div>
+                {arrayItems.map(
+                  content =>
+                    <>
+                      <CoursesDetailLearn content={content} />
+                      <CoursesDetailContents content={content} />
+                      <CoursesDetailTeachers content={content} />
+                      <CoursesDetailTestimonials content={content} />
+                      <CoursesDetailMoreTeachersCourses content={content} />
+                    </>
+                )}
+              </div>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </>
   )
