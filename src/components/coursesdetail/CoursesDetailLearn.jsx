@@ -5,56 +5,29 @@ import { BsCheck } from "react-icons/bs";
 
 export const CoursesDetailLearn = ({ content }) => {
 
-  useEffect(() => {
-    setTimeout(() => {
-      getDataV1()
-    }, 10);
-  }, [])
+  let result = content.map(({ learn }) => learn)
 
-  const [arrayItems, setArrayItems] = useState([])
-  const [arrayItems2, setArrayItems2] = useState([])
+  let result2 = result[0]
+  let itemsArray = []
+  let itemsArray2 = []
+  if (result2) {
 
-  const getDataV1 = async () => {
-
-    const dataService = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }
-    const responseData = await coursesLearnItemsService(dataService)
-
-    const ArrayItemsFilter = responseData.map(
-      List => List.items.filter(
-        item => item.id_courses == content._id
-      )
-    )
-
-    const ListItemsSize = ArrayItemsFilter[0].length
+    const ListItemsSize = result2[0].length
     const ListPart = (ListItemsSize / 2)
     const ListPartOne = ListPart.toFixed(0);
-    const ListPartTwo = ListItemsSize - ListPartOne
-
-    let itemsArray = []
-    let itemsArray2 = []
-
-    ArrayItemsFilter.forEach(function (item) {
+    
+    result2.forEach(function (item) {
       for (let i = 0; i < ListPartOne; i++) {
         itemsArray.push(item[i])
       }
     })
 
-    ArrayItemsFilter.forEach(function (item) {
+    result2.forEach(function (item) {
       for (let i = ListPartOne; i < ListItemsSize; i++) {
         itemsArray2.push(item[i])
       }
     })
-
-    setArrayItems(itemsArray)
-    setArrayItems2(itemsArray2)
   }
-
 
   return (
     <Container className='courses-detail-learn'>
@@ -64,7 +37,7 @@ export const CoursesDetailLearn = ({ content }) => {
       <Row>
         <Col md={6} className='mb-2'>
           <div>
-            {arrayItems.map(
+            {itemsArray.map(
               item =>
                 <>
                   <div id='courses-detail-learn-checked'>
@@ -77,7 +50,7 @@ export const CoursesDetailLearn = ({ content }) => {
         </Col>
         <Col md={6} className='mb-2'>
           <div>
-            {arrayItems2.map(
+            {itemsArray2.map(
               item =>
                 <>
                   <div id='courses-detail-learn-checked'>

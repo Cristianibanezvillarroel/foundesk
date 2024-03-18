@@ -97,7 +97,6 @@ export const Courses = () => {
                 })
 
         })
-        console.log(arrayItems)
         setData({ arrayItems })
     }
 

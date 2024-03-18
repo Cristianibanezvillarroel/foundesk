@@ -32,8 +32,6 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
                 arrayBlogCategories.push(item)
         ))
         setDataBlogs(arrayBlogCategories)
-        console.log(arrayBlogCategories)
-        console.log(dataBlogs)
     }
 
     const getCategory = (category) => {

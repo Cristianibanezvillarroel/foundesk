@@ -27,8 +27,6 @@ export const ContentsCards = () => {
 
     const responseData = await blogDetailService(dataService)
 
-    console.log(responseData)
-
     const ListFiltrada = responseData.filter(List => {
       return List.message == 'Blog';
     })

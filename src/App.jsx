@@ -20,6 +20,7 @@ import UserState from './context/User/UserState'
 import PublicRoute from './components/routes/PublicRoute'
 import AuthRoute from './components/routes/AuthRoute'
 import PrivateRoute from './components/routes/PrivateRoute'
+import { TeacherDetail } from './pages/TeacherDetail'
 
 function App() {
 
@@ -45,6 +46,8 @@ function App() {
           <PublicRoute path='/blog/:id' element={<BlogDetail />} />
           <PublicRoute path='/courses' element={<Courses />} />
           <PublicRoute path='/courses/:category' element={<Courses />} />
+          <PublicRoute path='/teacher/:id' element={<TeacherDetail />} />
+          <PublicRoute path='/testimonials/:id' element={<Testimonials />} />
 
           {/* RUTAS DE AUTENTICACIÓN */}          
           <AuthRoute path='/login' element={<Login />} />

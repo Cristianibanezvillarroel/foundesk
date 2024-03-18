@@ -107,7 +107,7 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
             {arrayItems.map(
                 content =>
                     <>
-                        <Toast className='courses-detail-toast'>
+                        <Toast key={content.idItem} className='courses-detail-toast'>
                             <Container>
                                 <Row>
                                     <Col>

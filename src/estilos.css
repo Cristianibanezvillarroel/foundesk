@@ -953,6 +953,7 @@
 
 .courses-detail-right {
     color: white;
+    margin-top: 20px;
 }
 
 .courses-detail-right-href {
@@ -963,6 +964,11 @@
     line-height: 1.2;
     letter-spacing: 0;
     font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+#courses-detail-right-title {
+    margin-top: 20px;
 }
 
 .courses-detail-score {
@@ -1098,6 +1104,10 @@
 }
 
 #courses-detail-testimonials-card-header-name {
+    width: 25vh;
+    max-width: 100px;
+    height: 25vh;
+    max-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1118,4 +1128,81 @@
 
 #courses-detail-testimonials-card-header-icon {
     margin-right: 10px;
+}
+
+#teacher-detail-img {
+    border-radius: 20%;
+    margin-right: 10px;
+    width: 200px;
+    height: auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+    padding: 5%;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper tr:first-child {
+        order: 2;
+    }
+}
+
+.teacher-detail-nowrapper {
+    margin: 2%;
+    padding: 5%;
+}
+
+.popup-testimonials-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    /* Semi-transparent background */
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    overflow-y: scroll;
+    overflow-y: scroll;
+    scroll-behavior: smooth;*/
+
+}
+
+.popup-testimonials {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: translateY('scrollTop');
+    background-color: white;
+    z-index: 101;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 3.2);
+    border-radius: 20px;
+   /*border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 3.2);
+    height: auto;
+    width: auto;*/
+}
+
+.popup-testimonials-header {
+    display: flex;
+    /*flex-direction: row;*/
+    justify-content: flex-end;
+}
+
+.popup-testimonials-content {
+    
 }

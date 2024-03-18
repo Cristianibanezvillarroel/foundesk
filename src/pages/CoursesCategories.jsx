@@ -31,7 +31,6 @@ export const CoursesCategories = () => {
 
     let itemsArray = ListFiltrada[0]
     setDataCategories(itemsArray)
-    console.log(itemsArray)
   }
 
   return (
@@ -44,7 +43,6 @@ export const CoursesCategories = () => {
         </Row>
       )}
     </Container>
-
   )
 }
 

@@ -8,7 +8,6 @@ export const BlogDetail = () => {
   const { id } = useParams()
   const [arrayItems, setArrayItems] = useState([])
 
-
   useEffect(() => {
     setTimeout(() => {
       getDataV1()
@@ -33,13 +32,8 @@ export const BlogDetail = () => {
     )
 
     let itemsArray = ArrayItemsFilter[0]
-    console.log(itemsArray)
-
     setArrayItems(itemsArray)
   }
-
-
-  console.log(arrayItems)
 
   return (
     <>

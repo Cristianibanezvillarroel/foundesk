@@ -6,8 +6,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 export const BlogCards = ({ ListSize, page, limit, data }) => {
-    console.log(data)
-
+    
     let arrayItems = []
 
     let itera1 = Object.entries(data)
@@ -20,7 +19,6 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
 
                 })
         });
-    console.log(arrayItems)
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
     const currentItems = arrayItems.slice(indexOfFirstItem, indexOfLastItem);

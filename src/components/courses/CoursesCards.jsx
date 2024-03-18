@@ -25,8 +25,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     }
     const options = { maximumFractionDigits: 2 }
 
-    console.log(data)
-
     let arrayItems = []
 
     let itera1 = Object.entries(data)
@@ -39,7 +37,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
                 })
         });
-    console.log(arrayItems)
 
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
@@ -59,12 +56,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const ShoppingListStart = async () => {
         let shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
-        console.log(ShoppingListGet)
         if (ShoppingListGet === null) {
-            console.log('storage vacio')
             setShoppingCount(null)
         } else {
-            console.log('storage con registros')
             shoppingList = JSON.parse(ShoppingListGet)
             let shoppingListSize = shoppingList.length
             setShoppingCount(shoppingListSize)
@@ -87,7 +81,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     }
 
     const addLocalStorage = async (content) => {
-        console.log(content)
         let shoppingList
         let idOk = 0;
         let ShoppingListGet = await localStorage.getItem('shoppingList')
@@ -116,8 +109,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
             }
         }
     }
-
-    console.log(shoppingCount)
 
     if (show) {
         return (

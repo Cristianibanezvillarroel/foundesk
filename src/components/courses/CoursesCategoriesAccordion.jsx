@@ -13,7 +13,6 @@ export const CoursesCategoriesAccordion = ({ content }) => {
             scoreCurses.push(i)
     }
 
-    console.log(content);
     return (
         <Accordion>
 

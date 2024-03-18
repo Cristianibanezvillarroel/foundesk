@@ -66,7 +66,6 @@ export const Blog = () => {
                 })
 
         })
-        console.log(arrayItems)
         setData({ arrayItems })
     }
 

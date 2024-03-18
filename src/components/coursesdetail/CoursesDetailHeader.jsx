@@ -21,14 +21,14 @@ export const CoursesDetailHeader = ({ arrayItems }) => {
                 arrayItems.map(
                     content =>
                         <>
-                            <div className='courses-detail-right'>
+                            <div key={content.idItem} className='courses-detail-right'>
                                 <div>
                                     <a className='courses-detail-right-href' href={`${textLinkRoot}/${content.categoria}`}>
                                         {content.categoria}
                                         <span>&#8594;</span>
                                     </a>
                                 </div>
-                                <div>
+                                <div id='courses-detail-right-title'>
                                     <h2>{content.title}</h2>
                                 </div>
 
