@@ -30,7 +30,7 @@ export const PopupTestimonials = ({ onClose, content }) => {
                             <div>
                                 seccion subtotals
                             </div>
-                            <div style={{ height: '550px', overflow: 'auto' }}>
+                            <div className='popup-testimonials-content' style={{ height: '550px', overflow: 'auto' }}>
                                 {resultTestimonials.map(
                                     testimonialsArray => testimonialsArray.map(
                                         itemArray => itemArray.map(

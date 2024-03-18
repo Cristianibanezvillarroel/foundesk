@@ -1093,7 +1093,7 @@
 }
 
 .courses-detail-testimonials-card {
-    margin: 20px;
+    
     border-top: 1px solid;
     border-color: rgb(172, 169, 169);
 }
@@ -1190,8 +1190,9 @@
     z-index: 101;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 3.2);
     border-radius: 20px;
-    width: auto;
-   /*border-radius: 20px;
+    width: 550px;
+    margin-top: 10px;
+    /*border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 3.2);
     height: auto;
     width: auto;*/
@@ -1204,5 +1205,11 @@
 }
 
 .popup-testimonials-content {
-    
+    padding-bottom: 10%;
+}
+
+@media screen and (max-width: 800px) {
+    .popup-testimonials {
+        width: 100%;
+    }
 }
