@@ -55,11 +55,12 @@ export const CoursesDetailTestimonials = ({ content }) => {
           )
         )}
       </Row>
-      
-      <div>
-        <button onClick={tooglePopup}>Mas valoraciones</button>
-        {showPopup && <PopupTestimonials onClose={tooglePopup} content={content}/>}
-      </div>
+      <Row>
+        <div>
+          <button onClick={tooglePopup}>Mas valoraciones</button>
+          {showPopup && <PopupTestimonials onClose={tooglePopup} content={content} />}
+        </div>
+      </Row>
     </Container>
   )
 }

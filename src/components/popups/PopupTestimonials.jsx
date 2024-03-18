@@ -19,33 +19,35 @@ export const PopupTestimonials = ({ onClose, content }) => {
 
     const InnerComponent = () => {
         return (
-            <div className="popup-testimonials-background">
-                <div className="popup-testimonials">
-                    <div className='popup-testimonials-header'>
-                        <h2>la jose * {map.get(0)} Valoracion * {map.get(1)} Valoraciones</h2>
-                        <CloseButton onClick={onClose}></CloseButton>
-                    </div>
-                    <div>
-                        <div>
-                            seccion subtotals
+            <Container>
+                <div className="popup-testimonials-background">
+                    <div className="popup-testimonials">
+                        <div className='popup-testimonials-header'>
+                            <h2>la jose * {map.get(0)} Valoracion * {map.get(1)} Valoraciones</h2>
+                            <CloseButton onClick={onClose}></CloseButton>
                         </div>
-                        <div style={{ height: '550px', overflow: 'auto' }}>
-                            {resultTestimonials.map(
-                                testimonialsArray => testimonialsArray.map(
-                                    itemArray => itemArray.map(
-                                        item =>
-                                            <>
-                                                <Col md={6} className='mb-4'>
-                                                    <CoursesDetailTestimonialsCard item={item} />
-                                                </Col>
-                                            </>
+                        <div>
+                            <div>
+                                seccion subtotals
+                            </div>
+                            <div style={{ height: '550px', overflow: 'auto' }}>
+                                {resultTestimonials.map(
+                                    testimonialsArray => testimonialsArray.map(
+                                        itemArray => itemArray.map(
+                                            item =>
+                                                <>
+                                                    <Col>
+                                                        <CoursesDetailTestimonialsCard item={item} />
+                                                    </Col>
+                                                </>
+                                        )
                                     )
-                                )
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         )
     }
 
