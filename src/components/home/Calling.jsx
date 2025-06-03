@@ -7,7 +7,7 @@ export const Calling = () => {
     <>
       <div id='call-left' >
         <div id='call-left-llamado'>
-          <h1>Escala el potencial de tu pyme con nuevas habilidades.</h1>
+          <h1>Cursos de administracion y marketing para tu emprendimiento.</h1>
         </div>
         <div id='call-left-bajada'>
           <p>Somos la plataforma de cursos online para tu pyme, que ayuda a mejorar la productividad y el desempeño.</p>

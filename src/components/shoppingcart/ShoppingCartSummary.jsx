@@ -21,9 +21,6 @@ export const ShoppingCartSummary = () => {
     setShowButton(false)
   }
 
-  console.log(shoppingAmount)
-  console.log(typeof shoppingAmount)
-
   const getCheckout = async () => {
     setIsLoading(true);
 
@@ -61,8 +58,6 @@ export const ShoppingCartSummary = () => {
     }
 
     const responseData = await mercadoPagoService(dataService)
-    console.log(responseData)
-    console.log(responseData.checkoutId)
     return responseData.checkoutId
 
   }

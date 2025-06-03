@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { coursesService } from '../../services/courses';
-import { customerTestimonialsService } from '../../services/customertestimonials';
+import React, { useState } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { BsCircleFill } from "react-icons/bs";
 import Calificacionesimg from '/public/calificaciones.png'
 import { CoursesDetailTestimonialsCard } from './CoursesDetailTestimonialsCard';
-import { Link } from 'react-router-dom';
-import Popup from 'reactjs-popup';
 import { PopupTestimonials } from '../popups/PopupTestimonials';
 
 export const CoursesDetailTestimonials = ({ content }) => {
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
   const [showPopup, setShowPopup] = useState(false)
-  const openPopup = () => {
-    setIsPopupOpen(true)
-  }
-
-  const closePopup = () => {
-    setIsPopupOpen(false)
-  }
 
   const tooglePopup = () => {
     setShowPopup(!showPopup)
     document.body.style.overflow = showPopup ? 'auto' : 'hidden'
   }
 
-  console.log(content)
   let map = new Map()
   let calificacionArray = content.map(
     item =>

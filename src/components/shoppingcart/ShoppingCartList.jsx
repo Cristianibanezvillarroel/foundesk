@@ -6,9 +6,7 @@ import TrashShoppingCartImg from '/public/trash.png'
 export const ShoppingCartList = () => {
   const { shoppingCount, setShoppingCount, shoppingAmount, setShoppingAmount } = useContext(ShoppingContext)
   const [arrayStorage, setArrayStorage] = useState([])
-  const options = {  maximumFractionDigits: 2   }
-
-  
+  const options = {  maximumFractionDigits: 2   }  
 
   useEffect(() => {
     ShoppingListStart()
@@ -20,15 +18,12 @@ export const ShoppingCartList = () => {
     const ShoppingListGet = await localStorage.getItem('shoppingList')
     console.log(ShoppingListGet)
     if (ShoppingListGet === null) {
-      console.log('storage vacio')
       setShoppingCount(null)
     } else {
-      console.log('storage con registros')
       shoppingList = JSON.parse(ShoppingListGet)
       let shoppingReduceMount = shoppingList.reduce((acumulador, item) => {
         return acumulador + item.price
       }, 0)
-      console.log(shoppingReduceMount)
       let shoppingListSize = shoppingList.length
       setShoppingAmount(shoppingReduceMount)
       setShoppingCount(shoppingListSize)
@@ -36,8 +31,7 @@ export const ShoppingCartList = () => {
 
     }
   }
-  console.log(arrayStorage)
-
+  
   const deleteItem = async (idItem) => {
 
     const arrayWithoutIdItem = arrayStorage.filter(item => {

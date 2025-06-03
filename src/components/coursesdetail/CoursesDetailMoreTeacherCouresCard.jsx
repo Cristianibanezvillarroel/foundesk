@@ -35,7 +35,7 @@ export const CoursesDetailMoreTeacherCoursesCard = ({ content, ListContent }) =>
                 </Card.Title>
                 <Card.Text>
                   <div id='courses-cards-author'>
-                    <p>Por {content.author}</p>
+                    <div>Por {content.author}</div>
                   </div>
                   <div id='courses-cards-price'>
                     {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}

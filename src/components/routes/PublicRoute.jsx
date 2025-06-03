@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/User/UserContext";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from "../../pages/Home";
-import { About } from "../../pages/About";
+import { Route, Routes } from "react-router-dom";
 
 const PublicRoute = ({ element: Component, ...props }) => {
 

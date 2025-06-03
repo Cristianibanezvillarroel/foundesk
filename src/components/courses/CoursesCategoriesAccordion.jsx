@@ -50,7 +50,6 @@ export const CoursesCategoriesAccordion = ({ content }) => {
                     </div>
                 </Accordion.Body>
             </Accordion.Item>
-
         </Accordion>
     )
 }

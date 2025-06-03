@@ -5,13 +5,10 @@ import { BsCalendar3 } from "react-icons/bs";
 
 export const CoursesDetailTestimonialsCard = ({ item }) => {
 
-  console.log(item)
-  
   let textOne = item.author
   let letterOne = textOne.charAt(0)
   let textSplit = textOne.split(' ')
   let letterTwo = textSplit[1].charAt(0)
-  let timestamp = item.timestamp.split('T')
   let dateActual = new Date().getTime()
   let dateDesde = new Date(item.timestamp).getTime()
   let diff = dateActual - dateDesde

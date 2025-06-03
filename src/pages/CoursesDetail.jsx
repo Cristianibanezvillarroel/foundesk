@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Col, Container, Modal, Row, Spinner } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
 import { CoursesDetailSideBar } from '../components/coursesdetail/CoursesDetailSideBar'
 import { CoursesDetailHeader } from '../components/coursesdetail/CoursesDetailHeader'
@@ -14,7 +14,6 @@ import { coursesContentCategoriesService } from '../services/coursescontentcateg
 import { coursesContentItemsService } from '../services/coursescontentitems'
 import { teacherService } from '../services/teacher'
 import { customerTestimonialsService } from '../services/customertestimonials'
-import Popup from 'reactjs-popup'
 
 export const CoursesDetail = () => {
 
@@ -22,6 +21,7 @@ export const CoursesDetail = () => {
   const [arrayItems, setArrayItems] = useState([])
   const [arrayItems1, setArrayItems1] = useState([])
   const [arrayItems2, setArrayItems2] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
@@ -115,6 +115,7 @@ export const CoursesDetail = () => {
 
     })
     setArrayItems(ListItems)
+    setIsLoading(false)
   }
 
   const ListContent = (inputValue) => {
@@ -137,23 +138,33 @@ export const CoursesDetail = () => {
   return (
     <>
       <Container>
-        <Row style={{ backgroundColor: 'blue' }}>
-          <Col style={{ textAlign: 'center' }} md={6}>
-            <CoursesDetailSideBar arrayItems={arrayItems1} />
-          </Col>
-          <Col md={6} >
-            <CoursesDetailHeader arrayItems={arrayItems1} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <CoursesDetailLearn content={arrayItems1} />
-            <CoursesDetailContents content={arrayItems1} />
-            <CoursesDetailTeachers content={arrayItems1} />
-            <CoursesDetailTestimonials content={arrayItems1} />
-            <CoursesDetailMoreTeacherCoursesCard content={arrayItems2} ListContent={ListContent} />
-          </Col>
-        </Row>
+        {isLoading ? (
+          <Row>
+            <Col>
+              <Spinner animation="border" style={{ textAlign: 'center' }} />
+            </Col>
+          </Row>
+        ) : (
+          <>
+            <Row style={{ backgroundColor: 'blue' }}>
+              <Col style={{ textAlign: 'center' }} md={6}>
+                <CoursesDetailSideBar arrayItems={arrayItems1} />
+              </Col>
+              <Col md={6} >
+                <CoursesDetailHeader arrayItems={arrayItems1} />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <CoursesDetailLearn content={arrayItems1} />
+                <CoursesDetailContents content={arrayItems1} />
+                <CoursesDetailTeachers content={arrayItems1} />
+                <CoursesDetailTestimonials content={arrayItems1} />
+                <CoursesDetailMoreTeacherCoursesCard content={arrayItems2} ListContent={ListContent} />
+              </Col>
+            </Row>
+          </>
+        )}
       </Container>
     </>
   )

@@ -40,7 +40,6 @@ export const NavBar = () => {
         let shoppingList = []
         const ShoppingListGet = await localStorage.getItem('shoppingList')
         if (ShoppingListGet === null) {
-            console.log('storage vacio')
             setShoppingCount(0)
         } else {
             shoppingList = JSON.parse(ShoppingListGet)

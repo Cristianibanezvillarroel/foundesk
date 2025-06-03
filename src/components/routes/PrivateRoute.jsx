@@ -19,8 +19,6 @@ const PrivateRoute = ({ element: Component, ...props }) => {
         navigate('/')
     }
 
-    //<Navigate to="/login" />
-
     useEffect(() => {
         const fetchUser = async () => {
             await verifyingToken()
