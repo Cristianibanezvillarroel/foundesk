@@ -5,7 +5,7 @@ import { TrainDetailImg } from './TrainDetailImg'
 
 export const TrainDetail = () => {
 
-  const [trainDetailSelect, setTrainDetailSelect] = useState('create');
+  const [trainDetailSelect, setTrainDetailSelect] = useState('videos');
   return (
     <>
       <div id='teach-detail-up-llamado'>
@@ -17,13 +17,13 @@ export const TrainDetail = () => {
       <div className='teach-detail-button'>
         <Nav fill variant='tabs' defaultActiveKey='link-1'>
             <Nav.Item>
-                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('create')}>Crea</Nav.Link>
+                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('videos')}>Videos</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('save')}>Graba</Nav.Link>
+                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('tutoriales')}>Tutoriales</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('show')}>Comparte</Nav.Link>
+                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('faq')}>FAQ</Nav.Link>
             </Nav.Item>
         </Nav>
       </div>

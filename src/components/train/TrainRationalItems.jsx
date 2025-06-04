@@ -17,12 +17,12 @@ export const TrainRationalItems = () => {
                     <Col md={4} className='mb-4'>
                         <div><img src={TrainRationalFlowImg} /></div>
                         <div id='teach-rational-item-title'>Mayor Fluidez</div>
-                        <div>Aplica Diseño Instruccional a tus cursos de capacitación y logra aprendizaje valiosos para tus colaboradores y clientes.</div>
+                        <div>Aplica Diseño Instruccional a la capacitación que tú y tus colaboradores necesitan y logra aprendizaje valiosos para tu emprendimiento.</div>
                     </Col>
                     <Col md={4} className='mb-4'>
                         <div><img src={TrainRationalAsistanceImg} /></div>
                         <div id='teach-rational-item-title'>Acompañado siempre</div>
-                        <div>Recibirás toda nuestra colaboración para que logres crear tus cursos y compartirlos de manera rápida y sencilla. Te asistiremos en todo el proceso.</div>
+                        <div>Recibirás toda nuestra colaboración para que logres avanzar de manera rápida y sencilla. Te asistiremos en todo el proceso.</div>
                     </Col>
                 </Row>
             </Container>
