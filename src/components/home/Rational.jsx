@@ -11,7 +11,7 @@ export const Rational = () => {
           <p>Impacta en tu performance y aprende hoy.</p>
         </div>
         <div id='rational-left-bajada'>
-          <p>Accede a cursos online exclusivamente diseñados para tus necesidades laborales, y logra dominio de nuevas habilidades que aquí te proporcionamos para una mayor productividad.</p>
+          <p>Accede a cursos online exclusivamente diseñados para tus necesidades como emprendedor, y logra dominio de nuevas habilidades on-demand en el horario y momento que puedas.</p>
         </div>
         <div>
           <RationalAccordion />
