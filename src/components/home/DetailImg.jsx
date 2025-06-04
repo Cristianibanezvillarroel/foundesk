@@ -9,7 +9,7 @@ export const DetailImg = ({detailSelect}) => {
   return (
     <>
       <div  >
-        <img id='detail-img' src={detailSelect == 'aprende' ? detailimgaprende : (detailSelect == 'ensena' ? detailimgensena : detailimgcapacita)} />
+        <img id='detail-img' src={detailSelect == 'videos' ? detailimgaprende : (detailSelect == 'tutoriales' ? detailimgensena : detailimgcapacita)} />
       </div>
     </>
   )

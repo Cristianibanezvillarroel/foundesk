@@ -101,7 +101,7 @@ export const NavBar = () => {
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                     <Nav.Link as={Link} to='/teach' href="/teach">Enseña en Foundesk</Nav.Link>
-                                    <Nav.Link as={Link} to='/train' href="/train">Capacita con Foundesk</Nav.Link>
+                                    <Nav.Link as={Link} to='/train' href="/train">Porqué Foundesk</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
                             <Button onClick={navigateShoppingCart} id='courses-cards-button-shopping' variant='light'>

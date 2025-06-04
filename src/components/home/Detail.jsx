@@ -5,7 +5,7 @@ import { DetailText } from './DetailText'
 
 export const Detail = () => {
 
-  const [detailSelect, setDetailSelect] = useState('aprende');
+  const [detailSelect, setDetailSelect] = useState('videos');
   return (
     <>
       <div id='detail-up-llamado'>
@@ -15,9 +15,9 @@ export const Detail = () => {
         <p>Con Foundesk, eleva tu productividad al siguiente nivel de una forma fácil y sencilla.</p>
       </div>
       <div id='detail-button'>
-        <Button onClick={() => setDetailSelect('aprende')} variant={detailSelect == 'aprende' ? 'primary': 'light'}>Aprende</Button>{''}
-        <Button onClick={() => setDetailSelect('ensena')} variant={detailSelect == 'ensena' ? 'primary': 'light'}>Enseña</Button>{''}
-        <Button onClick={() => setDetailSelect('capacita')} variant={detailSelect == 'capacita' ? 'primary': 'light'}>Capacita</Button>{''}
+        <Button onClick={() => setDetailSelect('videos')} variant={detailSelect == 'videos' ? 'primary': 'light'}>Videos</Button>{''}
+        <Button onClick={() => setDetailSelect('tutoriales')} variant={detailSelect == 'tutoriales' ? 'primary': 'light'}>Tutoriales</Button>{''}
+        <Button onClick={() => setDetailSelect('faq')} variant={detailSelect == 'faq' ? 'primary': 'light'}>FAQ</Button>{''}
       </div>
       <div id='detail-text'>
         <Container>
