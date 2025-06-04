@@ -7,20 +7,20 @@ export const DetailText = ({detailSelect}) => {
   let textLink = '';
   switch (detailSelect) {
     case 'videos':
-      textRight = 'Videos on demand';
-      textLlamado = 'Aprende con videos encapsulas de 15 min.';
-      textBajada = 'Accede a un completo set de cursos on-demand con un sinnúmero de temáticas creadas en función de las necesidades de un emprendedor, orientado a la acción y a tus urgencias cotidianas en la administración.';
+      textRight = 'Videos on-demand';
+      textLlamado = 'Aprende con videos explicativos creados por hacedores.';
+      textBajada = 'Cada curso consta de un conjunto de 8 a 10 videos que vienen en cápsulas de 15 minutos cada uno. Quién crea el curso es un profesional que ejecuta y conoce la tarea que enseña. Esto nos permite ofrecerte cursos prácticos orientados de verdad a tus necesidades en la administración de tu emprendimiento.';
       textLink = '/foundesk/#/courses';
       break;
     case 'tutoriales':
-      textRight = 'Tutoriales web y PDF';
-      textLlamado = 'Revisa y descarga documentación de valor para tu administración y emprendimiento.';
-      textBajada = 'Hemos confeccionado documentación de valor para que cuentes con lo necesario en la administración de tu emprendimiento. No se trata de conocimiento teórico, sino práctico.';
+      textRight = 'Tutoriales y PDF';
+      textLlamado = 'Repasa y descarga documentación de valor para la administración de tu emprendimiento.';
+      textBajada = 'Hemos confeccionado documentación de valor para que cuentes con lo necesario en la administración de tu emprendimiento. La podrás revisar en formato web y también en descargables en PDF. Se trata de documentación confeccionada por el instructor y también documentación adicional relevante para el curso.';
       textLink = '/foundesk/#/dashboards';
       break;
     case 'faq':
       textRight = 'Preguntas Frecuentes';
-      textLlamado = 'Consulta la sección de preguntas frecuentes para las temáticas que necesites abordar en tu administración.';
+      textLlamado = 'Accederás a un completo set list que transfiere experiencia valiosa para un emprendedor.';
       textBajada = 'Accederás a un conjunto de información valiosa relacionada con las casuísticas propias que todo emprendedor enfrenta en la administración de su negocio.' ;   
       textLink = '/foundesk/#/controller';
       break;
