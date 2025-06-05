@@ -19,7 +19,7 @@ export const Courses = () => {
         setSize(inputValue)
     };
 
-    {user ? setKey("MisCursos") : setKey("Todos") }
+    if (user) setKey("MisCursos");
 
     const goToTop = () => {
         window.scrollTo({
