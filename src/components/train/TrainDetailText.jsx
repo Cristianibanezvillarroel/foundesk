@@ -7,25 +7,25 @@ export const TrainDetailText = ({ trainDetailSelect }) => {
     let textLink = '';
     let textAyuda = '';
     switch (trainDetailSelect) {
-        case 'videos':
-            textRight = 'Videos';
+        case 'porque':
+            textRight = 'Porqué';
             textLlamado = '¿Como te ayudamos nosotros?';
-            textBajada = 'Capacitar mejora el rendimiento y la productividad. Tuya, la de tus colaboradores y clientes. Ahora sí puedes realizar grabaciones y desarrollar contenido dirigido de manera rápida y eficaz. Construyes el contenido y defines los recursos que utilizarás como complemento, tales como documentos en PDF o vistas HTML. Sólo debes seguir los pasos que te indicamos para así completar tu carpeta de contenidos para capacitación. Tú defines todo.';
-            textAyuda = 'Hemos logrado construir un proceso ágil y sencillo. Siguiendo sus pasos lograrás crear videos de impacto para capacitar a tu audiencia. Y no sólo eso. Complementarlo con una estructura de contenido basada en Diseño Instruccional que te sorprenderá. Lograrás crear un sistema de contenidos que agregará valor real para el aprendizaje y dominio de lo que desees transmitir.';            
+            textBajada = 'Quizás antes de la era de la digitalización, la administración estaba reservada para las medianas y grandes empresas. Ellas disponían de los recursos y el personal para llevar a cabo las tareas manuales exigidas para llevar a cabo una adecuada administración. Esto cambió. Con la digitalización no sólo ahora sí es posible lograr administrar tu emprendimiento utilizando software de precio y funcionalidades accesibles, sino que se torna imperativo el hacerlo. Esto por una simple razón: la digitalización de la facturación electrónica ahora permite al Servicio de Impuestos Internos bloquear tu posibilidad de facturar si no cumples con tus obligaciones tributarias mensuales. Y algo similar ocurre con las Instituciones previsionales.';
+            textAyuda = 'Hemos logrado construir un proceso ágil y sencillo. Siguiendo un proceso de aprendizaje paso a paso lograrás adquirir los conocimientos necesarios para lograr control sobre esos aspectos relevantes de tu administración. Y no sólo eso. Complementarlo con una estructura de contenido basada en Diseño Instruccional que te sorprenderá. Lograrás en poco tiempo aprender contenidos que agregará valor real para el aprendizaje y dominio de lo que necesitas controlar para mitigar el incumplimiento que ahora exige la era digital donde todo está cruzado.';            
             textLink = '/foundesk/#/courses';
             break;
-        case 'tutoriales':
-            textRight = 'Tutoriales';
+        case 'como':
+            textRight = 'Cómo';
             textLlamado = '¿Como te ayudamos nosotros?';
-            textBajada = 'Podrás utilizar tu smartphone o una cámara DSLR. Es importante que cuentes con un buen micrófono y ya tienes todo dispuesto para comenzar. Es importante en el proceso de enseñanza los énfasis que pondrás en tu curso de capacitación, y por eso es importante que tu rostro y expresiones aparezcan en la grabación. Tú decides. A lo que puedes añadir capturas de pantalla e imágenes que consideres necesarias. Te sugerimos que tu video de capacitación no dure más de 40 minutos.';
-            textAyuda = 'Ponemos a tu disposición un equipo de personas que te guiarán y se reunirán de manera online contigo. Tendrás una capacitación directa para iniciar tu proceso de confección de curso. Y adicionalmente a ello nuestro equipo revisará de manera detallada tu grabación y asesorará en todo el proceso de confección.';            
+            textBajada = 'Podrás utilizar tu smartphone o tu computador para acceder a todo el contenido digital, tanto de los videos explicativos como así también de sus tutoriales y documentación en PDF. No necesitas disponer de nada especial que hoy no tengas. Sólo el deseo de aprender algo que sabes que es importante para ir avanzando con tu proyecto. Los videos explicativos están creados con la debida profundidad que necesitas como emprendedor. No entramos en el detalle académico detrás de los contenidos. El foco de cada curso es eminentemente práctico, orientado a la acción que todo emprendedor necesita.';
+            textAyuda = 'Cada instructor ha separado el curso en las temáticas propias que exige la cotidianeidad del tema en cuestión. Esto te ayudará para encapsular el conocimiento adquirido en una tarea específica que tú o alguien de tu equipo debe llevar a cabo. Tendrás una capacitación directa para conocer y operar el proceso de ejecución de dicha tarea. Cómo varias tareas involucran la utilización de un software de administración y facturación hemos creado una alianza con Facturaenlinea, empresa que lleva más de 15 años en el mercado chileno con facturación electrónica y de las pioneras en ofrecer una solución de administración de precio accesible para la micro y pequeña empresa.';            
             textLink = '/foundesk/#/dashboards';
             break;
-        case 'faq':
-            textRight = 'FAQ';
+        case 'cuando':
+            textRight = 'Cuando';
             textLlamado = '¿Como te ayudamos nosotros?';
-            textBajada = 'Hemos logrado algo que seguramente ya buscabas. Al finalizar tu grabación y contenidos, y dar por "terminado" tu curso de capacitación, podrás compartirlo de manera simple a través de un link, que podrás copiar o sencillamente compartir desde tu Smartphone. Allí debes escribir el correo del destinatario. Ocuparás un contacto del total de contactos que contenga tu plan. Enviaremos un "pin" a tu contacto cada vez que quiera visualizar el contenido de tu curso. La caducidad será de 200 días para que tu contacto pueda aprender de tu curso.';
-            textAyuda = 'Nos interesa que tú estés al tanto de que cuando tus contactos aprenden con tu curso. Por eso te informamos con una notificación en tu correo electrónico de las oportunidades en que tu contacto visualiza tu video y cuanto tiempo permanece allí. Adicionalmente te notificamos por algún comentario o pregunta que haya registrado tu contacto en la sesión de capacitación. Y para ayudarte aún más, hemos dispuesto un espacio para que puedas activar preguntas frecuentes a tu curso.';            
+            textBajada = 'Hemos logrado algo que seguramente ya buscabas. Cursos on-demand orientados a la acción para las tareas propias de la administración de tu emprendimiento. En Foundesk el curso dura 2 horas o menos, y no 3 o 6 meses. Hemos logrado compactar lo que necesitas con contenido de calidad en un corto tiempo de aprendizaje. Porque es orientado a la acción. No es académico. Es por ello mismo que cada curso completo se ha fragmentado en cápsulas de entre 10 a 15 minutos con objeto de que puedas aprovechar esos minutos disponibles que tengas para tu aprendizaje.';
+            textAyuda = 'Nos interesa que tú estés al tanto de como opera cada responsabilidad administrativa que envuelve tu emprendimiento. Nuestro interés está en que seas capaz de conocer el mecanismo de cada proceso y como se lleva a cabo. Por eso hemos dispuesto un espacio para que puedas activar preguntas frecuentes a tu curso. Ya desde el inicio cuentas con un set list amplio que ha sido previamente seleccionado para que puedas revisar contenido orientado a la acción. ';            
             textLink = '/foundesk/#/controller';
             break;
 

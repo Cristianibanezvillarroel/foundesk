@@ -5,25 +5,25 @@ import { TrainDetailImg } from './TrainDetailImg'
 
 export const TrainDetail = () => {
 
-  const [trainDetailSelect, setTrainDetailSelect] = useState('videos');
+  const [trainDetailSelect, setTrainDetailSelect] = useState('porque');
   return (
     <>
       <div id='teach-detail-up-llamado'>
         <p>Comienza ya.</p>
       </div>
       <div id='teach-detail-bajada'>
-        <p>Con Foundesk, capacitar es rápido y eficaz.</p>
+        <p>Con Foundesk, aprender es rápido y eficaz.</p>
       </div>
       <div className='teach-detail-button'>
         <Nav fill variant='tabs' defaultActiveKey='link-1'>
             <Nav.Item>
-                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('videos')}>Videos</Nav.Link>
+                <Nav.Link eventKey='link-1' onClick={() => setTrainDetailSelect('porque')}>Porqué</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('tutoriales')}>Tutoriales</Nav.Link>
+                <Nav.Link eventKey='link-2' onClick={() => setTrainDetailSelect('como')}>Cómo</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('faq')}>FAQ</Nav.Link>
+                <Nav.Link eventKey='link-3' onClick={() => setTrainDetailSelect('cuando')}>Cuando</Nav.Link>
             </Nav.Item>
         </Nav>
       </div>

@@ -9,7 +9,7 @@ export const TrainDetailImg = ({trainDetailSelect}) => {
   return (
     <>
       <div  >
-        <img id='train-detail-img' src={trainDetailSelect == 'videos' ? traindetailcreateimg : (trainDetailSelect == 'tutoriales' ? traindetailsaveimg : traindetailshowimg)} />
+        <img id='train-detail-img' src={trainDetailSelect == 'porque' ? traindetailcreateimg : (trainDetailSelect == 'como' ? traindetailsaveimg : traindetailshowimg)} />
       </div>
     </>
   )
