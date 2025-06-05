@@ -9,7 +9,7 @@ import CheckOk from '/public/checkok.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 
-export const CoursesCards = ({ ListSize, page, limit, data }) => {
+export const MyCoursesCards = ({ ListSize, page, limit, data }) => {
 
 
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
@@ -150,7 +150,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                         <Card key={content.idItem}>
                             <Card.Img variant="top" src={content.imagen} />
                             <Card.Body>
-                                <Badge bg="secondary">{content.id_categoria.categoria}</Badge>
+                                <Badge bg="secondary">{content.tipo}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
                                     <Link to={`/courses/detail/${content.idItem}`}>
@@ -176,6 +176,6 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     )
 }
 
-CoursesCards.propTypes = {
+MyCoursesCards.propTypes = {
     ListSize: PropTypes.func.isRequired
 }
