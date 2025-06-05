@@ -19,7 +19,14 @@ export const Courses = () => {
         setSize(inputValue)
     };
 
-    if (user) setKey("MisCursos");
+    useEffect(() => {
+        if (user) {
+            setKey("MisCursos");
+        } else {
+            setKey("Todos");
+        }
+        }, [user]
+    );
 
     const goToTop = () => {
         window.scrollTo({
