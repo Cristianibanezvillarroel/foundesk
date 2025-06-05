@@ -66,9 +66,7 @@ export const NavBar = () => {
                                             Cursos online
                                         </NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link as={Link} to='/teach' href="/teach">Crea</Nav.Link>
-                                    <Nav.Link as={Link} to='/train' href="/train">Publica</Nav.Link>
-
+                                    <Nav.Link as={Link} to='/teach' href="/teach">Mi aprendizaje</Nav.Link>                                    
                                 </Nav>
                             </Navbar.Collapse>
                             <Button onClick={navigateShoppingCart} id='courses-cards-button-shopping' variant='light'>

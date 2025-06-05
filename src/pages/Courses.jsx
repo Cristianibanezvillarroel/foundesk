@@ -108,6 +108,13 @@ export const Courses = () => {
                 activeKey={key}
                 onSelect={(k) => setKey(k)}
                 className="mb-3">
+                {user ? (
+                <Tab eventKey="MisCursos" title="Mis Cursos">
+                    Tab content for Profile
+                </Tab>
+                ) : ( 
+                null
+                )}
                 <Tab eventKey="Todos" title="Todos">
                     <div id='courses-selected'>{coursesSelect}</div>
                     <div className='courses-line-count'>
@@ -154,13 +161,6 @@ export const Courses = () => {
                         />
                     </div>
                 </Tab>
-                {user ? (
-                <Tab eventKey="MisCursos" title="Mis Cursos">
-                    Tab content for Profile
-                </Tab>
-                ) : ( 
-                null
-                )}
             </Tabs>
 
         </Container>

@@ -19,7 +19,7 @@ const AuthRoute = ({ element: Component, ...props }) => {
     return (
         <>
             <Routes>
-                <Route {...props} element={authStatus ?  <Navigate to="/about" /> : Component} />
+                <Route {...props} element={authStatus ?  <Navigate to="/courses" /> : Component} />
             </Routes>
         </>
     )
