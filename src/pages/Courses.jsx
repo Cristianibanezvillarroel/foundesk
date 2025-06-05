@@ -139,7 +139,7 @@ export const Courses = () => {
 
                                     <Dropdown.Menu>
                                         {dataCoursesTotal.map(content =>
-                                            <Dropdown.Item onClick={() => { setCoursesSelect(content.id_categoria.categoria), setPage(1), getDataV1(content.id_categoria.categoria) }}>{content.id_categoria.categoria}</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getDataV1(content.categoria) }}>{content.categoria}</Dropdown.Item>
                                         )}
                                         <Dropdown.Divider />
                                         <Dropdown.Item onClick={() => { setCoursesSelect('Todos'), setPage(1), getDataV1('Todos') }}>Todos</Dropdown.Item>
