@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const CoursesCategoriesAccordion = ({ content }) => {
     
-    let { cantidad, categoria, resena, description, imagenicono , imagenpublicidad, calificacion, reproducciones } = content
+    let { cantidad, id_categoria, resena, description, imagenicono , imagenpublicidad, calificacion, reproducciones } = content
     const scoreCurses = []
     for (let i = 0; i < parseInt(calificacion); i++) {
             scoreCurses.push(i)
@@ -37,7 +37,7 @@ export const CoursesCategoriesAccordion = ({ content }) => {
                                 {description}
                             </div>
                             <div className='col-md-6 col xs-12'>
-                                <Link to={`/courses/${categoria}`}>
+                                <Link to={`/courses/${id_categoria.categoria}`}>
                                 <Button variant='primary'>Ver los cursos</Button>
                                 </Link>
                             </div>
