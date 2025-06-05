@@ -17,7 +17,7 @@ export const CoursesCategoriesAccordion = ({ content }) => {
         <Accordion>
 
             <Accordion.Item eventKey="0">
-                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={imagenicono} />{categoria}</Accordion.Header>
+                <Accordion.Header><img id='courses-categories-accordion-imagenicono' src={imagenicono} />{id_categoria.categoria}</Accordion.Header>
                 <Accordion.Body>
                     <div className='courses-categories-body'>
                         <div id='courses-categories-seccion'>
