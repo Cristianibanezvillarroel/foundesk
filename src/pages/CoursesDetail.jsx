@@ -64,12 +64,7 @@ export const CoursesDetail = () => {
 
       ArrayCoursesTeacherFilter[0].forEach((courses, index) => {
         let ListContentCategory = []
-        /*let dataLearn = responseDataLearn.map(
-          List => List.items.filter(
-            item => String(item.courses._id) === String(courses._id)
-          )
-        )*/
-        let dataLearn = responseDataLearn.flatMap(
+        let dataLearn = responseDataLearn.map(
           List => List.items.filter(
             item => String(item.courses._id) === String(courses._id)
           )
@@ -84,18 +79,18 @@ export const CoursesDetail = () => {
         )
         let dataTestimonials = responseDataCustomerTestimonials.map(
           List => List.items.filter(
-            item => item.courses == courses._id
+            item => item.courses._id == courses._id
           )
         )
         let ArrayCoursesContentCategoriesFilter = responseDataCategories.map(
           List => List.items.filter(
-            item => item.courses == courses._id
+            item => item.courses._id == courses._id
           )
         )
         ArrayCoursesContentCategoriesFilter[0].forEach((category, numeral) => {
           let dataContent = responseDataItems.map(
             List => List.items.filter(
-              item => item.coursescontentcategories == category._id
+              item => item.coursescontentcategories._id == category._id
             )
           )
           ListContentCategory[numeral] = {
