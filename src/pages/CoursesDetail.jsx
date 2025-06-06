@@ -67,6 +67,9 @@ export const CoursesDetail = () => {
             item => item.courses == courses._id
           )
         )
+
+        console.log(dataLearn);
+
         let dataTeacher = responseDataTeacher.map(
           List => List.items.filter(
             item => item._id == courses.teacher
