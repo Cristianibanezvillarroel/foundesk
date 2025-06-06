@@ -66,7 +66,7 @@ export const CoursesDetail = () => {
         let ListContentCategory = []
         let dataLearn = responseDataLearn.map(
           List => List.items.filter(
-            item => String(item.courses) === String(courses._id)
+            item => String(item.courses._id) === String(courses._id)
           )
         )
 
