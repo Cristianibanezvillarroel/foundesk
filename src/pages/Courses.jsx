@@ -98,7 +98,7 @@ export const Courses = () => {
                 :
                 ListFiltrada.forEach(function (item) {
                     let itemsObject = item.items.filter(
-                        item => item.id_categoria.categoria == coursesSelect
+                        item => item.categoria.categoria == coursesSelect
                     )
                     for (let i = 0; i < itemsObject.length; i++) {
                         arrayItems.push(itemsObject[i])
