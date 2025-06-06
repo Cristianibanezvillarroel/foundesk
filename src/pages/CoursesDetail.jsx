@@ -52,6 +52,8 @@ export const CoursesDetail = () => {
     const responseDataTeacher = await teacherService(dataService)
     const responseDataCustomerTestimonials = await customerTestimonialsService(dataService)
 
+    console.log(responseDataLearn);
+
     let ListItems = []
     ArrayCoursesFilter[0].forEach((element, indice) => {
       const ArrayCoursesTeacherFilter = responseData.map(
@@ -64,7 +66,7 @@ export const CoursesDetail = () => {
         let ListContentCategory = []
         let dataLearn = responseDataLearn.map(
           List => List.items.filter(
-            item => item.courses == courses._id
+            item => String(item.courses) === String(courses._id)
           )
         )
 
