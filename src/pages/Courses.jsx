@@ -98,7 +98,7 @@ export const Courses = () => {
                 :
                 ListFiltrada.forEach(function (item) {
                     let itemsObject = item.items.filter(
-                        item => item.categoria.categoria == coursesSelect
+                        item => item.categorie.categorie == coursesSelect
                     )
                     for (let i = 0; i < itemsObject.length; i++) {
                         arrayItems.push(itemsObject[i])
@@ -139,7 +139,7 @@ export const Courses = () => {
 
                                     <Dropdown.Menu>
                                         {dataCoursesTotal.map(content =>
-                                            <Dropdown.Item onClick={() => { setCoursesSelect(content.categoria), setPage(1), getDataV1(content.categoria) }}>{content.categoria}</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => { setCoursesSelect(content.categorie), setPage(1), getDataV1(content.categorie) }}>{content.categorie}</Dropdown.Item>
                                         )}
                                         <Dropdown.Divider />
                                         <Dropdown.Item onClick={() => { setCoursesSelect('Todos'), setPage(1), getDataV1('Todos') }}>Todos</Dropdown.Item>

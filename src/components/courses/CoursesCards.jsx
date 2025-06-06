@@ -150,7 +150,7 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                         <Card key={content.idItem}>
                             <Card.Img variant="top" src={content.imagen} />
                             <Card.Body>
-                                <Badge bg="secondary">{content.categoria.categoria}</Badge>
+                                <Badge bg="secondary">{content.categorie.categorie}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
                                     <Link to={`/courses/detail/${content.idItem}`}>
