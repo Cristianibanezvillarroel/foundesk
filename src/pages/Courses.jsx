@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom'
 import { coursesCategoriesService } from '../services/coursescategories.js'
 import { coursesService } from '../services/courses.js'
 import UserContext from '../context/User/UserContext.js'
+import { MyCoursesCards } from '../components/courses/MyCoursesCards.jsx'
+import { userGetCoursesService } from '../services/usercourses.js'
 
 export const Courses = () => {
     const [key, setKey] = useState("Todos")
@@ -38,6 +40,7 @@ export const Courses = () => {
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(4)
     const [data, setData] = useState([])
+    const [mydata, setMyData] = useState([])
 
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
 
@@ -46,6 +49,7 @@ export const Courses = () => {
         setTimeout(() => {
             getCategoriesV1()
             getDataV1(coursesSelect)
+            getMyDataV1()
         }, 100);
     }, [])
 
@@ -109,6 +113,49 @@ export const Courses = () => {
         setData({ arrayItems })
     }
 
+    const getMyDataV1 = async () => {
+
+        const dataService = {
+            method: 'POST',
+            body: JSON.stringify({
+                userId: user._id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+
+        const responseData = await userGetCoursesService(dataService)
+
+        const ListFiltrada = responseData.filter(List => {
+            return List.message == 'CoursesByUser';
+        })
+
+        let arrayMyItems = [];
+
+        const ListFiltradaData = responseData.map(ListV1 => {
+            return coursesSelect == 'Todos' ?
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayMyItems.push(itemsObject[i])
+                    }
+                }) 
+                : 
+                ListFiltrada.forEach(function (item) {
+                    let itemsObject = item.items
+                    for (let i = 0; i < itemsObject.length; i++) {
+                        arrayMyItems.push(itemsObject[i])
+                    }
+                })
+        })
+        
+        setMyData({ arrayMyItems })
+        console.log(responseData);
+        
+    }
+    
     return (
         <Container>
             <div id='courses-head'>Cursos online </div>
@@ -119,7 +166,27 @@ export const Courses = () => {
                 className="mb-3">
                 {user ? (
                 <Tab eventKey="MisCursos" title="Mis Cursos">
-                    Tab content for Profile
+                    <div>
+                        <MyCoursesCards ListSize={ListSize} page={page} limit={limit} mydata={mydata} />
+                    </div>
+                    <div id='courses-backtoup'>
+                        <Button variant='light' onClick={goToTop}>
+                            <span>&#8743;</span><span>&#160;&#160;</span>
+                            Volver arriba
+                        </Button>
+                    </div>
+                    <div>
+                        <PaginationControl
+                            page={page}
+                            between={4}
+                            total={size}
+                            limit={4}
+                            changePage={(page) => {
+                                setPage(page)
+                            }}
+                            ellipsis={1}
+                        />
+                    </div>
                 </Tab>
                 ) : ( 
                 null

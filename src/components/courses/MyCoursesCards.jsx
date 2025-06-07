@@ -3,40 +3,35 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { Alert, Button, Col, Modal, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types'
-import ShoppingCartImg from '/public/shoppingcart.png'
-import CheckNok from '/public/checknok.png'
-import CheckOk from '/public/checkok.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 
-export const MyCoursesCards = ({ ListSize, page, limit, data }) => {
+export const MyCoursesCards = ({ ListSize, page, limit, mydata }) => {
 
+    console.log(mydata);
 
-    const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
-    const [show, setShow] = useState(false)
-    const [message, setMessage] = useState()
-    const [check, setCheck] = useState(false)
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [goShoppingNow, setGoShoppingNow] = useState(null)
     const navigate = useNavigate()
-    const navigateShoppingCart = () => {
-        navigate('/shoppingcart')
-    }
+
     const options = { maximumFractionDigits: 2 }
 
     let arrayItems = []
 
-    let itera1 = Object.entries(data)
+    let itera1 = Object.entries(mydata)
         .forEach(([key, value]) => {
 
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
 
-                    arrayItems.push(value2)
+                    let itera3 = Object.entries(value2)
+                        .forEach(([key3, value3]) => {
 
+                            if (key3 == "courses") {
+                                arrayItems.push(value3);
+                            }
+                        })
                 })
         });
+
+    console.log(arrayItems);
 
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;
@@ -46,99 +41,6 @@ export const MyCoursesCards = ({ ListSize, page, limit, data }) => {
 
     const itemsLength = arrayItems.length;
     ListSize(itemsLength);
-
-    useEffect(() => {
-        ShoppingListStart()
-    }, [])
-
-    const ShoppingListStart = async () => {
-        let shoppingList = []
-        const ShoppingListGet = await localStorage.getItem('shoppingList')
-        if (ShoppingListGet === null) {
-            setShoppingCount(null)
-        } else {
-            shoppingList = JSON.parse(ShoppingListGet)
-            let shoppingListSize = shoppingList.length
-            setShoppingCount(shoppingListSize)
-        }
-    }
-
-    const shoppingListSet = async (content) => {
-        let shoppingList
-        let ShoppingListGet = await localStorage.getItem('shoppingList')
-        if (ShoppingListGet === null) {
-            shoppingList = []
-        } else {
-            shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-        }
-
-        shoppingList.push(content)
-        await localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
-        let shoppingListSize = shoppingList.length
-        setShoppingCount(shoppingListSize)
-    }
-
-    const addLocalStorage = async (content) => {
-        let shoppingList
-        let idOk = 0;
-        let ShoppingListGet = await localStorage.getItem('shoppingList')
-
-        if (ShoppingListGet === null) {
-            await shoppingListSet(content)
-            setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
-            setShow(true)
-            setCheck(true)
-            shoppingList = []
-        } else {
-            shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
-            shoppingList.forEach((item, index) => {
-                if (item.idItem == content.idItem) {
-                    setMessage(`El curso ${content.title} ya se encuentra registrado en el carro de compra`)
-                    setShow(true)
-                    setCheck(false)
-                    idOk = 1
-                }
-            })
-            if (idOk == 0) {
-                await shoppingListSet(content)
-                setMessage(`El curso ${content.title} se ha agregado exitosamente al carro de compra`)
-                setShow(true)
-                setCheck(true)
-            }
-        }
-    }
-
-    if (show) {
-        return (
-            <Modal show={show} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Registro</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    <div style={{ textAlign: 'center' }}><img style={{ textAlign: 'center' }} src={check ? CheckOk : CheckNok} /></div>
-                    <div style={{ textAlign: 'left' }}>{message}</div>
-                </Modal.Body>
-                <Modal.Footer>
-                    {
-                        goShoppingNow ?
-                            <Button variant="primary" onClick={navigateShoppingCart}>
-                                Ir al carro
-                            </Button>
-                            :
-                            <>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Continuar comprando
-                                </Button>
-                                <Button variant="primary" onClick={navigateShoppingCart}>
-                                    Ir al carro
-                                </Button>
-                            </>
-                    }
-
-                </Modal.Footer>
-            </Modal>
-        )
-    }
 
     return (
 
@@ -161,11 +63,6 @@ export const MyCoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-author'>
                                         <div>Por {content.author}</div>
                                     </div>
-                                    <div id='courses-cards-price'>
-                                        {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}
-                                    </div>
-                                    <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
-                                    <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
