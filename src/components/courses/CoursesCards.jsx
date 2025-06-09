@@ -153,13 +153,13 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                 <Badge bg="secondary">{content.categorie.categorie}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
-                                    <Link to={`/courses/detail/${content.idItem}`}>
+                                    <Link to={`/courses/detail/${content.name}`}>
                                         <Button>Ver mas</Button>
                                     </Link>
                                 </Card.Title>
                                 <Card.Text>
                                     <div id='courses-cards-author'>
-                                        <div>Por {content.author}</div>
+                                        <div>Por {content.teacher?.name || "Sin profesor"}</div>
                                     </div>
                                     {!content.isEnrolled && (
                                     <>

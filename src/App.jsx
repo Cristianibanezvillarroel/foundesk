@@ -22,6 +22,7 @@ import PublicRoute from './components/routes/PublicRoute'
 import AuthRoute from './components/routes/AuthRoute'
 import PrivateRoute from './components/routes/PrivateRoute'
 import { TeacherDetail } from './pages/TeacherDetail'
+import { CoursesLearn } from './pages/CoursesLearn'
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
 
 
           {/* RUTAS DINÁMICAS */}
-          <PublicRoute path='/courses/detail/:id' element={<CoursesDetail />} />
+          <PublicRoute path='/courses/detail/:slug' element={<CoursesDetail />} />
           <PublicRoute path='/blog/:id' element={<BlogDetail />} />
           <PublicRoute path='/courses' element={<Courses />} />
           <PublicRoute path='/courses/:category' element={<Courses />} />
@@ -58,6 +59,7 @@ function App() {
           <PrivateRoute path='/profile' element={<Profile />} />
           <PrivateRoute path='/shoppingcart' element={<ShoppingCart />} />
           <PrivateRoute path='/my-courses' element={<MyCourses />} />
+          <PrivateRoute path='/courses/:slug/learn/lectures/:id' element={<CoursesLearn />} />
                   
 
           {

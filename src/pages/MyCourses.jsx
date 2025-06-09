@@ -35,6 +35,7 @@ export const MyCourses = () => {
             }
         };
         const responseData = await userGetCoursesService(dataService);
+        console.log(responseData);
         // Ajusta el parseo según la estructura de tu respuesta
         let arrayMyItems = [];
         responseData.forEach(List => {

@@ -17,7 +17,7 @@ import { customerTestimonialsService } from '../services/customertestimonials'
 
 export const CoursesDetail = () => {
 
-  const { id } = useParams()
+  const { slug } = useParams()
   const [arrayItems, setArrayItems] = useState([])
   const [arrayItems1, setArrayItems1] = useState([])
   const [arrayItems2, setArrayItems2] = useState([])
@@ -42,7 +42,7 @@ export const CoursesDetail = () => {
 
     const ArrayCoursesFilter = responseData.map(
       List => List.items.filter(
-        item => item.idItem == id
+        item => item.name == slug
       )
     )
 
@@ -104,13 +104,13 @@ export const CoursesDetail = () => {
 
         const ArrayCoursesFilter1 = ListItems.filter(
           item => {
-            return item.idItem == id
+            return item.name == slug
           }
         )
 
         const ArrayCoursesFilter2 = ListItems.filter(
           item => {
-            return item.idItem != id
+            return item.name != slug
           }
         )
 

@@ -35,18 +35,24 @@ export const Courses = () => {
 
 
     useEffect(() => {
+        if (!user) return;
         const fetchData = async () => {
             await getCategoriesV1();
             await getMyDataV1();
         };
         setTimeout(fetchData, 100);
-    }, [])
+    }, [user])
 
     useEffect(() => {
+        if (!user) return;
         if (enrolledCourseIds.length > 0 || coursesSelect) {
-            getDataV1(coursesSelect);
+            const fetchDataV1 = async () => {
+                await getDataV1(coursesSelect);
+            };
+            setTimeout(fetchDataV1, 100);            
+                
         }
-    }, [enrolledCourseIds, coursesSelect]);
+    }, [enrolledCourseIds, coursesSelect, user]);
 
     const getCategoriesV1 = async () => {
 
