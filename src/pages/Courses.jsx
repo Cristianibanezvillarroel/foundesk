@@ -21,15 +21,6 @@ export const Courses = () => {
         setSize(inputValue)
     };
 
-    useEffect(() => {
-        if (user) {
-            setKey("MisCursos");
-        } else {
-            setKey("Todos");
-        }
-        }, [user]
-    );
-
     const goToTop = () => {
         window.scrollTo({
             top: 0,
@@ -40,7 +31,8 @@ export const Courses = () => {
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(4)
     const [data, setData] = useState([])
-    const [mydata, setMyData] = useState([])
+    const [enrolledCourseIds, setEnrolledCourseIds] = useState([]);
+
 
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
 
@@ -48,8 +40,8 @@ export const Courses = () => {
     useEffect(() => {
         setTimeout(() => {
             getCategoriesV1()
-            getDataV1(coursesSelect)
             getMyDataV1()
+            getDataV1(coursesSelect)            
         }, 100);
     }, [])
 
@@ -95,7 +87,13 @@ export const Courses = () => {
                 ListFiltrada.forEach(function (item) {
                     let itemsObject = item.items
                     for (let i = 0; i < itemsObject.length; i++) {
-                        arrayItems.push(itemsObject[i])
+                        //arrayItems.push(itemsObject[i])
+                        const course = itemsObject[i];
+                        console.log("este es el course:", course);
+                        console.log("este es el enrolledCourseIds:", enrolledCourseIds);
+                        const isEnrolled = enrolledCourseIds.includes(course._id); // o course.idItem según tu modelo
+                        //arrayItems.push(itemsObject[i])
+                        arrayItems.push({ ...course, isEnrolled });
                     }
                 })
 
@@ -105,7 +103,11 @@ export const Courses = () => {
                         item => item.categorie.categorie == coursesSelect
                     )
                     for (let i = 0; i < itemsObject.length; i++) {
-                        arrayItems.push(itemsObject[i])
+                        const course = itemsObject[i];
+                        console.log("este es el course:", course);
+                        const isEnrolled = enrolledCourseIds.includes(course._id); // o course.idItem según tu modelo
+                        //arrayItems.push(itemsObject[i])
+                        arrayItems.push({ ...course, isEnrolled });
                     }
                 })
 
@@ -132,6 +134,15 @@ export const Courses = () => {
             return List.message == 'CoursesByUser';
         })
 
+        let userCourseIds = [];
+        ListFiltrada.forEach(item => {
+            item.items.forEach(course => {
+                userCourseIds.push(course.courses._id); // o course.course si el id está anidado
+            });
+        });
+        console.log("este es el array de coursesId:",userCourseIds);
+        setEnrolledCourseIds(userCourseIds);
+
         let arrayMyItems = [];
 
         const ListFiltradaData = responseData.map(ListV1 => {
@@ -149,11 +160,7 @@ export const Courses = () => {
                         arrayMyItems.push(itemsObject[i])
                     }
                 })
-        })
-        
-        setMyData({ arrayMyItems })
-        console.log(responseData);
-        
+        })        
     }
     
     return (
@@ -164,33 +171,6 @@ export const Courses = () => {
                 activeKey={key}
                 onSelect={(k) => setKey(k)}
                 className="mb-3">
-                {user ? (
-                <Tab eventKey="MisCursos" title="Mis Cursos">
-                    <div>
-                        <MyCoursesCards ListSize={ListSize} page={page} limit={limit} mydata={mydata} />
-                    </div>
-                    <div id='courses-backtoup'>
-                        <Button variant='light' onClick={goToTop}>
-                            <span>&#8743;</span><span>&#160;&#160;</span>
-                            Volver arriba
-                        </Button>
-                    </div>
-                    <div>
-                        <PaginationControl
-                            page={page}
-                            between={4}
-                            total={size}
-                            limit={4}
-                            changePage={(page) => {
-                                setPage(page)
-                            }}
-                            ellipsis={1}
-                        />
-                    </div>
-                </Tab>
-                ) : ( 
-                null
-                )}
                 <Tab eventKey="Todos" title="Todos">
                     <div id='courses-selected'>{coursesSelect}</div>
                     <div className='courses-line-count'>

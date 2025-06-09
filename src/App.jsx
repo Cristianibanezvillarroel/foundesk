@@ -16,6 +16,7 @@ import { Signup } from './pages/Signup'
 import { CoursesDetail } from './pages/CoursesDetail'
 import { Profile } from './pages/Profile'
 import { ShoppingCart } from './pages/ShoppingCart'
+import { MyCourses } from './pages/MyCourses'
 import UserState from './context/User/UserState'
 import PublicRoute from './components/routes/PublicRoute'
 import AuthRoute from './components/routes/AuthRoute'
@@ -56,6 +57,7 @@ function App() {
           {/* RUTAS PRIVADAS */}
           <PrivateRoute path='/profile' element={<Profile />} />
           <PrivateRoute path='/shoppingcart' element={<ShoppingCart />} />
+          <PrivateRoute path='/mis-cursos' element={<MyCourses />} />
                   
 
           {

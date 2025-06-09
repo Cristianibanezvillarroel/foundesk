@@ -161,12 +161,22 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-author'>
                                         <div>Por {content.author}</div>
                                     </div>
+                                    {!content.isEnrolled && (
+                                    <>
+
                                     <div id='courses-cards-price'>
                                         {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}
                                     </div>
                                     <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
                                     <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
-                                </Card.Text>
+                                    </>
+                                    )}
+                                    <>
+                                    {content.isEnrolled && (
+                                        <Button variant='success' disabled>Inscrito</Button>
+                                    )}
+                                    </>
+                                    </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
