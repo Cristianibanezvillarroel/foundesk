@@ -57,7 +57,7 @@ function App() {
           {/* RUTAS PRIVADAS */}
           <PrivateRoute path='/profile' element={<Profile />} />
           <PrivateRoute path='/shoppingcart' element={<ShoppingCart />} />
-          <PrivateRoute path='/mis-cursos' element={<MyCourses />} />
+          <PrivateRoute path='/my-courses' element={<MyCourses />} />
                   
 
           {

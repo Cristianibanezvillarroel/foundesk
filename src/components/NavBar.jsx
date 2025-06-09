@@ -66,7 +66,7 @@ export const NavBar = () => {
                                             Cursos online
                                         </NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link as={Link} to='/mis-cursos' href="/mis-cursos">Mis Cursos</Nav.Link>
+                                    <Nav.Link as={Link} to='/my-courses' href="/my-courses">Mis Cursos</Nav.Link>
                                     <Nav.Link as={Link} to='/teach' href="/teach">Mi aprendizaje</Nav.Link>                                    
                                 </Nav>
                             </Navbar.Collapse>

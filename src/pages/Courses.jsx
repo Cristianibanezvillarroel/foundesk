@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom'
 import { coursesCategoriesService } from '../services/coursescategories.js'
 import { coursesService } from '../services/courses.js'
 import UserContext from '../context/User/UserContext.js'
-import { MyCoursesCards } from '../components/courses/MyCoursesCards.jsx'
 import { userGetCoursesService } from '../services/usercourses.js'
 
 export const Courses = () => {
@@ -32,18 +31,22 @@ export const Courses = () => {
     const [limit, setLimit] = useState(4)
     const [data, setData] = useState([])
     const [enrolledCourseIds, setEnrolledCourseIds] = useState([]);
-
-
     const [dataCoursesTotal, setDataCoursesTotal] = useState([])
 
 
     useEffect(() => {
-        setTimeout(() => {
-            getCategoriesV1()
-            getMyDataV1()
-            getDataV1(coursesSelect)            
-        }, 100);
+        const fetchData = async () => {
+            await getCategoriesV1();
+            await getMyDataV1();
+        };
+        setTimeout(fetchData, 100);
     }, [])
+
+    useEffect(() => {
+        if (enrolledCourseIds.length > 0 || coursesSelect) {
+            getDataV1(coursesSelect);
+        }
+    }, [enrolledCourseIds, coursesSelect]);
 
     const getCategoriesV1 = async () => {
 
@@ -62,6 +65,36 @@ export const Courses = () => {
         ))
         let itemsArray = ListFiltrada[0]
         setDataCoursesTotal(itemsArray)
+    }
+
+    const getMyDataV1 = async () => {
+
+        const dataService = {
+            method: 'POST',
+            body: JSON.stringify({
+                userId: user._id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+
+        const responseData = await userGetCoursesService(dataService)
+
+        const ListFiltrada = responseData.filter(List => {
+            return List.message == 'CoursesByUser';
+        })
+
+        let userCourseIds = [];
+        ListFiltrada.forEach(item => {
+            item.items.forEach(course => {
+                userCourseIds.push(course.courses._id); // o course.course si el id está anidado
+            });
+        });
+        console.log("este es el array de coursesId:",userCourseIds);
+        setEnrolledCourseIds(userCourseIds);
+    
     }
 
     const getDataV1 = async (coursesSelect) => {
@@ -115,53 +148,7 @@ export const Courses = () => {
         setData({ arrayItems })
     }
 
-    const getMyDataV1 = async () => {
 
-        const dataService = {
-            method: 'POST',
-            body: JSON.stringify({
-                userId: user._id
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        }
-
-        const responseData = await userGetCoursesService(dataService)
-
-        const ListFiltrada = responseData.filter(List => {
-            return List.message == 'CoursesByUser';
-        })
-
-        let userCourseIds = [];
-        ListFiltrada.forEach(item => {
-            item.items.forEach(course => {
-                userCourseIds.push(course.courses._id); // o course.course si el id está anidado
-            });
-        });
-        console.log("este es el array de coursesId:",userCourseIds);
-        setEnrolledCourseIds(userCourseIds);
-
-        let arrayMyItems = [];
-
-        const ListFiltradaData = responseData.map(ListV1 => {
-            return coursesSelect == 'Todos' ?
-                ListFiltrada.forEach(function (item) {
-                    let itemsObject = item.items
-                    for (let i = 0; i < itemsObject.length; i++) {
-                        arrayMyItems.push(itemsObject[i])
-                    }
-                }) 
-                : 
-                ListFiltrada.forEach(function (item) {
-                    let itemsObject = item.items
-                    for (let i = 0; i < itemsObject.length; i++) {
-                        arrayMyItems.push(itemsObject[i])
-                    }
-                })
-        })        
-    }
     
     return (
         <Container>
