@@ -11,7 +11,6 @@ import { ShoppingContext } from '../../context/Shopping/ShoppingContext'
 
 export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
-
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const [show, setShow] = useState(false)
     const [message, setMessage] = useState()
@@ -29,12 +28,9 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
 
     let itera1 = Object.entries(data)
         .forEach(([key, value]) => {
-
             let itera2 = Object.entries(value)
                 .forEach(([key2, value2]) => {
-
                     arrayItems.push(value2)
-
                 })
         });
 
@@ -45,7 +41,12 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
     const DESCRIPTION_CHAR_LIMIT = 50;
 
     const itemsLength = arrayItems.length;
-    ListSize(itemsLength);
+    //ListSize(itemsLength);
+    useEffect(() => {
+        if (typeof ListSize === 'function') {
+            ListSize(itemsLength);
+        }
+    }, [itemsLength, ListSize]);
 
     useEffect(() => {
         ShoppingListStart()

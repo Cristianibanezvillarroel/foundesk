@@ -35,16 +35,16 @@ export const Courses = () => {
 
 
     useEffect(() => {
-        if (!user) return;
         const fetchData = async () => {
             await getCategoriesV1();
+            if (user) {
             await getMyDataV1();
+            }
         };
         setTimeout(fetchData, 100);
     }, [user])
 
     useEffect(() => {
-        if (!user) return;
         if (enrolledCourseIds.length > 0 || coursesSelect) {
             const fetchDataV1 = async () => {
                 await getDataV1(coursesSelect);
@@ -98,7 +98,7 @@ export const Courses = () => {
                 userCourseIds.push(course.courses._id); // o course.course si el id está anidado
             });
         });
-        console.log("este es el array de coursesId:",userCourseIds);
+        //console.log("este es el array de coursesId:",userCourseIds);
         setEnrolledCourseIds(userCourseIds);
     
     }
@@ -128,8 +128,8 @@ export const Courses = () => {
                     for (let i = 0; i < itemsObject.length; i++) {
                         //arrayItems.push(itemsObject[i])
                         const course = itemsObject[i];
-                        console.log("este es el course:", course);
-                        console.log("este es el enrolledCourseIds:", enrolledCourseIds);
+                        //console.log("este es el course:", course);
+                        //console.log("este es el enrolledCourseIds:", enrolledCourseIds);
                         const isEnrolled = enrolledCourseIds.includes(course._id); // o course.idItem según tu modelo
                         //arrayItems.push(itemsObject[i])
                         arrayItems.push({ ...course, isEnrolled });
@@ -143,7 +143,7 @@ export const Courses = () => {
                     )
                     for (let i = 0; i < itemsObject.length; i++) {
                         const course = itemsObject[i];
-                        console.log("este es el course:", course);
+                        //console.log("este es el course:", course);
                         const isEnrolled = enrolledCourseIds.includes(course._id); // o course.idItem según tu modelo
                         //arrayItems.push(itemsObject[i])
                         arrayItems.push({ ...course, isEnrolled });

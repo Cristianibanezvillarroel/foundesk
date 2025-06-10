@@ -3,6 +3,7 @@ import { Button, Col, Container, Row, Alert } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import UserContext from '../context/User/UserContext';
+import { Eye, EyeSlash } from 'react-bootstrap-icons';
 
 export const Login = () => {
 
@@ -15,6 +16,7 @@ export const Login = () => {
   const [show, setShow] = useState(false)
   const [message, setMessage] = useState()
   const [invalid, setInvalid] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const [valueEmail, setValueEmail] = useState('')
   const handleChangeEmail = (e) => {
@@ -26,48 +28,38 @@ export const Login = () => {
     setValuePassword(e.target.value);
   }
 
-  const fetchLogin = async () => {
-    try {
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
-      /*const dataService = {
-        method: 'POST',
-        body: JSON.stringify({
-          email: valueEmail.trim(),
-          password: valuePassword
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      }*/
+  const fetchLogin = async (e) => {
+    e.preventDefault();
+    setInvalid(false);
+    setShow(false);
+    setMessage(undefined);
+    setLoading(true);
+    try {
       const dataService = {
         email: valueEmail.trim(),
         password: valuePassword
-      }
-
-      const getLogin = loginUser(dataService)
-
-      //const responseData = await loginUser(dataService)
-
-      /*console.log(responseData)
-      console.log(responseData.detail.token)
-      setMessage(responseData.message)
-      if (responseData.message == 'OK') {
-        const dataUser = responseData.detail.user
-        delete dataUser.password
-        console.log(dataUser)
-        setUser(dataUser)
-        setToken(responseData.detail.token)
+      };
+      const response = await loginUser(dataService);
+      // Si loginUser retorna un mensaje de error, puedes manejarlo aquí
+      // Por ejemplo, si loginUser retorna false o un objeto con error
+      if (response && response.message === 'OK') {
+        setShow(true);
+        setMessage('Login exitoso. Redirigiendo...');
+        setLoading(false);
+        navigate('/my-courses');
       } else {
         setInvalid(true);
-      }*/
-
+        setMessage('Usuario o contraseña inválidos.');
+        setLoading(false);
+      }
     } catch (error) {
-      console.log(error)
-
+      setInvalid(true);
+      setMessage('Error en el servidor. Intente nuevamente.');
+      setLoading(false);
     }
-    console.log(`el location registrado por useLocation es:${location.pathname}`)
-
   }
 
   useEffect(() => {
@@ -107,6 +99,16 @@ export const Login = () => {
     );
   }
 
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
+        <div className="spinner-border text-primary" role="status" style={{width: '4rem', height: '4rem'}}>
+          <span className="visually-hidden">Cargando...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <Container className='login-grid'>
@@ -116,10 +118,41 @@ export const Login = () => {
               Login
             </Col>
             <Col md={12} className='mb-4'>
-              <Form.Control onChange={handleChangeEmail} type="text" placeholder="Email" />
+              <Form.Control
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={valueEmail}
+                onChange={handleChangeEmail}
+                autoComplete="email"
+                required
+              />
             </Col>
             <Col>
-              <Form.Control onChange={handleChangePassword} type="password" placeholder="Password" />
+              <div style={{ position: 'relative' }}>
+                <Form.Control
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  placeholder="Password"
+                  value={valuePassword}
+                  onChange={handleChangePassword}
+                  autoComplete="current-password"
+                  required
+                />
+                <span
+                  onClick={toggleShowPassword}
+                  style={{
+                    position: 'absolute',
+                    right: '10px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    cursor: 'pointer',
+                    zIndex: 2
+                  }}
+                >
+                  {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+                </span>
+              </div>
             </Col>
 
             <Button id='button-login' type="submit" className='mb-4' variant='primary'>
