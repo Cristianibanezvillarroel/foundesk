@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const MyCoursesCards = ({ ListSize, page, limit, mydata }) => {
 
-    console.log(mydata);
+    //console.log(mydata);
 
     const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ export const MyCoursesCards = ({ ListSize, page, limit, mydata }) => {
                 })
         });
 
-    console.log('este es el arrayitems de mycoursescard:', arrayItems);
+    //console.log('este es el arrayitems de mycoursescard:', arrayItems);
 
     const indexOfLastItem = page * limit;
     const indexOfFirstItem = indexOfLastItem - limit;

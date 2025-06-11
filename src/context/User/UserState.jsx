@@ -41,7 +41,7 @@ const UserState = (props) => {
 
             const respuesta = await axiosClient.post("/user/login", dataService)
             const messageLogin = respuesta.data.message
-            console.log(respuesta)
+            //console.log(respuesta)
             if (messageLogin == 'error de password' || messageLogin == 'usuario no encontrado') {
                 dispatch({
                     type: "LOGIN_ERROR",
@@ -106,7 +106,7 @@ const UserState = (props) => {
         try {
 
             const respuesta = await axiosClient.get("/user/verify")
-            console.log(respuesta)
+            //console.log(respuesta)
             dispatch({
                 type: "OBTENER_USUARIO",
                 payload: respuesta.data.user

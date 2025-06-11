@@ -21,7 +21,7 @@ const PublicRoute = ({ element: Component, ...props }) => {
     return (
         <>
             <Routes>
-                <Route {...props} element={authStatus ? Component : Component} />
+                <Route {...props} element={authStatus ? <Navigate to="/my-courses" /> : Component} />
             </Routes>
         </>
     )

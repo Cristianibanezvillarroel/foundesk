@@ -64,11 +64,11 @@ export const Login = () => {
 
   useEffect(() => {
 
-    console.log('hola')
+    //console.log('hola')
 
   }, [msg])
 
-  console.log(msg)
+  //console.log(msg)
 
 
   if (show) {

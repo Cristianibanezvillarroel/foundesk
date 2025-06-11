@@ -37,19 +37,21 @@ function App() {
           {/* RUTAS ESTÁTICAS */}
           <PublicRoute path='/teach' element={<Teach />} />
           <PublicRoute path='/train' element={<Train />} />
-          <PublicRoute path='/coursescategories' element={<CoursesCategories />} />
+          <PublicRoute path='/blog/:id' element={<BlogDetail />} />
           <PublicRoute path='/blog' element={<Blog />} />
           <PublicRoute path='/diary' element={<Diary />} />
           <PublicRoute path='/about' element={<About />} />
 
 
           {/* RUTAS DINÁMICAS */}
-          <PublicRoute path='/courses/detail/:slug' element={<CoursesDetail />} />
-          <PublicRoute path='/blog/:id' element={<BlogDetail />} />
-          <PublicRoute path='/courses' element={<Courses />} />
-          <PublicRoute path='/courses/:category' element={<Courses />} />
-          <PublicRoute path='/teacher/:id' element={<TeacherDetail />} />
-          <PublicRoute path='/testimonials/:id' element={<Testimonials />} />
+          <Routes>
+          <Route path='/courses/detail/:slug' element={<CoursesDetail />} />
+          <Route path='/coursescategories' element={<CoursesCategories />} />
+          <Route path='/courses' element={<Courses />} />
+          <Route path='/courses/:category' element={<Courses />} />
+          <Route path='/teacher/:id' element={<TeacherDetail />} />
+          <Route path='/testimonials/:id' element={<Testimonials />} />
+          </Routes>
 
           {/* RUTAS DE AUTENTICACIÓN */}          
           <AuthRoute path='/login' element={<Login />} />
