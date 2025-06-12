@@ -12,8 +12,21 @@ import { customerTestimonialsService } from '../services/customertestimonials';
 import { coursesContentCategoriesService } from '../services/coursescontentcategories';
 import { coursesContentItemsService } from '../services/coursescontentitems';
 import { CoursesLearnContents } from '../components/courseslearn/CoursesLearnContents';
+import { CoursesLearnNav } from '../components/courseslearn/CoursesLearnNav';
 
 export const CoursesLearn = () => {
+
+    // Custom hook debe ir fuera del componente
+    const useWindowWidth = () => {
+        const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+        useEffect(() => {
+            const handleResize = () => setWindowWidth(window.innerWidth);
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, []);
+        return windowWidth;
+    };
+
     const { slug, id } = useParams();
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
@@ -116,6 +129,9 @@ export const CoursesLearn = () => {
         setArrayItems(ListItems);
     }
 
+    const width = useWindowWidth();
+    const isMobile = width <= 768;
+
     if (isAllowed === false) {
         return (
             <div style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>
@@ -129,15 +145,24 @@ export const CoursesLearn = () => {
 
     return (
         <div>
-            <Row>
-                <Col md={8}>
-                    <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                    <CoursesLearnTabs slug={slug} id={id} />
-                </Col>
-                <Col md={4}>
-                    <CoursesLearnContents content={arrayItems} />
-                </Col>
-            </Row>
+            {isMobile ? (
+                <Row>
+                    <Col md={12}>
+                        <CoursesLearnVideo videoUrl={lecture.videoUrl} />
+                        <CoursesLearnNav content={slug} slug={slug} id={id}/>
+                    </Col>
+                </Row>
+            ) : (
+                <Row>
+                    <Col md={8}>
+                        <CoursesLearnVideo videoUrl={lecture.videoUrl} />
+                        <CoursesLearnTabs slug={slug} id={id} />
+                    </Col>
+                    <Col md={4}>
+                        <CoursesLearnContents content={arrayItems} />
+                    </Col>
+                </Row>
+            )}
         </div>
     );
 };
