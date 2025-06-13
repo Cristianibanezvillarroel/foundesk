@@ -5,10 +5,13 @@ import { BsCalendar3 } from "react-icons/bs";
 
 export const CoursesDetailTestimonialsCard = ({ item }) => {
 
-  let textOne = item.author
+  console.log('este es el objeto item:', item)
+  let textOne = item.user.name
   let letterOne = textOne.charAt(0)
-  let textSplit = textOne.split(' ')
-  let letterTwo = textSplit[1].charAt(0)
+  //let textSplit = textOne.split(' ')
+  //let letterTwo = textSplit[1].charAt(0)
+  let textTwo = item.user.lastname
+  let letterTwo = textTwo.charAt(0)
   let dateActual = new Date().getTime()
   let dateDesde = new Date(item.timestamp).getTime()
   let diff = dateActual - dateDesde
@@ -52,8 +55,8 @@ export const CoursesDetailTestimonialsCard = ({ item }) => {
                 {letterOne}{letterTwo}
               </div>
               <div id='courses-detail-testimonials-card-header-data'>
-                <div>{item.author}</div>
-                <div><img id='courses-detail-testimonials-calificacion' src={Calificacionesimg} /> {item.calificacion} </div>
+                <div>{item.user.name}</div>
+                <div><img id='courses-detail-testimonials-calificacion' src={Calificacionesimg} /> {item.rating} </div>
                 <div><BsCalendar3 id='courses-detail-testimonials-card-header-icon' />hace {time}</div>
               </div>
             </div>

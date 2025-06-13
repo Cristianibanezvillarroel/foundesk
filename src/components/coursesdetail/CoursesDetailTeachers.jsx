@@ -5,7 +5,6 @@ import { BsFillHeartPulseFill, BsPersonSquare, BsBank2, BsBookmarkCheck, BsPeopl
 import { Link } from 'react-router-dom';
 
 export const CoursesDetailTeachers = ({ content }) => {
-  console.log('CoursesDetailTeachers content', content)
   let resultTeacher = content.map(({ teacher }) => teacher)
 
   return (
@@ -23,7 +22,7 @@ export const CoursesDetailTeachers = ({ content }) => {
                 <div id='courses-detail-teacher-content'>
                   <Row>
                     <Col md={6} className='mb-4'>
-                      <img id='courses-detail-teacher-imagen' src={item.image} />
+                      <img id='courses-detail-teacher-imagen' src={item.user.image} />
                     </Col>
                     <Col md={6} className='mb-4'>
 

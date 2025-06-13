@@ -40,7 +40,7 @@ export const TeacherCarrusel = () => {
           item =>
 
             <Carousel.Item>
-              <TeacherCarruselImg imagen={item.imagen} description={item.description} author={item.author} job={item.cargo} />
+              <TeacherCarruselImg imagen={item.teacher.user.image} description={item.description} author={item.teacher.user.name} job={item.teacher.jobtitle} />
             </Carousel.Item>
         ))}
       </Carousel>
