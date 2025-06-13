@@ -70,7 +70,7 @@ export const CoursesDetail = () => {
 
         let dataTeacher = responseDataTeacher.map(
           List => List.items.filter(
-            item => item._id == courses.teacher
+            item => item._id == courses.teacher._id
           )
         )
         let dataTestimonials = responseDataCustomerTestimonials.map(

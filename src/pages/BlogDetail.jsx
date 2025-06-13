@@ -43,7 +43,7 @@ export const BlogDetail = () => {
             content =>
               <>
                 <div>
-                  <img id='blog-detail-img' src={content.imagen} />
+                  <img id='blog-detail-img' src={content.image} />
                 </div>
                 <div>
                   <h3>{content.title}</h3>

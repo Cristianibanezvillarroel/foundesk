@@ -9,7 +9,7 @@ export const CoursesDetailHeader = ({ arrayItems }) => {
 
     arrayItems.forEach(item => {
 
-        for (let i = 0; i < parseInt(item.calificacion); i++) {
+        for (let i = 0; i < parseInt(item.rating); i++) {
             scoreCursesDetail.push(i)
         }
     });
@@ -37,7 +37,7 @@ export const CoursesDetailHeader = ({ arrayItems }) => {
                                         <img id='courses-categories-calificaciones-img' src={Calificacionesimg} />
                                     )}
                                     <img id='courses-categories-reproducciones-img' src={Reproduccionesimg} />
-                                    <p>{content.estudiantes}</p>
+                                    <p>{content.students}</p>
                                 </div>
                                 <div className='courses-detail-header-description'>
                                     <p>{content.description}</p>

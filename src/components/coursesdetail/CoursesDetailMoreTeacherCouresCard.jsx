@@ -24,7 +24,7 @@ export const CoursesDetailMoreTeacherCoursesCard = ({ content, ListContent }) =>
 
           <Col md={6} lg={3} className='mb-4'>
             <Card key={content.idItem}>
-              <Card.Img variant="top" src={content.imagen} />
+              <Card.Img variant="top" src={content.image} />
               <Card.Body>
                 <Badge bg="secondary">{content.tipo}</Badge>
                 <Card.Title>
@@ -35,7 +35,7 @@ export const CoursesDetailMoreTeacherCoursesCard = ({ content, ListContent }) =>
                 </Card.Title>
                 <Card.Text>
                   <div id='courses-cards-author'>
-                    <div>Por {content.author}</div>
+                    <div>Por {content.teacher}</div>
                   </div>
                   <div id='courses-cards-price'>
                     {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}

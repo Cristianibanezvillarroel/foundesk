@@ -14,11 +14,14 @@ export const CoursesDetailTestimonials = ({ content }) => {
     document.body.style.overflow = showPopup ? 'auto' : 'hidden'
   }
 
+
   let map = new Map()
-  let calificacionArray = content.map(
-    item =>
-      map.set(0, item.calificacion).set(1, item.valoraciones).set(2, item._id)
-  )
+  let calificacionArray = content.map(item => {
+    const ratingValue = typeof item.rating === 'object' && item.rating.$numberDecimal
+      ? parseFloat(item.rating.$numberDecimal)
+      : Number(item.rating);
+    return map.set(0, ratingValue).set(1, item.ratings).set(2, item._id);
+  })
   let resultTestimonials = content.map(({ testimonials }) => testimonials)
 
   return (

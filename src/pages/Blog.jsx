@@ -58,7 +58,7 @@ export const Blog = () => {
                 :
                 ListFiltrada.forEach(function (item) {
                     let itemsObject = item.items.filter(
-                        item => item.categoria == blogCategory
+                        item => item.categorie == blogCategory
                     )
                     for (let i = 0; i < itemsObject.length; i++) {
                         arrayItems.push(itemsObject[i])

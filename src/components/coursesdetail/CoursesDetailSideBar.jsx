@@ -112,7 +112,7 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
                                 <Row>
                                     <Col>
                                         <div className='courses-detail-toast-img'>
-                                            <img src={content.imagen}></img>
+                                            <img src={content.image}></img>
                                         </div>
                                     </Col>
                                 </Row>
@@ -129,22 +129,22 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
                                 <div className='courses-detail-toast-div'>Este curso incluye:</div>
                                 <div className='courses-detail-toast-div'>
                                     <div>
-                                        <div><img src={horasCoursesImg}></img>{content.horas}</div>
+                                        <div><img src={horasCoursesImg}></img>{content.hours} horas de video on-demand</div>
                                     </div>
                                     <div>
-                                        <div><img src={articulosCoursesImg}></img>{content.articulos}</div>
+                                        <div><img src={articulosCoursesImg}></img>{content.articles} artículos de contenidos</div>
                                     </div>
                                     <div>
-                                        <div><img src={recursosCoursesImg}></img>{content.recursos}</div>
+                                        <div><img src={recursosCoursesImg}></img>{content.resources} recursos descargables</div>
                                     </div>
                                     <div>
-                                        <div><img src={accesoCoursesImg}></img>{content.acceso}</div>
+                                        <div><img src={accesoCoursesImg}></img>{content.access}</div>
                                     </div>
                                     <div>
                                         <div><img src={timeCoursesImg}></img>{content.timeline}</div>
                                     </div>
                                     <div>
-                                        <div><img src={certificateCoursesImg}></img>{content.certificado}</div>
+                                        <div><img src={certificateCoursesImg}></img>{content.certificate}</div>
                                     </div>
                                 </div>
                             </Container>

@@ -43,7 +43,7 @@ export const BlogCategories = ({ onAddBlogCategory, setPage }) => {
             <div className='blog-categories'>
                 {dataBlogs.map(
                     content =>
-                        <Button onClick={() => { getCategory(content.categoria), setPage(1) }} variant='light' >{content.categoria}</Button>
+                        <Button onClick={() => { getCategory(content.categorie), setPage(1) }} variant='light' >{content.categorie}</Button>
                 )}
                 <Button onClick={() => { getCategory('Todos') }} variant='light' >Todos</Button>
             </div>

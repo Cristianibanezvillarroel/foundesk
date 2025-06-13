@@ -35,9 +35,9 @@ export const BlogCards = ({ ListSize, page, limit, data }) => {
                 {currentItems.map(item =>
                     <Col md={4} className='mb-4'>
                         <Card key={item.idItem}>
-                            <Card.Img variant="top" src={item.imagen} />
+                            <Card.Img variant="top" src={item.image} />
                             <Card.Body>
-                                <Badge bg="secondary">{item.categoria}</Badge>
+                                <Badge bg="secondary">{item.categorie.categorie}</Badge>
                                 <Card.Title>{item.title.length > DESCRIPTION_CHAR_LIMIT_TITLE ? item.title.substring(0, DESCRIPTION_CHAR_LIMIT_TITLE) + '...' : item.title}</Card.Title>
                                 <Card.Text>
                                     {item.description.length > DESCRIPTION_CHAR_LIMIT_DESCRIPTION ? item.description.substring(0, DESCRIPTION_CHAR_LIMIT_DESCRIPTION) + '...' : item.description}
