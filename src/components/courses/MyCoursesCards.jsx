@@ -49,7 +49,7 @@ export const MyCoursesCards = ({ ListSize, page, limit, mydata }) => {
                 {currentItems.map(content =>
                     <Col md={6} lg={3} className='mb-4'>
                         <Card key={content.idItem}>
-                            <Card.Img variant="top" src={content.imagen} />
+                            <Card.Img variant="top" src={content.image} />
                             <Card.Body>
                                 <Badge bg="secondary">{content.categorie.categorie}</Badge>
                                 <Card.Title>
