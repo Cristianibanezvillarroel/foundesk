@@ -129,13 +129,13 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
                                 <div className='courses-detail-toast-div'>Este curso incluye:</div>
                                 <div className='courses-detail-toast-div'>
                                     <div>
-                                        <div><img src={horasCoursesImg}></img>{content.hours} horas de video on-demand</div>
+                                        <div><img src={horasCoursesImg}></img>{content.hours}</div>
                                     </div>
                                     <div>
-                                        <div><img src={articulosCoursesImg}></img>{content.articles} artículos de contenidos</div>
+                                        <div><img src={articulosCoursesImg}></img>{content.articles}</div>
                                     </div>
                                     <div>
-                                        <div><img src={recursosCoursesImg}></img>{content.resources} recursos descargables</div>
+                                        <div><img src={recursosCoursesImg}></img>{content.resources}</div>
                                     </div>
                                     <div>
                                         <div><img src={accesoCoursesImg}></img>{content.access}</div>

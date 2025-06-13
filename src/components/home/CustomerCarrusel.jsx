@@ -32,7 +32,7 @@ export const CustomerCarrusel = () => {
     setDataCustomerCarrusel(ListFiltrada)
   }
 
-
+  console.log(dataCustomerCarrusel)
   return (
     <>
       <Carousel>
@@ -40,7 +40,7 @@ export const CustomerCarrusel = () => {
           item =>
 
             <Carousel.Item>
-              <CustomerCarruselImg imagen={item.imagen} description={item.description} author={item.author} job={item.cargo} />
+              <CustomerCarruselImg imagen={item.image} description={item.description} author={item.user.name} job={item.user.jobtitle} />
             </Carousel.Item>
         ))}
       </Carousel>

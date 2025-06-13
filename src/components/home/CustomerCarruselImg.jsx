@@ -1,14 +1,14 @@
 import React from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 
-export const CustomerCarruselImg = ({imagen, description, author, job}) => {
+export const CustomerCarruselImg = ({image, description, author, job}) => {
 
   return (
     <>
     <Container>
       <Row>
         <div className='col xs-6 col-md-6 d-flex flex-column justify-content-between'>
-              <img className="d-block w-100" id='customercarrusel-img' src={imagen} />          
+              <img className="d-block w-100" id='customercarrusel-img' src={image} />          
         </div>
         <div className='col xs-6 col-md-6 d-flex flex-column align-text-center' >
           <div style={{ fontSize: 'small' }}>
