@@ -9,7 +9,11 @@ export const CoursesDetailHeader = ({ arrayItems }) => {
 
     arrayItems.forEach(item => {
 
-        for (let i = 0; i < parseInt(item.rating); i++) {
+        let ratingValue = typeof item.rating === 'object' && item.rating.$numberDecimal
+        ? parseFloat(item.rating.$numberDecimal)
+        : Number(item.rating);
+
+        for (let i = 0; i < parseInt(ratingValue); i++) {
             scoreCursesDetail.push(i)
         }
     });
