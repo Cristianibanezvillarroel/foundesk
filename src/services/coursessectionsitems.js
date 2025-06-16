@@ -1,6 +1,6 @@
-const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/coursescontentcategories`
+const URL_ROOT = `${import.meta.env.VITE_BACKEND_URL}/coursessectionsitems`
 
-export const coursesContentCategoriesService = async (dataService) => {
+export const coursesSectionsItemsService = async (dataService) => {
 
     const urlLogin = `${URL_ROOT}`
     const response = await fetch(urlLogin, dataService)

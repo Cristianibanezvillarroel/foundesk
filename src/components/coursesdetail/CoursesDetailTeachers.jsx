@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { teacherService } from '../../services/teacher';
 import { BsFillHeartPulseFill, BsPersonSquare, BsBank2, BsBookmarkCheck, BsPeopleFill, BsFillCollectionPlayFill, BsCheckSquare } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 

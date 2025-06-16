@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import { coursesContentCategoriesService } from '../../services/coursescontentcategories';
-import { coursesContentItemsService } from '../../services/coursescontentitems';
 import { Col, Container, Row } from 'react-bootstrap';
 import { CoursesDetailContentsAccordion } from './CoursesDetailContentsAccordion';
 

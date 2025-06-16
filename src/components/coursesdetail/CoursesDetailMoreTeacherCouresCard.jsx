@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import { Badge, Button, Card, Col, Container, NavLink, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import { coursesService } from '../../services/courses';
 import { PropTypes } from 'prop-types'
-import { coursesLearnItemsService } from '../../services/courseslearnitems';
-import { coursesContentCategoriesService } from '../../services/coursescontentcategories';
-import { coursesContentItemsService } from '../../services/coursescontentitems';
 
 export const CoursesDetailMoreTeacherCoursesCard = ({ content, ListContent }) => {
   let authorArray = content.map(

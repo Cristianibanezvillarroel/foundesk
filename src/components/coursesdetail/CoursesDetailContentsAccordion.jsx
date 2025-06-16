@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import { coursesContentItemsService } from '../../services/coursescontentitems';
 import { Accordion, AccordionHeader, Col, Container, Row } from 'react-bootstrap';
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import { BsFillCaretRightSquareFill } from "react-icons/bs";

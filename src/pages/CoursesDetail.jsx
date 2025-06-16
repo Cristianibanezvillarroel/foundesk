@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { Col, Container, Modal, Row, Spinner } from 'react-bootstrap'
 import { coursesService } from '../services/courses'
 import { CoursesDetailSideBar } from '../components/coursesdetail/CoursesDetailSideBar'
@@ -10,8 +10,8 @@ import { CoursesDetailTeachers } from '../components/coursesdetail/CoursesDetail
 import { CoursesDetailTestimonials } from '../components/coursesdetail/CoursesDetailTestimonials'
 import { CoursesDetailMoreTeacherCoursesCard } from '../components/coursesdetail/CoursesDetailMoreTeacherCouresCard'
 import { coursesLearnItemsService } from '../services/courseslearnitems'
-import { coursesContentCategoriesService } from '../services/coursescontentcategories'
-import { coursesContentItemsService } from '../services/coursescontentitems'
+import { coursesSectionsService } from '../services/coursessections'
+import { coursesSectionsItemsService } from '../services/coursessectionsitems'
 import { teacherService } from '../services/teacher'
 import { customerTestimonialsService } from '../services/customertestimonials'
 
@@ -22,6 +22,8 @@ export const CoursesDetail = () => {
   const [arrayItems1, setArrayItems1] = useState([])
   const [arrayItems2, setArrayItems2] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const location = useLocation();
+  const isEnrolled = location.state?.isEnrolled || false; // Check if the course is enrolled  
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,8 +49,8 @@ export const CoursesDetail = () => {
     )
 
     const responseDataLearn = await coursesLearnItemsService(dataService)
-    const responseDataCategories = await coursesContentCategoriesService(dataService)
-    const responseDataItems = await coursesContentItemsService(dataService)
+    const responseDataCategories = await coursesSectionsService(dataService)
+    const responseDataItems = await coursesSectionsItemsService(dataService)
     const responseDataTeacher = await teacherService(dataService)
     const responseDataCustomerTestimonials = await customerTestimonialsService(dataService)
 
@@ -86,7 +88,7 @@ export const CoursesDetail = () => {
         ArrayCoursesContentCategoriesFilter[0].forEach((category, numeral) => {
           let dataContent = responseDataItems.map(
             List => List.items.filter(
-              item => item.coursescontentcategories._id == category._id
+              item => item.coursessections._id == category._id
             )
           )
           ListContentCategory[numeral] = {
@@ -148,7 +150,7 @@ export const CoursesDetail = () => {
           <>
             <Row style={{ backgroundColor: 'blue' }}>
               <Col style={{ textAlign: 'center' }} md={6}>
-                <CoursesDetailSideBar arrayItems={arrayItems1} />
+                <CoursesDetailSideBar arrayItems={arrayItems1} isEnrolled={isEnrolled}/>
               </Col>
               <Col md={6} >
                 <CoursesDetailHeader arrayItems={arrayItems1} />

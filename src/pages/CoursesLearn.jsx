@@ -9,8 +9,8 @@ import { userGetCoursesService } from '../services/usercourses';
 import { coursesService } from '../services/courses';
 import { teacherService } from '../services/teacher';
 import { customerTestimonialsService } from '../services/customertestimonials';
-import { coursesContentCategoriesService } from '../services/coursescontentcategories';
-import { coursesContentItemsService } from '../services/coursescontentitems';
+import { coursesSectionsService } from '../services/coursessections';
+import { coursesSectionsItemsService } from '../services/coursessectionsitems';
 import { CoursesLearnContents } from '../components/courseslearn/CoursesLearnContents';
 import { CoursesLearnNav } from '../components/courseslearn/CoursesLearnNav';
 
@@ -79,8 +79,8 @@ export const CoursesLearn = () => {
         const responseData = await coursesService(dataService);
         const responseDataTeacher = await teacherService(dataService);
         const responseDataCustomerTestimonials = await customerTestimonialsService(dataService);
-        const responseDataCategories = await coursesContentCategoriesService(dataService);
-        const responseDataItems = await coursesContentItemsService(dataService);
+        const responseDataCategories = await coursesSectionsService(dataService);
+        const responseDataItems = await coursesSectionsItemsService(dataService);
 
         const ArrayCoursesFilter = responseData.map(
             List => List.items.filter(
@@ -109,7 +109,7 @@ export const CoursesLearn = () => {
             ArrayCoursesContentCategoriesFilter[0].forEach((category, numeral) => {
                 let dataContent = responseDataItems.map(
                     List => List.items.filter(
-                        item => item.coursescontentcategories._id == category._id
+                        item => item.coursessections._id == category._id
                     )
                 )
                 ListContentCategory[numeral] = {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Button, Col, Container, Modal, Row, Toast } from 'react-bootstrap'
 import horasCoursesImg from '/public/horascurso.png'
 import articulosCoursesImg from '/public/articuloscurso.png'
@@ -11,7 +11,7 @@ import CheckNok from '/public/checknok.png'
 import CheckOk from '/public/checkok.png'
 import { useNavigate } from 'react-router-dom'
 
-export const CoursesDetailSideBar = ({ arrayItems }) => {
+export const CoursesDetailSideBar = ({ arrayItems, isEnrolled }) => {
 
     const { shoppingCount, setShoppingCount } = useContext(ShoppingContext)
     const [show, setShow] = useState(false)
@@ -119,12 +119,24 @@ export const CoursesDetailSideBar = ({ arrayItems }) => {
                                 <div className='courses-detail-toast-div'>
                                     <h2 id='courses-detail-pricer'>{`${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")} CLP$`}</h2>
                                 </div>
-                                <div className='courses-detail-toast-div'>
-                                    <Button className='w-100' onClick={() => { addLocalStorage(content) }}>Añadir al carro</Button>
-                                </div>
-                                <div className='courses-detail-toast-div'>
-                                    <Button className='w-100' onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='light'>Comprar ahora</Button>
-                                </div>
+
+                                {!isEnrolled && (
+                                    <>
+                                        <div className='courses-detail-toast-div'>
+                                            <Button className='w-100' onClick={() => { addLocalStorage(content) }}>Añadir al carro</Button>
+                                        </div>
+                                        <div className='courses-detail-toast-div'>
+                                            <Button className='w-100' onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='light'>Comprar ahora</Button>
+                                        </div>
+                                    </>
+                                )}
+
+                                {isEnrolled && (
+                                    <>
+                                        <Button variant='success' disabled>Inscrito</Button>
+                                    </>
+                                )}
+
                                 <div style={{ textAlign: 'center' }} className='courses-detail-toast-div'>Garantía de reembolso de 30 días</div>
                                 <div className='courses-detail-toast-div'>Este curso incluye:</div>
                                 <div className='courses-detail-toast-div'>

@@ -1,4 +1,3 @@
-import React from 'react'
 import Calificacionesimg from '/public/calificaciones.png'
 import Reproduccionesimg from '/public/reproducciones.png'
 

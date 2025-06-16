@@ -154,7 +154,12 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                 <Badge bg="secondary">{content.categorie.categorie}</Badge>
                                 <Card.Title>
                                     <h6>{content.title.length > DESCRIPTION_CHAR_LIMIT ? content.title.substring(0, DESCRIPTION_CHAR_LIMIT) + '...' : content.title}</h6>
-                                    <Link to={`/courses/detail/${content.name}`}>
+                                    <Link
+                                        to={{
+                                            pathname: `/courses/detail/${content.name}`,
+                                        }}
+                                        state={{ isEnrolled: content.isEnrolled }}
+                                    >
                                         <Button>Ver mas</Button>
                                     </Link>
                                 </Card.Title>
@@ -162,22 +167,24 @@ export const CoursesCards = ({ ListSize, page, limit, data }) => {
                                     <div id='courses-cards-author'>
                                         <div>Por {content.teacher?.name || "Sin profesor"}</div>
                                     </div>
-                                    {!content.isEnrolled && (
-                                    <>
+
+
 
                                     <div id='courses-cards-price'>
                                         {`CLP$${Intl.NumberFormat("en-US", options).format(content.price).replace(",", ".")}`}
                                     </div>
-                                    <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
-                                    <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
-                                    </>
+                                    {!content.isEnrolled && (
+                                        <>
+                                            <Button onClick={() => { addLocalStorage(content) }} id='courses-cards-button-shopping' variant='light'><img src={ShoppingCartImg} /></Button>
+                                            <Button onClick={() => { addLocalStorage(content), setGoShoppingNow(true) }} variant='primary'>Comprar ahora</Button>
+                                        </>
                                     )}
                                     <>
-                                    {content.isEnrolled && (
-                                        <Button variant='success' disabled>Inscrito</Button>
-                                    )}
+                                        {content.isEnrolled && (
+                                            <Button variant='success' disabled>Inscrito</Button>
+                                        )}
                                     </>
-                                    </Card.Text>
+                                </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
