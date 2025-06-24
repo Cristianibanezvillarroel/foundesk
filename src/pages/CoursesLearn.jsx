@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CoursesLearnVideo from '../components/courseslearn/CoursesLearnVideo';
-import CoursesLearnTabs from '../components/courseslearn/CoursesLearnTabs';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import UserContext from '../context/User/UserContext';
@@ -13,6 +12,8 @@ import { coursesSectionsService } from '../services/coursessections';
 import { coursesSectionsItemsService } from '../services/coursessectionsitems';
 import { CoursesLearnContents } from '../components/courseslearn/CoursesLearnContents';
 import { CoursesLearnNav } from '../components/courseslearn/CoursesLearnNav';
+import { teacherAnnouncementsService } from '../services/teacherannouncements';
+import NavBarShort from '../components/NavBarShort';
 
 export const CoursesLearn = () => {
 
@@ -38,7 +39,7 @@ export const CoursesLearn = () => {
     const [items, setItems] = useState([]);
     const [arrayItems, setArrayItems] = useState([])
     const [isAllowed, setIsAllowed] = useState(null);
-
+    
     useEffect(() => {
         // Primero validamos si el usuario tiene acceso
         const validateAndFetch = async () => {
@@ -76,17 +77,30 @@ export const CoursesLearn = () => {
             }
         };
 
+        let thisCourse = [];
         const responseData = await coursesService(dataService);
-        const responseDataTeacher = await teacherService(dataService);
-        const responseDataCustomerTestimonials = await customerTestimonialsService(dataService);
-        const responseDataCategories = await coursesSectionsService(dataService);
-        const responseDataItems = await coursesSectionsItemsService(dataService);
-
         const ArrayCoursesFilter = responseData.map(
             List => List.items.filter(
                 item => item.name == slug
             )
         );
+
+        ArrayCoursesFilter[0].forEach(courses => {
+            thisCourse.push(String(courses._id));
+        });
+        
+        const dataServiceCourses = {
+            method: 'POST',
+            body: JSON.stringify({ courseId: thisCourse[0] }),
+            headers: { 'Content-Type': 'application/json' }
+        };
+
+        const responseDataTeacherAnnouncements = await teacherAnnouncementsService(dataServiceCourses);
+        
+        const responseDataTeacher = await teacherService(dataService);
+        const responseDataCustomerTestimonials = await customerTestimonialsService(dataService);
+        const responseDataCategories = await coursesSectionsService(dataService);
+        const responseDataItems = await coursesSectionsItemsService(dataService);
 
         let ListItems = [];
         let ListContentCategory = [];
@@ -121,7 +135,8 @@ export const CoursesLearn = () => {
                 ...courses,
                 teacher: dataTeacher,
                 testimonials: dataTestimonials,
-                sections: ListContentCategory
+                sections: ListContentCategory,
+                announcements: responseDataTeacherAnnouncements.announcements
             }
 
         });
@@ -145,18 +160,19 @@ export const CoursesLearn = () => {
 
     return (
         <div>
+            <NavBarShort courseName={arrayItems[0]?.title || 'Curso'} courseSlug={slug} />
             {isMobile ? (
                 <Row>
                     <Col md={12}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnNav content={slug} slug={slug} id={id}/>
+                        <CoursesLearnNav navContents={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
                     </Col>
                 </Row>
             ) : (
                 <Row>
                     <Col md={8}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnTabs slug={slug} id={id} />
+                        <CoursesLearnNav navContents={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
                     </Col>
                     <Col md={4}>
                         <CoursesLearnContents content={arrayItems} />

@@ -1,12 +1,11 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Nav } from 'react-bootstrap';
 import CoursesLearnAccordion from './CoursesLearnAccordion';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
+import React, { useState } from 'react';
 
 export const CoursesLearnContents = ({ content }) => {
+  const [activeKey, setActiveKey] = useState('contenido');
 
-  console.log('CoursesLearnContents content', content)
-
+  
   let resultSections = content.map(({ sections }) => sections)
   let categoriesSize;
   let itemsSize;
@@ -38,27 +37,33 @@ export const CoursesLearnContents = ({ content }) => {
 
   return (
     <Container>
-      <Tabs defaultActiveKey="contenido" id="courses-learn-contents-tabs" className="mb-3">
-        <Tab eventKey="contenido" title="Contenido">
-          <div>{categoriesSize} Secciones - {itemsSize} Clases - {minutesSize} Minutos de duracion total.</div>
+      <Nav variant="tabs" activeKey={activeKey} onSelect={setActiveKey} className="mb-0">
+        <Nav.Item>
+          <Nav.Link eventKey="contenido" className='courseslearn-nav-link'>Contenido</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="ia" className='courseslearn-nav-link'>IA Assistant</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      {activeKey === 'contenido' && (
+        <div style={{ marginTop: 0 }}>
           {resultSections.map(
             sectionArray => sectionArray.map(
               section =>
-                <Row>
+                <Row key={section._id} className="mt-0">
                   <Col>
                     <CoursesLearnAccordion content={section} />
                   </Col>
                 </Row>
             )
           )}
-        </Tab>
-        <Tab eventKey="ia" title="IA Asistant">
-          <div style={{ minHeight: 200 }}>
-            {/* Aquí puedes agregar el contenido del asistente IA */}
-            Próximamente: Asistente IA para tu aprendizaje.
-          </div>
-        </Tab>
-      </Tabs>
+        </div>
+      )}
+      {activeKey === 'ia' && (
+        <div style={{ minHeight: 200 }}>
+          Próximamente: Asistente IA para tu aprendizaje.
+        </div>
+      )}
     </Container>
-  )
+  );
 }

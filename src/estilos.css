@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #Navbar-Brand {
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
@@ -1202,4 +1209,16 @@
         right: 0;
         margin: 5%;
     }
+}
+
+.courseslearn-nav-link {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: bold;
+  color: #8f8282;
+  background: none;
+  transition: color 0.2s, background 0.2s;
+}
+.courseslearn-nav-link.active, .courseslearn-nav-link[aria-selected="true"] {
+  color: #3a3a3a !important;
+  
 }

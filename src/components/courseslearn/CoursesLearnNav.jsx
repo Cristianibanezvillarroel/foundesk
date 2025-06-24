@@ -1,18 +1,37 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Tabs, Tab, Nav, Button } from 'react-bootstrap';
+import { useRef, useState, useEffect } from 'react';
+import { Nav, Button } from 'react-bootstrap';
 import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons'; // Para los iconos de flecha
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export const CoursesLearnNav = ({ content, slug, id }) => {
+export const CoursesLearnNav = ({ content, slug, id, isMobile }) => {
   const navRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
-  const hash = location.hash.replace('#', '') || 'overview';
+  const hash = location.hash.replace('#', '') || (isMobile ? 'contents' : 'overview');
+
+  // Estado para el tab activo
+  const [activeKey, setActiveKey] = useState(() => {
+    if (location.hash) return location.hash.replace('#', '');
+    return isMobile ? 'contents' : 'overview';
+  });
+
+  useEffect(() => {
+    // Sincroniza el tab activo con el hash de la URL
+    if (location.hash && location.hash.replace('#', '') !== activeKey) {
+      setActiveKey(location.hash.replace('#', ''));
+    }
+    // Si cambia isMobile y no hay hash, cambia el tab por defecto
+    if (!location.hash) {
+      setActiveKey(isMobile ? 'contents' : 'overview');
+    }
+    // eslint-disable-next-line
+  }, [location.hash, isMobile]);
 
   const handleSelect = (key) => {
+    setActiveKey(key);
     navigate(`/courses/${slug}/learn/lectures/${id}#${key}`);
   };
 
@@ -56,40 +75,68 @@ export const CoursesLearnNav = ({ content, slug, id }) => {
       )}
       <div
         ref={navRef}
-        style={{ overflowX: 'auto', whiteSpace: 'nowrap', flexGrow: 1, scrollbarWidth: 'none' }} // scrollbarWidth para ocultar la barra nativa
-        className="d-flex" // Para que los Nav.Link no se envuelvan
+        style={{ overflowX: 'auto', whiteSpace: 'nowrap', flexGrow: 1, scrollbarWidth: 'none' }}
+        className="d-flex"
       >
-        <Nav 
+        {isMobile ? (
+          <Nav
             variant="tabs"
-            activeKey={hash}
+            activeKey={activeKey}
             onSelect={handleSelect}
-            defaultActiveKey="overview"
-            className="flex-nowrap"> {/* flex-nowrap de Bootstrap */}
-          <Nav.Item>
-            <Nav.Link eventKey="overview">Tab 1 muy largo</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="profile">Tab 2</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="contact">Tab 3</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="settings">Tab 4</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="dashboard">Tab 5</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="reports">Tab 6</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="analytics">Tab 7</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="preferences">Tab 8</Nav.Link>
-          </Nav.Item>
-        </Nav>
+            className="flex-nowrap"
+          >
+            <Nav.Item>
+              <Nav.Link eventKey="contents" className={`courseslearn-nav-link${hash === 'contents' ? ' active' : ''}`}>Contenido</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="iaassistant" className={`courseslearn-nav-link${hash === 'iaassistant' ? ' active' : ''}`}>IA Assistant</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        ) : (
+          <Nav
+            variant="tabs"
+            activeKey={activeKey}
+            onSelect={handleSelect}
+            className="flex-nowrap"
+          >
+            <Nav.Item>
+              <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        )}
       </div>
       {showRightArrow && (
         <Button variant="link" onClick={() => scroll('right')} style={{ padding: '0 5px' }}>

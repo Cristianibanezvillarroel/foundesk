@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NavBar } from './components/NavBar'
 import { Teach } from './pages/Teach'
@@ -26,10 +26,14 @@ import { CoursesLearn } from './pages/CoursesLearn'
 
 function App() {
 
+  const location = useLocation();
+  const hideNavBar = /^\/courses\/[^/]+\/learn\/lectures\/[^/]+$/.test(location.pathname);
+
   return (
     <>
       <UserState>
-        <NavBar />
+        {/* <NavBar /> */}
+        {!hideNavBar && <NavBar />}
         
           {/* RUTA BASE */}          
           <PublicRoute path='/' element={<Home />} />
