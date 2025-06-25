@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CoursesLearnVideo from '../components/courseslearn/CoursesLearnVideo';
 import Row from 'react-bootstrap/Row';
@@ -10,7 +10,7 @@ import { teacherService } from '../services/teacher';
 import { customerTestimonialsService } from '../services/customertestimonials';
 import { coursesSectionsService } from '../services/coursessections';
 import { coursesSectionsItemsService } from '../services/coursessectionsitems';
-import { CoursesLearnContents } from '../components/courseslearn/CoursesLearnContents';
+import { CoursesLearnNavUp } from '../components/courseslearn/CoursesLearnNavUp';
 import { CoursesLearnNav } from '../components/courseslearn/CoursesLearnNav';
 import { teacherAnnouncementsService } from '../services/teacherannouncements';
 import NavBarShort from '../components/NavBarShort';
@@ -165,17 +165,17 @@ export const CoursesLearn = () => {
                 <Row>
                     <Col md={12}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnNav navContents={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
+                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
                     </Col>
                 </Row>
             ) : (
                 <Row>
                     <Col md={8}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnNav navContents={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
+                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
                     </Col>
                     <Col md={4}>
-                        <CoursesLearnContents content={arrayItems} />
+                        <CoursesLearnNavUp content={arrayItems} />
                     </Col>
                 </Row>
             )}

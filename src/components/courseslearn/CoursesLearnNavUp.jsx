@@ -1,11 +1,12 @@
 import { Col, Container, Row, Nav } from 'react-bootstrap';
-import CoursesLearnAccordion from './CoursesLearnAccordion';
 import React, { useState } from 'react';
+import CoursesLearnNavContents from './courseslearnnav/CoursesLearnNavContents';
+import CoursesLearnNavIaassistant from './courseslearnnav/CoursesLearnNavIaassistant';
 
-export const CoursesLearnContents = ({ content }) => {
-  const [activeKey, setActiveKey] = useState('contenido');
+export const CoursesLearnNavUp = ({ content }) => {
+  const [activeKey, setActiveKey] = useState('contents');
 
-  
+
   let resultSections = content.map(({ sections }) => sections)
   let categoriesSize;
   let itemsSize;
@@ -37,33 +38,29 @@ export const CoursesLearnContents = ({ content }) => {
 
   return (
     <Container>
-      <Nav variant="tabs" activeKey={activeKey} onSelect={setActiveKey} className="mb-0">
+      <Nav
+        variant="tabs"
+        activeKey={activeKey}
+        onSelect={setActiveKey}
+        className="mb-0"
+      >
         <Nav.Item>
-          <Nav.Link eventKey="contenido" className='courseslearn-nav-link'>Contenido</Nav.Link>
+          <Nav.Link eventKey="contents" className="courseslearn-nav-link">
+            Contenido
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="ia" className='courseslearn-nav-link'>IA Assistant</Nav.Link>
+          <Nav.Link eventKey="iaassistant" className="courseslearn-nav-link">
+            IA Assistant
+          </Nav.Link>
         </Nav.Item>
       </Nav>
-      {activeKey === 'contenido' && (
-        <div style={{ marginTop: 0 }}>
-          {resultSections.map(
-            sectionArray => sectionArray.map(
-              section =>
-                <Row key={section._id} className="mt-0">
-                  <Col>
-                    <CoursesLearnAccordion content={section} />
-                  </Col>
-                </Row>
-            )
-          )}
-        </div>
+      {activeKey === 'contents' && (
+        <CoursesLearnNavContents sections={resultSections} />
       )}
-      {activeKey === 'ia' && (
-        <div style={{ minHeight: 200 }}>
-          Próximamente: Asistente IA para tu aprendizaje.
-        </div>
+      {activeKey === 'iaassistant' && (
+        <CoursesLearnNavIaassistant />
       )}
-    </Container>
+    </Container >
   );
 }

@@ -1,9 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
-import { Nav, Button } from 'react-bootstrap';
+import { Nav, Button, Container } from 'react-bootstrap';
 import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons'; // Para los iconos de flecha
 import { useLocation, useNavigate } from 'react-router-dom';
+import CoursesLearnNavContents from './courseslearnnav/CoursesLearnNavContents';
+import CoursesLearnNavIaassistant from './courseslearnnav/CoursesLearnNavIaassistant';
 
 export const CoursesLearnNav = ({ content, slug, id, isMobile }) => {
+  let resultSections = content.map(({ sections }) => sections)
   const navRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
@@ -67,82 +70,91 @@ export const CoursesLearnNav = ({ content, slug, id, isMobile }) => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      {showLeftArrow && (
-        <Button variant="link" onClick={() => scroll('left')} style={{ padding: '0 5px' }}>
-          <ChevronLeft size={24} />
-        </Button>
-      )}
-      <div
-        ref={navRef}
-        style={{ overflowX: 'auto', whiteSpace: 'nowrap', flexGrow: 1, scrollbarWidth: 'none' }}
-        className="d-flex"
-      >
-        {isMobile ? (
-          <Nav
-            variant="tabs"
-            activeKey={activeKey}
-            onSelect={handleSelect}
-            className="flex-nowrap"
-          >
-            <Nav.Item>
-              <Nav.Link eventKey="contents" className={`courseslearn-nav-link${hash === 'contents' ? ' active' : ''}`}>Contenido</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="iaassistant" className={`courseslearn-nav-link${hash === 'iaassistant' ? ' active' : ''}`}>IA Assistant</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        ) : (
-          <Nav
-            variant="tabs"
-            activeKey={activeKey}
-            onSelect={handleSelect}
-            className="flex-nowrap"
-          >
-            <Nav.Item>
-              <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
-            </Nav.Item>
-          </Nav>
+    <Container>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {showLeftArrow && (
+          <Button variant="link" onClick={() => scroll('left')} style={{ padding: '0 5px' }}>
+            <ChevronLeft size={24} />
+          </Button>
+        )}
+        <div
+          ref={navRef}
+          style={{ overflowX: 'auto', whiteSpace: 'nowrap', flexGrow: 1, scrollbarWidth: 'none' }}
+          className="d-flex"
+        >
+          {isMobile ? (
+
+            <Nav
+              variant="tabs"
+              activeKey={activeKey}
+              onSelect={handleSelect}
+              className="flex-nowrap"
+            >
+              <Nav.Item>
+                <Nav.Link eventKey="contents" className={`courseslearn-nav-link${hash === 'contents' ? ' active' : ''}`}>Contenido</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="iaassistant" className={`courseslearn-nav-link${hash === 'iaassistant' ? ' active' : ''}`}>IA Assistant</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          ) : (
+            <Nav
+              variant="tabs"
+              activeKey={activeKey}
+              onSelect={handleSelect}
+              className="flex-nowrap"
+            >
+              <Nav.Item>
+                <Nav.Link eventKey="overview" className={`courseslearn-nav-link${hash === 'overview' ? ' active' : ''}`}>Descripcion General</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="contact" className={`courseslearn-nav-link${hash === 'contact' ? ' active' : ''}`}>Preguntas y Respuestas</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="settings" className={`courseslearn-nav-link${hash === 'settings' ? ' active' : ''}`}>Apuntes</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="dashboard" className={`courseslearn-nav-link${hash === 'dashboard' ? ' active' : ''}`}>Anuncios</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="reports" className={`courseslearn-nav-link${hash === 'reports' ? ' active' : ''}`}>Descargables</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="analytics" className={`courseslearn-nav-link${hash === 'analytics' ? ' active' : ''}`}>Valoraciones</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          )}
+        </div>
+        {showRightArrow && (
+          <Button variant="link" onClick={() => scroll('right')} style={{ padding: '0 5px' }}>
+            <ChevronRight size={24} />
+          </Button>
         )}
       </div>
-      {showRightArrow && (
-        <Button variant="link" onClick={() => scroll('right')} style={{ padding: '0 5px' }}>
-          <ChevronRight size={24} />
-        </Button>
+      {activeKey === 'contents' && isMobile && (
+        <CoursesLearnNavContents sections={resultSections} />
       )}
-    </div>
+      {activeKey === 'iaassistant' && isMobile && (
+        <CoursesLearnNavIaassistant />
+      )}
+    </Container>
   );
 }
