@@ -9,7 +9,7 @@ import { coursesService } from '../services/courses';
 import { teacherService } from '../services/teacher';
 import { customerTestimonialsService } from '../services/customertestimonials';
 import { coursesSectionsService } from '../services/coursessections';
-import { coursesSectionsItemsService } from '../services/coursessectionsitems';
+import { coursesSectionsLessonsService } from '../services/coursessectionslessons';
 import { CoursesLearnNavUp } from '../components/courseslearn/CoursesLearnNavUp';
 import { CoursesLearnNav } from '../components/courseslearn/CoursesLearnNav';
 import { teacherAnnouncementsService } from '../services/teacherannouncements';
@@ -39,7 +39,8 @@ export const CoursesLearn = () => {
     const [items, setItems] = useState([]);
     const [arrayItems, setArrayItems] = useState([])
     const [isAllowed, setIsAllowed] = useState(null);
-    
+    const [courseId, setCourseId] = useState(null);
+
     useEffect(() => {
         // Primero validamos si el usuario tiene acceso
         const validateAndFetch = async () => {
@@ -88,7 +89,7 @@ export const CoursesLearn = () => {
         ArrayCoursesFilter[0].forEach(courses => {
             thisCourse.push(String(courses._id));
         });
-        
+
         const dataServiceCourses = {
             method: 'POST',
             body: JSON.stringify({ courseId: thisCourse[0] }),
@@ -96,11 +97,11 @@ export const CoursesLearn = () => {
         };
 
         const responseDataTeacherAnnouncements = await teacherAnnouncementsService(dataServiceCourses);
-        
+
         const responseDataTeacher = await teacherService(dataService);
         const responseDataCustomerTestimonials = await customerTestimonialsService(dataService);
         const responseDataCategories = await coursesSectionsService(dataService);
-        const responseDataItems = await coursesSectionsItemsService(dataService);
+        const responseDataLessons = await coursesSectionsLessonsService(dataService);
 
         let ListItems = [];
         let ListContentCategory = [];
@@ -121,7 +122,7 @@ export const CoursesLearn = () => {
                 )
             );
             ArrayCoursesContentCategoriesFilter[0].forEach((category, numeral) => {
-                let dataContent = responseDataItems.map(
+                let dataContent = responseDataLessons.map(
                     List => List.items.filter(
                         item => item.coursessections._id == category._id
                     )
@@ -142,6 +143,7 @@ export const CoursesLearn = () => {
         });
 
         setArrayItems(ListItems);
+        setCourseId(thisCourse[0]);
     }
 
     const width = useWindowWidth();
@@ -165,17 +167,17 @@ export const CoursesLearn = () => {
                 <Row>
                     <Col md={12}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
+                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile} userId={user._id} courseId={courseId} />
                     </Col>
                 </Row>
             ) : (
                 <Row>
                     <Col md={8}>
                         <CoursesLearnVideo videoUrl={lecture.videoUrl} />
-                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile}/>
+                        <CoursesLearnNav content={arrayItems} slug={slug} id={id} isMobile={isMobile} userId={user._id} courseId={courseId} />
                     </Col>
                     <Col md={4}>
-                        <CoursesLearnNavUp content={arrayItems} />
+                        <CoursesLearnNavUp content={arrayItems} userId={user._id} courseId={courseId} />
                     </Col>
                 </Row>
             )}

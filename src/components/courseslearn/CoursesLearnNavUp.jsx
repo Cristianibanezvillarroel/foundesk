@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CoursesLearnNavContents from './courseslearnnav/CoursesLearnNavContents';
 import CoursesLearnNavIaassistant from './courseslearnnav/CoursesLearnNavIaassistant';
 
-export const CoursesLearnNavUp = ({ content }) => {
+export const CoursesLearnNavUp = ({ content, userId, courseId }) => {
   const [activeKey, setActiveKey] = useState('contents');
 
 
@@ -56,7 +56,7 @@ export const CoursesLearnNavUp = ({ content }) => {
         </Nav.Item>
       </Nav>
       {activeKey === 'contents' && (
-        <CoursesLearnNavContents sections={resultSections} />
+        <CoursesLearnNavContents sections={resultSections} userId={userId} courseId={courseId} />
       )}
       {activeKey === 'iaassistant' && (
         <CoursesLearnNavIaassistant />

@@ -11,7 +11,7 @@ import { CoursesDetailTestimonials } from '../components/coursesdetail/CoursesDe
 import { CoursesDetailMoreTeacherCoursesCard } from '../components/coursesdetail/CoursesDetailMoreTeacherCouresCard'
 import { coursesLearnItemsService } from '../services/courseslearnitems'
 import { coursesSectionsService } from '../services/coursessections'
-import { coursesSectionsItemsService } from '../services/coursessectionsitems'
+import { coursesSectionsLessonsService } from '../services/coursessectionslessons'
 import { teacherService } from '../services/teacher'
 import { customerTestimonialsService } from '../services/customertestimonials'
 
@@ -50,7 +50,7 @@ export const CoursesDetail = () => {
 
     const responseDataLearn = await coursesLearnItemsService(dataService)
     const responseDataCategories = await coursesSectionsService(dataService)
-    const responseDataItems = await coursesSectionsItemsService(dataService)
+    const responseDataLessons = await coursesSectionsLessonsService(dataService)
     const responseDataTeacher = await teacherService(dataService)
     const responseDataCustomerTestimonials = await customerTestimonialsService(dataService)
 
@@ -86,7 +86,7 @@ export const CoursesDetail = () => {
           )
         )
         ArrayCoursesContentCategoriesFilter[0].forEach((category, numeral) => {
-          let dataContent = responseDataItems.map(
+          let dataContent = responseDataLessons.map(
             List => List.items.filter(
               item => item.coursessections._id == category._id
             )

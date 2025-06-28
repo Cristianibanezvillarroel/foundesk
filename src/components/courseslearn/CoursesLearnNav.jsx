@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import CoursesLearnNavContents from './courseslearnnav/CoursesLearnNavContents';
 import CoursesLearnNavIaassistant from './courseslearnnav/CoursesLearnNavIaassistant';
 
-export const CoursesLearnNav = ({ content, slug, id, isMobile }) => {
+export const CoursesLearnNav = ({ content, slug, id, isMobile, userId, courseId }) => {
   let resultSections = content.map(({ sections }) => sections)
   const navRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -150,7 +150,7 @@ export const CoursesLearnNav = ({ content, slug, id, isMobile }) => {
         )}
       </div>
       {activeKey === 'contents' && isMobile && (
-        <CoursesLearnNavContents sections={resultSections} />
+        <CoursesLearnNavContents sections={resultSections} userId={userId} courseId={courseId} />
       )}
       {activeKey === 'iaassistant' && isMobile && (
         <CoursesLearnNavIaassistant />
